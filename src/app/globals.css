@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #17212b;
+  --muted: #657282;
+  --line: #d9e0e8;
+  --paper: #ffffff;
+  --soft: #f4f7fa;
+  --steel: #1d2e40;
+  --accent: #bc2f2f;
+  --accent-dark: #962222;
+  --shadow: 0 14px 38px rgba(24, 39, 54, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--soft);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.section {
+  padding: 64px clamp(18px, 5vw, 72px);
+}
+
+.section-narrow {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-weight: 800;
+  transition: 0.18s ease;
+}
+
+.btn-primary {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn-secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.38);
+}
+
+.btn-outline {
+  color: var(--ink);
+  background: #fff;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: #dfe8f1;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.page-heading {
+  padding: 86px clamp(18px, 5vw, 72px);
+  color: #fff;
+  background: var(--steel);
+}
+
+.page-heading h1 {
+  max-width: 960px;
+  margin: 0;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.04;
+}
+
+.page-heading p {
+  max-width: 860px;
+  margin: 18px 0 0;
+  font-size: 18px;
+  color: #e8eef5;
+}
+
+.page-heading-image {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(90deg, rgba(23, 33, 43, 0.88), rgba(23, 33, 43, 0.44)), var(--page-image);
+  background-position: center;
+  background-size: cover;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 44px 18px;
+  }
+
+  .page-heading {
+    padding: 56px 20px;
+  }
+}
