@@ -361,8 +361,9 @@ export function ContactPage({ locale, model }: { locale: Locale; model?: string 
             </dl>
           </aside>
 
-          <form className="card grid gap-4 p-7" name="rfq" method="POST" action={localizedPath(locale, "/thank-you")} data-netlify="true">
+          <form className="card grid gap-4 p-7" name="rfq" method="POST" action={localizedPath(locale, "/thank-you")} data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="rfq" />
+            <input type="hidden" name="bot-field" />
             <Field label={`${c.formEmail} *`} name="Email" type="email" required />
             <div className="grid gap-4 md:grid-cols-2">
               <Field label={c.formName} name="Name" />
