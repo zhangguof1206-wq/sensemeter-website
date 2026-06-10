@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/copy-netlify-forms.mjs",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },
