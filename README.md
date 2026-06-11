@@ -1,6 +1,6 @@
 # RUS METER .ru 产品询价网站
 
-这是 RUS METER 的正式网站项目，使用 Next.js、TypeScript、Tailwind CSS 和 Netlify Forms。
+这是 RUS METER 的正式网站项目，使用 Next.js、TypeScript、Tailwind CSS 和 Netlify 部署。
 
 ## 本地运行
 
@@ -15,61 +15,54 @@ npm run dev
 http://localhost:3000
 ```
 
-如果 `npm install` 下载较慢，可以切换 npm 镜像源：
-
-```bash
-npm config set registry https://registry.npmmirror.com
-npm install
-```
-
 ## 目录说明
 
-- `src/data/catalog.ts`：15 个产品、分类和场景图片的数据源。
+- `src/data/catalog.ts`：产品、分类、图片和 PDF 数据。
+- `src/lib/i18n.ts`：俄语和英语页面文案。
+- `src/components/site.tsx`：页面结构和公共布局。
+- `src/components/rfq-form.tsx`：RFQ 表单。
+- `netlify/functions/rfq-email.ts`：RFQ 邮件发送接口。
 - `public/assets/products`：产品图片。
 - `public/datasheets`：PDF datasheet。
-- `public/logo.png`：原始 Logo。
-- `public/logo-header.png`：页眉裁切版 Logo。
-- `src/components/site.tsx`：网站主要页面组件。
+- `public/logo-header.png`：页眉 Logo。
+
+## RFQ 表单和邮件
+
+表单会同时做两件事：
+
+1. 保存一份提交记录到 Netlify Forms，表单名为 `rfq-main`。
+2. 调用 `/api/rfq-email` 直接发送邮件到业务邮箱。
+
+Netlify Forms 有可能把测试内容判定为 Spam，因此正式收信不要只依赖 Netlify Forms 通知。
+
+## Netlify 环境变量
+
+要让 `/api/rfq-email` 真正发邮件，需要在 Netlify 后台添加以下环境变量：
+
+```text
+RFQ_TO_EMAIL=zhangguof1206@gmail.com
+RFQ_FROM_EMAIL=zhangguof1206@gmail.com
+RFQ_SMTP_HOST=smtp.gmail.com
+RFQ_SMTP_PORT=465
+RFQ_SMTP_USER=zhangguof1206@gmail.com
+RFQ_SMTP_PASS=你的 Gmail 应用专用密码
+```
+
+如果后期使用正式公司邮箱，只需要把这些变量改成公司邮箱对应的 SMTP 信息。
 
 ## Netlify 部署
 
-1. 把 `website` 文件夹提交到 GitHub 仓库。
-2. Netlify 连接该 GitHub 仓库。
-3. Build command 使用：
+Build command：
 
 ```bash
 npm run build
 ```
 
-4. Publish directory 使用：
+Publish directory：
 
 ```text
 .next
 ```
-
-5. Netlify 会通过 `@netlify/plugin-nextjs` 处理 Next.js 项目。
-
-## RFQ 表单
-
-RFQ 表单使用 Netlify Forms，表单名为：
-
-```text
-rfq
-```
-
-部署到 Netlify 后，在 Netlify 后台的 Forms / Notifications 中，把通知邮箱设置为当前测试邮箱。当前页面展示的测试邮箱为：
-
-```text
-zhangguof1206@gmail.com
-```
-
-当前页面展示的 Phone / WhatsApp / Telegram 为：
-
-```text
-(+852) 6555 3946
-```
-
-购买域名并开通正式公司邮箱后，请同时修改 `src/lib/i18n.ts` 里的 `contactEmail` 和 Netlify Forms / Notifications 收件邮箱。
 
 ## 后期替换 PDF
 
@@ -83,7 +76,7 @@ public/datasheets
 
 ## 后期添加产品
 
-在 `src/data/catalog.ts` 的 `products` 数组中新增产品对象，并把对应图片和 PDF 分别放入：
+在 `src/data/catalog.ts` 的 `products` 数组中新增产品，并把对应图片和 PDF 分别放入：
 
 ```text
 public/assets/products

@@ -5,6 +5,8 @@ import { products, type Locale } from "@/data/catalog";
 import { localizedPath, t } from "@/lib/i18n";
 
 const FORM_NAME = "rfq-main";
+const FORM_ARCHIVE_ENDPOINT = "/__forms.html";
+const FORM_EMAIL_ENDPOINT = "/api/rfq-email";
 
 function encodeFormData(form: HTMLFormElement) {
   return new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString();
@@ -35,25 +37,43 @@ function Field({
 export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
   const c = t(locale);
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
+    const body = encodeFormData(form);
     setStatus("sending");
+    setErrorMessage("");
 
     try {
-      const response = await fetch("/__forms.html", {
+      const archiveResponse = await fetch(FORM_ARCHIVE_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodeFormData(form)
+        body
       });
 
-      if (!response.ok) {
-        throw new Error("Form submission failed");
+      const emailResponse = await fetch(FORM_EMAIL_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body
+      });
+
+      if (!emailResponse.ok) {
+        const message =
+          emailResponse.status === 503
+            ? "Email delivery is not configured yet. The request was saved in Netlify Forms."
+            : "Email delivery failed. The request was saved in Netlify Forms.";
+        throw new Error(message);
+      }
+
+      if (!archiveResponse.ok) {
+        console.warn("RFQ backup archive failed.");
       }
 
       window.location.href = localizedPath(locale, "/thank-you");
-    } catch {
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "The form could not be sent. Please try again.");
       setStatus("error");
     }
   }
@@ -98,7 +118,7 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
       </div>
       {status === "error" ? (
         <p className="rounded border border-accent/30 bg-accent/10 px-4 py-3 text-sm text-accent">
-          The form could not be sent. Please try again.
+          {errorMessage || "The form could not be sent. Please try again."}
         </p>
       ) : null}
       <button className="btn btn-primary w-full md:w-60" type="submit" disabled={status === "sending"}>
