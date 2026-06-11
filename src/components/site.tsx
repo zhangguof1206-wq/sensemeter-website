@@ -12,6 +12,7 @@ import {
   type Product
 } from "@/data/catalog";
 import { localizedPath, oppositeLocale, t } from "@/lib/i18n";
+import { RfqForm } from "@/components/rfq-form";
 
 type ShellProps = {
   locale: Locale;
@@ -377,41 +378,7 @@ export function ContactPage({ locale, model }: { locale: Locale; model?: string 
             </dl>
           </aside>
 
-          <form className="card grid gap-4 p-7" name="rfq" method="POST" action={localizedPath(locale, "/thank-you")} data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="rfq" />
-            <input type="hidden" name="bot-field" />
-            <Field label={`${c.formEmail} *`} name="Email" type="email" required />
-            <div className="grid gap-4 md:grid-cols-2">
-              <Field label={c.formName} name="Name" />
-              <Field label={c.formCompany} name="Company" />
-              <Field label={c.formCountryCity} name="Country / City" />
-              <Field label={c.formPhone} name="Phone / WhatsApp / Telegram" />
-              <div className="field">
-                <label className="mb-2 block font-bold" htmlFor="productModel">
-                  {c.formProductModel}
-                </label>
-                <select className="w-full rounded border border-line px-3 py-3" id="productModel" name="Product Model" defaultValue={model || ""}>
-                  <option value="">{c.formSelectProduct}</option>
-                  {products.map((product) => (
-                    <option value={product.model} key={product.slug}>
-                      {product.model}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <Field label={c.formQuantity} name="Quantity" type="number" />
-              <Field label={c.formApplication} name="Application" />
-            </div>
-            <div>
-              <label className="mb-2 block font-bold" htmlFor="message">
-                {c.formMessage}
-              </label>
-              <textarea className="min-h-36 w-full rounded border border-line px-3 py-3" id="message" name="Message" />
-            </div>
-            <button className="btn btn-primary w-full md:w-60" type="submit">
-              {c.submit}
-            </button>
-          </form>
+          <RfqForm locale={locale} model={model} />
         </div>
       </section>
     </PageShell>
