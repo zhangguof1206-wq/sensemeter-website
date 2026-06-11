@@ -4,9 +4,10 @@ import { useState, type FormEvent } from "react";
 import { products, type Locale } from "@/data/catalog";
 import { localizedPath, t } from "@/lib/i18n";
 
+const FORM_NAME = "rfq-main";
+
 function encodeFormData(form: HTMLFormElement) {
-  const formData = new FormData(form);
-  return new URLSearchParams(formData as unknown as Record<string, string>).toString();
+  return new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString();
 }
 
 function Field({
@@ -60,15 +61,13 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
   return (
     <form
       className="card grid gap-4 p-7"
-      name="rfq"
+      name={FORM_NAME}
       method="POST"
       action={localizedPath(locale, "/thank-you")}
       data-netlify="true"
-      netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
     >
-      <input type="hidden" name="form-name" value="rfq" />
-      <input className="hidden" name="bot-field" tabIndex={-1} autoComplete="off" />
+      <input type="hidden" name="form-name" value={FORM_NAME} />
       <Field label={`${c.formEmail} *`} name="Email" type="email" required />
       <div className="grid gap-4 md:grid-cols-2">
         <Field label={c.formName} name="Name" />
@@ -99,11 +98,11 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
       </div>
       {status === "error" ? (
         <p className="rounded border border-accent/30 bg-accent/10 px-4 py-3 text-sm text-accent">
-          {locale === "ru" ? "Не удалось отправить форму. Пожалуйста, попробуйте еще раз." : "The form could not be sent. Please try again."}
+          The form could not be sent. Please try again.
         </p>
       ) : null}
       <button className="btn btn-primary w-full md:w-60" type="submit" disabled={status === "sending"}>
-        {status === "sending" ? (locale === "ru" ? "Отправка..." : "Sending...") : c.submit}
+        {status === "sending" ? "Sending..." : c.submit}
       </button>
     </form>
   );

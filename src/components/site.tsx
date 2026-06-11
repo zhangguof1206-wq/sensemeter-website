@@ -88,9 +88,8 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
       <main className="flex-1">{children}</main>
 
       <div className="hidden" aria-hidden="true">
-        <form name="rfq" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="rfq" />
-          <input name="bot-field" />
+        <form name="rfq-main" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="rfq-main" />
           <input type="email" name="Email" required />
           <input name="Name" />
           <input name="Company" />
