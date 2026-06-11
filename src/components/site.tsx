@@ -347,7 +347,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
 export function ContactPage({ locale, model }: { locale: Locale; model?: string }) {
   const c = t(locale);
-  const phoneHref = `tel:${c.contactPhone.replace(/[^\d+]/g, "")}`;
   return (
     <PageShell locale={locale} active="contact" languagePath={localizedPath(oppositeLocale(locale), "/contact")}>
       <PageHeading title={c.contactTitle} lead={c.contactLead} image="/assets/application-gas-manufacturing.png" />
@@ -356,6 +355,7 @@ export function ContactPage({ locale, model }: { locale: Locale; model?: string 
           <aside className="card h-fit p-7">
             <h2 className="text-2xl font-black">{c.brand}</h2>
             <p className="mt-3 text-muted">{c.emailNote}</p>
+            <h3 className="mt-6 text-2xl font-black">{c.contactInfoTitle}</h3>
             <dl className="mt-6 space-y-3 text-sm">
               <div>
                 <dt className="font-bold">Email</dt>
@@ -366,13 +366,8 @@ export function ContactPage({ locale, model }: { locale: Locale; model?: string 
                 </dd>
               </div>
               <div>
-                <dt className="font-bold">{c.formPhone}</dt>
-                <dd>
-                  <a className="text-accent font-bold" href={phoneHref}>
-                    {c.contactPhone}
-                  </a>
-                </dd>
-                <dd className="mt-1 text-muted">{c.messengerNote}</dd>
+                <dt className="font-bold">{c.telegramLabel}</dt>
+                <dd className="text-accent font-bold">{c.contactTelegram}</dd>
               </div>
             </dl>
           </aside>
