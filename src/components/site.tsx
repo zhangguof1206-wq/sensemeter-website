@@ -12,6 +12,8 @@ import {
   type Product
 } from "@/data/catalog";
 import { localizedPath, oppositeLocale, t } from "@/lib/i18n";
+import { legalCopy, type LegalPageKey } from "@/lib/legal";
+import { CookieBanner } from "@/components/cookie-banner";
 import { RfqForm } from "@/components/rfq-form";
 
 type ShellProps = {
@@ -98,6 +100,7 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
           <input name="Product Model" />
           <input name="Quantity" />
           <input name="Application" />
+          <input name="Personal Data Consent" />
           <textarea name="Message" />
         </form>
       </div>
@@ -107,12 +110,25 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
           <div>
             <strong>{c.brand}</strong>
             <p className="mt-1 text-slate-300">{c.footerLine}</p>
+            <p className="mt-3 text-sm text-slate-400">© 2026 SINOETM TECH LTD. All rights reserved.</p>
+            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-300">
+              <Link className="hover:text-white" href={localizedPath(locale, "/privacy")}>
+                {c.navPrivacy}
+              </Link>
+              <Link className="hover:text-white" href={localizedPath(locale, "/personal-data-consent")}>
+                {c.navConsent}
+              </Link>
+              <Link className="hover:text-white" href={localizedPath(locale, "/cookie-policy")}>
+                {c.navCookies}
+              </Link>
+            </div>
           </div>
           <Link className="font-bold" href={localizedPath(locale, "/contact")}>
             {c.requestQuote}
           </Link>
         </div>
       </footer>
+      <CookieBanner locale={locale} />
     </div>
   );
 }
@@ -240,6 +256,7 @@ export function CatalogPage({
               <Link className={`btn ${!activeCategory ? "btn-primary" : "btn-outline"}`} href={localizedPath(locale, "/catalog")}>
                 {c.allProducts}
               </Link>
+              <span className="mx-2 h-8 w-px self-center bg-slate-300" aria-hidden="true" />
               {categories.map((item) => (
                 <Link
                   className={`btn ${activeCategory === item.id ? "btn-primary" : "btn-outline"}`}
@@ -402,19 +419,52 @@ function Field({
 }
 
 export function PrivacyPage({ locale }: { locale: Locale }) {
-  const c = t(locale);
+  return <LegalContentPage locale={locale} page="privacy" />;
+}
+
+export function ConsentPage({ locale }: { locale: Locale }) {
+  return <LegalContentPage locale={locale} page="consent" />;
+}
+
+export function CookiePolicyPage({ locale }: { locale: Locale }) {
+  return <LegalContentPage locale={locale} page="cookies" />;
+}
+
+function LegalContentPage({ locale, page }: { locale: Locale; page: LegalPageKey }) {
+  const content = legalCopy[locale][page];
   return (
-    <PageShell locale={locale} active="privacy" languagePath={localizedPath(oppositeLocale(locale), "/privacy")}>
-      <PageHeading title={c.privacyTitle} lead={c.privacyLead} />
+    <PageShell locale={locale} active="privacy" languagePath={localizedPath(oppositeLocale(locale), legalPath(page))}>
+      <PageHeading title={content.title} lead={content.lead} />
       <section className="section">
-        <article className="section-narrow card space-y-4 p-8 text-lg text-muted">
-          {c.privacyBody.map((line) => (
-            <p key={line}>{line}</p>
+        <article className="section-narrow card space-y-7 p-8">
+          <p className="font-bold text-accent">{content.updated}</p>
+          {content.sections.map((section) => (
+            <section key={section.title}>
+              <h2 className="text-2xl font-black">{section.title}</h2>
+              <div className="mt-3 space-y-3 text-lg text-muted">
+                {section.paragraphs?.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+                {section.items ? (
+                  <ul className="list-disc space-y-2 pl-6">
+                    {section.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            </section>
           ))}
         </article>
       </section>
     </PageShell>
   );
+}
+
+function legalPath(page: LegalPageKey) {
+  if (page === "consent") return "/personal-data-consent";
+  if (page === "cookies") return "/cookie-policy";
+  return "/privacy";
 }
 
 export function ThankYouPage({ locale }: { locale: Locale }) {

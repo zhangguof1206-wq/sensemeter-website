@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/catalog";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.ru";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sensemeter.ru";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPaths = ["", "/catalog", "/about", "/contact", "/privacy"];
+  const staticPaths = ["", "/catalog", "/about", "/contact", "/privacy", "/personal-data-consent", "/cookie-policy"];
   const ruPages = staticPaths.map((path) => ({
     url: `${baseUrl}${path || "/"}`,
     lastModified: new Date()

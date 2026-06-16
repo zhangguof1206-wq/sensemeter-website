@@ -1,84 +1,101 @@
-# RUS METER .ru 产品询价网站
+# Sensemeter .ru Product RFQ Website
 
-这是 RUS METER 的正式网站项目，使用 Next.js、TypeScript、Tailwind CSS 和 Netlify 部署。
+This is the official website project for the Sense / Sensemeter product catalog and RFQ website.
 
-## 本地运行
+Stack:
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Netlify
+- Netlify Forms
+- Netlify Functions for RFQ email delivery
+
+## Local Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-打开：
+Open:
 
 ```text
 http://localhost:3000
 ```
 
-## 目录说明
+## Main Files
 
-- `src/data/catalog.ts`：产品、分类、图片和 PDF 数据。
-- `src/lib/i18n.ts`：俄语和英语页面文案。
-- `src/components/site.tsx`：页面结构和公共布局。
-- `src/components/rfq-form.tsx`：RFQ 表单。
-- `netlify/functions/rfq-email.ts`：RFQ 邮件发送接口。
-- `public/assets/products`：产品图片。
-- `public/datasheets`：PDF datasheet。
-- `public/logo-header.png`：页眉 Logo。
+- `src/data/catalog.ts`: product categories, product data, images and PDF filenames.
+- `src/lib/i18n.ts`: Russian and English website copy.
+- `src/lib/legal.ts`: privacy, personal data consent and cookie policy copy.
+- `src/components/site.tsx`: page structure and shared layout.
+- `src/components/rfq-form.tsx`: RFQ form.
+- `netlify/functions/rfq-email.ts`: RFQ email delivery endpoint.
+- `public/assets/products`: product images.
+- `public/datasheets`: product PDF datasheets.
+- `public/logo-header.png`: header logo.
 
-## RFQ 表单和邮件
+## RFQ Form
 
-表单会同时做两件事：
+The RFQ form does two things:
 
-1. 保存一份提交记录到 Netlify Forms，表单名为 `rfq-main`。
-2. 调用 `/api/rfq-email` 直接发送邮件到业务邮箱。
+1. Saves a backup submission in Netlify Forms using the form name `rfq-main`.
+2. Calls `/api/rfq-email` to send the RFQ email to the configured mailbox.
 
-Netlify Forms 有可能把测试内容判定为 Spam，因此正式收信不要只依赖 Netlify Forms 通知。
+Netlify Forms may classify some test submissions as spam. For production, email delivery should be verified through SMTP environment variables.
 
-## Netlify 环境变量
+## Netlify Environment Variables
 
-要让 `/api/rfq-email` 真正发邮件，需要在 Netlify 后台添加以下环境变量：
+For test email delivery:
 
 ```text
+NEXT_PUBLIC_SITE_URL=https://sensemeter.ru
 RFQ_TO_EMAIL=zhangguof1206@gmail.com
 RFQ_FROM_EMAIL=zhangguof1206@gmail.com
 RFQ_SMTP_HOST=smtp.gmail.com
 RFQ_SMTP_PORT=465
 RFQ_SMTP_USER=zhangguof1206@gmail.com
-RFQ_SMTP_PASS=你的 Gmail 应用专用密码
+RFQ_SMTP_PASS=your-gmail-app-password
 ```
 
-如果后期使用正式公司邮箱，只需要把这些变量改成公司邮箱对应的 SMTP 信息。
+After the formal company mailbox is ready, replace the RFQ email and SMTP variables with the company mailbox settings.
 
-## Netlify 部署
+## Netlify Build
 
-Build command：
+Build command:
 
 ```bash
 npm run build
 ```
 
-Publish directory：
+Publish directory:
 
 ```text
 .next
 ```
 
-## 后期替换 PDF
+## Updating PDFs
 
-把新的 PDF 放到：
+Place PDF files in:
 
 ```text
 public/datasheets
 ```
 
-然后在 `src/data/catalog.ts` 中确认每个产品的 `pdf` 文件名与真实文件名一致。
+Then confirm that each product's `pdf` value in `src/data/catalog.ts` exactly matches the real filename.
 
-## 后期添加产品
+## Adding Products Later
 
-在 `src/data/catalog.ts` 的 `products` 数组中新增产品，并把对应图片和 PDF 分别放入：
+Add a new product object to the `products` array in `src/data/catalog.ts`, then place the corresponding image and PDF in:
 
 ```text
 public/assets/products
 public/datasheets
+```
+
+Run checks before publishing:
+
+```bash
+npm run typecheck
+npm run build
 ```

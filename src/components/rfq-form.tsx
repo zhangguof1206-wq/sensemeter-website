@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { products, type Locale } from "@/data/catalog";
 import { localizedPath, t } from "@/lib/i18n";
@@ -116,13 +117,27 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
         </label>
         <textarea className="min-h-36 w-full rounded border border-line px-3 py-3" id="message" name="Message" />
       </div>
+      <label className="flex gap-3 rounded border border-line bg-[#f8fafc] p-4 text-sm text-muted">
+        <input className="mt-1 h-4 w-4 shrink-0 accent-red-700" type="checkbox" name="Personal Data Consent" value="Accepted" required />
+        <span>
+          {c.consentCheckbox}{" "}
+          <Link className="font-bold text-accent" href={localizedPath(locale, "/privacy")}>
+            {c.consentPrivacyLink}
+          </Link>{" "}
+          {locale === "ru" ? "и" : "and"}{" "}
+          <Link className="font-bold text-accent" href={localizedPath(locale, "/personal-data-consent")}>
+            {c.consentDataLink}
+          </Link>
+          .
+        </span>
+      </label>
       {status === "error" ? (
         <p className="rounded border border-accent/30 bg-accent/10 px-4 py-3 text-sm text-accent">
           {errorMessage || "The form could not be sent. Please try again."}
         </p>
       ) : null}
       <button className="btn btn-primary w-full md:w-60" type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Sending..." : c.submit}
+        {status === "sending" ? c.sending : c.submit}
       </button>
     </form>
   );

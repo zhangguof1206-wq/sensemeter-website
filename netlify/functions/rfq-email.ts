@@ -9,7 +9,8 @@ const fieldOrder = [
   "Product Model",
   "Quantity",
   "Application",
-  "Message"
+  "Message",
+  "Personal Data Consent"
 ];
 
 function env(name: string) {
@@ -44,7 +45,7 @@ function buildHtml(fields: Record<string, string>) {
 
   return `
     <div style="font-family:Arial,sans-serif;color:#17202a">
-      <h2>New RUS METER RFQ</h2>
+      <h2>New Sense RFQ</h2>
       <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:760px">
         ${rows}
       </table>
@@ -87,10 +88,10 @@ export default async (request: Request) => {
   const subjectDetail = model || company || email;
 
   await transporter.sendMail({
-    from: `"RUS METER Website" <${from}>`,
+    from: `"Sense Website" <${from}>`,
     to,
     replyTo: email,
-    subject: `RUS METER RFQ - ${subjectDetail}`,
+    subject: `Sense RFQ - ${subjectDetail}`,
     text: buildText(fields),
     html: buildHtml(fields)
   });
