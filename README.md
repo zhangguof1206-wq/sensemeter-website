@@ -1,6 +1,6 @@
-# Sensemeter .ru Product RFQ Website
+# SenseMeter .ru Product RFQ Website
 
-This is the official website project for the Sense / Sensemeter product catalog and RFQ website.
+This is the official website project for the SenseMeter product catalog and RFQ website.
 
 Stack:
 - Next.js
@@ -8,7 +8,7 @@ Stack:
 - Tailwind CSS
 - Netlify
 - Netlify Forms
-- Netlify Functions for RFQ email delivery
+- Next.js API route for RFQ email delivery
 
 ## Local Development
 
@@ -30,7 +30,8 @@ http://localhost:3000
 - `src/lib/legal.ts`: privacy, personal data consent and cookie policy copy.
 - `src/components/site.tsx`: page structure and shared layout.
 - `src/components/rfq-form.tsx`: RFQ form.
-- `netlify/functions/rfq-email.ts`: RFQ email delivery endpoint.
+- `src/app/api/rfq-email/route.ts`: RFQ email delivery endpoint for Netlify and Ubuntu VPS deployments.
+- `src/lib/rfq-email.ts`: SMTP email formatting and delivery logic.
 - `public/assets/products`: product images.
 - `public/datasheets`: product PDF datasheets.
 - `public/logo-header.png`: header logo.
@@ -39,7 +40,7 @@ http://localhost:3000
 
 The RFQ form does two things:
 
-1. Saves a backup submission in Netlify Forms using the form name `rfq-main`.
+1. Saves a backup submission in Netlify Forms using the form name `rfq-main` when the site is running on Netlify.
 2. Calls `/api/rfq-email` to send the RFQ email to the configured mailbox.
 
 Netlify Forms may classify some test submissions as spam. For production, email delivery should be verified through SMTP environment variables.
@@ -50,12 +51,12 @@ For test email delivery:
 
 ```text
 NEXT_PUBLIC_SITE_URL=https://sensemeter.ru
-RFQ_TO_EMAIL=zhangguof1206@gmail.com
-RFQ_FROM_EMAIL=zhangguof1206@gmail.com
-RFQ_SMTP_HOST=smtp.gmail.com
+RFQ_TO_EMAIL=sales@sensemeter.ru
+RFQ_FROM_EMAIL=sales@sensemeter.ru
+RFQ_SMTP_HOST=smtp.your-mail-provider.com
 RFQ_SMTP_PORT=465
-RFQ_SMTP_USER=zhangguof1206@gmail.com
-RFQ_SMTP_PASS=your-gmail-app-password
+RFQ_SMTP_USER=sales@sensemeter.ru
+RFQ_SMTP_PASS=your-smtp-password
 ```
 
 After the formal company mailbox is ready, replace the RFQ email and SMTP variables with the company mailbox settings.

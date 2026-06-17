@@ -20,16 +20,16 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
     privacy: {
       title: "Политика в отношении обработки персональных данных",
       lead:
-        "Настоящая политика описывает, какие данные Sense / SINOETM TECH LTD получает через сайт и форму RFQ, для каких целей они используются и как пользователь может связаться с нами по вопросам обработки данных.",
+        "Настоящая политика описывает, какие данные SenseMeter / SINOETM TECH LTD получает через сайт и форму RFQ, для каких целей они используются и как пользователь может связаться с нами по вопросам обработки данных.",
       updated: "Дата обновления: 16 июня 2026 г.",
       sections: [
         {
           title: "1. Оператор и контактная информация",
           paragraphs: [
             "Оператор сайта: SINOETM TECH LTD, торговая компания, поставляющая измерительные приборы и сенсорные решения для промышленных и профессиональных применений.",
-            "Торговое обозначение сайта: Sense.",
+            "Торговое обозначение сайта: SenseMeter.",
             "Адрес компании: South Mingzhu road, Zhuhai City, 519070, Guangdong province, China.",
-            "Контактный email для запросов по данным: zhangguof1206@gmail.com. Telegram: (+852) 6555 3946."
+            "Контактный email для запросов по данным: sales@sensemeter.ru. Telegram: (+852) 6555 3946."
           ]
         },
         {
@@ -77,7 +77,7 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
         {
           title: "7. Права пользователя",
           paragraphs: [
-            "Пользователь может запросить информацию об обработке своих данных, их уточнение, ограничение обработки или удаление, а также отозвать согласие, направив запрос на zhangguof1206@gmail.com."
+            "Пользователь может запросить информацию об обработке своих данных, их уточнение, ограничение обработки или удаление, а также отозвать согласие, направив запрос на sales@sensemeter.ru."
           ]
         },
         {
@@ -91,13 +91,13 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
     consent: {
       title: "Согласие на обработку персональных данных",
       lead:
-        "Отправляя форму RFQ, пользователь подтверждает согласие на обработку персональных данных для ответа на запрос о продукции Sense.",
+        "Отправляя форму RFQ, пользователь подтверждает согласие на обработку персональных данных для ответа на запрос о продукции SenseMeter.",
       updated: "Дата обновления: 16 июня 2026 г.",
       sections: [
         {
           title: "1. Кому дается согласие",
           paragraphs: [
-            "Согласие дается SINOETM TECH LTD, действующей на сайте под торговым обозначением Sense.",
+            "Согласие дается SINOETM TECH LTD, действующей на сайте под торговым обозначением SenseMeter.",
             "Адрес компании: South Mingzhu road, Zhuhai City, 519070, Guangdong province, China."
           ]
         },
@@ -135,7 +135,7 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
         {
           title: "6. Срок действия и отзыв согласия",
           paragraphs: [
-            "Согласие действует до достижения целей обработки или до его отзыва пользователем. Отозвать согласие можно, направив запрос на zhangguof1206@gmail.com. После отзыва мы прекратим обработку данных, если дальнейшее хранение не требуется по законным основаниям."
+            "Согласие действует до достижения целей обработки или до его отзыва пользователем. Отозвать согласие можно, направив запрос на sales@sensemeter.ru. После отзыва мы прекратим обработку данных, если дальнейшее хранение не требуется по законным основаниям."
           ]
         }
       ]
@@ -143,7 +143,7 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
     cookies: {
       title: "Политика использования Cookie",
       lead:
-        "Эта страница объясняет, какие технологии могут использоваться на сайте Sense и как пользователь может управлять ими.",
+        "Эта страница объясняет, какие технологии могут использоваться на сайте SenseMeter и как пользователь может управлять ими.",
       updated: "Дата обновления: 16 июня 2026 г.",
       sections: [
         {
@@ -172,16 +172,16 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
     privacy: {
       title: "Personal Data Processing Policy",
       lead:
-        "This policy explains what data Sense / SINOETM TECH LTD receives through the website and RFQ form, why it is used and how users can contact us regarding data processing.",
+        "This policy explains what data SenseMeter / SINOETM TECH LTD receives through the website and RFQ form, why it is used and how users can contact us regarding data processing.",
       updated: "Last updated: June 16, 2026",
       sections: [
         {
           title: "1. Operator and contact information",
           paragraphs: [
             "Website operator: SINOETM TECH LTD, a trading company supplying measurement instruments and sensor solutions for industrial and professional applications.",
-            "Website brand: Sense.",
+            "Website brand: SenseMeter.",
             "Company address: South Mingzhu road, Zhuhai City, 519070, Guangdong province, China.",
-            "Data contact email: zhangguof1206@gmail.com. Telegram: (+852) 6555 3946."
+            "Data contact email: sales@sensemeter.ru. Telegram: (+852) 6555 3946."
           ]
         },
         {
@@ -229,7 +229,7 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
         {
           title: "7. User rights",
           paragraphs: [
-            "A user may request information about data processing, correction, restriction, deletion or withdrawal of consent by contacting zhangguof1206@gmail.com."
+            "A user may request information about data processing, correction, restriction, deletion or withdrawal of consent by contacting sales@sensemeter.ru."
           ]
         },
         {
@@ -243,13 +243,13 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
     consent: {
       title: "Personal Data Processing Consent",
       lead:
-        "By submitting the RFQ form, the user confirms consent to personal data processing for responding to a product inquiry related to Sense.",
+        "By submitting the RFQ form, the user confirms consent to personal data processing for responding to a product inquiry related to SenseMeter.",
       updated: "Last updated: June 16, 2026",
       sections: [
         {
           title: "1. Consent recipient",
           paragraphs: [
-            "Consent is given to SINOETM TECH LTD, operating this website under the Sense brand.",
+            "Consent is given to SINOETM TECH LTD, operating this website under the SenseMeter brand.",
             "Company address: South Mingzhu road, Zhuhai City, 519070, Guangdong province, China."
           ]
         },
@@ -287,7 +287,7 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
         {
           title: "6. Validity and withdrawal",
           paragraphs: [
-            "Consent remains valid until the processing purposes are achieved or until it is withdrawn by the user. Consent can be withdrawn by contacting zhangguof1206@gmail.com. After withdrawal, we will stop processing the data unless further retention is required by lawful grounds."
+            "Consent remains valid until the processing purposes are achieved or until it is withdrawn by the user. Consent can be withdrawn by contacting sales@sensemeter.ru. After withdrawal, we will stop processing the data unless further retention is required by lawful grounds."
           ]
         }
       ]
@@ -295,7 +295,7 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
     cookies: {
       title: "Cookie Policy",
       lead:
-        "This page explains which technologies may be used on the Sense website and how users can manage them.",
+        "This page explains which technologies may be used on the SenseMeter website and how users can manage them.",
       updated: "Last updated: June 16, 2026",
       sections: [
         {

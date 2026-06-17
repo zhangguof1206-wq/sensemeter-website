@@ -48,11 +48,11 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
     setErrorMessage("");
 
     try {
-      const archiveResponse = await fetch(FORM_ARCHIVE_ENDPOINT, {
+      const archiveRequest = fetch(FORM_ARCHIVE_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body
-      });
+      }).catch(() => null);
 
       const emailResponse = await fetch(FORM_EMAIL_ENDPOINT, {
         method: "POST",
@@ -68,7 +68,8 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
         throw new Error(message);
       }
 
-      if (!archiveResponse.ok) {
+      const archiveResponse = await archiveRequest;
+      if (archiveResponse && !archiveResponse.ok) {
         console.warn("RFQ backup archive failed.");
       }
 

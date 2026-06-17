@@ -5,7 +5,7 @@ export const defaultLocale: Locale = "ru";
 
 export const copy = {
   ru: {
-    brand: "Sense",
+    brand: "SenseMeter",
     brandLine: "Промышленные измерительные решения",
     navHome: "Главная",
     navCatalog: "Каталог",
@@ -57,7 +57,7 @@ export const copy = {
       "Заполните форму, чтобы запросить цену, наличие, PDF-материалы или техническую консультацию по выбранной модели.",
     emailNote:
       "Отправьте запрос через форму RFQ или по email. Укажите модель, количество и условия применения, чтобы мы могли быстрее подготовить ответ.",
-    contactEmail: "zhangguof1206@gmail.com",
+    contactEmail: "sales@sensemeter.ru",
     contactPhone: "(+852) 6555 3946",
     contactTelegram: "(+852) 6555 3946",
     contactInfoTitle: "Contact information",
@@ -83,12 +83,12 @@ export const copy = {
     formMessage: "Сообщение",
     privacyTitle: "Политика конфиденциальности",
     privacyLead:
-      "Эта политика объясняет, как Sense и SINOETM TECH LTD обрабатывают данные, отправленные через форму RFQ.",
+      "Эта политика объясняет, как SenseMeter и SINOETM TECH LTD обрабатывают данные, отправленные через форму RFQ.",
     privacyBody: [
-      "Sense / SINOETM TECH LTD собирает только данные, которые пользователь добровольно отправляет через форму запроса: email, имя, компанию, страну или город, телефон или мессенджер, модель продукта, количество, область применения и сообщение.",
+      "SenseMeter / SINOETM TECH LTD собирает только данные, которые пользователь добровольно отправляет через форму запроса: email, имя, компанию, страну или город, телефон или мессенджер, модель продукта, количество, область применения и сообщение.",
       "Эти данные используются для ответа на запрос, подготовки коммерческого предложения, подбора оборудования, технической консультации и дальнейшей деловой коммуникации.",
-      "Sense / SINOETM TECH LTD не продает контактные данные третьим лицам. Доступ к запросам имеют только специалисты, участвующие в обработке обращения и подготовке ответа.",
-      "Пользователь может запросить уточнение, обновление или удаление отправленных данных, связавшись с нами по электронной почте zhangguof1206@gmail.com."
+      "SenseMeter / SINOETM TECH LTD не продает контактные данные третьим лицам. Доступ к запросам имеют только специалисты, участвующие в обработке обращения и подготовке ответа.",
+      "Пользователь может запросить уточнение, обновление или удаление отправленных данных, связавшись с нами по электронной почте sales@sensemeter.ru."
     ],
     thankYouTitle: "Спасибо",
     thankYouLead: "Ваш запрос отправлен. Мы проверим информацию и свяжемся с вами по указанным контактам.",
@@ -96,7 +96,7 @@ export const copy = {
     noResults: "Ничего не найдено. Попробуйте искать по модели, например Easidew, GPR или HC2A."
   },
   en: {
-    brand: "Sense",
+    brand: "SenseMeter",
     brandLine: "Industrial measurement solutions",
     navHome: "Home",
     navCatalog: "Product Catalog",
@@ -147,7 +147,7 @@ export const copy = {
     contactLead: "Fill out the form to request pricing, availability, PDF materials or technical consultation.",
     emailNote:
       "Send your request through the RFQ form or by email. Please include the product model, quantity and application conditions so we can prepare a faster response.",
-    contactEmail: "zhangguof1206@gmail.com",
+    contactEmail: "sales@sensemeter.ru",
     contactPhone: "(+852) 6555 3946",
     contactTelegram: "(+852) 6555 3946",
     contactInfoTitle: "Contact information",
@@ -172,12 +172,12 @@ export const copy = {
     formApplication: "Application",
     formMessage: "Message",
     privacyTitle: "Privacy Policy",
-    privacyLead: "This policy explains how Sense and SINOETM TECH LTD handle data submitted through the RFQ form.",
+    privacyLead: "This policy explains how SenseMeter and SINOETM TECH LTD handle data submitted through the RFQ form.",
     privacyBody: [
-      "Sense / SINOETM TECH LTD collects only the data a user voluntarily submits through the RFQ form: email, name, company, city or country, phone or messenger, product model, quantity, application and message.",
+      "SenseMeter / SINOETM TECH LTD collects only the data a user voluntarily submits through the RFQ form: email, name, company, city or country, phone or messenger, product model, quantity, application and message.",
       "This data is used to respond to inquiries, prepare quotations, select suitable instruments, provide technical consultation and continue business communication.",
-      "Sense / SINOETM TECH LTD does not sell contact data to third parties. Inquiry data is handled only by specialists involved in reviewing the request and preparing the response.",
-      "A user may request correction, update or deletion of submitted data by contacting us at zhangguof1206@gmail.com."
+      "SenseMeter / SINOETM TECH LTD does not sell contact data to third parties. Inquiry data is handled only by specialists involved in reviewing the request and preparing the response.",
+      "A user may request correction, update or deletion of submitted data by contacting us at sales@sensemeter.ru."
     ],
     thankYouTitle: "Thank you",
     thankYouLead: "Your RFQ has been sent. We will review the information and contact you using the details provided.",

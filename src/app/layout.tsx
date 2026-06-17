@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Sensemeter - Каталог продукции",
-    template: "%s | Sensemeter"
+    default: "SenseMeter - Каталог продукции",
+    template: "%s | SenseMeter"
   },
-  description: "Sensemeter industrial humidity, dew-point and oxygen analyzer catalog.",
+  description: "SenseMeter industrial humidity, dew-point and oxygen analyzer catalog.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
