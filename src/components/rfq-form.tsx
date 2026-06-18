@@ -8,6 +8,7 @@ import { localizedPath, t } from "@/lib/i18n";
 const FORM_NAME = "rfq-main";
 const FORM_ARCHIVE_ENDPOINT = "/__forms.html";
 const FORM_EMAIL_ENDPOINT = "/api/rfq-email";
+const EMAIL_TIMEOUT_MS = 25000;
 
 function encodeFormData(form: HTMLFormElement) {
   return new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString();
@@ -39,6 +40,20 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
   const c = t(locale);
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const errorCopy = {
+    notConfigured:
+      locale === "ru"
+        ? "Отправка email пока не настроена. Пожалуйста, отправьте запрос напрямую на sales@sensemeter.ru."
+        : "Email delivery is not configured yet. Please email sales@sensemeter.ru directly.",
+    failed:
+      locale === "ru"
+        ? "Не удалось отправить RFQ. Пожалуйста, отправьте запрос напрямую на sales@sensemeter.ru."
+        : "Email delivery failed. Please email sales@sensemeter.ru directly.",
+    timeout:
+      locale === "ru"
+        ? "Отправка заняла слишком много времени. Пожалуйста, попробуйте еще раз или напишите на sales@sensemeter.ru."
+        : "Email delivery timed out. Please try again or email sales@sensemeter.ru directly."
+  };
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -48,34 +63,30 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
     setErrorMessage("");
 
     try {
-      const archiveRequest = fetch(FORM_ARCHIVE_ENDPOINT, {
+      fetch(FORM_ARCHIVE_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body
       }).catch(() => null);
 
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), EMAIL_TIMEOUT_MS);
       const emailResponse = await fetch(FORM_EMAIL_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body
+        body,
+        signal: controller.signal
       });
+      window.clearTimeout(timeout);
 
       if (!emailResponse.ok) {
-        const message =
-          emailResponse.status === 503
-            ? "Email delivery is not configured yet. The request was saved in Netlify Forms."
-            : "Email delivery failed. The request was saved in Netlify Forms.";
-        throw new Error(message);
-      }
-
-      const archiveResponse = await archiveRequest;
-      if (archiveResponse && !archiveResponse.ok) {
-        console.warn("RFQ backup archive failed.");
+        throw new Error(emailResponse.status === 503 ? errorCopy.notConfigured : errorCopy.failed);
       }
 
       window.location.href = localizedPath(locale, "/thank-you");
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "The form could not be sent. Please try again.");
+      const message = error instanceof DOMException && error.name === "AbortError" ? errorCopy.timeout : error instanceof Error ? error.message : errorCopy.failed;
+      setErrorMessage(message);
       setStatus("error");
     }
   }

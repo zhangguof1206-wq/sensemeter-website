@@ -76,7 +76,10 @@ export async function sendRfqEmail(body: string) {
     host,
     port,
     secure: port === 465,
-    auth: { user, pass }
+    auth: { user, pass },
+    connectionTimeout: 15000,
+    greetingTimeout: 15000,
+    socketTimeout: 20000
   });
 
   const model = fields["Product Model"];
