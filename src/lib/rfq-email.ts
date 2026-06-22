@@ -1,5 +1,8 @@
 import nodemailer from "nodemailer";
 
+type RfqFields = Record<string, string>;
+type EmailProvider = "smtp" | "brevo";
+
 export const rfqFieldOrder = [
   "Email",
   "Name",
@@ -53,14 +56,17 @@ function buildHtml(fields: Record<string, string>) {
   `;
 }
 
-export async function sendRfqEmail(body: string) {
-  const fields = readRfqFields(body);
-  const email = fields.Email;
+function getSubjectDetail(fields: RfqFields) {
+  const model = fields["Product Model"];
+  const company = fields.Company;
+  return model || company || fields.Email;
+}
 
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return { ok: false as const, status: 400, error: "email_required" };
-  }
+function getEmailProvider(): EmailProvider {
+  return env("EMAIL_PROVIDER").toLowerCase() === "brevo" ? "brevo" : "smtp";
+}
 
+async function sendViaSmtp(fields: RfqFields) {
   const host = env("RFQ_SMTP_HOST");
   const port = Number(env("RFQ_SMTP_PORT") || "465");
   const user = env("RFQ_SMTP_USER");
@@ -82,18 +88,66 @@ export async function sendRfqEmail(body: string) {
     socketTimeout: 20000
   });
 
-  const model = fields["Product Model"];
-  const company = fields.Company;
-  const subjectDetail = model || company || email;
-
   await transporter.sendMail({
     from: `"SenseMeter Website" <${from}>`,
     to,
-    replyTo: email,
-    subject: `SenseMeter RFQ - ${subjectDetail}`,
+    replyTo: fields.Email,
+    subject: `SenseMeter RFQ - ${getSubjectDetail(fields)}`,
     text: buildText(fields),
     html: buildHtml(fields)
   });
+}
+
+async function sendViaBrevo(fields: RfqFields) {
+  const apiKey = env("BREVO_API_KEY");
+  const to = env("RFQ_TO_EMAIL") || "sales@sensemeter.ru";
+  const from = env("RFQ_FROM_EMAIL") || "sales@sensemeter.ru";
+  const senderName = env("RFQ_SENDER_NAME") || "SenseMeter Website";
+
+  if (!apiKey || !to || !from) {
+    return { ok: false as const, status: 503, error: "email_not_configured" };
+  }
+
+  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      "api-key": apiKey,
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      sender: { name: senderName, email: from },
+      to: [{ email: to }],
+      replyTo: { email: fields.Email },
+      subject: `SenseMeter RFQ - ${getSubjectDetail(fields)}`,
+      textContent: buildText(fields),
+      htmlContent: buildHtml(fields)
+    })
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`Brevo email delivery failed: ${response.status} ${errorText}`);
+  }
+
+  return { ok: true as const };
+}
+
+export async function sendRfqEmail(body: string) {
+  const fields = readRfqFields(body);
+  const email = fields.Email;
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return { ok: false as const, status: 400, error: "email_required" };
+  }
+
+  const provider = getEmailProvider();
+
+  if (provider === "brevo") {
+    return sendViaBrevo(fields);
+  }
+
+  await sendViaSmtp(fields);
 
   return { ok: true as const };
 }
