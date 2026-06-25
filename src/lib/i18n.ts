@@ -21,7 +21,7 @@ export const copy = {
     cookieAccept: "Принять",
     cookieNecessary: "Только необходимые",
     cookieLearnMore: "Подробнее",
-    heroEyebrow: "MICHELL / ROTRONIC / AII",
+    heroEyebrow: "MICHELL / ROTRONIC / VAISALA / AII",
     heroTitle: "Промышленные анализаторы влажности, точки росы и кислорода",
     heroText:
       "B2B-каталог промышленных измерительных приборов: технические модели, PDF-материалы и быстрый запрос коммерческого предложения.",
@@ -58,8 +58,8 @@ export const copy = {
     emailNote:
       "Отправьте запрос через форму RFQ или по email. Укажите модель, количество и условия применения, чтобы мы могли быстрее подготовить ответ.",
     contactEmail: "sales@sensemeter.ru",
-    contactPhone: "(+852) 6555 3946",
-    contactTelegram: "(+852) 6555 3946",
+    contactPhone: "@Sensemeter",
+    contactTelegram: "@Sensemeter",
     contactInfoTitle: "Contact information",
     telegramLabel: "Telegram",
     messengerNote: "Доступно для связи в Telegram.",
@@ -112,7 +112,7 @@ export const copy = {
     cookieAccept: "Accept",
     cookieNecessary: "Necessary only",
     cookieLearnMore: "Learn more",
-    heroEyebrow: "MICHELL / ROTRONIC / AII",
+    heroEyebrow: "MICHELL / ROTRONIC / VAISALA / AII",
     heroTitle: "Industrial humidity, dew-point and oxygen analyzers",
     heroText:
       "A B2B catalog of industrial instruments with technical models, PDF datasheets and a fast request-for-quote path.",
@@ -148,8 +148,8 @@ export const copy = {
     emailNote:
       "Send your request through the RFQ form or by email. Please include the product model, quantity and application conditions so we can prepare a faster response.",
     contactEmail: "sales@sensemeter.ru",
-    contactPhone: "(+852) 6555 3946",
-    contactTelegram: "(+852) 6555 3946",
+    contactPhone: "@Sensemeter",
+    contactTelegram: "@Sensemeter",
     contactInfoTitle: "Contact information",
     telegramLabel: "Telegram",
     messengerNote: "Telegram is available for direct contact.",

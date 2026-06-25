@@ -16,6 +16,8 @@ import { legalCopy, type LegalPageKey } from "@/lib/legal";
 import { CookieBanner } from "@/components/cookie-banner";
 import { RfqForm } from "@/components/rfq-form";
 
+const TELEGRAM_URL = "https://t.me/Sensemeter";
+
 type ShellProps = {
   locale: Locale;
   active: "home" | "catalog" | "about" | "contact" | "privacy";
@@ -384,7 +386,11 @@ export function ContactPage({ locale, model }: { locale: Locale; model?: string 
               </div>
               <div>
                 <dt className="font-bold">{c.telegramLabel}</dt>
-                <dd className="text-accent font-bold">{c.contactTelegram}</dd>
+                <dd>
+                  <a className="text-accent font-bold" href={TELEGRAM_URL} target="_blank" rel="noreferrer">
+                    {c.contactTelegram}
+                  </a>
+                </dd>
               </div>
             </dl>
           </aside>

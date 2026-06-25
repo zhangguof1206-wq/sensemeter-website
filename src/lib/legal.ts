@@ -29,7 +29,7 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
             "Оператор сайта: SINOETM TECH LTD, торговая компания, поставляющая измерительные приборы и сенсорные решения для промышленных и профессиональных применений.",
             "Торговое обозначение сайта: SenseMeter.",
             "Адрес компании: South Mingzhu road, Zhuhai City, 519070, Guangdong province, China.",
-            "Контактный email для запросов по данным: sales@sensemeter.ru. Telegram: (+852) 6555 3946."
+            "Контактный email для запросов по данным: sales@sensemeter.ru. Telegram: @Sensemeter."
           ]
         },
         {
@@ -181,7 +181,7 @@ export const legalCopy: Record<Locale, Record<LegalPageKey, LegalPage>> = {
             "Website operator: SINOETM TECH LTD, a trading company supplying measurement instruments and sensor solutions for industrial and professional applications.",
             "Website brand: SenseMeter.",
             "Company address: South Mingzhu road, Zhuhai City, 519070, Guangdong province, China.",
-            "Data contact email: sales@sensemeter.ru. Telegram: (+852) 6555 3946."
+            "Data contact email: sales@sensemeter.ru. Telegram: @Sensemeter."
           ]
         },
         {

@@ -9,6 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node scripts/copy-netlify-forms.mjs",
+    "check:catalog": "node scripts/check-catalog-integrity.mjs",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },

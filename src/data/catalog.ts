@@ -1,5 +1,5 @@
 ﻿export type Locale = "ru" | "en";
-export type CategoryId = "MICHELL" | "ROTRONIC" | "AII";
+export type CategoryId = "MICHELL" | "ROTRONIC" | "VAISALA" | "AII";
 
 export type LocalizedText = Record<Locale, string>;
 export type LocalizedList = Record<Locale, string[]>;
@@ -50,6 +50,15 @@ export const categories: Category[] = [
       en: "Industrial humidity and temperature probes, handheld meters and sensors."
     },
     image: "assets/category-rotronic.png"
+  },
+  {
+    id: "VAISALA",
+    title: "VAISALA",
+    description: {
+      ru: "Промышленные датчики влажности, температуры и точки росы для сложных условий.",
+      en: "Industrial humidity, temperature and dew-point sensors for demanding conditions."
+    },
+    image: "assets/category-vaisala.png"
   },
   {
     id: "AII",
@@ -451,6 +460,174 @@ export const products = [
     applications: {
       ru: ["Мембранные и адсорбционные осушители", "Медицинский и дыхательный воздух", "Additive manufacturing, glove box, injection molding"],
       en: ["Membrane and adsorption dryers", "Medical and breathing air", "Additive manufacturing, glove boxes and injection molding"]
+    }
+  },
+  {
+    slug: "pura-transmitter",
+    model: "Pura",
+    category: "MICHELL",
+    brand: "Michell",
+    image: "assets/products/Michell Pura.png",
+    pdf: "Michell_Instruments_Pura_Transmitters_Datasheet.pdf",
+    overview: {
+      ru: "Компактный преобразователь следовой влажности для контроля сухих газов, сжатого воздуха и OEM-установок.",
+      en: "Compact trace moisture transmitter for monitoring dry gases, compressed air and OEM installations."
+    },
+    params: {
+      ru: ["Измерение точки росы и следовой влажности", "Компактный корпус для интеграции в систему", "Промышленный аналоговый выход", "PDF datasheet содержит полные диапазоны и варианты исполнения"],
+      en: ["Dew-point and trace moisture measurement", "Compact body for system integration", "Industrial analog output", "PDF datasheet includes full ranges and configuration options"]
+    },
+    highlights: {
+      ru: ["Подходит для малых объемов и встроенных систем", "Быстрый доступ к технической документации", "Практичное решение для сухих технологических газов"],
+      en: ["Suitable for compact and embedded systems", "Technical documentation available for review", "Practical solution for dry process gases"]
+    },
+    applications: {
+      ru: ["Сжатый воздух", "Сухие технологические газы", "OEM-оборудование и системы осушки"],
+      en: ["Compressed air", "Dry process gases", "OEM equipment and drying systems"]
+    }
+  },
+  {
+    slug: "hygroflex1",
+    model: "HygroFlex1",
+    category: "ROTRONIC",
+    brand: "ROTRONIC",
+    image: "assets/products/Rotronic HF1.png",
+    pdf: "RT_59034E_HygroFlex1.pdf",
+    overview: {
+      ru: "Компактный преобразователь влажности и температуры для стандартного мониторинга воздуха и технических помещений.",
+      en: "Compact humidity and temperature transmitter for standard air monitoring and technical rooms."
+    },
+    params: {
+      ru: ["Измерение относительной влажности и температуры", "Компактное исполнение для настенного монтажа", "Аналоговый выход для систем мониторинга", "PDF datasheet содержит варианты диапазонов и выходов"],
+      en: ["Relative humidity and temperature measurement", "Compact wall-mount design", "Analog output for monitoring systems", "PDF datasheet includes range and output options"]
+    },
+    highlights: {
+      ru: ["Простая интеграция в HVAC и BMS", "Стабильный мониторинг микроклимата", "Подходит для технических и производственных зон"],
+      en: ["Easy integration into HVAC and BMS", "Stable climate monitoring", "Suitable for technical and production areas"]
+    },
+    applications: {
+      ru: ["HVAC и BMS", "Склады и производственные помещения", "Контроль воздуха в помещениях"],
+      en: ["HVAC and BMS", "Storage and production rooms", "Indoor air monitoring"]
+    }
+  },
+  {
+    slug: "hmt370ex",
+    model: "HMT370EX",
+    category: "VAISALA",
+    brand: "VAISALA",
+    image: "assets/products/Intrinsically Safe Humidity and Temperature Transmitter Series HMT370EX.png",
+    pdf: "VA_HMT370EX-Datasheet-B211825EN-K.pdf",
+    overview: {
+      ru: "Искробезопасный преобразователь влажности и температуры для опасных зон и сложных промышленных сред.",
+      en: "Intrinsically safe humidity and temperature transmitter for hazardous areas and demanding industrial environments."
+    },
+    params: {
+      ru: ["Измерение влажности и температуры", "Исполнения для опасных зон", "Несколько вариантов зондов для разных условий", "PDF datasheet содержит сертификации и точные диапазоны"],
+      en: ["Humidity and temperature measurement", "Hazardous-area versions", "Multiple probe options for different conditions", "PDF datasheet includes approvals and exact ranges"]
+    },
+    highlights: {
+      ru: ["Разработан для сложных промышленных условий", "Гибкая конфигурация с разными зондами", "Подходит для процессов, где важна безопасность измерений"],
+      en: ["Designed for demanding industrial conditions", "Flexible configuration with different probes", "Suitable for processes where measurement safety matters"]
+    },
+    applications: {
+      ru: ["Опасные зоны", "Химические и технологические процессы", "Промышленный мониторинг влажности"],
+      en: ["Hazardous areas", "Chemical and process applications", "Industrial humidity monitoring"]
+    }
+  },
+  {
+    slug: "hmt310",
+    model: "HMT310",
+    category: "VAISALA",
+    brand: "VAISALA",
+    image: "assets/products/Humidity and Temperature Transmitter Series HMT310.png",
+    pdf: "VA_HMT310-Datasheet-B210769EN-J.pdf",
+    overview: {
+      ru: "Преобразователь влажности и температуры для промышленных процессов, камер, воздуховодов и технических систем.",
+      en: "Humidity and temperature transmitter for industrial processes, chambers, ducts and technical systems."
+    },
+    params: {
+      ru: ["Измерение относительной влажности и температуры", "Варианты зондов для разных способов монтажа", "Промышленный выходной сигнал", "PDF datasheet содержит диапазоны и модели исполнения"],
+      en: ["Relative humidity and temperature measurement", "Probe options for different installation methods", "Industrial output signal", "PDF datasheet includes ranges and model variants"]
+    },
+    highlights: {
+      ru: ["Подходит для непрерывного мониторинга", "Гибкий выбор конфигурации", "Используется в промышленных и лабораторных задачах"],
+      en: ["Suitable for continuous monitoring", "Flexible configuration options", "Used in industrial and laboratory applications"]
+    },
+    applications: {
+      ru: ["Климатические камеры", "Воздуховоды и HVAC", "Промышленные процессы и лаборатории"],
+      en: ["Climate chambers", "Ducts and HVAC", "Industrial processes and laboratories"]
+    }
+  },
+  {
+    slug: "hmp3-hmpx",
+    model: "HMP3 / HMPX",
+    category: "VAISALA",
+    brand: "VAISALA",
+    image: "assets/products/Humidity and Temperature Probe HMP3.png",
+    pdf: "VA_HMP3-HMPX-Datasheet-B211826EN-E.pdf",
+    overview: {
+      ru: "Зонд влажности и температуры для точного измерения в камерах, помещениях и промышленных системах мониторинга.",
+      en: "Humidity and temperature probe for precise measurement in chambers, rooms and industrial monitoring systems."
+    },
+    params: {
+      ru: ["Измерение влажности и температуры", "Зондовое исполнение для интеграции", "Совместимость с системами мониторинга Vaisala", "PDF datasheet содержит варианты HMP и аксессуары"],
+      en: ["Humidity and temperature measurement", "Probe design for integration", "Compatibility with Vaisala monitoring systems", "PDF datasheet includes HMP variants and accessories"]
+    },
+    highlights: {
+      ru: ["Компактный зонд для точек измерения", "Подходит для лабораторных и производственных условий", "Удобен для OEM и системной интеграции"],
+      en: ["Compact probe for measurement points", "Suitable for laboratory and production environments", "Convenient for OEM and system integration"]
+    },
+    applications: {
+      ru: ["Климатические камеры", "Лабораторные помещения", "Системы мониторинга влажности"],
+      en: ["Climate chambers", "Laboratory rooms", "Humidity monitoring systems"]
+    }
+  },
+  {
+    slug: "dmt153",
+    model: "DMT153",
+    category: "VAISALA",
+    brand: "VAISALA",
+    image: "assets/products/DMT153 Dew Point Transmitter.png",
+    pdf: "VA_DMT153-Datasheet-B212905EN-B.pdf",
+    overview: {
+      ru: "Компактный преобразователь точки росы для контроля сухого воздуха, осушителей и OEM-применений.",
+      en: "Compact dew-point transmitter for dry air monitoring, dryers and OEM applications."
+    },
+    params: {
+      ru: ["Измерение точки росы", "Компактный формат для установки в оборудование", "Промышленный выходной сигнал", "PDF datasheet содержит диапазоны измерения и варианты подключения"],
+      en: ["Dew-point measurement", "Compact format for equipment installation", "Industrial output signal", "PDF datasheet includes measurement ranges and connection options"]
+    },
+    highlights: {
+      ru: ["Хорошо подходит для сухих сред", "Удобен для OEM-интеграции", "Практичное решение для контроля осушителей"],
+      en: ["Well suited for dry environments", "Convenient for OEM integration", "Practical solution for dryer monitoring"]
+    },
+    applications: {
+      ru: ["Осушители сжатого воздуха", "Пластиковые сушилки", "Сухой воздух и OEM-системы"],
+      en: ["Compressed air dryers", "Plastic dryers", "Dry air and OEM systems"]
+    }
+  },
+  {
+    slug: "dmt143-dmt143l",
+    model: "DMT143 / DMT143L",
+    category: "VAISALA",
+    brand: "VAISALA",
+    image: "assets/products/Miniature Dew Point Transmitters DMT143 & DMT143L (Long).png",
+    pdf: "VA_DMT143-Datasheet-B211207EN-L.pdf",
+    overview: {
+      ru: "Миниатюрные преобразователи точки росы для промышленных осушителей, сжатого воздуха и сухих технологических газов.",
+      en: "Miniature dew-point transmitters for industrial dryers, compressed air and dry process gases."
+    },
+    params: {
+      ru: ["Измерение точки росы в сухих газах", "Миниатюрное исполнение", "Варианты стандартной и удлиненной конструкции", "PDF datasheet содержит диапазоны и варианты моделей"],
+      en: ["Dew-point measurement in dry gases", "Miniature transmitter design", "Standard and long probe versions", "PDF datasheet includes ranges and model options"]
+    },
+    highlights: {
+      ru: ["Компактная установка в оборудовании", "Подходит для непрерывного контроля сухости", "Удобен для сжатого воздуха и OEM"],
+      en: ["Compact installation in equipment", "Suitable for continuous dryness monitoring", "Convenient for compressed air and OEM use"]
+    },
+    applications: {
+      ru: ["Сжатый воздух", "Промышленные осушители", "Сухие технологические газы"],
+      en: ["Compressed air", "Industrial dryers", "Dry process gases"]
     }
   }
 ] satisfies Product[];
