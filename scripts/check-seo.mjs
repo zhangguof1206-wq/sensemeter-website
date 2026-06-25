@@ -1,0 +1,61 @@
+﻿import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
+const root = process.cwd();
+const read = (path) => readFileSync(join(root, path), "utf8");
+
+const checks = [
+  {
+    name: "root layout defines metadataBase and alternates support",
+    pass: () => {
+      const source = read("src/app/layout.tsx");
+      return source.includes("metadataBase") && source.includes("alternates");
+    }
+  },
+  {
+    name: "RU product route exports generateMetadata",
+    pass: () => read("src/app/products/[slug]/page.tsx").includes("generateMetadata")
+  },
+  {
+    name: "EN product route exports generateMetadata",
+    pass: () => read("src/app/en/products/[slug]/page.tsx").includes("generateMetadata")
+  },
+  {
+    name: "product page renders Product JSON-LD",
+    pass: () => {
+      const component = read("src/components/site.tsx");
+      const seo = read("src/lib/seo.ts");
+      return component.includes('type="application/ld+json"') && component.includes("productJsonLd") && seo.includes('"@type": "Product"');
+    }
+  },
+  {
+    name: "thank-you pages are noindex",
+    pass: () => {
+      const ru = read("src/app/thank-you/page.tsx");
+      const en = read("src/app/en/thank-you/page.tsx");
+      return ru.includes("robots") && ru.includes("index: false") && en.includes("robots") && en.includes("index: false");
+    }
+  },
+  {
+    name: "sitemap does not use generation time as lastModified",
+    pass: () => !read("src/app/sitemap.ts").includes("new Date()")
+  }
+];
+
+let failures = 0;
+for (const check of checks) {
+  if (check.pass()) {
+    console.log(`OK ${check.name}`);
+  } else {
+    failures += 1;
+    console.error(`FAIL ${check.name}`);
+  }
+}
+
+if (failures) {
+  console.error(`SEO check failed: ${failures} issue(s) found.`);
+  process.exit(1);
+}
+
+console.log("SEO check passed.");
+

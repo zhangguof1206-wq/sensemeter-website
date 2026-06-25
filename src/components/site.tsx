@@ -15,6 +15,7 @@ import { localizedPath, oppositeLocale, t } from "@/lib/i18n";
 import { legalCopy, type LegalPageKey } from "@/lib/legal";
 import { CookieBanner } from "@/components/cookie-banner";
 import { RfqForm } from "@/components/rfq-form";
+import { productJsonLd } from "@/lib/seo";
 
 const TELEGRAM_URL = "https://t.me/Sensemeter";
 
@@ -112,7 +113,7 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
           <div>
             <strong>{c.brand}</strong>
             <p className="mt-1 text-slate-300">{c.footerLine}</p>
-            <p className="mt-3 text-sm text-slate-400">© 2026 SINOETM TECH LTD. All rights reserved.</p>
+            <p className="mt-3 text-sm text-slate-400">漏 2026 SINOETM TECH LTD. All rights reserved.</p>
             <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-300">
               <Link className="hover:text-white" href={localizedPath(locale, "/privacy")}>
                 {c.navPrivacy}
@@ -292,8 +293,10 @@ export function CatalogPage({
 export function ProductPage({ locale, product }: { locale: Locale; product: Product }) {
   const c = t(locale);
   const languagePath = localizedPath(oppositeLocale(locale), `/products/${product.slug}`);
+  const structuredData = productJsonLd(locale, product);
   return (
     <PageShell locale={locale} active="catalog" languagePath={languagePath}>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <PageHeading title={product.model} lead={product.category} image={assetPath(product.image)} />
       <section className="section">
         <div className="section-narrow grid gap-8 lg:grid-cols-[1fr_360px]">

@@ -1,12 +1,27 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
+import { absoluteUrl, languageAlternates, siteName, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "SenseMeter - Каталог продукции",
-    template: "%s | SenseMeter"
+    template: `%s | ${siteName}`
   },
-  description: "SenseMeter industrial humidity, dew-point and oxygen analyzer catalog.",
+  description: "Промышленные датчики влажности, точки росы и анализаторы кислорода с PDF datasheets и RFQ-запросом.",
+  alternates: {
+    canonical: "/",
+    languages: languageAlternates("/")
+  },
+  openGraph: {
+    title: "SenseMeter - Каталог продукции",
+    description: "Промышленные датчики влажности, точки росы и анализаторы кислорода для B2B-запросов.",
+    url: absoluteUrl("/"),
+    siteName,
+    locale: "ru_RU",
+    type: "website",
+    images: [{ url: absoluteUrl("/logo-header.png"), alt: siteName }]
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
