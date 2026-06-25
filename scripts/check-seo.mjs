@@ -1,4 +1,4 @@
-﻿import { readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = process.cwd();
@@ -39,6 +39,13 @@ const checks = [
   {
     name: "sitemap does not use generation time as lastModified",
     pass: () => !read("src/app/sitemap.ts").includes("new Date()")
+  },
+  {
+    name: "Yandex Metrica counter is installed",
+    pass: () => {
+      const layout = read("src/app/layout.tsx");
+      return layout.includes("110136437") && layout.includes("mc.yandex.ru/metrika/tag.js") && layout.includes("ym(${yandexMetricaId}");
+    }
   }
 ];
 
@@ -58,4 +65,3 @@ if (failures) {
 }
 
 console.log("SEO check passed.");
-
