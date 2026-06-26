@@ -227,23 +227,30 @@ export function HomePage({ locale }: { locale: Locale }) {
 
 export function ProductCard({ locale, product }: { locale: Locale; product: Product }) {
   const c = t(locale);
+  const compactSpecs = product.params[locale].slice(0, 3);
+
   return (
     <article className="card flex h-full flex-col overflow-hidden bg-white">
-      <Link className="grid h-56 shrink-0 place-items-center border-b border-line bg-white p-6" href={localizedPath(locale, `/products/${product.slug}`)}>
-        <img className="h-full max-h-44 w-full object-contain" src={assetPath(product.image)} alt={product.model} />
+      <Link className="grid h-52 shrink-0 place-items-center border-b border-line bg-white p-5" href={localizedPath(locale, `/products/${product.slug}`)}>
+        <img className="h-full max-h-40 w-full object-contain" src={assetPath(product.image)} alt={product.model} />
       </Link>
       <div className="relative z-10 flex flex-1 flex-col bg-white p-6">
-        <div className="mb-2 text-sm font-bold text-emerald-700">{product.category}</div>
-        <h3 className="text-xl font-black">{product.model}</h3>
-        <p className="mt-3 text-muted">{product.overview[locale]}</p>
-        <Link className="btn btn-primary mt-auto" href={localizedPath(locale, `/products/${product.slug}`)}>
+        <div className="mb-2 text-xs font-black uppercase text-emerald-700">{product.category}</div>
+        <h3 className="min-h-[3.25rem] text-lg font-black leading-tight text-[#173163]">{product.model}</h3>
+        <ul className="product-card-specs mt-5 list-none border-t border-line p-0 text-sm text-slate-700">
+          {compactSpecs.map((spec) => (
+            <li className="border-b border-line py-3" key={spec}>
+              {spec}
+            </li>
+          ))}
+        </ul>
+        <Link className="btn btn-primary mt-auto w-full" href={localizedPath(locale, `/products/${product.slug}`)}>
           {c.details}
         </Link>
       </div>
     </article>
   );
 }
-
 export function CatalogPage({
   locale,
   category,
@@ -289,7 +296,7 @@ export function CatalogPage({
           </div>
 
           {filtered.length ? (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
               {filtered.map((product) => (
                 <ProductCard key={product.slug} locale={locale} product={product} />
               ))}

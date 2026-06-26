@@ -18,6 +18,14 @@ const checks = [
   {
     name: "all pages render floating Telegram chat link",
     pass: () => source.includes("Chat with us") && source.includes('href={TELEGRAM_URL}') && source.includes("fixed bottom-5 right-5")
+  },
+  {
+    name: "product catalog cards use compact spec rows",
+    pass: () =>
+      source.includes("product.params[locale].slice(0, 3)") &&
+      source.includes("product-card-specs") &&
+      source.includes("xl:grid-cols-4") &&
+      !source.includes('<p className="mt-3 text-muted">{product.overview[locale]}</p>')
   }
 ];
 
