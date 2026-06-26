@@ -350,8 +350,8 @@ export const products = [
     image: "assets/products/RT_59055E_HC2A.png",
     pdf: "RT_59055E_HC2A_datasheet.pdf",
     overview: {
-      ru: "Сменные датчики влажности и температуры Rotronic HC2A для интеграции и точного мониторинга.",
-      en: "Interchangeable Rotronic HC2A humidity and temperature probes for integration and precise monitoring."
+      ru: "HC2A Series для климатических камер, HVAC, BMS и промышленного мониторинга: сменные датчики влажности и температуры Rotronic для точной интеграции в системы контроля. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Rotronic HC2A Series humidity and temperature probes for climate chambers, HVAC, BMS and industrial monitoring, designed for precise system integration. Request price, availability and a quotation for HC2A Series."
     },
     params: {
       ru: ["0-100% RH", "Стандартный диапазон -50 до 100 deg C", "Точность +/-0.8% RH или +/-0.5% RH", "2 аналоговых выхода 0-1 V"],
@@ -374,8 +374,8 @@ export const products = [
     image: "assets/products/RT_59073E_HP31-HP32.png",
     pdf: "RT_59073E_HP31-HP32.pdf",
     overview: {
-      ru: "Ручной прибор влажности и температуры для полевых проверок, HVAC и регистрации данных.",
-      en: "Handheld humidity and temperature meter for field checks, HVAC and data logging."
+      ru: "HP31 / HP32 для выездной проверки влажности и температуры, HVAC, BMS, складов и фармацевтических зон: ручной прибор с регистрацией данных. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "HP31 / HP32 handheld humidity and temperature meter for field checks, HVAC, BMS, storage rooms and pharmaceutical areas with data logging. Request price, availability and a quotation for HP31 / HP32."
     },
     params: {
       ru: ["Диапазон работы: -10 до 60 deg C, 0-100% RH", "HP31: +/-2% RH / +/-0.3 deg C при 23 deg C", "Память 64,000 точек", "Аккумулятор до 48 часов"],
@@ -470,8 +470,8 @@ export const products = [
     image: "assets/products/Michell Pura.png",
     pdf: "Michell_Instruments_Pura_Transmitters_Datasheet.pdf",
     overview: {
-      ru: "Компактный преобразователь следовой влажности для контроля сухих газов, сжатого воздуха и OEM-установок.",
-      en: "Compact trace moisture transmitter for monitoring dry gases, compressed air and OEM installations."
+      ru: "Pura для следовой влажности в сухих газах, сжатом воздухе, полупроводниковых и OEM-системах: компактный преобразователь для низких уровней влаги. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Pura trace moisture transmitter for dry gases, compressed air, semiconductor processes and OEM systems requiring low-level moisture monitoring. Request price, availability and a quotation for Pura."
     },
     params: {
       ru: ["Измерение точки росы и следовой влажности", "Компактный корпус для интеграции в систему", "Промышленный аналоговый выход", "PDF datasheet содержит полные диапазоны и варианты исполнения"],
@@ -494,8 +494,8 @@ export const products = [
     image: "assets/products/Rotronic HF1.png",
     pdf: "RT_59034E_HygroFlex1.pdf",
     overview: {
-      ru: "Компактный преобразователь влажности и температуры для стандартного мониторинга воздуха и технических помещений.",
-      en: "Compact humidity and temperature transmitter for standard air monitoring and technical rooms."
+      ru: "HygroFlex1 для мониторинга влажности и температуры в HVAC, BMS, складах и производственных помещениях: компактный преобразователь для стандартных задач контроля воздуха. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "HygroFlex1 humidity and temperature transmitter for HVAC, BMS, storage rooms and production areas requiring standard air monitoring. Request price, availability and a quotation for HygroFlex1."
     },
     params: {
       ru: ["Измерение относительной влажности и температуры", "Компактное исполнение для настенного монтажа", "Аналоговый выход для систем мониторинга", "PDF datasheet содержит варианты диапазонов и выходов"],
@@ -542,8 +542,8 @@ export const products = [
     image: "assets/products/Humidity and Temperature Transmitter Series HMT310.png",
     pdf: "VA_HMT310-Datasheet-B210769EN-J.pdf",
     overview: {
-      ru: "Преобразователь влажности и температуры для промышленных процессов, камер, воздуховодов и технических систем.",
-      en: "Humidity and temperature transmitter for industrial processes, chambers, ducts and technical systems."
+      ru: "HMT310 для промышленных процессов, климатических камер, воздуховодов и лабораторного мониторинга: преобразователь влажности и температуры с гибкими вариантами установки. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "HMT310 humidity and temperature transmitter for industrial processes, climate chambers, ducts and laboratory monitoring with flexible installation options. Request price, availability and a quotation for HMT310."
     },
     params: {
       ru: ["Измерение относительной влажности и температуры", "Варианты зондов для разных способов монтажа", "Промышленный выходной сигнал", "PDF datasheet содержит диапазоны и модели исполнения"],
@@ -566,8 +566,8 @@ export const products = [
     image: "assets/products/Humidity and Temperature Probe HMP3.png",
     pdf: "VA_HMP3-HMPX-Datasheet-B211826EN-E.pdf",
     overview: {
-      ru: "Зонд влажности и температуры для точного измерения в камерах, помещениях и промышленных системах мониторинга.",
-      en: "Humidity and temperature probe for precise measurement in chambers, rooms and industrial monitoring systems."
+      ru: "HMP3 / HMPX для точного измерения влажности и температуры в камерах, помещениях, воздуховодах и промышленных системах мониторинга. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "HMP3 / HMPX humidity and temperature probes for precise measurement in chambers, rooms, ducts and industrial monitoring systems. Request price, availability and a quotation for HMP3 / HMPX."
     },
     params: {
       ru: ["Измерение влажности и температуры", "Зондовое исполнение для интеграции", "Совместимость с системами мониторинга Vaisala", "PDF datasheet содержит варианты HMP и аксессуары"],
@@ -614,8 +614,8 @@ export const products = [
     image: "assets/products/VA_DMT143-DMT143L.png",
     pdf: "VA_DMT143-Datasheet-B211207EN-L.pdf",
     overview: {
-      ru: "Миниатюрные преобразователи точки росы для промышленных осушителей, сжатого воздуха и сухих технологических газов.",
-      en: "Miniature dew-point transmitters for industrial dryers, compressed air and dry process gases."
+      ru: "DMT143 / DMT143L для промышленных осушителей, сжатого воздуха, OEM-оборудования и сухих технологических газов: миниатюрные преобразователи точки росы. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "DMT143 / DMT143L miniature dew-point transmitters for industrial dryers, compressed air, OEM equipment and dry process gases. Request price, availability and a quotation for DMT143 / DMT143L."
     },
     params: {
       ru: ["Измерение точки росы в сухих газах", "Миниатюрное исполнение", "Варианты стандартной и удлиненной конструкции", "PDF datasheet содержит диапазоны и варианты моделей"],

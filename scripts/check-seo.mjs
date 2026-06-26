@@ -109,6 +109,22 @@ const checks = [
     }
   },
   {
+    name: "fourth batch product pages include RFQ-ready search phrases",
+    pass: () => {
+      const catalog = read("src/data/catalog.ts");
+      const requiredPhrases = [
+        "Request price, availability and a quotation for HC2A Series",
+        "Request price, availability and a quotation for HP31 / HP32",
+        "Request price, availability and a quotation for Pura",
+        "Request price, availability and a quotation for HygroFlex1",
+        "Request price, availability and a quotation for HMT310",
+        "Request price, availability and a quotation for HMP3 / HMPX",
+        "Request price, availability and a quotation for DMT143 / DMT143L"
+      ];
+      return requiredPhrases.every((phrase) => catalog.includes(phrase));
+    }
+  },
+  {
     name: "English About page uses updated Sinoetm company copy",
     pass: () => {
       const i18n = read("src/lib/i18n.ts");
