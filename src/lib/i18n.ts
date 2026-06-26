@@ -135,13 +135,9 @@ export const copy = {
     applications: "Applications",
     aboutTitle: "About",
     aboutLead:
-      "SINOETM TECH LTD provides reliable measurement instruments and sensor solutions for industrial and professional applications.",
+      "Sinoetm Tech. Ltd. provides high-reliability measurement instruments and sensor solutions for demanding industrial and professional applications.",
     aboutBody: [
-      "SINOETM TECH LTD is a trading company focused on providing reliable measurement instruments and sensor solutions for industrial and professional applications.",
-      "We specialize in supplying products such as Dew Point Meters, Temperature & Humidity Sensors, and Oxygen Analyzers, serving customers in fields including industrial production, laboratory testing, gas monitoring, environmental monitoring, and related technical applications.",
-      "At SINOETM TECH LTD, we understand that accurate measurement is essential for process control, safety monitoring, quality assurance, and stable operation. Therefore, we are committed to offering measurement instruments that are stable, precise, and reliable.",
-      "Our goal is to help customers select suitable products according to their application requirements and provide responsive support throughout product selection, quotation, documentation, and after-sales communication.",
-      "With a practical and customer-oriented approach, SINOETM TECH LTD aims to become a trusted partner for companies seeking dependable measurement solutions in industrial and laboratory environments."
+      "Sinoetm Tech. Ltd. is a premier company dedicated to providing high-reliability measurement instruments and sensor solutions for industrial and professional applications. We specialize in sourcing and supplying advanced equipment—including Dew Point Meters, Temperature & Humidity Sensors, and Oxygen Analyzers—to support critical operations in industrial production, laboratory testing, gas monitoring, and environmental compliance. Recognizing that precision is vital for process control, safety, and quality assurance, we commit to delivering exceptionally stable, accurate, and dependable instrumentation. Our customer-centric approach ensures seamless support at every stage, from expert product selection and efficient quotation to comprehensive documentation and responsive after-sales service. Sinoetm aims to be your trusted partner for robust measurement solutions in demanding industrial and laboratory environments."
     ],
     contactTitle: "Contact / RFQ",
     contactLead: "Fill out the form to request pricing, availability, PDF materials or technical consultation.",

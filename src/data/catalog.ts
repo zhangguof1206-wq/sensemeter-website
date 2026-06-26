@@ -611,7 +611,7 @@ export const products = [
     model: "DMT143 / DMT143L",
     category: "VAISALA",
     brand: "VAISALA",
-    image: "assets/products/Miniature Dew Point Transmitters DMT143 & DMT143L (Long).png",
+    image: "assets/products/VA_DMT143-DMT143L.png",
     pdf: "VA_DMT143-Datasheet-B211207EN-L.pdf",
     overview: {
       ru: "Миниатюрные преобразователи точки росы для промышленных осушителей, сжатого воздуха и сухих технологических газов.",

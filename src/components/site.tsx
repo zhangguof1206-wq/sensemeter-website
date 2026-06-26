@@ -354,7 +354,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
       <section className="section">
         <div className="section-narrow">
           <article className="card p-8">
-            <p className="eyebrow !mb-5 !text-slate-400">SINOETM TECH LTD</p>
+            <p className="eyebrow !mb-5 !text-slate-400">Sinoetm Tech. Ltd.</p>
             <div className="space-y-5 text-lg leading-8 text-muted">
               {c.aboutBody.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>

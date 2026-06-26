@@ -47,7 +47,7 @@ const expectedNewProducts = [
   {
     slug: "dmt143-dmt143l",
     category: "VAISALA",
-    image: "Miniature Dew Point Transmitters DMT143 & DMT143L (Long).png",
+    image: "VA_DMT143-DMT143L.png",
     pdf: "VA_DMT143-Datasheet-B211207EN-L.pdf"
   }
 ];
@@ -86,6 +86,13 @@ for (const category of categoryRefs) {
 for (const slug of slugs) {
   if (slugs.indexOf(slug) !== slugs.lastIndexOf(slug)) {
     errors.push(`Duplicate product slug: ${slug}`);
+  }
+}
+
+const productImagePaths = [...catalogSource.matchAll(/image:\s*"assets\/products\/([^"]+)"/g)].map((match) => match[1]);
+for (const imagePath of productImagePaths) {
+  if (imagePath.includes("&")) {
+    errors.push(`Product image filename should avoid ampersands for reliable static URLs: ${imagePath}`);
   }
 }
 

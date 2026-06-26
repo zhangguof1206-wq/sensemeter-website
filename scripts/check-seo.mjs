@@ -69,6 +69,14 @@ const checks = [
     }
   },
   {
+    name: "English About page uses updated Sinoetm company copy",
+    pass: () => {
+      const i18n = read("src/lib/i18n.ts");
+      return i18n.includes("Sinoetm Tech. Ltd. is a premier company dedicated") &&
+        i18n.includes("Sinoetm aims to be your trusted partner");
+    }
+  },
+  {
     name: "thank-you pages are noindex",
     pass: () => {
       const ru = read("src/app/thank-you/page.tsx");
