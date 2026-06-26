@@ -52,6 +52,23 @@ const checks = [
     }
   },
   {
+    name: "priority product pages include commercial Yandex keywords",
+    pass: () => {
+      const catalog = read("src/data/catalog.ts").toLowerCase();
+      const requiredKeywords = [
+        "цена",
+        "наличие",
+        "коммерческое предложение",
+        "датчик точки росы",
+        "анализатор кислорода",
+        "датчик влажности",
+        "опасных зон",
+        "сжатого воздуха"
+      ];
+      return requiredKeywords.every((keyword) => catalog.includes(keyword));
+    }
+  },
+  {
     name: "thank-you pages are noindex",
     pass: () => {
       const ru = read("src/app/thank-you/page.tsx");

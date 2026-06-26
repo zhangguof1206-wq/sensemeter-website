@@ -110,8 +110,8 @@ export const products = [
     image: "assets/products/MI_EasidewPRO-IS.png",
     pdf: "MI_EasidewPRO-IS.pdf",
     overview: {
-      ru: "Искробезопасный преобразователь точки росы для тяжелых технологических условий, газов и неполярных жидкостей.",
-      en: "Intrinsically safe dew-point transmitter for demanding process environments, gases and non-polar liquids."
+      ru: "Искробезопасный датчик точки росы Easidew PRO I.S. для тяжелых технологических условий, газов, неполярных жидкостей и опасных зон. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Intrinsically safe Easidew PRO I.S. dew-point transmitter for demanding process environments, gases, non-polar liquids and hazardous areas. Request price, availability and a quotation."
     },
     params: {
       ru: ["Диапазон: -110 до +20 deg Cdp", "Точность: +/-1 deg Cdp", "Выход: 2-проводный 4-20 mA", "Рабочее давление до 450 barg"],
@@ -122,8 +122,8 @@ export const products = [
       en: ["ATEX, IECEx, UKCA and cQPSus approvals", "316 stainless-steel construction", "Traceable 13-point calibration certificate"]
     },
     applications: {
-      ru: ["Добыча и транспортировка природного газа", "Нефтехимия и НПЗ", "Осушка трубопроводов, LNG/CNG, защита катализаторов"],
-      en: ["Natural gas production and transmission", "Petrochemical and refinery processes", "Pipeline drying, LNG/CNG, catalyst protection"]
+      ru: ["Добыча и транспортировка природного газа", "Нефтехимия, НПЗ и опасные зоны", "Осушка трубопроводов, LNG/CNG, сжатого воздуха и защита катализаторов"],
+      en: ["Natural gas production and transmission", "Petrochemical, refinery and hazardous-area processes", "Pipeline drying, LNG/CNG, compressed air and catalyst protection"]
     }
   },
   {
@@ -278,8 +278,8 @@ export const products = [
     image: "assets/products/AI_GPR1600 2600 3100.png",
     pdf: "AI_GPR1600 2600 3100.pdf",
     overview: {
-      ru: "Высокоточные анализаторы кислорода для промышленных газов в настольном, панельном, rack и настенном исполнении.",
-      en: "High-accuracy oxygen analyzers for industrial gases in bench, panel, rack and wall-mount formats."
+      ru: "Высокоточный анализатор кислорода GPR-1600 / GPR-2600 / GPR-3100 для промышленных газов, контроля чистоты O2 и следовых ppm-измерений. Запросите цену, наличие и коммерческое предложение.",
+      en: "High-accuracy GPR-1600 / GPR-2600 / GPR-3100 oxygen analyzer for industrial gases, O2 purity control and trace ppm measurement. Request price, availability and a quotation."
     },
     params: {
       ru: ["От trace ppm до контроля чистоты O2", "Точность до +/-0.02 ppm в низком диапазоне", "4 диапазона, ручной или автоматический выбор", "Два реле тревоги"],
@@ -290,8 +290,8 @@ export const products = [
       en: ["Common easy-to-use HMI", "Range indication output", "Integrated bypass valve on GPR-1600"]
     },
     applications: {
-      ru: ["Чистота промышленных газов", "Водородное производство", "Термообработка и газовый анализ"],
-      en: ["Industrial gas product purity", "Hydrogen production", "Heat treatment and gas analysis"]
+      ru: ["Чистота промышленных газов и контроль O2", "Водородное производство и генераторы газов", "Термообработка, газовый анализ и техническая консультация"],
+      en: ["Industrial gas product purity and O2 control", "Hydrogen production and gas generators", "Heat treatment, gas analysis and technical consultation"]
     }
   },
   {
@@ -326,8 +326,8 @@ export const products = [
     image: "assets/products/RT_HC2A_Industrial_Humidity_Probes.png",
     pdf: "RT_HC2A_Industrial_Humidity_Probes.pdf",
     overview: {
-      ru: "Промышленные зонды влажности и температуры для кабельного, стального и резьбового исполнения.",
-      en: "Industrial humidity and temperature probes in cable, stainless-steel and threaded versions."
+      ru: "Промышленный датчик влажности и температуры HC2A для производственных сред, сушильных процессов, климатических камер и систем мониторинга. Запросите цену, наличие и коммерческое предложение.",
+      en: "Industrial HC2A humidity and temperature sensor for production environments, drying processes, climate chambers and monitoring systems. Request price, availability and a quotation."
     },
     params: {
       ru: ["0-100% RH", "Рабочий диапазон до -100...200 deg C", "Точность +/-0.8% RH, +/-0.1 K при 23 deg C", "UART и масштабируемые 0-1 V выходы"],
@@ -338,8 +338,8 @@ export const products = [
       en: ["HYGROMER HT-1 humidity sensor", "High repeatability and long-term stability", "Hot-swappable probe design"]
     },
     applications: {
-      ru: ["Производственные среды", "Промышленное производство", "Сушка, климатические камеры и процессы под давлением"],
-      en: ["Production environments", "Industrial manufacturing", "Drying, climate chambers and pressure processes"]
+      ru: ["Производственные среды и промышленный мониторинг влажности", "Промышленное производство, HVAC и BMS", "Сушка, климатические камеры и процессы под давлением"],
+      en: ["Production environments and industrial humidity monitoring", "Industrial manufacturing, HVAC and BMS", "Drying, climate chambers and pressure processes"]
     }
   },
   {
@@ -518,8 +518,8 @@ export const products = [
     image: "assets/products/Intrinsically Safe Humidity and Temperature Transmitter Series HMT370EX.png",
     pdf: "VA_HMT370EX-Datasheet-B211825EN-K.pdf",
     overview: {
-      ru: "Искробезопасный преобразователь влажности и температуры для опасных зон и сложных промышленных сред.",
-      en: "Intrinsically safe humidity and temperature transmitter for hazardous areas and demanding industrial environments."
+      ru: "Искробезопасный датчик влажности и температуры HMT370EX для опасных зон, химических процессов и сложных промышленных сред. Запросите цену, наличие и коммерческое предложение.",
+      en: "Intrinsically safe HMT370EX humidity and temperature sensor for hazardous areas, chemical processes and demanding industrial environments. Request price, availability and a quotation."
     },
     params: {
       ru: ["Измерение влажности и температуры", "Исполнения для опасных зон", "Несколько вариантов зондов для разных условий", "PDF datasheet содержит сертификации и точные диапазоны"],
@@ -530,8 +530,8 @@ export const products = [
       en: ["Designed for demanding industrial conditions", "Flexible configuration with different probes", "Suitable for processes where measurement safety matters"]
     },
     applications: {
-      ru: ["Опасные зоны", "Химические и технологические процессы", "Промышленный мониторинг влажности"],
-      en: ["Hazardous areas", "Chemical and process applications", "Industrial humidity monitoring"]
+      ru: ["Опасные зоны и взрывоопасные участки", "Химические и технологические процессы", "Промышленный мониторинг влажности и температуры"],
+      en: ["Hazardous areas and explosive atmospheres", "Chemical and process applications", "Industrial humidity and temperature monitoring"]
     }
   },
   {
