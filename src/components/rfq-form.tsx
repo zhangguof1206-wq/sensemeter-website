@@ -14,6 +14,11 @@ function encodeFormData(form: HTMLFormElement) {
   return new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString();
 }
 
+function reportRfqSubmitSuccess() {
+  const ym = (window as typeof window & { ym?: (...args: unknown[]) => void }).ym;
+  ym?.(110136437, "reachGoal", "rfq_submit_success");
+}
+
 function Field({
   label,
   name,
@@ -83,6 +88,7 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
         throw new Error(emailResponse.status === 503 ? errorCopy.notConfigured : errorCopy.failed);
       }
 
+      reportRfqSubmitSuccess();
       window.location.href = localizedPath(locale, "/thank-you");
     } catch (error) {
       const message = error instanceof DOMException && error.name === "AbortError" ? errorCopy.timeout : error instanceof Error ? error.message : errorCopy.failed;

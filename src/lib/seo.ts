@@ -99,6 +99,64 @@ export function productMetadata(locale: Locale, product: Product): Metadata {
   };
 }
 
+export function siteJsonLd() {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: siteName,
+      legalName: "SINOETM TECH LTD",
+      url: absoluteUrl("/"),
+      logo: absoluteUrl("/logo-header.png"),
+      email: "sales@sensemeter.ru",
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "sales@sensemeter.ru",
+        availableLanguage: ["ru", "en"]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: siteName,
+      url: absoluteUrl("/"),
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${absoluteUrl("/catalog")}?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ];
+}
+
+export function breadcrumbJsonLd(locale: Locale, product: Product) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: locale === "ru" ? "Главная" : "Home",
+        item: absoluteUrl(localizedCanonical(locale, "/"))
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: locale === "ru" ? "Каталог" : "Product Catalog",
+        item: absoluteUrl(localizedCanonical(locale, "/catalog"))
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.model,
+        item: absoluteUrl(localizedCanonical(locale, `/products/${product.slug}`))
+      }
+    ]
+  };
+}
+
 export function productJsonLd(locale: Locale, product: Product) {
   const path = localizedCanonical(locale, `/products/${product.slug}`);
 

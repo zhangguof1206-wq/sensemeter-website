@@ -29,6 +29,29 @@ const checks = [
     }
   },
   {
+    name: "root layout renders Organization and WebSite JSON-LD",
+    pass: () => {
+      const layout = read("src/app/layout.tsx");
+      const seo = read("src/lib/seo.ts");
+      return layout.includes("siteJsonLd") && seo.includes('"@type": "Organization"') && seo.includes('"@type": "WebSite"');
+    }
+  },
+  {
+    name: "product page renders BreadcrumbList JSON-LD",
+    pass: () => {
+      const component = read("src/components/site.tsx");
+      const seo = read("src/lib/seo.ts");
+      return component.includes("breadcrumbJsonLd") && seo.includes('"@type": "BreadcrumbList"');
+    }
+  },
+  {
+    name: "RFQ success sends Yandex Metrica goal",
+    pass: () => {
+      const form = read("src/components/rfq-form.tsx");
+      return form.includes('"reachGoal"') && form.includes('"rfq_submit_success"') && form.includes("reportRfqSubmitSuccess");
+    }
+  },
+  {
     name: "thank-you pages are noindex",
     pass: () => {
       const ru = read("src/app/thank-you/page.tsx");

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-import { absoluteUrl, languageAlternates, siteName, siteUrl } from "@/lib/seo";
+import { absoluteUrl, languageAlternates, siteJsonLd, siteName, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -33,6 +33,7 @@ export const metadata: Metadata = {
 };
 
 const yandexMetricaId = 110136437;
+const siteStructuredData = siteJsonLd();
 
 function YandexMetrica() {
   return (
@@ -72,6 +73,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru">
       <body>
+        <Script
+          id="site-json-ld"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteStructuredData).replace(/</g, "\\u003c") }}
+        />
         <YandexMetrica />
         {children}
       </body>
