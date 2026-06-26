@@ -24,7 +24,7 @@ const checks = [
     pass: () =>
       source.includes("product.params[locale].slice(0, 3)") &&
       source.includes("product-card-specs") &&
-      source.includes("xl:grid-cols-4") &&
+      source.includes("lg:grid-cols-3") && !source.includes("xl:grid-cols-4") &&
       !source.includes('<p className="mt-3 text-muted">{product.overview[locale]}</p>')
   }
 ];
