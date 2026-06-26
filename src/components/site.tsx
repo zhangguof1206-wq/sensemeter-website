@@ -113,7 +113,7 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
           <div>
             <strong>{c.brand}</strong>
             <p className="mt-1 text-slate-300">{c.footerLine}</p>
-            <p className="mt-3 text-sm text-slate-400">漏 2026 SINOETM TECH LTD. All rights reserved.</p>
+            <p className="mt-3 text-sm text-slate-400">&copy; 2026 SINOETM TECH LTD. All rights reserved.</p>
             <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-300">
               <Link className="hover:text-white" href={localizedPath(locale, "/privacy")}>
                 {c.navPrivacy}
@@ -131,6 +131,19 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
           </Link>
         </div>
       </footer>
+      <a
+        className="fixed bottom-5 right-5 z-50 flex min-h-12 items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-black text-white shadow-2xl transition hover:bg-accent-dark focus:outline-none focus:ring-4 focus:ring-accent/30 md:bottom-7 md:right-7"
+        href={TELEGRAM_URL}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat with us on Telegram"
+      >
+        <svg className="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+          <path d="M21 4 3 11l7 3 3 7 8-17Z" />
+          <path d="m10 14 4-4" />
+        </svg>
+        <span>Chat with us</span>
+      </a>
       <CookieBanner locale={locale} />
     </div>
   );
@@ -381,19 +394,11 @@ export function ContactPage({ locale, model }: { locale: Locale; model?: string 
             <dl className="mt-6 space-y-3 text-sm">
               <div>
                 <dt className="font-bold">Email</dt>
-                <dd>
-                  <a className="text-accent font-bold" href={`mailto:${c.contactEmail}`}>
-                    {c.contactEmail}
-                  </a>
-                </dd>
+                <dd className="text-accent font-bold">{c.contactEmail}</dd>
               </div>
               <div>
                 <dt className="font-bold">{c.telegramLabel}</dt>
-                <dd>
-                  <a className="text-accent font-bold" href={TELEGRAM_URL} target="_blank" rel="noreferrer">
-                    {c.contactTelegram}
-                  </a>
-                </dd>
+                <dd className="text-accent font-bold">{c.contactTelegram}</dd>
               </div>
             </dl>
           </aside>
