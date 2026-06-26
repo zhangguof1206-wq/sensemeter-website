@@ -88,6 +88,27 @@ const checks = [
     }
   },
   {
+    name: 'third batch product pages include RFQ-ready search phrases',
+    pass: () => {
+      const catalog = read('src/data/catalog.ts');
+      const requiredPhrases = [
+        'Easidew 34 / Easidew M12 для OEM-осушителей',
+        'Easidew Online для постоянного контроля точки росы',
+        'GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500 для кислорода',
+        'GPR-1500 GB / GPR-2500 GB для glove box',
+        'Optidew-HZ для углеводородной точки росы',
+        'SF82 Online для сжатого воздуха',
+        'Request price, availability and a quotation for Easidew 34 / Easidew M12',
+        'Request price, availability and a quotation for Easidew Online',
+        'Request price, availability and a quotation for GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500',
+        'Request price, availability and a quotation for GPR-1500 GB / GPR-2500 GB',
+        'Request price, availability and a quotation for Optidew-HZ',
+        'Request price, availability and a quotation for SF82 Online'
+      ];
+      return requiredPhrases.every((phrase) => catalog.includes(phrase));
+    }
+  },
+  {
     name: "English About page uses updated Sinoetm company copy",
     pass: () => {
       const i18n = read("src/lib/i18n.ts");

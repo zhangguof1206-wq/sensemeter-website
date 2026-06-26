@@ -1,4 +1,4 @@
-﻿export type Locale = "ru" | "en";
+export type Locale = "ru" | "en";
 export type CategoryId = "MICHELL" | "ROTRONIC" | "VAISALA" | "AII";
 
 export type LocalizedText = Record<Locale, string>;
@@ -134,8 +134,8 @@ export const products = [
     image: "assets/products/MI_EasidewTransmitters.png",
     pdf: "MI_EasidewTransmitters_EN.pdf",
     overview: {
-      ru: "Компактный промышленный преобразователь точки росы для безопасных и опасных зон с подключением MiniDIN или M12.",
-      en: "Compact industrial dew-point transmitter for safe and hazardous areas with MiniDIN or M12 connection."
+      ru: "Easidew 34 / Easidew M12 для OEM-осушителей, сжатого воздуха, водорода и технических газов: компактный преобразователь точки росы с MiniDIN или M12 для безопасных и опасных зон. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Compact Easidew 34 / Easidew M12 dew-point transmitter for OEM dryers, compressed air, hydrogen and process gases, with MiniDIN or M12 connection for safe and hazardous areas. Request price, availability and a quotation for Easidew 34 / Easidew M12."
     },
     params: {
       ru: ["Диапазон: -110 до +20 deg Cdp", "Точность: +/-2 deg Cdp", "Выход по точке росы или ppmV", "2-проводное питание от токовой петли"],
@@ -158,8 +158,8 @@ export const products = [
     image: "assets/products/MI_EasidewOnline.png",
     pdf: "MI_EasidewOnline_EN.pdf",
     overview: {
-      ru: "Онлайн-гигрометр точки росы с локальным дисплеем, сигналами тревоги и промышленным датчиком.",
-      en: "Online dew-point hygrometer with local display, alarm functions and a robust industrial sensor."
+      ru: "Easidew Online для постоянного контроля точки росы в осушителях, дыхательном воздухе, водороде и glove box: онлайн-гигрометр с дисплеем и сигналами тревоги. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Easidew Online dew-point hygrometer for continuous monitoring in dryers, breathing air, hydrogen and glove boxes, with local display and alarm functions. Request price, availability and a quotation for Easidew Online."
     },
     params: {
       ru: ["Диапазон: -100 до +20 deg Cdp", "Опция 0-3000 ppmV", "Выход 4-20 mA или 0-20 mA", "Два настраиваемых реле тревоги"],
@@ -206,8 +206,8 @@ export const products = [
     image: "assets/products/AI_GPR-1100-GPR-2000-GPR-3500-v5.png",
     pdf: "AI_GPR-1100-GPR-2000-GPR-3500-v5.pdf",
     overview: {
-      ru: "Портативные кислородные анализаторы для полевых проверок, ppm-уровней и контроля чистоты газа.",
-      en: "Portable oxygen analyzers for field checks, ppm-level measurement and gas purity control."
+      ru: "GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500 для кислорода в генераторах O2/N2, морских трюмах, сварочной продувке и полевых проверках: портативные анализаторы ppm и %. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Portable GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500 oxygen analyzers for O2/N2 generators, marine holds, welding purge and field checks at ppm or percent ranges. Request price, availability and a quotation for GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500."
     },
     params: {
       ru: ["Диапазоны O2: 0-10 ppm до 0-100%", "Разрешение до 0.1 ppm по модели", "Батарея до 30 дней", "Опция внутреннего насоса"],
@@ -254,8 +254,8 @@ export const products = [
     image: "assets/products/AI_GPR-1500GB-2500GB.png",
     pdf: "AI_GPR-1500GB-2500GB.pdf",
     overview: {
-      ru: "Анализатор кислорода для glove box с прямой или удаленной установкой сенсора.",
-      en: "Glove-box oxygen analyzer with direct or remote sensor installation options."
+      ru: "GPR-1500 GB / GPR-2500 GB для glove box, азотных генераторов и контроля низкого уровня кислорода: анализатор O2 с прямой или удаленной установкой сенсора. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "GPR-1500 GB / GPR-2500 GB glove-box oxygen analyzer for nitrogen generators and low-level O2 monitoring, with direct or remote sensor installation. Request price, availability and a quotation for GPR-1500 GB / GPR-2500 GB."
     },
     params: {
       ru: ["Диапазон: 0-10 ppm до 0-25% O2", "Точность лучше 2% выбранного диапазона", "Выход 4-20 mA", "Питание 18-24 V loop power"],
@@ -422,8 +422,8 @@ export const products = [
     image: "assets/products/Michell_Instruments_Optidew.png",
     pdf: "Michell_Instruments_Optidew_US_Datasheet_v3-1.pdf",
     overview: {
-      ru: "Быстродействующий chilled mirror hygrometer для эталонных измерений влажности в лаборатории и производстве.",
-      en: "Fast-response chilled mirror hygrometer for reference humidity measurement in laboratory and industrial use."
+      ru: "Optidew-HZ для углеводородной точки росы в природном газе и технологических газах: анализатор chilled mirror для точных измерений и промышленного мониторинга. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Optidew-HZ hydrocarbon dew-point chilled mirror analyzer for natural gas and process gases, supporting accurate measurement and industrial monitoring. Request price, availability and a quotation for Optidew-HZ."
     },
     params: {
       ru: ["Диапазон точки росы: -40 до +120 deg C", "Точность точки росы +/-0.15 deg C", "Цветной сенсорный экран 5.7 inch", "Опция Modbus TCP Ethernet"],
@@ -446,8 +446,8 @@ export const products = [
     image: "assets/products/MI_SF82_Online.png",
     pdf: "MI_SF82_Online.pdf",
     overview: {
-      ru: "Онлайн-гигрометр точки росы с быстрым откликом, пробоотборной системой и Modbus RTU.",
-      en: "Fast-response online dew-point hygrometer with sampling system and Modbus RTU."
+      ru: "SF82 Online для сжатого воздуха, медицинского воздуха, осушителей и additive manufacturing: онлайн-гигрометр точки росы с пробоотборной системой и Modbus RTU. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "SF82 Online dew-point hygrometer for compressed air, medical air, dryers and additive manufacturing, with sampling system and Modbus RTU. Request price, availability and a quotation for SF82 Online."
     },
     params: {
       ru: ["Диапазон: -60 до +60 deg Cdp", "Точность +/-2 deg Cdp", "Выход 4-20 mA", "Modbus RTU over RS485"],
