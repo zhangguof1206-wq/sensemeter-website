@@ -69,6 +69,25 @@ const checks = [
     }
   },
   {
+    name: "second batch product pages include RFQ-ready search phrases",
+    pass: () => {
+      const catalog = read("src/data/catalog.ts");
+      const requiredPhrases = [
+        "Easidew PRO XP для природного газа",
+        "MDM300 для выездной проверки точки росы",
+        "DMT153 для OEM-систем осушки",
+        "GPR-1500 для следового кислорода",
+        "GPR-1900 / GPR-2900 для генераторов азота",
+        "Request price, availability and a quotation for Easidew PRO XP",
+        "Request price, availability and a quotation for MDM300",
+        "Request price, availability and a quotation for DMT153",
+        "Request price, availability and a quotation for GPR-1500",
+        "Request price, availability and a quotation for GPR-1900 / GPR-2900"
+      ];
+      return requiredPhrases.every((phrase) => catalog.includes(phrase));
+    }
+  },
+  {
     name: "English About page uses updated Sinoetm company copy",
     pass: () => {
       const i18n = read("src/lib/i18n.ts");

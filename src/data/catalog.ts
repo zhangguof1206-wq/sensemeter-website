@@ -182,8 +182,8 @@ export const products = [
     image: "assets/products/MI_EasidewPRO-XP.png",
     pdf: "MI_EasidewPRO-XP_EN.pdf",
     overview: {
-      ru: "Взрывозащищенный преобразователь влажности для газов и жидкостей с высокой точностью и давлением до 450 bar.",
-      en: "Explosion-proof moisture transmitter for gases and liquids with high accuracy and pressure rating up to 450 bar."
+      ru: "Easidew PRO XP для природного газа, биометана, LNG/LPG и технологических газов: взрывозащищенный датчик точки росы с высокой точностью и давлением до 450 bar. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Explosion-proof Easidew PRO XP dew-point transmitter for natural gas, biomethane, LNG/LPG and process gases with high accuracy and pressure rating up to 450 bar. Request price, availability and a quotation for Easidew PRO XP."
     },
     params: {
       ru: ["Диапазон: -110 до +20 deg Cdp", "Точность: +/-1 deg Cdp", "2-проводный выход 4-20 mA", "Глобальные explosion/flameproof approvals"],
@@ -194,8 +194,8 @@ export const products = [
       en: ["Integral display option", "Sensor exchange program reduces downtime", "Traceable 13-point calibration"]
     },
     applications: {
-      ru: ["Природный газ и биометан", "LNG/LPG, CNG и НПЗ", "Печи термообработки и защита катализаторов"],
-      en: ["Natural gas and biomethane", "LNG/LPG, CNG and refinery processes", "Heat-treatment furnaces and catalyst protection"]
+      ru: ["Природный газ, биометан и контроль точки росы", "LNG/LPG, CNG, НПЗ и опасные зоны", "Печи термообработки, защита катализаторов и техническая консультация"],
+      en: ["Natural gas, biomethane and dew-point control", "LNG/LPG, CNG, refinery and hazardous-area processes", "Heat-treatment furnaces, catalyst protection and technical consultation"]
     }
   },
   {
@@ -230,8 +230,8 @@ export const products = [
     image: "assets/products/AI_GPR-1500-Series-Order-Codes-v4.png",
     pdf: "AI_GPR-1500-Series-Order-Codes-v4.pdf",
     overview: {
-      ru: "Настенный анализатор следового кислорода для чистых газов, инертных сред и промышленных установок.",
-      en: "Wall-mounted trace oxygen analyzer for clean gases, inert atmospheres and industrial installations."
+      ru: "GPR-1500 для следового кислорода в чистых газах, инертных средах и промышленных установках: настенный анализатор O2 для ppm-контроля. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Wall-mounted GPR-1500 trace oxygen analyzer for clean gases, inert atmospheres and industrial installations with ppm-level O2 control. Request price, availability and a quotation for GPR-1500."
     },
     params: {
       ru: ["Следовой кислород до 0-10 ppm", "Нижний предел обнаружения до 0.05 ppm", "Настраиваемые диапазоны", "Версии общего назначения и ATEX"],
@@ -242,8 +242,8 @@ export const products = [
       en: ["NEMA wall-mount enclosure", "Fast recovery after exposure to air", "Sealed electrochemical sensor"]
     },
     applications: {
-      ru: ["Чистота инертного газа", "Производство стеклопакетов", "Контроль следового O2 в чистых газах"],
-      en: ["Inert gas purity measurement", "Double-glazing production", "Trace O2 monitoring in clean gases"]
+      ru: ["Чистота инертного газа и ppm-контроль O2", "Производство стеклопакетов и технологические линии", "Контроль следового O2 в чистых газах и подбор конфигурации"],
+      en: ["Inert gas purity measurement and ppm O2 control", "Double-glazing production and process lines", "Trace O2 monitoring in clean gases and configuration support"]
     }
   },
   {
@@ -302,8 +302,8 @@ export const products = [
     image: "assets/products/AI_GPR-1900-Oxygen-Analyzer.png",
     pdf: "AI_GPR-1900-Oxygen-Analyzer.pdf",
     overview: {
-      ru: "Панельный анализатор кислорода с удаленным сенсором, компенсацией давления и температуры.",
-      en: "Panel oxygen analyzer with remote sensor, pressure compensation and temperature compensation."
+      ru: "GPR-1900 / GPR-2900 для генераторов азота, кислорода, glove box и промышленных газов: панельный анализатор кислорода с удаленным сенсором. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Panel GPR-1900 / GPR-2900 oxygen analyzer for nitrogen generators, oxygen generators, glove boxes and industrial gases with remote sensor installation. Request price, availability and a quotation for GPR-1900 / GPR-2900."
     },
     params: {
       ru: ["Диапазон: 0-10 ppm до 0-100% O2", "Точность лучше 2% выбранного диапазона", "Два настраиваемых реле тревоги", "Питание 12-28 VDC или line power"],
@@ -314,8 +314,8 @@ export const products = [
       en: ["Remote sensor for flexible installation", "Easy sensor replacement", "Manual or automatic range lock"]
     },
     applications: {
-      ru: ["Генераторы азота и кислорода", "Glove box и confined-space monitoring", "Металлообработка, pulp and paper bleaching"],
-      en: ["Nitrogen and oxygen generators", "Glove boxes and confined-space monitoring", "Metal processing, pulp and paper bleaching"]
+      ru: ["Генераторы азота и кислорода", "Glove box, confined-space monitoring и контроль O2", "Металлообработка, pulp and paper bleaching и техническая консультация"],
+      en: ["Nitrogen and oxygen generators", "Glove boxes, confined-space monitoring and O2 control", "Metal processing, pulp and paper bleaching with technical consultation"]
     }
   },
   {
@@ -398,8 +398,8 @@ export const products = [
     image: "assets/products/MI_MDM300_EN-v9-7.png",
     pdf: "MI_MDM300_EN-v9-7.pdf",
     overview: {
-      ru: "Портативный гигрометр точки росы для быстрых проверок природного газа, сжатого воздуха и опасных зон.",
-      en: "Portable dew-point hygrometer for fast checks in natural gas, compressed air and hazardous areas."
+      ru: "MDM300 для выездной проверки точки росы в природном газе, сжатом воздухе и опасных зонах: портативный гигрометр для сервисных и пусконаладочных работ. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Portable MDM300 dew-point hygrometer for field checks in natural gas, compressed air and hazardous areas, suitable for service and commissioning work. Request price, availability and a quotation for MDM300."
     },
     params: {
       ru: ["Точность +/-1 deg Cdp от -60 до +20 deg Cdp", "T95 до -60 deg Cdp менее 15 минут", "Измерение давления до 350 barg", "Батарея до 48 часов"],
@@ -410,8 +410,8 @@ export const products = [
       en: ["Lightweight and rugged portable format", "Data logging and sampling accessories", "I.S. version for hazardous areas"]
     },
     applications: {
-      ru: ["Природный газ и трубопроводы", "Осушители сжатого воздуха", "Petrochemical, industrial gas, medical gas"],
-      en: ["Natural gas and pipelines", "Compressed air dryers", "Petrochemical, industrial gas and medical gas"]
+      ru: ["Природный газ, трубопроводы и контроль точки росы", "Осушители сжатого воздуха и сервисная проверка", "Petrochemical, industrial gas, medical gas и выездная диагностика"],
+      en: ["Natural gas, pipelines and dew-point control", "Compressed air dryers and field service checks", "Petrochemical, industrial gas, medical gas and portable diagnostics"]
     }
   },
   {
@@ -590,8 +590,8 @@ export const products = [
     image: "assets/products/DMT153 Dew Point Transmitter.png",
     pdf: "VA_DMT153-Datasheet-B212905EN-B.pdf",
     overview: {
-      ru: "Компактный преобразователь точки росы для контроля сухого воздуха, осушителей и OEM-применений.",
-      en: "Compact dew-point transmitter for dry air monitoring, dryers and OEM applications."
+      ru: "DMT153 для OEM-систем осушки, сухого воздуха и компактного контроля точки росы: промышленный датчик для осушителей и встроенного оборудования. Цена по запросу: уточните наличие и получите коммерческое предложение.",
+      en: "Compact DMT153 dew-point transmitter for OEM drying systems, dry air monitoring and integrated equipment. Request price, availability and a quotation for DMT153."
     },
     params: {
       ru: ["Измерение точки росы", "Компактный формат для установки в оборудование", "Промышленный выходной сигнал", "PDF datasheet содержит диапазоны измерения и варианты подключения"],
@@ -602,8 +602,8 @@ export const products = [
       en: ["Well suited for dry environments", "Convenient for OEM integration", "Practical solution for dryer monitoring"]
     },
     applications: {
-      ru: ["Осушители сжатого воздуха", "Пластиковые сушилки", "Сухой воздух и OEM-системы"],
-      en: ["Compressed air dryers", "Plastic dryers", "Dry air and OEM systems"]
+      ru: ["Осушители сжатого воздуха и контроль сухого воздуха", "Пластиковые сушилки и производственные линии", "Сухой воздух, OEM-системы и подбор датчика точки росы"],
+      en: ["Compressed air dryers and dry-air monitoring", "Plastic dryers and production lines", "Dry air, OEM systems and dew-point sensor selection"]
     }
   },
   {
