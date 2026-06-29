@@ -288,3 +288,44 @@ https://direct.yandex.com
 3. 看 4-8 周趋势，不看 1 天结果。
 4. 免费 SEO 先把产品页做扎实，再考虑付费广告。
 5. 所有转化都围绕 RFQ，不围绕单纯访问量。
+
+## 10. 新增商品后如何生成 Yandex 提交清单
+
+以后每次新增商品、修改商品标题、修改商品描述或修复商品图片后，先在本地网站文件夹运行：
+
+```bash
+npm run list:yandex-urls
+```
+
+你会看到 5 组 URL：
+
+1. `RU priority pages`：俄语首页、目录、关于、联系页，优先提交。
+2. `RU product pages`：所有俄语产品页，当前 Yandex 重点提交这一组。
+3. `EN priority pages`：英文首页、目录、关于、联系页，第二批提交。
+4. `EN product pages`：所有英文产品页，俄语产品页提交完后再提交。
+5. `Optional legal pages`：隐私政策、Cookie、个人数据同意页，可选提交。
+
+提交前先运行：
+
+```bash
+npm run check:yandex-urls
+```
+
+如果看到：
+
+```text
+Yandex URL list check passed.
+```
+
+说明清单没有重复 URL，也没有漏掉当前产品页。
+
+### 手动提交到 Yandex 的顺序
+
+1. 先复制 `RU product pages` 里还没有提交过的产品页。
+2. 打开 `Yandex Webmaster -> Indexing -> Reindex pages`。
+3. 每次粘贴 1 个 URL 并提交。
+4. 提交后到 `Sent pages` 查看状态。
+5. 如果显示 `In queue`，等待即可，不要重复提交。
+6. 如果显示 `Request processed`，说明提交请求已经处理。
+
+当前阶段先做免费 SEO，所以优先提交俄语产品页；英文页可以作为第二批继续提交。
