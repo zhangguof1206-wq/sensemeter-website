@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { assetPath, pdfPath, type Locale, type Product } from "@/data/catalog";
 import { localizedPath } from "@/lib/i18n";
 

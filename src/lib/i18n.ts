@@ -42,6 +42,7 @@ export const copy = {
     keyParams: "Ключевые параметры",
     highlights: "Особенности",
     applications: "Применение",
+    relatedApplications: "Связанные применения",
     aboutTitle: "О нас",
     aboutLead:
       "Sinoetm Tech. Ltd. предоставляет высоконадежные измерительные приборы и сенсорные решения для сложных промышленных и профессиональных применений.",
@@ -129,6 +130,7 @@ export const copy = {
     keyParams: "Key Parameters",
     highlights: "Highlights",
     applications: "Applications",
+    relatedApplications: "Related applications",
     aboutTitle: "About",
     aboutLead:
       "Sinoetm Tech. Ltd. provides high-reliability measurement instruments and sensor solutions for demanding industrial and professional applications.",

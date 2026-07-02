@@ -15,8 +15,10 @@
     "typecheck": "tsc --noEmit",
     "check:ui": "node scripts/check-ui.mjs",
     "check:i18n": "node scripts/check-i18n.mjs",
+    "check:applications": "node scripts/check-application-pages.mjs",
     "list:yandex-urls": "node scripts/list-yandex-urls.mjs",
-    "check:yandex-urls": "node scripts/check-yandex-url-list.mjs"
+    "check:yandex-urls": "node scripts/check-yandex-url-list.mjs",
+    "check:application-links": "node scripts/check-application-backlinks.mjs"
   },
   "dependencies": {
     "next": "^15.0.0",

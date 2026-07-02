@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = process.cwd();
@@ -9,7 +9,7 @@ const source = read("src/components/site.tsx");
 const checks = [
   {
     name: "footer copyright starts with copyright symbol",
-    pass: () => source.includes("&copy; 2026 SINOETM TECH LTD. All rights reserved.") && !source.includes("漏 2026")
+    pass: () => source.includes("&copy; 2026 SINOETM TECH LTD. All rights reserved.") && !source.includes("婕?2026")
   },
   {
     name: "contact email and Telegram are plain text",
@@ -26,6 +26,35 @@ const checks = [
       source.includes("product-card-specs") &&
       source.includes("lg:grid-cols-3") && !source.includes("xl:grid-cols-4") &&
       !source.includes('<p className="mt-3 text-muted">{product.overview[locale]}</p>')
+  },
+  {
+    name: "home category and application sections use carousel",
+    pass: () => {
+      const carouselPath = join(root, "src", "components", "card-carousel.tsx");
+      if (!existsSync(carouselPath)) return false;
+      const carouselSource = read("src/components/card-carousel.tsx");
+      const uses = source.match(/<CardCarousel/g) || [];
+      return source.includes('import { CardCarousel } from "@/components/card-carousel"') &&
+        uses.length >= 2 &&
+        carouselSource.includes('"use client"') &&
+        carouselSource.includes('scrollTo') &&
+        carouselSource.includes('md:auto-cols-[calc((100%-3rem)/3)]');
+    }
+  },
+  {
+    name: "category marquee auto-plays while application carousel stays manual",
+    pass: () => {
+      const carouselSource = read("src/components/card-carousel.tsx");
+      const cssSource = read("src/app/globals.css");
+      return source.includes("<CardCarousel ariaLabel={c.categoriesTitle} autoPlay>") &&
+        source.includes("<CardCarousel ariaLabel={c.applicationTitle}>") &&
+        !source.includes("<CardCarousel ariaLabel={c.applicationTitle} autoPlay>") &&
+        carouselSource.includes("autoPlay") &&
+        carouselSource.includes("carousel-marquee") &&
+        carouselSource.includes("[...items, ...items]") &&
+        cssSource.includes("@keyframes card-carousel-marquee") &&
+        cssSource.includes("animation-play-state: paused");
+    }
   }
 ];
 

@@ -146,3 +146,49 @@ select {
     padding: 56px 20px;
   }
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.carousel-marquee {
+  overflow: hidden;
+}
+
+.carousel-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 24px;
+  animation: card-carousel-marquee 32s linear infinite;
+  will-change: transform;
+}
+
+.carousel-marquee:hover .carousel-marquee-track,
+.carousel-marquee:focus-within .carousel-marquee-track {
+  animation-play-state: paused;
+}
+
+.carousel-marquee-item {
+  width: min(31vw, 360px);
+  min-width: 260px;
+}
+
+@keyframes card-carousel-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 12px));
+  }
+}
+
+@media (max-width: 760px) {
+  .carousel-marquee-item {
+    width: min(78vw, 360px);
+  }
+}

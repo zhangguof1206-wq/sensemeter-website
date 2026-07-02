@@ -12,12 +12,23 @@ import {
   type Product
 } from "@/data/catalog";
 import { localizedPath, oppositeLocale, t } from "@/lib/i18n";
+import { getProductApplicationLinks } from "@/data/application-links";
 import { legalCopy, type LegalPageKey } from "@/lib/legal";
 import { CookieBanner } from "@/components/cookie-banner";
 import { RfqForm } from "@/components/rfq-form";
+import { CardCarousel } from "@/components/card-carousel";
+import { METRICA_GOALS, MetricaTrackedLink, ProductDwellGoal } from "@/components/metrica-goals";
 import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo";
 
 const TELEGRAM_URL = "https://t.me/Sensemeter";
+
+const applicationSceneLinks: Record<string, string> = {
+  compressedAir: "/applications/compressed-air-dew-point",
+  gas: "/applications/natural-gas-moisture-monitoring",
+  industrialHumidity: "/applications/industrial-humidity-monitoring",
+  lab: "/applications/climate-chamber-humidity",
+  oxygen: "/applications/glove-box-oxygen-analysis"
+};
 
 type ShellProps = {
   locale: Locale;
@@ -131,19 +142,21 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
           </Link>
         </div>
       </footer>
-      <a
+      <MetricaTrackedLink
         className="fixed bottom-5 right-5 z-50 flex min-h-12 items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-black text-white shadow-2xl transition hover:bg-accent-dark focus:outline-none focus:ring-4 focus:ring-accent/30 md:bottom-7 md:right-7"
         href={TELEGRAM_URL}
         target="_blank"
         rel="noreferrer"
         aria-label="Chat with us on Telegram"
+        goal={METRICA_GOALS.telegramClick}
+        goalParams={{ location: "floating_chat" }}
       >
         <svg className="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
           <path d="M21 4 3 11l7 3 3 7 8-17Z" />
           <path d="m10 14 4-4" />
         </svg>
         <span>Chat with us</span>
-      </a>
+      </MetricaTrackedLink>
       <CookieBanner locale={locale} />
     </div>
   );
@@ -178,11 +191,11 @@ export function HomePage({ locale }: { locale: Locale }) {
       <section className="section">
         <div className="section-narrow">
           <h2 className="mb-7 text-3xl font-black">{c.categoriesTitle}</h2>
-          <div className="grid gap-6 md:grid-cols-3">
+          <CardCarousel ariaLabel={c.categoriesTitle} autoPlay>
             {categories.map((category) => {
               const count = products.filter((product) => product.category === category.id).length;
               return (
-                <Link className="card overflow-hidden transition hover:-translate-y-1" href={`${localizedPath(locale, "/catalog")}?category=${category.id}`} key={category.id}>
+                <Link className="card block h-full overflow-hidden transition hover:-translate-y-1" href={`${localizedPath(locale, "/catalog")}?category=${category.id}`} key={category.id}>
                   <div className="relative h-48 overflow-hidden">
                     <img className="h-full w-full object-cover" src={assetPath(category.image)} alt={category.title} />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70" />
@@ -200,7 +213,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                 </Link>
               );
             })}
-          </div>
+          </CardCarousel>
         </div>
       </section>
 
@@ -208,17 +221,21 @@ export function HomePage({ locale }: { locale: Locale }) {
         <div className="section-narrow">
           <p className="eyebrow !text-slate-400">{c.applicationEyebrow}</p>
           <h2 className="mb-7 text-3xl font-black">{c.applicationTitle}</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {applicationScenes.map((scene) => (
-              <article className="card overflow-hidden" key={scene.id}>
-                <img className="h-44 w-full object-cover" src={assetPath(scene.image)} alt={scene.title[locale]} />
-                <div className="p-5">
-                  <h3 className="text-lg font-black">{scene.title[locale]}</h3>
-                  <p className="mt-2 text-muted">{scene.text[locale]}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <CardCarousel ariaLabel={c.applicationTitle}>
+            {applicationScenes.map((scene) => {
+              const href = applicationSceneLinks[scene.id] || "/catalog";
+
+              return (
+                <Link className="card block h-full overflow-hidden transition hover:-translate-y-1 hover:shadow-2xl" href={localizedPath(locale, href)} key={scene.id}>
+                  <img className="h-44 w-full object-cover" src={assetPath(scene.image)} alt={scene.title[locale]} />
+                  <div className="p-5">
+                    <h3 className="text-lg font-black">{scene.title[locale]}</h3>
+                    <p className="mt-2 text-muted">{scene.text[locale]}</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </CardCarousel>
         </div>
       </section>
     </PageShell>
@@ -314,9 +331,11 @@ export function ProductPage({ locale, product }: { locale: Locale; product: Prod
   const c = t(locale);
   const languagePath = localizedPath(oppositeLocale(locale), `/products/${product.slug}`);
   const structuredData = [productJsonLd(locale, product), breadcrumbJsonLd(locale, product)];
+  const applicationLinks = getProductApplicationLinks(product.slug);
   return (
     <PageShell locale={locale} active="catalog" languagePath={languagePath}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
+      <ProductDwellGoal slug={product.slug} model={product.model} />
       <PageHeading title={product.model} lead={product.category} image={assetPath(product.image)} />
       <section className="section">
         <div className="section-narrow grid gap-8 lg:grid-cols-[1fr_360px]">
@@ -328,6 +347,7 @@ export function ProductPage({ locale, product }: { locale: Locale; product: Prod
             <InfoList title={c.keyParams} items={product.params[locale]} />
             <InfoList title={c.highlights} items={product.highlights[locale]} />
             <InfoList title={c.applications} items={product.applications[locale]} />
+            <RelatedApplicationLinks title={c.relatedApplications} locale={locale} links={applicationLinks} />
           </article>
 
           <aside className="card h-fit p-6">
@@ -336,9 +356,16 @@ export function ProductPage({ locale, product }: { locale: Locale; product: Prod
             </div>
             <h2 className="mt-5 text-2xl font-black">{product.model}</h2>
             <div className="mt-5 grid gap-3">
-              <a className="btn btn-primary" href={pdfPath(product.pdf)} target="_blank" rel="noreferrer">
+              <MetricaTrackedLink
+                className="btn btn-primary"
+                href={pdfPath(product.pdf)}
+                target="_blank"
+                rel="noreferrer"
+                goal={METRICA_GOALS.pdfDownload}
+                goalParams={{ slug: product.slug, model: product.model }}
+              >
                 {c.downloadPdf}
-              </a>
+              </MetricaTrackedLink>
               <Link className="btn btn-outline" href={`${localizedPath(locale, "/contact")}?model=${encodeURIComponent(product.model)}`}>
                 {c.requestQuote}
               </Link>
@@ -350,6 +377,33 @@ export function ProductPage({ locale, product }: { locale: Locale; product: Prod
         </div>
       </section>
     </PageShell>
+  );
+}
+
+
+function RelatedApplicationLinks({
+  title,
+  locale,
+  links
+}: {
+  title: string;
+  locale: Locale;
+  links: ReturnType<typeof getProductApplicationLinks>;
+}) {
+  if (!links.length) return null;
+
+  return (
+    <section className="mb-8">
+      <h2 className="text-2xl font-black">{title}</h2>
+      <div className="mt-3 grid gap-3 sm:grid-cols-2">
+        {links.map((item) => (
+          <Link className="rounded border border-line bg-[#f7fafc] p-4 transition hover:border-accent" href={localizedPath(locale, item.path)} key={item.path}>
+            <span className="block font-black text-ink">{item.title[locale]}</span>
+            <span className="mt-2 block text-sm leading-6 text-muted">{item.description[locale]}</span>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -517,3 +571,6 @@ function PageHeading({ title, lead, image }: { title: string; lead: string; imag
 export function getProductOrNull(slug: string) {
   return findProduct(slug) || null;
 }
+
+
+

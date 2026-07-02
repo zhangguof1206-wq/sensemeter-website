@@ -73,12 +73,30 @@ export const categories: Category[] = [
 
 export const applicationScenes: ApplicationScene[] = [
   {
+    id: "compressedAir",
+    image: "assets/application-compressed-air-user.png",
+    title: { ru: "Сжатый воздух и осушители", en: "Compressed Air and Dryers" },
+    text: {
+      ru: "Контроль точки росы в осушителях, пневмолиниях, медицинском и технологическом воздухе.",
+      en: "Dew-point monitoring for dryers, pneumatic lines, medical air and process air systems."
+    }
+  },
+  {
     id: "gas",
     image: "assets/application-gas-processing.png",
     title: { ru: "Газопереработка и трубопроводы", en: "Gas Processing and Pipelines" },
     text: {
       ru: "Контроль влаги и точки росы в природном газе, сжатом воздухе и технологических линиях.",
       en: "Moisture and dew-point monitoring in natural gas, compressed air and process lines."
+    }
+  },
+  {
+    id: "industrialHumidity",
+    image: "assets/application-industrial-humidity-monitoring-v2.png",
+    title: { ru: "Промышленная влажность", en: "Industrial Humidity Monitoring" },
+    text: {
+      ru: "Измерение влажности и температуры в производстве, воздуховодах, HVAC и технических системах.",
+      en: "Humidity and temperature measurement in production areas, ducts, HVAC and technical systems."
     }
   },
   {
