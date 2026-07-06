@@ -5,6 +5,9 @@ import { localizedPath } from "@/lib/i18n";
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sensemeter.ru";
 export const siteName = "SenseMeter";
 export const defaultLastModified = "2026-06-24";
+export const corePageLastModified = "2026-07-02";
+export const applicationPageLastModified = "2026-07-03";
+export const productPageLastModified = "2026-07-05";
 
 const categoryNames: Record<Product["category"], Record<Locale, string>> = {
   MICHELL: { ru: "датчик точки росы", en: "dew-point instrument" },
