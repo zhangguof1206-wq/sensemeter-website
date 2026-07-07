@@ -152,6 +152,20 @@ const checks = [
     }
   },
   {
+    name: "product metadata descriptions reserve room for ellipsis",
+    pass: () => {
+      const seo = read("src/lib/seo.ts");
+      return seo.includes("maxLength - 3") && !seo.includes("maxLength - 1");
+    }
+  },
+  {
+    name: "catalog product image links have model labels",
+    pass: () => {
+      const component = read("src/components/site.tsx");
+      return component.includes("aria-label={`${c.details}: ${product.model}`}");
+    }
+  },
+  {
     name: "EN application pages exist and keep hreflang alternates",
     pass: () => {
       const enRoute = read("src/app/en/applications/[slug]/page.tsx");

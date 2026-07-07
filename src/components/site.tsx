@@ -248,7 +248,11 @@ export function ProductCard({ locale, product }: { locale: Locale; product: Prod
 
   return (
     <article className="card flex h-full flex-col overflow-hidden bg-white">
-      <Link className="grid h-52 shrink-0 place-items-center border-b border-line bg-white p-5" href={localizedPath(locale, `/products/${product.slug}`)}>
+      <Link
+        aria-label={`${c.details}: ${product.model}`}
+        className="grid h-52 shrink-0 place-items-center border-b border-line bg-white p-5"
+        href={localizedPath(locale, `/products/${product.slug}`)}
+      >
         <img className="h-full max-h-40 w-full object-contain" src={assetPath(product.image)} alt={product.model} />
       </Link>
       <div className="relative z-10 flex flex-1 flex-col bg-white p-6">

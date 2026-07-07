@@ -47,30 +47,29 @@ Netlify Forms may classify some test submissions as spam. For production, email 
 
 ## RFQ Email Environment Variables
 
-Recommended current setup, using Brevo API over HTTPS:
-
-```text
-NEXT_PUBLIC_SITE_URL=https://sensemeter.ru
-EMAIL_PROVIDER=brevo
-RFQ_TO_EMAIL=sales@sensemeter.ru
-RFQ_FROM_EMAIL=sales@sensemeter.ru
-RFQ_SENDER_NAME=SenseMeter Website
-BREVO_API_KEY=your-brevo-api-key
-```
-
-The `RFQ_FROM_EMAIL` sender must be verified in Brevo before production use.
-
-To switch back to SMTP later:
+Recommended current setup for the Ubuntu VPS, using the REG.RU mailbox over SMTP SSL/TLS:
 
 ```text
 NEXT_PUBLIC_SITE_URL=https://sensemeter.ru
 EMAIL_PROVIDER=smtp
 RFQ_TO_EMAIL=sales@sensemeter.ru
 RFQ_FROM_EMAIL=sales@sensemeter.ru
-RFQ_SMTP_HOST=smtp.your-mail-provider.com
+RFQ_SENDER_NAME=SenseMeter Website
+RFQ_SMTP_HOST=mail.hosting.reg.ru
 RFQ_SMTP_PORT=465
 RFQ_SMTP_USER=sales@sensemeter.ru
-RFQ_SMTP_PASS=your-smtp-password
+RFQ_SMTP_PASS=your-mailbox-password
+```
+
+Use the mailbox password or app password for `RFQ_SMTP_PASS`. Do not commit real passwords to git.
+
+REG.RU also publishes these mailbox endpoints:
+
+```text
+Webmail: https://webmail.hosting.reg.ru
+IMAP SSL/TLS: mail.hosting.reg.ru:993
+POP3 SSL/TLS: mail.hosting.reg.ru:995
+SMTP SSL/TLS: mail.hosting.reg.ru:465
 ```
 
 After changing environment variables on Ubuntu VPS, restart the PM2 process with `pm2 restart sensemeter-website --update-env` and save it with `pm2 save`.

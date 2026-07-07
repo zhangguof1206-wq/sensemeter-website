@@ -34,7 +34,7 @@ export function languageAlternates(path: string) {
 
 function trimDescription(text: string, maxLength = 155) {
   if (text.length <= maxLength) return text;
-  return `${text.slice(0, maxLength - 1).trim()}...`;
+  return `${text.slice(0, maxLength - 3).trim()}...`;
 }
 
 export function staticPageMetadata({

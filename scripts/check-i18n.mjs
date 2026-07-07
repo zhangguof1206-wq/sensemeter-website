@@ -1,8 +1,15 @@
+import { existsSync, readFileSync } from "node:fs";
 import { createRequire } from "node:module";
+import { join } from "node:path";
 
 const require = createRequire(import.meta.url);
 const { copy } = require("../src/lib/i18n.ts");
 const { products } = require("../src/data/catalog.ts");
+const root = process.cwd();
+const readOptional = (path) => {
+  const fullPath = join(root, path);
+  return existsSync(fullPath) ? readFileSync(fullPath, "utf8") : "";
+};
 
 const checks = [
   {
@@ -46,6 +53,18 @@ const checks = [
       return products.every((product) =>
         listKeys.every((key) => Array.isArray(product[key].ru) && Array.isArray(product[key].en) && product[key].ru.length === product[key].en.length)
       );
+    }
+  },
+  {
+    name: "English routes render html lang as en",
+    pass: () => {
+      const layout = readOptional("src/app/layout.tsx");
+      const middleware = readOptional("src/middleware.ts");
+      return middleware.includes("x-pathname") &&
+        layout.includes("headers") &&
+        layout.includes('pathname === "/en"') &&
+        layout.includes('startsWith("/en/")') &&
+        layout.includes("<html lang={htmlLang}");
     }
   }
 ];

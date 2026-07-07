@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Script from "next/script";
 import "./globals.css";
 import { absoluteUrl, languageAlternates, siteJsonLd, siteName, siteUrl } from "@/lib/seo";
@@ -35,6 +36,10 @@ export const metadata: Metadata = {
 const yandexMetricaId = 110136437;
 const siteStructuredData = siteJsonLd();
 
+function getHtmlLang(pathname: string | null) {
+  return pathname === "/en" || pathname?.startsWith("/en/") ? "en" : "ru";
+}
+
 function YandexMetrica() {
   return (
     <>
@@ -69,9 +74,13 @@ function YandexMetrica() {
   );
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const requestHeaders = await headers();
+  const pathname = requestHeaders.get("x-pathname");
+  const htmlLang = getHtmlLang(pathname);
+
   return (
-    <html lang="ru">
+    <html lang={htmlLang}>
       <body>
         <Script
           id="site-json-ld"
