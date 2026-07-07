@@ -151,6 +151,30 @@ const checks = [
     }
   },
   {
+    name: "Next config sends HTTPS security headers without forcing subdomains",
+    pass: () => {
+      const config = read("next.config.ts");
+      const requiredHeaders = [
+        "poweredByHeader: false",
+        "headers()",
+        '"Strict-Transport-Security"',
+        '"max-age=31536000"',
+        '"X-Content-Type-Options"',
+        '"nosniff"',
+        '"Referrer-Policy"',
+        '"strict-origin-when-cross-origin"',
+        '"X-Frame-Options"',
+        '"SAMEORIGIN"',
+        '"Permissions-Policy"',
+        '"camera=(), microphone=(), geolocation=()"'
+      ];
+
+      return requiredHeaders.every((text) => config.includes(text)) &&
+        !config.includes("includeSubDomains") &&
+        !config.includes("preload");
+    }
+  },
+  {
     name: "robots.txt gives Yandex clean tracking-parameter rules",
     pass: () => {
       const robotsRoute = join(root, "src/app/robots.txt/route.ts");
