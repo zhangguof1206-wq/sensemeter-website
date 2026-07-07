@@ -174,7 +174,7 @@ export default function Page() {
         <div className="section-narrow space-y-6">
           <div className="grid gap-6 md:grid-cols-[1fr_320px]">
             <section className="card p-7">
-              <p className="eyebrow !text-slate-400">Application overview</p>
+              <p className="eyebrow !text-slate-400">Обзор применения</p>
               <h2 className="text-2xl font-black leading-tight md:text-3xl">Где нужен измеритель точки росы</h2>
               <p className="mt-4 max-w-4xl text-lg leading-8 text-muted">
                 В системах сжатого воздуха влажность может приводить к конденсату, коррозии, отказам клапанов и нестабильной работе оборудования. Контроль точки росы помогает оценить эффективность осушителя и поддерживать требуемую сухость воздуха в линии.
@@ -182,7 +182,7 @@ export default function Page() {
             </section>
 
             <aside className="card p-7">
-              <p className="eyebrow !text-slate-400">RFQ checklist</p>
+              <p className="eyebrow !text-slate-400">Что указать в запросе</p>
               <h2 className="text-2xl font-black">Что указать в запросе</h2>
               <ul className="mt-5 grid gap-x-4 gap-y-2 text-sm text-muted grid-cols-1">
                 {rfqPoints.map((item) => (
@@ -211,7 +211,7 @@ export default function Page() {
             <div className="grid lg:grid-cols-[1fr_1.1fr]">
               <div>
                 <div className="bg-[#17212b] p-7 text-white">
-                  <p className="eyebrow">Selection path</p>
+                  <p className="eyebrow">Как выбрать</p>
                   <h2 className="text-2xl font-black">Как выбрать прибор точки росы</h2>
                 </div>
                 <div className="grid gap-px bg-line sm:grid-cols-2">
@@ -246,7 +246,7 @@ export default function Page() {
 
       <section className="section bg-[#e9eef4]" id="recommended-products">
         <div className="section-narrow">
-          <p className="eyebrow !text-slate-400">Recommended products</p>
+          <p className="eyebrow !text-slate-400">Рекомендуемые приборы</p>
           <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
             <div>
               <h2 className="text-3xl font-black">Рекомендуемые приборы</h2>
@@ -266,7 +266,7 @@ export default function Page() {
       <section className="section">
         <div className="section-narrow grid gap-8 lg:grid-cols-[1fr_360px]">
           <div className="card p-7">
-            <p className="eyebrow !text-slate-400">FAQ</p>
+            <p className="eyebrow !text-slate-400">Частые вопросы</p>
             <h2 className="text-3xl font-black">Частые вопросы</h2>
             <div className="mt-6 divide-y divide-line">
               {faqs.map((item) => (

@@ -49,6 +49,13 @@ const requiredEnglishImages = {
     "ctaImage: \"assets/application-climate-chamber-lab.png\""
   ]
 };
+const ruVisibleEnglishLabels = [
+  "Application overview",
+  "RFQ checklist",
+  "Selection path",
+  "Recommended products",
+  "FAQ"
+];
 
 let failures = 0;
 
@@ -60,6 +67,14 @@ for (const page of applicationPages) {
   }
 
   const source = readFileSync(page.pageFile, "utf8");
+  for (const label of ruVisibleEnglishLabels) {
+    const visibleLabelPattern = new RegExp(`>\\s*${label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*<`);
+    if (visibleLabelPattern.test(source)) {
+      console.error(`FAIL ${page.path} translates visible section label "${label}" into Russian`);
+      failures += 1;
+    }
+  }
+
   for (const text of page.requiredText) {
     if (!source.includes(text)) {
       console.error(`FAIL ${page.path} includes ${text}`);
