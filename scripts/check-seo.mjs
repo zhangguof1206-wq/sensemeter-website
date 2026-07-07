@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = process.cwd();
@@ -134,6 +134,29 @@ const checks = [
     pass: () => {
       const layout = read("src/app/layout.tsx");
       return layout.includes("110136437") && layout.includes("mc.yandex.ru/metrika/tag.js") && layout.includes("ym(${yandexMetricaId}");
+    }
+  },
+  {
+    name: "robots.txt gives Yandex clean tracking-parameter rules",
+    pass: () => {
+      const robotsRoute = join(root, "src/app/robots.txt/route.ts");
+      if (!existsSync(robotsRoute)) return false;
+
+      const robots = readFileSync(robotsRoute, "utf8");
+      const requiredText = [
+        "User-agent: Yandex",
+        "Clean-param:",
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_content",
+        "utm_term",
+        "yclid",
+        "gclid",
+        "fbclid",
+        "Sitemap:"
+      ];
+      return requiredText.every((text) => robots.includes(text));
     }
   },
   {
