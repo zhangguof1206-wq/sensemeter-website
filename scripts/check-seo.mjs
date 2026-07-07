@@ -137,6 +137,20 @@ const checks = [
     }
   },
   {
+    name: "Next config redirects duplicate hosts to canonical domain",
+    pass: () => {
+      const middleware = read("src/middleware.ts");
+      const config = read("next.config.ts");
+      return config.includes("redirects()") &&
+        config.includes('type: "host"') &&
+        config.includes('value: "www.sensemeter.ru"') &&
+        config.includes('value: "79.174.90.69"') &&
+        config.includes('destination: "https://sensemeter.ru/:path*"') &&
+        config.includes("permanent: true") &&
+        !middleware.includes("NextResponse.redirect");
+    }
+  },
+  {
     name: "robots.txt gives Yandex clean tracking-parameter rules",
     pass: () => {
       const robotsRoute = join(root, "src/app/robots.txt/route.ts");
