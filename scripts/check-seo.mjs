@@ -21,11 +21,15 @@ const checks = [
     pass: () => read("src/app/en/products/[slug]/page.tsx").includes("generateMetadata")
   },
   {
-    name: "product page renders Product JSON-LD",
+    name: "RFQ product pages avoid invalid Google Product rich result markup",
     pass: () => {
       const component = read("src/components/site.tsx");
       const seo = read("src/lib/seo.ts");
-      return component.includes('type="application/ld+json"') && component.includes("productJsonLd") && seo.includes('"@type": "Product"');
+      return component.includes('type="application/ld+json"') &&
+        component.includes("breadcrumbJsonLd(locale, product)") &&
+        !component.includes("productJsonLd") &&
+        !seo.includes("function productJsonLd") &&
+        !seo.includes('"@type": "Product"');
     }
   },
   {

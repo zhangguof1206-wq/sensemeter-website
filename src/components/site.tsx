@@ -18,7 +18,7 @@ import { CookieBanner } from "@/components/cookie-banner";
 import { RfqForm } from "@/components/rfq-form";
 import { CardCarousel } from "@/components/card-carousel";
 import { METRICA_GOALS, MetricaTrackedLink, ProductDwellGoal } from "@/components/metrica-goals";
-import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 const TELEGRAM_URL = "https://t.me/Sensemeter";
 
@@ -334,7 +334,7 @@ export function CatalogPage({
 export function ProductPage({ locale, product }: { locale: Locale; product: Product }) {
   const c = t(locale);
   const languagePath = localizedPath(oppositeLocale(locale), `/products/${product.slug}`);
-  const structuredData = [productJsonLd(locale, product), breadcrumbJsonLd(locale, product)];
+  const structuredData = [breadcrumbJsonLd(locale, product)];
   const applicationLinks = getProductApplicationLinks(product.slug);
   return (
     <PageShell locale={locale} active="catalog" languagePath={languagePath}>

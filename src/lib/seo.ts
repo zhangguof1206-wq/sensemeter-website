@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { assetPath, pdfPath, type Locale, type Product } from "@/data/catalog";
+import { assetPath, type Locale, type Product } from "@/data/catalog";
 import { localizedPath } from "@/lib/i18n";
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sensemeter.ru";
@@ -157,33 +157,5 @@ export function breadcrumbJsonLd(locale: Locale, product: Product) {
         item: absoluteUrl(localizedCanonical(locale, `/products/${product.slug}`))
       }
     ]
-  };
-}
-
-export function productJsonLd(locale: Locale, product: Product) {
-  const path = localizedCanonical(locale, `/products/${product.slug}`);
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.model,
-    brand: {
-      "@type": "Brand",
-      name: product.brand
-    },
-    category: product.category,
-    description: product.overview[locale],
-    image: absoluteUrl(assetPath(product.image)),
-    url: absoluteUrl(path),
-    additionalProperty: product.params[locale].map((value) => ({
-      "@type": "PropertyValue",
-      name: "Specification",
-      value
-    })),
-    subjectOf: {
-      "@type": "DigitalDocument",
-      name: `${product.model} datasheet`,
-      url: absoluteUrl(pdfPath(product.pdf))
-    }
   };
 }
