@@ -20,7 +20,17 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
+    const staticAssetCache = "public, max-age=2592000, stale-while-revalidate=86400";
+
     return [
+      {
+        source: "/assets/:path*",
+        headers: [{ key: "Cache-Control", value: staticAssetCache }]
+      },
+      {
+        source: "/datasheets/:path*",
+        headers: [{ key: "Cache-Control", value: staticAssetCache }]
+      },
       {
         source: "/:path*",
         headers: [

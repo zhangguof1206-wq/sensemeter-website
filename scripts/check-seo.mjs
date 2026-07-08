@@ -130,6 +130,25 @@ const checks = [
     pass: () => !read("src/app/sitemap.ts").includes("new Date()")
   },
   {
+    name: "sitemap exposes RU and EN hreflang alternates",
+    pass: () => {
+      const sitemap = read("src/app/sitemap.ts");
+      const seo = read("src/lib/seo.ts");
+      const sitemapRequiredText = [
+        "withLanguageAlternates",
+        "languageAlternates(path)",
+        "alternates:"
+      ];
+      const languageRequiredText = [
+        '"ru-RU"',
+        '"x-default"'
+      ];
+
+      return sitemapRequiredText.every((text) => sitemap.includes(text)) &&
+        languageRequiredText.every((text) => seo.includes(text));
+    }
+  },
+  {
     name: "Yandex Metrica counter is installed",
     pass: () => {
       const layout = read("src/app/layout.tsx");
@@ -172,6 +191,20 @@ const checks = [
       return requiredHeaders.every((text) => config.includes(text)) &&
         !config.includes("includeSubDomains") &&
         !config.includes("preload");
+    }
+  },
+  {
+    name: "Next config gives static assets and datasheets long-lived cache headers",
+    pass: () => {
+      const config = read("next.config.ts");
+      const requiredText = [
+        'source: "/assets/:path*"',
+        'source: "/datasheets/:path*"',
+        '"Cache-Control"',
+        '"public, max-age=2592000, stale-while-revalidate=86400"'
+      ];
+
+      return requiredText.every((text) => config.includes(text));
     }
   },
   {

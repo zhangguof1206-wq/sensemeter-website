@@ -1,37 +1,30 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/catalog";
-import { applicationPageLastModified, corePageLastModified, defaultLastModified, productPageLastModified, siteUrl } from "@/lib/seo";
+import { localizedPath } from "@/lib/i18n";
+import { absoluteUrl, applicationPageLastModified, corePageLastModified, defaultLastModified, languageAlternates, productPageLastModified } from "@/lib/seo";
+
+type SitemapEntry = MetadataRoute.Sitemap[number];
+
+const sitemapLocales = ["ru", "en"] as const;
+
+function withLanguageAlternates(path: string, lastModified: string): SitemapEntry[] {
+  return sitemapLocales.map((locale) => ({
+    url: absoluteUrl(localizedPath(locale, path)),
+    lastModified,
+    alternates: {
+      languages: languageAlternates(path)
+    }
+  }));
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const corePaths = ["", "/catalog", "/about", "/contact"];
+  const corePaths = ["/", "/catalog", "/about", "/contact"];
   const legalPaths = ["/privacy", "/personal-data-consent", "/cookie-policy"];
   const applicationPaths = ["/applications/industrial-humidity-monitoring", "/applications/compressed-air-dew-point", "/applications/glove-box-oxygen-analysis", "/applications/natural-gas-moisture-monitoring", "/applications/climate-chamber-humidity"];
-  const ruCorePages = corePaths.map((path) => ({
-    url: siteUrl + (path || "/"),
-    lastModified: corePageLastModified
-  }));
-  const enCorePages = corePaths.map((path) => ({
-    url: siteUrl + "/en" + path,
-    lastModified: corePageLastModified
-  }));
-  const legalPages = legalPaths.flatMap((path) => [
-    {
-      url: siteUrl + path,
-      lastModified: defaultLastModified
-    },
-    {
-      url: siteUrl + "/en" + path,
-      lastModified: defaultLastModified
-    }
-  ]);
-  const applicationPages = applicationPaths.flatMap((path) => [
-    { url: siteUrl + path, lastModified: applicationPageLastModified },
-    { url: siteUrl + "/en" + path, lastModified: applicationPageLastModified }
-  ]);
-  const productPages = products.flatMap((product) => [
-    { url: siteUrl + "/products/" + product.slug, lastModified: productPageLastModified },
-    { url: siteUrl + "/en/products/" + product.slug, lastModified: productPageLastModified }
-  ]);
+  const corePages = corePaths.flatMap((path) => withLanguageAlternates(path, corePageLastModified));
+  const legalPages = legalPaths.flatMap((path) => withLanguageAlternates(path, defaultLastModified));
+  const applicationPages = applicationPaths.flatMap((path) => withLanguageAlternates(path, applicationPageLastModified));
+  const productPages = products.flatMap((product) => withLanguageAlternates(`/products/${product.slug}`, productPageLastModified));
 
-  return [...ruCorePages, ...enCorePages, ...legalPages, ...applicationPages, ...productPages];
+  return [...corePages, ...legalPages, ...applicationPages, ...productPages];
 }
