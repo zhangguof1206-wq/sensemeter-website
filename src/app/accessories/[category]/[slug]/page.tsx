@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props) {
   const product = getAccessoryProduct(categorySlug, slug);
   if (!product) return {};
   const path = `/accessories/${product.categorySlug}/${product.slug}`;
-  return staticPageMetadata({ locale: "ru", path, title: product.title.ru, description: product.summary.ru, image: product.image });
+  return staticPageMetadata({ locale: "ru", path, title: `${product.model} - ${product.title.ru}`, description: `${product.model}. ${product.summary.ru}`, image: product.image });
 }
 
 export default async function Page({ params }: Props) {

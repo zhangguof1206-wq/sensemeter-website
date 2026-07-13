@@ -29,6 +29,13 @@ for (const category of categoryFiles) {
   productSlugs.push(...slugs.map((slug) => ({ category, slug })));
   checks.push({ name: `${category} contains exactly 6 accessories`, pass: slugs.length === 6 });
   checks.push({
+    name: `${category} products include neutral models and technical data`,
+    pass: (source.match(/model:\s*"SM-[A-Z]{2}-[A-Z0-9]+"/g) || []).length === 6 &&
+      (source.match(/specs:\s*\[/g) || []).length === 6 &&
+      (source.match(/applications:\s*\{\s*ru:/g) || []).length === 6 &&
+      (source.match(/relatedSlugs:\s*\[/g) || []).length === 6
+  });
+  checks.push({
     name: `${category} products include RU and EN procurement content`,
     pass: (source.match(/title:\s*\{\s*ru:/g) || []).length === 6 &&
       (source.match(/summary:\s*\{\s*ru:/g) || []).length === 6 &&
@@ -44,6 +51,10 @@ for (const category of categoryFiles) {
 }
 
 checks.push({ name: "accessory catalog contains 24 products", pass: productSlugs.length === 24 });
+checks.push({
+  name: "all accessory categories include localized specification ranges",
+  pass: (read("src/data/accessories/categories.ts").match(/specs:\s*\[/g) || []).length === 4
+});
 checks.push({
   name: "accessory slugs are unique within their category paths",
   pass: new Set(productSlugs.map(({ category, slug }) => `${category}/${slug}`)).size === productSlugs.length

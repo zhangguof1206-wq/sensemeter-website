@@ -20,7 +20,14 @@ export const accessoryCopy = {
     requestCustom: "Обсудить изготовление",
     backCategory: "Назад к группе",
     backOverview: "Все комплектующие",
-    imageDisclaimer: "Изображение показывает типовую конструкцию. Фактический внешний вид и характеристики подтверждаются при согласовании заказа."
+    imageDisclaimer: "Изображение показывает типовую конструкцию. Фактический внешний вид и характеристики подтверждаются при согласовании заказа.",
+    specificationsTitle: "Технические параметры",
+    categoryRangeTitle: "Диапазон исполнений",
+    applicationsTitle: "Типовые применения",
+    relatedTitle: "Связанные комплектующие",
+    informationTitle: "Данные для запроса",
+    modelsLabel: "Модели",
+    modelsAvailable: "6 вариантов в каталоге"
   },
   en: {
     nav: "Accessories",
@@ -41,6 +48,13 @@ export const accessoryCopy = {
     requestCustom: "Discuss customization",
     backCategory: "Back to category",
     backOverview: "All accessories",
-    imageDisclaimer: "The image shows a representative construction. Final appearance and specifications are confirmed during order review."
+    imageDisclaimer: "The image shows a representative construction. Final appearance and specifications are confirmed during order review.",
+    specificationsTitle: "Technical specifications",
+    categoryRangeTitle: "Available configuration range",
+    applicationsTitle: "Typical applications",
+    relatedTitle: "Related accessories",
+    informationTitle: "Information for quotation",
+    modelsLabel: "Models",
+    modelsAvailable: "6 catalog variants"
   }
 } satisfies Record<Locale, Record<string, string>>;

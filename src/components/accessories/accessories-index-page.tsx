@@ -6,15 +6,36 @@ import { localizedPath, oppositeLocale } from "@/lib/i18n";
 import { PageShell } from "@/components/site";
 import { AccessoryCategoryCard } from "./accessory-cards";
 import { AccessoryPageHeading } from "./accessory-page-heading";
+import { ProductCatalogSwitch } from "@/components/catalog/product-catalog-switch";
 
 export function AccessoriesIndexPage({ locale }: { locale: Locale }) {
   const c = accessoryCopy[locale];
+  const requestItems = locale === "ru"
+    ? ["Прибор или узел", "Газ или рабочая среда", "Размеры и материал", "Интерфейс или резьба", "Точность фильтрации или расход", "Требуемое количество"]
+    : ["Instrument or assembly", "Gas or process medium", "Dimensions and material", "Connection or thread", "Filtration grade or flow", "Required quantity"];
   return (
-    <PageShell locale={locale} active="accessories" languagePath={localizedPath(oppositeLocale(locale), "/accessories")}>
+    <PageShell locale={locale} active="catalog" languagePath={localizedPath(oppositeLocale(locale), "/accessories")}>
       <AccessoryPageHeading title={c.overviewTitle} lead={c.overviewLead} image={accessoryCategories[0].image} />
       <section className="section">
-        <div className="section-narrow grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {accessoryCategories.map((category) => <AccessoryCategoryCard category={category} locale={locale} key={category.slug} />)}
+        <div className="section-narrow">
+          <div className="mb-7">
+            <ProductCatalogSwitch locale={locale} active="accessories" />
+          </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            {accessoryCategories.map((category) => <AccessoryCategoryCard category={category} locale={locale} key={category.slug} />)}
+          </div>
+        </div>
+      </section>
+      <section className="border-y border-line bg-[#eef2f5] px-5 py-10 md:px-10">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-black">{c.informationTitle}</h2>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {requestItems.map((item, index) => (
+              <li className="border-l-2 border-accent bg-white px-4 py-3 font-semibold" key={item}>
+                <span className="mr-2 text-accent">{String(index + 1).padStart(2, "0")}</span>{item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
       <AccessoryServiceBand locale={locale} />

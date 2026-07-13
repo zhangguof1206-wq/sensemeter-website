@@ -79,16 +79,28 @@ const checks = [
     }
   },
   {
-    name: "home accessories use a stable four-category grid",
+    name: "accessories belong to Product Catalog navigation",
     pass: () => {
       const sectionPath = join(root, "src", "components", "accessories", "accessories-home-section.tsx");
+      const switchPath = join(root, "src", "components", "catalog", "product-catalog-switch.tsx");
       if (!existsSync(sectionPath)) return false;
+      if (!existsSync(switchPath)) return false;
       const section = read("src/components/accessories/accessories-home-section.tsx");
+      const indexPage = read("src/components/accessories/accessories-index-page.tsx");
+      const categoryPage = read("src/components/accessories/accessory-category-page.tsx");
+      const detailPage = read("src/components/accessories/accessory-detail-page.tsx");
+      const catalogSwitch = read("src/components/catalog/product-catalog-switch.tsx");
       return source.includes('import { AccessoriesHomeSection } from "@/components/accessories/accessories-home-section"') &&
         source.includes("<AccessoriesHomeSection locale={locale} />") &&
-        section.includes("accessoryCategories.map") &&
-        section.includes("sm:grid-cols-2 xl:grid-cols-4") &&
-        !section.includes("CardCarousel");
+        !source.includes('["accessories",') &&
+        !source.includes('active: "home" | "catalog" | "accessories"') &&
+        source.includes('<ProductCatalogSwitch locale={locale} active="instruments" />') &&
+        indexPage.includes('<ProductCatalogSwitch locale={locale} active="accessories" />') &&
+        [indexPage, categoryPage, detailPage].every((page) => page.includes('active="catalog"')) &&
+        catalogSwitch.includes('localizedPath(locale, "/catalog")') &&
+        catalogSwitch.includes('localizedPath(locale, "/accessories")') &&
+        section.includes("category.specs.slice(0, 3)") &&
+        section.includes("categoryModels");
     }
   },
   {

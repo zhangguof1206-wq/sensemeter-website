@@ -76,6 +76,14 @@ const checks = [
     }
   },
   {
+    name: "accessory detail metadata includes neutral catalog model",
+    pass: () => {
+      const ru = read("src/app/accessories/[category]/[slug]/page.tsx");
+      const en = read("src/app/en/accessories/[category]/[slug]/page.tsx");
+      return [ru, en].every((route) => route.includes("product.model") && route.includes("product.title"));
+    }
+  },
+  {
     name: "sitemap includes all localized accessory routes",
     pass: () => {
       const sitemap = read("src/app/sitemap.ts");
