@@ -155,6 +155,17 @@ select {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.hero-industrial-video {
+  object-position: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-industrial-video {
+    display: none;
+  }
+}
+
 .carousel-marquee {
   overflow: hidden;
 }

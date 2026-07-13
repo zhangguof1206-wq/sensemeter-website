@@ -166,16 +166,29 @@ export function HomePage({ locale }: { locale: Locale }) {
   const c = t(locale);
   return (
     <PageShell locale={locale} active="home" languagePath={localizedPath(oppositeLocale(locale), "/")}>
-      <section
-        className="min-h-[640px] bg-cover bg-center px-5 py-24 text-white md:px-10"
-        style={{
-          backgroundImage:
-            "linear-gradient(90deg, rgba(20,31,42,.92), rgba(20,31,42,.54)), url('/assets/application-gas-processing.png')"
-        }}
-      >
-        <div className="mx-auto max-w-7xl">
+      <section className="relative isolate min-h-[640px] overflow-hidden px-5 py-24 text-white md:px-10">
+        <div
+          className="absolute inset-0 -z-30 bg-cover bg-center"
+          style={{ backgroundImage: "url('/assets/video/industrial-measurement-poster.webp')" }}
+          aria-hidden="true"
+        />
+        <video
+          className="hero-industrial-video absolute inset-0 -z-20 h-full w-full object-cover"
+          data-video-source="pexels-5571842"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/assets/video/industrial-measurement-poster.webp"
+          aria-hidden="true"
+        >
+          <source src="/assets/video/industrial-measurement-hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(20,31,42,.92),rgba(20,31,42,.54))]" aria-hidden="true" />
+        <div className="relative z-10 mx-auto max-w-7xl">
           <p className="eyebrow">{c.heroEyebrow}</p>
-          <h1 className="max-w-4xl text-5xl font-black leading-[1.04] md:text-7xl">{c.heroTitle}</h1>
+          <h1 className="max-w-4xl text-4xl font-black leading-[1.04] sm:text-5xl md:text-7xl">{c.heroTitle}</h1>
           <p className="mt-6 max-w-3xl text-lg text-slate-100 md:text-xl">{c.heroText}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link className="btn btn-primary" href={localizedPath(locale, "/catalog")}>
@@ -190,30 +203,41 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       <section className="section">
         <div className="section-narrow">
-          <h2 className="mb-7 text-3xl font-black">{c.categoriesTitle}</h2>
-          <CardCarousel ariaLabel={c.categoriesTitle} autoPlay>
+          <div className="mb-7 max-w-3xl">
+            <h2 className="text-3xl font-black">{c.categoriesTitle}</h2>
+            <p className="mt-3 text-lg text-muted">{c.categoriesLead}</p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 min-[1150px]:grid-cols-4">
             {categories.map((category) => {
-              const count = products.filter((product) => product.category === category.id).length;
               return (
-                <Link className="card block h-full overflow-hidden transition hover:-translate-y-1" href={`${localizedPath(locale, "/catalog")}?category=${category.id}`} key={category.id}>
-                  <div className="relative h-48 overflow-hidden">
-                    <img className="h-full w-full object-cover" src={assetPath(category.image)} alt={category.title} />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70" />
-                    <span className="absolute bottom-4 left-4 border-l-4 border-white bg-accent px-4 py-3 text-xl font-black text-white shadow-xl">
-                      {category.title}
-                    </span>
+                <Link
+                  className="card group flex min-h-[380px] flex-col overflow-hidden border border-line bg-white transition hover:border-accent/50 hover:shadow-lg"
+                  href={`${localizedPath(locale, "/catalog")}?category=${category.id}`}
+                  key={category.id}
+                >
+                  <div className="relative h-52 shrink-0 overflow-hidden border-b border-line bg-[#eef2f5]">
+                    <img
+                      className="brand-instrument-background absolute inset-y-3 right-2 h-[calc(100%-1.5rem)] w-[66%] object-contain object-right opacity-55 grayscale transition duration-300 group-hover:scale-[1.03] group-hover:opacity-65"
+                      src={assetPath(category.backgroundImage)}
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(90deg,#eef2f5_12%,rgba(238,242,245,.92)_34%,rgba(238,242,245,.25)_78%)]" aria-hidden="true" />
+                    <img
+                      className="brand-logo absolute bottom-0 left-4 z-10 h-28 w-[70%] object-contain object-left mix-blend-multiply contrast-125"
+                      src={assetPath(category.image)}
+                      alt={`${category.title} logo`}
+                    />
                   </div>
-                  <div className="flex min-h-[190px] flex-col p-6">
+                  <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-2xl font-black">{category.title}</h3>
                     <p className="mt-3 text-muted">{category.description[locale]}</p>
-                    <span className="mt-auto pt-6 font-black text-accent">
-                      {count} {c.products}
-                    </span>
+                    <span className="btn btn-outline mt-auto w-full !border-accent !text-accent">{c.viewCategoryProducts}</span>
                   </div>
                 </Link>
               );
             })}
-          </CardCarousel>
+          </div>
         </div>
       </section>
 

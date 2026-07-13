@@ -9,6 +9,7 @@ export type Category = {
   title: string;
   description: LocalizedText;
   image: string;
+  backgroundImage: string;
 };
 
 export type ApplicationScene = {
@@ -40,7 +41,8 @@ export const categories: Category[] = [
       ru: "Датчики точки росы и гигрометры для газа, сжатого воздуха и опасных зон.",
       en: "Dew-point transmitters and hygrometers for gas, compressed air and hazardous areas."
     },
-    image: "assets/category-michell.png"
+    image: "assets/brands/michell.webp",
+    backgroundImage: "assets/products/MI_EasidewPRO-IS.png"
   },
   {
     id: "ROTRONIC",
@@ -49,7 +51,8 @@ export const categories: Category[] = [
       ru: "Промышленные датчики влажности и температуры, ручные приборы и зонды.",
       en: "Industrial humidity and temperature probes, handheld meters and sensors."
     },
-    image: "assets/category-rotronic.png"
+    image: "assets/brands/rotronic.webp",
+    backgroundImage: "assets/products/RT_HC2A_Industrial_Humidity_Probes.png"
   },
   {
     id: "VAISALA",
@@ -58,7 +61,8 @@ export const categories: Category[] = [
       ru: "Промышленные датчики влажности, температуры и точки росы для сложных условий.",
       en: "Industrial humidity, temperature and dew-point sensors for demanding conditions."
     },
-    image: "assets/category-vaisala.png"
+    image: "assets/brands/vaisala.webp",
+    backgroundImage: "assets/products/VA_DMT143-DMT143L.png"
   },
   {
     id: "AII",
@@ -67,7 +71,8 @@ export const categories: Category[] = [
       ru: "Кислородные анализаторы для ppm, чистоты газов, glove box и промышленных линий.",
       en: "Oxygen analyzers for ppm levels, gas purity, glove boxes and industrial lines."
     },
-    image: "assets/category-aii.png"
+    image: "assets/brands/aii.webp",
+    backgroundImage: "assets/products/AI_GPR-1900-Oxygen-Analyzer.png"
   }
 ];
 
