@@ -79,6 +79,19 @@ const checks = [
     }
   },
   {
+    name: "home accessories use a stable four-category grid",
+    pass: () => {
+      const sectionPath = join(root, "src", "components", "accessories", "accessories-home-section.tsx");
+      if (!existsSync(sectionPath)) return false;
+      const section = read("src/components/accessories/accessories-home-section.tsx");
+      return source.includes('import { AccessoriesHomeSection } from "@/components/accessories/accessories-home-section"') &&
+        source.includes("<AccessoriesHomeSection locale={locale} />") &&
+        section.includes("accessoryCategories.map") &&
+        section.includes("sm:grid-cols-2 xl:grid-cols-4") &&
+        !section.includes("CardCarousel");
+    }
+  },
+  {
     name: "home hero uses a muted local industrial video with a static fallback",
     pass: () => {
       const cssSource = read("src/app/globals.css");

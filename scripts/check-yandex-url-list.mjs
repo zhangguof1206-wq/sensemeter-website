@@ -12,11 +12,17 @@ if (!existsSync(scriptPath)) {
 
 const catalog = readFileSync(join(root, "src", "data", "catalog.ts"), "utf8");
 const productSlugs = [...catalog.matchAll(/slug:\s*"([^"]+)"/g)].map((match) => match[1]);
+const accessoryCategorySlugs = ["sensor-protection", "sintered-filter-elements", "sample-gas-filters", "flow-control-accessories"];
+const accessoryCategoryPaths = ["/accessories", ...accessoryCategorySlugs.map((slug) => "/accessories/" + slug)];
+const accessoryProductPaths = accessoryCategorySlugs.flatMap((category) => {
+  const source = readFileSync(join(root, "src", "data", "accessories", category + ".ts"), "utf8");
+  return [...source.matchAll(/slug:\s*"([^"]+)"/g)].map((match) => "/accessories/" + category + "/" + match[1]);
+});
 const applicationPaths = ["/applications/industrial-humidity-monitoring", "/applications/compressed-air-dew-point", "/applications/glove-box-oxygen-analysis", "/applications/natural-gas-moisture-monitoring", "/applications/climate-chamber-humidity"];
 const output = execFileSync(process.execPath, [scriptPath], { cwd: root, encoding: "utf8" });
 
 const urls = output.split(/\r?\n/).map((line) => line.trim()).filter((line) => line.startsWith("https://sensemeter.ru"));
-const expectedCount = 14 + applicationPaths.length * 2 + productSlugs.length * 2;
+const expectedCount = 14 + applicationPaths.length * 2 + productSlugs.length * 2 + (accessoryCategoryPaths.length + accessoryProductPaths.length) * 2;
 const requiredUrls = [
   "https://sensemeter.ru/",
   "https://sensemeter.ru/catalog",
@@ -29,7 +35,11 @@ const requiredUrls = [
   "https://sensemeter.ru/privacy",
   "https://sensemeter.ru/en/privacy",
   ...applicationPaths.map((path) => "https://sensemeter.ru" + path),
-  ...applicationPaths.map((path) => "https://sensemeter.ru/en" + path)
+  ...applicationPaths.map((path) => "https://sensemeter.ru/en" + path),
+  ...accessoryCategoryPaths.map((path) => "https://sensemeter.ru" + path),
+  ...accessoryProductPaths.map((path) => "https://sensemeter.ru" + path),
+  ...accessoryCategoryPaths.map((path) => "https://sensemeter.ru/en" + path),
+  ...accessoryProductPaths.map((path) => "https://sensemeter.ru/en" + path)
 ];
 
 for (const slug of productSlugs) {
@@ -40,10 +50,10 @@ for (const slug of productSlugs) {
 const checks = [
   { name: "Yandex URL list has no duplicate URLs", pass: new Set(urls).size === urls.length },
   { name: "Yandex URL list includes " + expectedCount + " sitemap URLs", pass: urls.length === expectedCount },
-  { name: "Yandex URL list includes every core, application and product URL", pass: requiredUrls.every((url) => urls.includes(url)) },
+  { name: "Yandex URL list includes every core, application, product and accessory URL", pass: requiredUrls.every((url) => urls.includes(url)) },
   {
     name: "Yandex URL list labels manual submission order",
-    pass: output.includes("1. RU priority pages") && output.includes("2. RU application pages") && output.includes("3. RU product pages") && output.includes("4. EN priority pages") && output.includes("5. EN application pages") && output.includes("6. EN product pages") && output.includes("7. Optional legal pages")
+    pass: output.includes("1. RU priority pages") && output.includes("2. RU application pages") && output.includes("3. RU product pages") && output.includes("4. RU accessory pages") && output.includes("5. EN priority pages") && output.includes("6. EN application pages") && output.includes("7. EN product pages") && output.includes("8. EN accessory pages") && output.includes("9. Optional legal pages")
   },
   { name: "Yandex URL list excludes noindex thank-you pages", pass: !output.includes("/thank-you") }
 ];

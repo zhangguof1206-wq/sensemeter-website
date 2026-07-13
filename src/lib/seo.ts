@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { assetPath, type Locale, type Product } from "@/data/catalog";
 import { localizedPath } from "@/lib/i18n";
+import type { AccessoryCategory, AccessoryProduct } from "@/data/accessories";
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sensemeter.ru";
 export const siteName = "SenseMeter";
@@ -8,6 +9,7 @@ export const defaultLastModified = "2026-06-24";
 export const corePageLastModified = "2026-07-02";
 export const applicationPageLastModified = "2026-07-03";
 export const productPageLastModified = "2026-07-05";
+export const accessoryPageLastModified = "2026-07-13";
 
 const categoryNames: Record<Product["category"], Record<Locale, string>> = {
   MICHELL: { ru: "датчик точки росы", en: "dew-point instrument" },
@@ -156,6 +158,19 @@ export function breadcrumbJsonLd(locale: Locale, product: Product) {
         name: product.model,
         item: absoluteUrl(localizedCanonical(locale, `/products/${product.slug}`))
       }
+    ]
+  };
+}
+
+export function accessoryBreadcrumbJsonLd(locale: Locale, category: AccessoryCategory, product: AccessoryProduct) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: locale === "ru" ? "Главная" : "Home", item: absoluteUrl(localizedCanonical(locale, "/")) },
+      { "@type": "ListItem", position: 2, name: locale === "ru" ? "Комплектующие" : "Accessories", item: absoluteUrl(localizedCanonical(locale, "/accessories")) },
+      { "@type": "ListItem", position: 3, name: category.title[locale], item: absoluteUrl(localizedCanonical(locale, `/accessories/${category.slug}`)) },
+      { "@type": "ListItem", position: 4, name: product.title[locale], item: absoluteUrl(localizedCanonical(locale, `/accessories/${category.slug}/${product.slug}`)) }
     ]
   };
 }

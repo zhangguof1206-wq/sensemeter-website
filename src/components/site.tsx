@@ -17,6 +17,8 @@ import { legalCopy, type LegalPageKey } from "@/lib/legal";
 import { CookieBanner } from "@/components/cookie-banner";
 import { RfqForm } from "@/components/rfq-form";
 import { CardCarousel } from "@/components/card-carousel";
+import { AccessoriesHomeSection } from "@/components/accessories/accessories-home-section";
+import { accessoryCopy } from "@/data/accessories/copy";
 import { METRICA_GOALS, MetricaTrackedLink, ProductDwellGoal } from "@/components/metrica-goals";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
@@ -32,7 +34,7 @@ const applicationSceneLinks: Record<string, string> = {
 
 type ShellProps = {
   locale: Locale;
-  active: "home" | "catalog" | "about" | "contact" | "privacy";
+  active: "home" | "catalog" | "accessories" | "about" | "contact" | "privacy";
   children: ReactNode;
   languagePath?: string;
 };
@@ -45,6 +47,7 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
   const nav = [
     ["home", c.navHome, localizedPath(locale, "/")],
     ["catalog", c.navCatalog, localizedPath(locale, "/catalog")],
+    ["accessories", accessoryCopy[locale].nav, localizedPath(locale, "/accessories")],
     ["about", c.navAbout, localizedPath(locale, "/about")],
     ["contact", c.navContact, localizedPath(locale, "/contact")],
     ["privacy", c.navPrivacy, localizedPath(locale, "/privacy")]
@@ -241,7 +244,9 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="section bg-[#e9eef4]">
+      <AccessoriesHomeSection locale={locale} />
+
+      <section className="section">
         <div className="section-narrow">
           <p className="eyebrow !text-slate-400">{c.applicationEyebrow}</p>
           <h2 className="mb-7 text-3xl font-black">{c.applicationTitle}</h2>

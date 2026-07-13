@@ -49,6 +49,43 @@ const checks = [
     }
   },
   {
+    name: "RU and EN accessory pages expose localized metadata",
+    pass: () => {
+      const routes = [
+        "src/app/accessories/page.tsx",
+        "src/app/accessories/[category]/page.tsx",
+        "src/app/accessories/[category]/[slug]/page.tsx",
+        "src/app/en/accessories/page.tsx",
+        "src/app/en/accessories/[category]/page.tsx",
+        "src/app/en/accessories/[category]/[slug]/page.tsx"
+      ];
+      return routes.every((route) => {
+        const source = read(route);
+        return source.includes("generateMetadata") || source.includes("export const metadata");
+      });
+    }
+  },
+  {
+    name: "accessory detail pages render BreadcrumbList JSON-LD",
+    pass: () => {
+      const component = read("src/components/accessories/accessory-detail-page.tsx");
+      const seo = read("src/lib/seo.ts");
+      return component.includes('type="application/ld+json"') &&
+        component.includes("accessoryBreadcrumbJsonLd") &&
+        seo.includes("export function accessoryBreadcrumbJsonLd");
+    }
+  },
+  {
+    name: "sitemap includes all localized accessory routes",
+    pass: () => {
+      const sitemap = read("src/app/sitemap.ts");
+      return sitemap.includes("accessoryOverviewPages") &&
+        sitemap.includes("accessoryCategoryPages") &&
+        sitemap.includes("accessoryProductPages") &&
+        sitemap.includes("accessoryPageLastModified");
+    }
+  },
+  {
     name: "RFQ success sends Yandex Metrica goal",
     pass: () => {
       const form = read("src/components/rfq-form.tsx");

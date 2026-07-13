@@ -1,0 +1,46 @@
+import type { Locale } from "@/data/catalog";
+
+export const accessoryCopy = {
+  ru: {
+    nav: "Комплектующие",
+    eyebrow: "КОМПЛЕКТУЮЩИЕ И ИЗГОТОВЛЕНИЕ ПОД ЗАКАЗ",
+    homeTitle: "Комплектующие для измерительных систем",
+    homeLead: "Поставляем защиту зондов, фильтрующие элементы, газовые фильтры и компоненты регулирования потока. Помогаем подобрать исполнение и поддерживаем после поставки.",
+    overviewTitle: "Каталог комплектующих",
+    overviewLead: "Выберите группу комплектующих. Для запроса достаточно указать прибор, газ или среду, давление, расход, соединение и требуемое количество.",
+    viewCategory: "Открыть группу",
+    viewAccessory: "Подробнее",
+    availableTitle: "Что можно заказать",
+    selectionTitle: "Что указать для подбора",
+    compatibleTitle: "Совместимое применение",
+    customizationTitle: "Изготовление под задачу",
+    serviceTitle: "Подбор и послепродажная поддержка",
+    serviceText: "SenseMeter помогает проверить совместимость, согласовать исполнение и решить вопросы по установке или замене после поставки.",
+    requestAccessory: "Запросить комплектующее",
+    requestCustom: "Обсудить изготовление",
+    backCategory: "Назад к группе",
+    backOverview: "Все комплектующие",
+    imageDisclaimer: "Изображение показывает типовую конструкцию. Фактический внешний вид и характеристики подтверждаются при согласовании заказа."
+  },
+  en: {
+    nav: "Accessories",
+    eyebrow: "ACCESSORIES AND CUSTOM SUPPLY",
+    homeTitle: "Accessories for measurement systems",
+    homeLead: "We supply probe protection, filter elements, gas filters and flow-control components, with selection support and after-sales assistance.",
+    overviewTitle: "Accessories Catalog",
+    overviewLead: "Choose an accessory group. For selection, provide the instrument, gas or medium, pressure, flow, connection and required quantity.",
+    viewCategory: "Open category",
+    viewAccessory: "View details",
+    availableTitle: "Available supply",
+    selectionTitle: "Selection information",
+    compatibleTitle: "Compatible applications",
+    customizationTitle: "Custom configuration",
+    serviceTitle: "Selection and after-sales support",
+    serviceText: "SenseMeter helps verify compatibility, confirm the configuration and resolve installation or replacement questions after delivery.",
+    requestAccessory: "Request this accessory",
+    requestCustom: "Discuss customization",
+    backCategory: "Back to category",
+    backOverview: "All accessories",
+    imageDisclaimer: "The image shows a representative construction. Final appearance and specifications are confirmed during order review."
+  }
+} satisfies Record<Locale, Record<string, string>>;
