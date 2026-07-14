@@ -101,6 +101,10 @@ const checks = [
         catalogNavDropdown.includes("group-focus-within:visible") &&
         catalogNavDropdown.includes("top-full") &&
         catalogNavDropdown.includes("pt-2") &&
+        catalogNavDropdown.includes("w-44") &&
+        catalogNavDropdown.includes("text-sm font-black") &&
+        !catalogNavDropdown.includes("hint:") &&
+        !catalogNavDropdown.includes("item.hint") &&
         !catalogNavDropdown.includes("mt-2") &&
         catalogNavDropdown.includes('localizedPath(locale, "/catalog")') &&
         catalogNavDropdown.includes('localizedPath(locale, "/accessories")') &&

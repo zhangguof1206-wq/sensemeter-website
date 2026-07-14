@@ -132,7 +132,10 @@ checks.push({
     !accessoriesIndex.includes("ProductCatalogSwitch") &&
     accessoryCards.includes("category.summary[locale]") &&
     accessoryCards.includes("aspect-[4/3]") &&
-    accessoryCards.includes("h-full w-full object-contain") &&
+    accessoryCards.includes("accessory-product-image") &&
+    accessoryCards.includes("max-h-[82%] max-w-[82%] object-contain") &&
+    accessoryCards.includes("p-6") &&
+    !accessoryCards.includes("h-full w-full object-contain") &&
     !accessoryCards.includes("category.specs.slice(0, 3)")
 });
 
