@@ -127,6 +127,13 @@ checks.push({
 const accessoriesIndex = read("src/components/accessories/accessories-index-page.tsx");
 const accessoryCards = read("src/components/accessories/accessory-cards.tsx");
 checks.push({
+  name: "accessory overview hero uses a dedicated industrial background",
+  pass: accessoriesIndex.includes('const accessoriesHeroImage = "/assets/accessories/accessories-hero-background.webp"') &&
+    accessoriesIndex.includes("image={accessoriesHeroImage}") &&
+    !accessoriesIndex.includes("image={accessoryCategories[0].image}") &&
+    existsSync(join(root, "public", "assets", "accessories", "accessories-hero-background.webp"))
+});
+checks.push({
   name: "accessory overview uses compact category cards with contained images",
   pass: accessoriesIndex.includes("lg:grid-cols-4") &&
     !accessoriesIndex.includes("ProductCatalogSwitch") &&

@@ -9,12 +9,13 @@ import { AccessoryPageHeading } from "./accessory-page-heading";
 
 export function AccessoriesIndexPage({ locale }: { locale: Locale }) {
   const c = accessoryCopy[locale];
+  const accessoriesHeroImage = "/assets/accessories/accessories-hero-background.webp";
   const requestItems = locale === "ru"
     ? ["Прибор или узел", "Газ или рабочая среда", "Размеры и материал", "Интерфейс или резьба", "Точность фильтрации или расход", "Требуемое количество"]
     : ["Instrument or assembly", "Gas or process medium", "Dimensions and material", "Connection or thread", "Filtration grade or flow", "Required quantity"];
   return (
     <PageShell locale={locale} active="catalog" languagePath={localizedPath(oppositeLocale(locale), "/accessories")}>
-      <AccessoryPageHeading title={c.overviewTitle} lead={c.overviewLead} image={accessoryCategories[0].image} />
+      <AccessoryPageHeading title={c.overviewTitle} lead={c.overviewLead} image={accessoriesHeroImage} />
       <section className="section">
         <div className="section-narrow">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
