@@ -5,6 +5,8 @@ const root = process.cwd();
 const read = (path) => readFileSync(join(root, path), "utf8");
 
 const source = read("src/components/site.tsx");
+const catalogNavDropdownPath = join(root, "src", "components", "catalog", "catalog-nav-dropdown.tsx");
+const catalogNavDropdown = existsSync(catalogNavDropdownPath) ? read("src/components/catalog/catalog-nav-dropdown.tsx") : "";
 
 const checks = [
   {
@@ -92,10 +94,17 @@ const checks = [
         !source.includes('["accessories",') &&
         !source.includes('active: "home" | "catalog" | "accessories"') &&
         [indexPage, categoryPage, detailPage].every((page) => page.includes('active="catalog"')) &&
-        source.includes("catalog-dropdown") &&
-        source.includes("catalogDropdownItems") &&
-        source.includes('localizedPath(locale, "/catalog")') &&
-        source.includes('localizedPath(locale, "/accessories")') &&
+        source.includes('import { CatalogNavDropdown } from "@/components/catalog/catalog-nav-dropdown"') &&
+        source.includes("<CatalogNavDropdown") &&
+        catalogNavDropdown.includes("catalog-dropdown-panel") &&
+        catalogNavDropdown.includes("group-hover:visible") &&
+        catalogNavDropdown.includes("group-focus-within:visible") &&
+        catalogNavDropdown.includes("top-full") &&
+        catalogNavDropdown.includes("pt-2") &&
+        !catalogNavDropdown.includes("mt-2") &&
+        catalogNavDropdown.includes('localizedPath(locale, "/catalog")') &&
+        catalogNavDropdown.includes('localizedPath(locale, "/accessories")') &&
+        !source.includes("catalogDropdownItems") &&
         !source.includes("ProductCatalogSwitch") &&
         !indexPage.includes("ProductCatalogSwitch") &&
         section.includes("homeAccessoryProducts") &&

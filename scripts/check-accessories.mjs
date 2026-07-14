@@ -106,12 +106,22 @@ checks.push({
 });
 
 const shellSource = read("src/components/site.tsx");
+const catalogNavDropdown = existsSync(join(root, "src", "components", "catalog", "catalog-nav-dropdown.tsx"))
+  ? read("src/components/catalog/catalog-nav-dropdown.tsx")
+  : "";
 checks.push({
-  name: "catalog selector lives in top navigation dropdown",
-  pass: shellSource.includes("catalog-dropdown") &&
-    shellSource.includes("catalogDropdownItems") &&
-    shellSource.includes('localizedPath(locale, "/catalog")') &&
-    shellSource.includes('localizedPath(locale, "/accessories")') &&
+  name: "catalog selector lives in stable top navigation dropdown",
+  pass: shellSource.includes('import { CatalogNavDropdown } from "@/components/catalog/catalog-nav-dropdown"') &&
+    shellSource.includes("<CatalogNavDropdown") &&
+    catalogNavDropdown.includes("catalog-dropdown-panel") &&
+    catalogNavDropdown.includes("group-hover:visible") &&
+    catalogNavDropdown.includes("group-focus-within:visible") &&
+    catalogNavDropdown.includes("top-full") &&
+    catalogNavDropdown.includes("pt-2") &&
+    !catalogNavDropdown.includes("mt-2") &&
+    catalogNavDropdown.includes('localizedPath(locale, "/catalog")') &&
+    catalogNavDropdown.includes('localizedPath(locale, "/accessories")') &&
+    !shellSource.includes("catalogDropdownItems") &&
     !shellSource.includes("ProductCatalogSwitch")
 });
 const accessoriesIndex = read("src/components/accessories/accessories-index-page.tsx");
