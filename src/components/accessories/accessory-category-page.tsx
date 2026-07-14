@@ -6,7 +6,6 @@ import { localizedPath, oppositeLocale } from "@/lib/i18n";
 import { PageShell } from "@/components/site";
 import { AccessoryProductCard } from "./accessory-cards";
 import { AccessoryPageHeading } from "./accessory-page-heading";
-import { AccessoryServiceBand } from "./accessories-index-page";
 import { AccessorySpecTable } from "./accessory-specs";
 
 export function AccessoryCategoryPage({ category, products, locale }: { category: AccessoryCategory; products: AccessoryProduct[]; locale: Locale }) {
@@ -33,7 +32,6 @@ export function AccessoryCategoryPage({ category, products, locale }: { category
           </div>
         </div>
       </section>
-      <AccessoryServiceBand locale={locale} />
     </PageShell>
   );
 }

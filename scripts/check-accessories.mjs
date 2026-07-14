@@ -150,6 +150,15 @@ checks.push({
     !accessoryHeading.includes("rgba(20, 31, 42, 0.18)")
 });
 checks.push({
+  name: "accessory overview omits the duplicate service band before the footer",
+  pass: !accessoriesIndex.includes("AccessoryServiceBand") &&
+    !accessoryCategoryPage.includes("AccessoryServiceBand") &&
+    !accessoriesIndex.includes("requestCustom") &&
+    !accessoriesIndex.includes("serviceTitle") &&
+    !accessoriesIndex.includes("serviceText") &&
+    !accessoriesIndex.includes('className="bg-steel px-5 py-10 text-white md:px-10"')
+});
+checks.push({
   name: "accessory category cards use a view-more call to action",
   pass: accessoryCards.includes("c.viewCategory") &&
     !accessoryCards.includes("c.modelsAvailable") &&
