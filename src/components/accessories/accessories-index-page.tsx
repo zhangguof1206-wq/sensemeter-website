@@ -6,7 +6,6 @@ import { localizedPath, oppositeLocale } from "@/lib/i18n";
 import { PageShell } from "@/components/site";
 import { AccessoryCategoryCard } from "./accessory-cards";
 import { AccessoryPageHeading } from "./accessory-page-heading";
-import { ProductCatalogSwitch } from "@/components/catalog/product-catalog-switch";
 
 export function AccessoriesIndexPage({ locale }: { locale: Locale }) {
   const c = accessoryCopy[locale];
@@ -18,10 +17,7 @@ export function AccessoriesIndexPage({ locale }: { locale: Locale }) {
       <AccessoryPageHeading title={c.overviewTitle} lead={c.overviewLead} image={accessoryCategories[0].image} />
       <section className="section">
         <div className="section-narrow">
-          <div className="mb-7">
-            <ProductCatalogSwitch locale={locale} active="accessories" />
-          </div>
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {accessoryCategories.map((category) => <AccessoryCategoryCard category={category} locale={locale} key={category.slug} />)}
           </div>
         </div>

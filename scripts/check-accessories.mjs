@@ -92,10 +92,10 @@ checks.push({
 checks.push({
   name: "homepage accessory images use stable sizing and containment",
   pass: homeSection.includes("aspect-[4/3]") &&
-    homeSection.includes("p-6") &&
-    homeSection.includes("max-h-32") &&
-    homeSection.includes("max-w-[82%]") &&
-    homeSection.includes("object-contain")
+    homeSection.includes("bg-white") &&
+    homeSection.includes("p-3") &&
+    homeSection.includes("h-full w-full object-contain") &&
+    !homeSection.includes("max-h-32")
 });
 checks.push({
   name: "homepage accessory section keeps specs and models off overview cards",
@@ -105,15 +105,25 @@ checks.push({
     !homeSection.includes("viewCategory")
 });
 
-const catalogSwitch = read("src/components/catalog/product-catalog-switch.tsx");
+const shellSource = read("src/components/site.tsx");
 checks.push({
-  name: "catalog section switch is a dropdown selector",
-  pass: catalogSwitch.includes("\"use client\"") &&
-    catalogSwitch.includes("<select") &&
-    catalogSwitch.includes("<option") &&
-    catalogSwitch.includes("window.location.href") &&
-    !catalogSwitch.includes("inline-grid grid-cols-2") &&
-    !catalogSwitch.includes("<nav")
+  name: "catalog selector lives in top navigation dropdown",
+  pass: shellSource.includes("catalog-dropdown") &&
+    shellSource.includes("catalogDropdownItems") &&
+    shellSource.includes('localizedPath(locale, "/catalog")') &&
+    shellSource.includes('localizedPath(locale, "/accessories")') &&
+    !shellSource.includes("ProductCatalogSwitch")
+});
+const accessoriesIndex = read("src/components/accessories/accessories-index-page.tsx");
+const accessoryCards = read("src/components/accessories/accessory-cards.tsx");
+checks.push({
+  name: "accessory overview uses compact category cards with contained images",
+  pass: accessoriesIndex.includes("lg:grid-cols-4") &&
+    !accessoriesIndex.includes("ProductCatalogSwitch") &&
+    accessoryCards.includes("category.summary[locale]") &&
+    accessoryCards.includes("aspect-[4/3]") &&
+    accessoryCards.includes("h-full w-full object-contain") &&
+    !accessoryCards.includes("category.specs.slice(0, 3)")
 });
 
 const sitemap = existsSync(join(root, "src", "app", "sitemap.ts")) ? read("src/app/sitemap.ts") : "";

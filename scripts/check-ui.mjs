@@ -82,28 +82,26 @@ const checks = [
     name: "accessories belong to Product Catalog navigation",
     pass: () => {
       const sectionPath = join(root, "src", "components", "accessories", "accessories-home-section.tsx");
-      const switchPath = join(root, "src", "components", "catalog", "product-catalog-switch.tsx");
       if (!existsSync(sectionPath)) return false;
-      if (!existsSync(switchPath)) return false;
       const section = read("src/components/accessories/accessories-home-section.tsx");
       const indexPage = read("src/components/accessories/accessories-index-page.tsx");
       const categoryPage = read("src/components/accessories/accessory-category-page.tsx");
       const detailPage = read("src/components/accessories/accessory-detail-page.tsx");
-      const catalogSwitch = read("src/components/catalog/product-catalog-switch.tsx");
       return source.includes('import { AccessoriesHomeSection } from "@/components/accessories/accessories-home-section"') &&
         source.includes("<AccessoriesHomeSection locale={locale} />") &&
         !source.includes('["accessories",') &&
         !source.includes('active: "home" | "catalog" | "accessories"') &&
-        source.includes('<ProductCatalogSwitch locale={locale} active="instruments" />') &&
-        indexPage.includes('<ProductCatalogSwitch locale={locale} active="accessories" />') &&
         [indexPage, categoryPage, detailPage].every((page) => page.includes('active="catalog"')) &&
-        catalogSwitch.includes('localizedPath(locale, "/catalog")') &&
-        catalogSwitch.includes('localizedPath(locale, "/accessories")') &&
-        catalogSwitch.includes("<select") &&
-        catalogSwitch.includes("window.location.href") &&
+        source.includes("catalog-dropdown") &&
+        source.includes("catalogDropdownItems") &&
+        source.includes('localizedPath(locale, "/catalog")') &&
+        source.includes('localizedPath(locale, "/accessories")') &&
+        !source.includes("ProductCatalogSwitch") &&
+        !indexPage.includes("ProductCatalogSwitch") &&
         section.includes("homeAccessoryProducts") &&
         section.includes("aspect-[4/3]") &&
-        section.includes("max-h-32") &&
+        section.includes("h-full w-full object-contain") &&
+        !section.includes("max-h-32") &&
         !section.includes("AccessorySpecTable") &&
         !section.includes("categoryModels") &&
         !section.includes("backOverview");

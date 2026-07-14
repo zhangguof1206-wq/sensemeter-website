@@ -18,7 +18,6 @@ import { CookieBanner } from "@/components/cookie-banner";
 import { RfqForm } from "@/components/rfq-form";
 import { CardCarousel } from "@/components/card-carousel";
 import { AccessoriesHomeSection } from "@/components/accessories/accessories-home-section";
-import { ProductCatalogSwitch } from "@/components/catalog/product-catalog-switch";
 import { METRICA_GOALS, MetricaTrackedLink, ProductDwellGoal } from "@/components/metrica-goals";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
@@ -51,6 +50,10 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
     ["contact", c.navContact, localizedPath(locale, "/contact")],
     ["privacy", c.navPrivacy, localizedPath(locale, "/privacy")]
   ] as const;
+  const catalogDropdownItems = [
+    [locale === "ru" ? "Приборы" : "Instruments", localizedPath(locale, "/catalog")],
+    [locale === "ru" ? "Комплектующие" : "Accessories", localizedPath(locale, "/accessories")]
+  ] as const;
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -65,15 +68,38 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
           </Link>
 
           <nav className="flex flex-wrap gap-1 xl:justify-center" aria-label="Primary navigation">
-            {nav.map(([key, label, href]) => (
-              <Link
-                key={key}
-                className={`rounded px-2.5 py-2 text-sm transition hover:bg-white/10 ${active === key ? "bg-white/10" : ""}`}
-                href={href}
-              >
-                {label}
-              </Link>
-            ))}
+            {nav.map(([key, label, href]) => {
+              if (key === "catalog") {
+                return (
+                  <div className="catalog-dropdown group relative" key={key}>
+                    <Link
+                      aria-haspopup="true"
+                      className={`flex items-center gap-1 rounded px-2.5 py-2 text-sm transition hover:bg-white/10 ${active === key ? "bg-white/10" : ""}`}
+                      href={href}
+                    >
+                      {label}
+                      <span className="text-xs text-slate-300" aria-hidden="true">▾</span>
+                    </Link>
+                    <div className="invisible absolute left-0 top-full z-40 mt-2 min-w-56 border border-white/10 bg-white py-2 text-slate-900 opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                      {catalogDropdownItems.map(([itemLabel, itemHref]) => (
+                        <Link className="block px-4 py-3 text-sm font-bold transition hover:bg-[#eef2f5] hover:text-accent" href={itemHref} key={itemHref}>
+                          {itemLabel}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={key}
+                  className={`rounded px-2.5 py-2 text-sm transition hover:bg-white/10 ${active === key ? "bg-white/10" : ""}`}
+                  href={href}
+                >
+                  {label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex flex-wrap items-center gap-2">
@@ -323,9 +349,6 @@ export function CatalogPage({
       <PageHeading title={c.catalogTitle} lead={c.catalogLead} image="/assets/application-gas-processing.png" />
       <section className="section">
         <div className="section-narrow">
-          <div className="mb-7">
-            <ProductCatalogSwitch locale={locale} active="instruments" />
-          </div>
           <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap gap-2">
               <Link className={`btn ${!activeCategory ? "btn-primary" : "btn-outline"}`} href={localizedPath(locale, "/catalog")}>
