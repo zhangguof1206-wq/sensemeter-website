@@ -134,16 +134,18 @@ const accessoryCopySource = [
   ...categoryFiles.map((category) => `src/data/accessories/${category}.ts`)
 ].map((path) => read(path)).join("\n");
 checks.push({
-  name: "accessory overview hero uses a dedicated industrial background",
-  pass: accessoriesIndex.includes('const accessoriesHeroImage = "/assets/accessories/accessories-hero-background.webp"') &&
+  name: "accessory overview hero uses a catalog-style industrial background",
+  pass: accessoriesIndex.includes('const accessoriesHeroImage = "/assets/application-gas-processing.png"') &&
     accessoriesIndex.includes("image={accessoriesHeroImage}") &&
     !accessoriesIndex.includes("image={accessoryCategories[0].image}") &&
-    existsSync(join(root, "public", "assets", "accessories", "accessories-hero-background.webp"))
+    !accessoriesIndex.includes("accessories-hero-background.webp") &&
+    existsSync(join(root, "public", "assets", "application-gas-processing.png"))
 });
 checks.push({
-  name: "accessory overview hero keeps the product background visible",
-  pass: accessoryHeading.includes("opacity-70") &&
-    accessoryHeading.includes("rgba(20, 31, 42, 0.18)")
+  name: "accessory overview hero uses a clean dark overlay without duplicate product panels",
+  pass: accessoryHeading.includes("opacity-60") &&
+    accessoryHeading.includes("rgba(20, 31, 42, 0.5)") &&
+    !accessoryHeading.includes("rgba(20, 31, 42, 0.18)")
 });
 checks.push({
   name: "accessory category cards use a view-more call to action",

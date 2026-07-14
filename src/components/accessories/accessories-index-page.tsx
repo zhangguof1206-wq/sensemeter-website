@@ -9,7 +9,7 @@ import { AccessoryPageHeading } from "./accessory-page-heading";
 
 export function AccessoriesIndexPage({ locale }: { locale: Locale }) {
   const c = accessoryCopy[locale];
-  const accessoriesHeroImage = "/assets/accessories/accessories-hero-background.webp";
+  const accessoriesHeroImage = "/assets/application-gas-processing.png";
   const requestItems = locale === "ru"
     ? ["Прибор или узел", "Газ или рабочая среда", "Размеры и материал", "Интерфейс или резьба", "Точность фильтрации или расход", "Требуемое количество"]
     : ["Instrument or assembly", "Gas or process medium", "Dimensions and material", "Connection or thread", "Filtration grade or flow", "Required quantity"];
