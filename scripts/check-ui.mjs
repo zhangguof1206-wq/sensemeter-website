@@ -99,8 +99,14 @@ const checks = [
         [indexPage, categoryPage, detailPage].every((page) => page.includes('active="catalog"')) &&
         catalogSwitch.includes('localizedPath(locale, "/catalog")') &&
         catalogSwitch.includes('localizedPath(locale, "/accessories")') &&
-        section.includes("category.specs.slice(0, 3)") &&
-        section.includes("categoryModels");
+        catalogSwitch.includes("<select") &&
+        catalogSwitch.includes("window.location.href") &&
+        section.includes("homeAccessoryProducts") &&
+        section.includes("aspect-[4/3]") &&
+        section.includes("max-h-32") &&
+        !section.includes("AccessorySpecTable") &&
+        !section.includes("categoryModels") &&
+        !section.includes("backOverview");
     }
   },
   {

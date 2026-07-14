@@ -70,6 +70,52 @@ const requiredRoutes = [
 ];
 checks.push({ name: "RU and EN accessory routes exist", pass: requiredRoutes.every((path) => existsSync(join(root, path))) });
 
+const homeSection = read("src/components/accessories/accessories-home-section.tsx");
+const homeAccessoryData = read("src/data/home-accessories.ts");
+checks.push({
+  name: "homepage accessory data contains exactly 6 representative products",
+  pass: (homeAccessoryData.match(/\["[^"]+",\s*"[^"]+"\]/g) || []).length === 6 &&
+    homeAccessoryData.includes("getAccessoryProduct")
+});
+checks.push({
+  name: "homepage accessory section has no all accessories button",
+  pass: !homeSection.includes("backOverview") && !homeSection.includes("/accessories\")}>{c.backOverview}")
+});
+checks.push({
+  name: "homepage accessory section is image-first with concise linked items",
+  pass: homeSection.includes("homeAccessoryProducts") &&
+    homeSection.includes("grid-cols-2") &&
+    homeSection.includes("lg:grid-cols-3") &&
+    homeSection.includes("object-contain") &&
+    homeSection.includes("localizedPath(locale, `/accessories/${product.categorySlug}/${product.slug}`)")
+});
+checks.push({
+  name: "homepage accessory images use stable sizing and containment",
+  pass: homeSection.includes("aspect-[4/3]") &&
+    homeSection.includes("p-6") &&
+    homeSection.includes("max-h-32") &&
+    homeSection.includes("max-w-[82%]") &&
+    homeSection.includes("object-contain")
+});
+checks.push({
+  name: "homepage accessory section keeps specs and models off overview cards",
+  pass: !homeSection.includes("AccessorySpecTable") &&
+    !homeSection.includes("modelsLabel") &&
+    !homeSection.includes("category.specs") &&
+    !homeSection.includes("viewCategory")
+});
+
+const catalogSwitch = read("src/components/catalog/product-catalog-switch.tsx");
+checks.push({
+  name: "catalog section switch is a dropdown selector",
+  pass: catalogSwitch.includes("\"use client\"") &&
+    catalogSwitch.includes("<select") &&
+    catalogSwitch.includes("<option") &&
+    catalogSwitch.includes("window.location.href") &&
+    !catalogSwitch.includes("inline-grid grid-cols-2") &&
+    !catalogSwitch.includes("<nav")
+});
+
 const sitemap = existsSync(join(root, "src", "app", "sitemap.ts")) ? read("src/app/sitemap.ts") : "";
 const yandexList = existsSync(join(root, "scripts", "list-yandex-urls.mjs")) ? read("scripts/list-yandex-urls.mjs") : "";
 checks.push({
