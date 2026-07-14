@@ -5,7 +5,7 @@ export const metadata = staticPageMetadata({
   locale: "ru",
   path: "/catalog",
   title: "Каталог промышленных измерительных приборов",
-  description: "Каталог SenseMeter: Michell, Rotronic, Vaisala и AII для контроля влажности, точки росы, температуры и кислорода."
+  description: "Каталог SenseMeter: приборы и комплектующие Michell, Rotronic, Vaisala и AII для контроля влажности, точки росы, температуры и кислорода."
 });
 
 type Props = {

@@ -139,6 +139,34 @@ checks.push({
     !accessoryCards.includes("category.specs.slice(0, 3)")
 });
 
+const accessoryCopySource = [
+  "src/data/accessories/copy.ts",
+  "src/data/accessories/categories.ts",
+  ...categoryFiles.map((category) => `src/data/accessories/${category}.ts`)
+].map((path) => read(path)).join("\n");
+checks.push({
+  name: "accessory copy uses professional filtering and gas-line terminology without source brands",
+  pass: [
+    "pore structure",
+    "permeability",
+    "pressure drop",
+    "backwash",
+    "laminar flow",
+    "no particle shedding",
+    "dead volume",
+    "0.003",
+    "VCR",
+    "структура пор",
+    "проницаемость",
+    "перепад давления",
+    "обратная промывка",
+    "ламинарный поток",
+    "без выделения частиц",
+    "мёртвый объём"
+  ].every((phrase) => accessoryCopySource.includes(phrase)) &&
+    !["HENGKO", "恒歌", "深圳市恒歌"].some((phrase) => accessoryCopySource.includes(phrase))
+});
+
 const sitemap = existsSync(join(root, "src", "app", "sitemap.ts")) ? read("src/app/sitemap.ts") : "";
 const yandexList = existsSync(join(root, "scripts", "list-yandex-urls.mjs")) ? read("scripts/list-yandex-urls.mjs") : "";
 checks.push({

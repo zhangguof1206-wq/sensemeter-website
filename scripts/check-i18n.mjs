@@ -47,6 +47,36 @@ const checks = [
     }
   },
   {
+    name: "RFQ and catalog copy includes practical selection criteria",
+    pass: () => {
+      const enText = `${copy.en.heroText} ${copy.en.catalogLead} ${copy.en.contactLead} ${copy.en.emailNote}`;
+      const ruText = `${copy.ru.heroText} ${copy.ru.catalogLead} ${copy.ru.contactLead} ${copy.ru.emailNote}`;
+      const enRequired = [
+        "measurement instruments and accessories",
+        "model selection",
+        "instrument panel and cabinet integration",
+        "availability and lead times",
+        "measurement range",
+        "process medium",
+        "pressure",
+        "output/interface",
+        "installation method"
+      ];
+      const ruRequired = [
+        "измерительные приборы и комплектующие",
+        "подбор модели",
+        "интеграцию в панели и шкафы",
+        "наличие и сроки поставки",
+        "диапазон измерения",
+        "рабочую среду",
+        "давление",
+        "выходной сигнал",
+        "способ монтажа"
+      ];
+      return enRequired.every((phrase) => enText.includes(phrase)) && ruRequired.every((phrase) => ruText.includes(phrase));
+    }
+  },
+  {
     name: "product localized lists have matching item counts",
     pass: () => {
       const listKeys = ["params", "highlights", "applications"];

@@ -5,7 +5,7 @@ export const metadata = staticPageMetadata({
   locale: "ru",
   path: "/contact",
   title: "Запрос цены и консультации",
-  description: "Отправьте RFQ-запрос SenseMeter: цена, наличие, PDF datasheet и техническая консультация по промышленным измерительным приборам."
+  description: "Отправьте RFQ-запрос SenseMeter: цена, наличие, сроки поставки, PDF datasheet, подбор модели, комплектующие и техническая консультация."
 });
 
 type Props = {
