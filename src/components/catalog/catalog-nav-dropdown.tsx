@@ -43,12 +43,12 @@ export function CatalogNavDropdown({ locale, active }: CatalogNavDropdownProps) 
         href={localizedPath(locale, "/catalog")}
       >
         {labels.label}
-        <span className="text-[11px] text-slate-300 transition group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden="true">
+        <span className="text-[11px] text-slate-300 transition group-hover:rotate-180" aria-hidden="true">
           ▾
         </span>
       </Link>
 
-      <div className="catalog-dropdown-panel invisible absolute left-0 top-full z-50 w-44 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+      <div className="catalog-dropdown-panel invisible absolute left-0 top-full z-50 w-44 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100">
         <div className="border border-line bg-white p-2 text-slate-900 shadow-2xl">
           {items.map((item) => (
             <Link

@@ -93,8 +93,9 @@ checks.push({
   name: "homepage accessory images use stable sizing and containment",
   pass: homeSection.includes("aspect-[4/3]") &&
     homeSection.includes("bg-white") &&
-    homeSection.includes("p-3") &&
-    homeSection.includes("h-full w-full object-contain") &&
+    homeSection.includes("p-4") &&
+    homeSection.includes("max-h-[92%] max-w-[92%] object-contain") &&
+    !homeSection.includes("h-full w-full object-contain") &&
     !homeSection.includes("max-h-32")
 });
 checks.push({
@@ -115,7 +116,7 @@ checks.push({
     shellSource.includes("<CatalogNavDropdown") &&
     catalogNavDropdown.includes("catalog-dropdown-panel") &&
     catalogNavDropdown.includes("group-hover:visible") &&
-    catalogNavDropdown.includes("group-focus-within:visible") &&
+    !catalogNavDropdown.includes("group-focus-within:visible") &&
     catalogNavDropdown.includes("top-full") &&
     catalogNavDropdown.includes("pt-2") &&
     !catalogNavDropdown.includes("mt-2") &&
@@ -128,6 +129,7 @@ const accessoriesIndex = read("src/components/accessories/accessories-index-page
 const accessoryCards = read("src/components/accessories/accessory-cards.tsx");
 const accessoryHeading = read("src/components/accessories/accessory-page-heading.tsx");
 const accessoryCategoryPage = read("src/components/accessories/accessory-category-page.tsx");
+const accessoryDetailPage = read("src/components/accessories/accessory-detail-page.tsx");
 const accessoryCopySource = [
   "src/data/accessories/copy.ts",
   "src/data/accessories/categories.ts",
@@ -164,10 +166,19 @@ checks.push({
     accessoryCards.includes("category.summary[locale]") &&
     accessoryCards.includes("aspect-[4/3]") &&
     accessoryCards.includes("accessory-product-image") &&
-    accessoryCards.includes("max-h-[82%] max-w-[82%] object-contain") &&
-    accessoryCards.includes("p-6") &&
+    accessoryCards.includes("accessory-category-image max-h-[92%] max-w-[92%] object-contain") &&
+    accessoryCards.includes("accessory-product-image max-h-[92%] max-w-[92%] object-contain") &&
+    accessoryCards.includes("bg-white p-4") &&
     !accessoryCards.includes("h-full w-full object-contain") &&
+    !accessoryCards.includes("bg-[#eef2f5]") &&
     !accessoryCards.includes("category.specs.slice(0, 3)")
+});
+checks.push({
+  name: "accessory detail image panel uses the same white product treatment",
+  pass: accessoryDetailPage.includes("bg-white p-4") &&
+    accessoryDetailPage.includes("accessory-detail-image max-h-[92%] max-w-[92%] object-contain") &&
+    !accessoryDetailPage.includes("grid aspect-square place-items-center bg-[#eef2f5]") &&
+    !accessoryDetailPage.includes('className="h-full w-full object-contain"')
 });
 
 checks.push({

@@ -98,7 +98,7 @@ const checks = [
         source.includes("<CatalogNavDropdown") &&
         catalogNavDropdown.includes("catalog-dropdown-panel") &&
         catalogNavDropdown.includes("group-hover:visible") &&
-        catalogNavDropdown.includes("group-focus-within:visible") &&
+        !catalogNavDropdown.includes("group-focus-within:visible") &&
         catalogNavDropdown.includes("top-full") &&
         catalogNavDropdown.includes("pt-2") &&
         catalogNavDropdown.includes("w-44") &&
@@ -113,7 +113,8 @@ const checks = [
         !indexPage.includes("ProductCatalogSwitch") &&
         section.includes("homeAccessoryProducts") &&
         section.includes("aspect-[4/3]") &&
-        section.includes("h-full w-full object-contain") &&
+        section.includes("max-h-[92%] max-w-[92%] object-contain") &&
+        !section.includes("h-full w-full object-contain") &&
         !section.includes("max-h-32") &&
         !section.includes("AccessorySpecTable") &&
         !section.includes("categoryModels") &&
