@@ -126,12 +126,34 @@ checks.push({
 });
 const accessoriesIndex = read("src/components/accessories/accessories-index-page.tsx");
 const accessoryCards = read("src/components/accessories/accessory-cards.tsx");
+const accessoryHeading = read("src/components/accessories/accessory-page-heading.tsx");
+const accessoryCategoryPage = read("src/components/accessories/accessory-category-page.tsx");
+const accessoryCopySource = [
+  "src/data/accessories/copy.ts",
+  "src/data/accessories/categories.ts",
+  ...categoryFiles.map((category) => `src/data/accessories/${category}.ts`)
+].map((path) => read(path)).join("\n");
 checks.push({
   name: "accessory overview hero uses a dedicated industrial background",
   pass: accessoriesIndex.includes('const accessoriesHeroImage = "/assets/accessories/accessories-hero-background.webp"') &&
     accessoriesIndex.includes("image={accessoriesHeroImage}") &&
     !accessoriesIndex.includes("image={accessoryCategories[0].image}") &&
     existsSync(join(root, "public", "assets", "accessories", "accessories-hero-background.webp"))
+});
+checks.push({
+  name: "accessory overview hero keeps the product background visible",
+  pass: accessoryHeading.includes("opacity-70") &&
+    accessoryHeading.includes("rgba(20, 31, 42, 0.18)")
+});
+checks.push({
+  name: "accessory category cards use a view-more call to action",
+  pass: accessoryCards.includes("c.viewCategory") &&
+    !accessoryCards.includes("c.modelsAvailable") &&
+    !accessoryCategoryPage.includes("c.modelsAvailable") &&
+    accessoryCopySource.includes('viewCategory: "Подробнее"') &&
+    accessoryCopySource.includes('viewCategory: "View more"') &&
+    !accessoryCopySource.includes("catalog variants") &&
+    !accessoryCopySource.includes("вариантов в каталоге")
 });
 checks.push({
   name: "accessory overview uses compact category cards with contained images",
@@ -146,11 +168,6 @@ checks.push({
     !accessoryCards.includes("category.specs.slice(0, 3)")
 });
 
-const accessoryCopySource = [
-  "src/data/accessories/copy.ts",
-  "src/data/accessories/categories.ts",
-  ...categoryFiles.map((category) => `src/data/accessories/${category}.ts`)
-].map((path) => read(path)).join("\n");
 checks.push({
   name: "accessory copy uses professional filtering and gas-line terminology without source brands",
   pass: [

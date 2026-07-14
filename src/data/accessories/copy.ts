@@ -8,7 +8,7 @@ export const accessoryCopy = {
     homeLead: "Поставляем защиту зондов, спечённые фильтрующие элементы, газовые фильтры и компоненты регулирования потока для линий точки росы, влажности, кислорода и технологического газа.",
     overviewTitle: "Каталог комплектующих",
     overviewLead: "Выберите группу комплектующих. Для подбора укажите прибор, газ или среду, давление, расход, соединение, требуемый класс фильтрации или размер пор, допустимый перепад давления и количество.",
-    viewCategory: "Открыть группу",
+    viewCategory: "Подробнее",
     viewAccessory: "Подробнее",
     availableTitle: "Что можно заказать",
     selectionTitle: "Что указать для подбора",
@@ -26,8 +26,7 @@ export const accessoryCopy = {
     applicationsTitle: "Типовые применения",
     relatedTitle: "Связанные комплектующие",
     informationTitle: "Данные для запроса",
-    modelsLabel: "Модели",
-    modelsAvailable: "6 вариантов в каталоге"
+    modelsLabel: "Модели"
   },
   en: {
     nav: "Accessories",
@@ -36,7 +35,7 @@ export const accessoryCopy = {
     homeLead: "We supply probe protection, sintered filter elements, gas filters and flow-control components for dew-point, humidity, oxygen and process-gas measurement lines.",
     overviewTitle: "Accessories Catalog",
     overviewLead: "Choose an accessory group. For selection, provide the instrument, gas or medium, pressure, flow, connection, target filtration grade or pore size, allowable pressure drop and quantity.",
-    viewCategory: "Open category",
+    viewCategory: "View more",
     viewAccessory: "View details",
     availableTitle: "Available supply",
     selectionTitle: "Selection information",
@@ -54,7 +53,6 @@ export const accessoryCopy = {
     applicationsTitle: "Typical applications",
     relatedTitle: "Related accessories",
     informationTitle: "Information for quotation",
-    modelsLabel: "Models",
-    modelsAvailable: "6 catalog variants"
+    modelsLabel: "Models"
   }
 } satisfies Record<Locale, Record<string, string>>;

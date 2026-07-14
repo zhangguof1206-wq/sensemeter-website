@@ -15,7 +15,7 @@ export function AccessoryCategoryCard({ category, locale }: { category: Accessor
       <div className="flex flex-1 flex-col p-4">
         <h3 className="text-lg font-black leading-6">{category.title[locale]}</h3>
         <p className="mt-2 text-sm leading-6 text-muted">{category.summary[locale]}</p>
-        <p className="mt-auto pt-4 text-sm font-bold uppercase text-accent">{c.modelsAvailable}</p>
+        <p className="mt-auto pt-4 text-sm font-bold uppercase text-accent">{c.viewCategory}</p>
       </div>
     </Link>
   );

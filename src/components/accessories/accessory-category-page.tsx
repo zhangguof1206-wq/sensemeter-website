@@ -14,7 +14,7 @@ export function AccessoryCategoryPage({ category, products, locale }: { category
   const path = `/accessories/${category.slug}`;
   return (
     <PageShell locale={locale} active="catalog" languagePath={localizedPath(oppositeLocale(locale), path)}>
-      <AccessoryPageHeading eyebrow={c.modelsAvailable} title={category.title[locale]} lead={category.intro[locale]} image={category.image} />
+      <AccessoryPageHeading eyebrow={c.availableTitle} title={category.title[locale]} lead={category.intro[locale]} image={category.image} />
       <section className="section">
         <div className="section-narrow">
           <div className="mb-10 grid gap-6 border-y border-line py-7 lg:grid-cols-[260px_1fr]">
