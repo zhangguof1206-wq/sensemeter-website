@@ -5,6 +5,8 @@ const root = process.cwd();
 const read = (path) => readFileSync(join(root, path), "utf8");
 
 const source = read("src/components/site.tsx");
+const cssSource = read("src/app/globals.css");
+const i18nSource = read("src/lib/i18n.ts");
 const catalogNavDropdownPath = join(root, "src", "components", "catalog", "catalog-nav-dropdown.tsx");
 const catalogNavDropdown = existsSync(catalogNavDropdownPath) ? read("src/components/catalog/catalog-nav-dropdown.tsx") : "";
 
@@ -48,12 +50,12 @@ const checks = [
     name: "home categories use a stable grid with real product images",
     pass: () => {
       const catalogSource = read("src/data/catalog.ts");
-      const i18nSource = read("src/lib/i18n.ts");
-      return source.includes("grid gap-6 sm:grid-cols-2 min-[1150px]:grid-cols-4") &&
+      return source.includes("home-brand-card") &&
+        source.includes("grid gap-5 sm:grid-cols-2 min-[1150px]:grid-cols-4") &&
         !source.includes("<CardCarousel ariaLabel={c.categoriesTitle}>") &&
         !source.includes("<CardCarousel ariaLabel={c.categoriesTitle} autoPlay>") &&
         source.includes("mix-blend-multiply") &&
-        source.includes("btn btn-outline mt-auto w-full !border-accent !text-accent") &&
+        source.includes("btn btn-outline mt-auto w-full whitespace-nowrap !border-accent !text-accent") &&
         !source.includes("{count} {c.products}") &&
         !source.includes("category.showcaseProduct") &&
         !source.includes("category.showcaseBullets") &&
@@ -67,7 +69,7 @@ const checks = [
         catalogSource.includes('backgroundImage: "assets/products/AI_GPR-1900-Oxygen-Analyzer.png"') &&
         source.includes("brand-instrument-background") &&
         source.includes("brand-logo") &&
-        source.includes("h-28 w-[70%]") &&
+        source.includes("h-24 w-[68%]") &&
         source.includes("contrast-125") &&
         ["michell.webp", "rotronic.webp", "vaisala.webp", "aii.webp"].every((file) =>
           existsSync(join(root, "public", "assets", "brands", file))
@@ -124,7 +126,6 @@ const checks = [
   {
     name: "home hero uses a muted local industrial video with a static fallback",
     pass: () => {
-      const cssSource = read("src/app/globals.css");
       return source.includes("hero-industrial-video") &&
         source.includes("autoPlay") &&
         source.includes("muted") &&
@@ -140,6 +141,26 @@ const checks = [
     }
   },
   {
+    name: "home redesign follows design-taste pre-flight essentials",
+    pass: () =>
+      source.includes("home-hero-shell") &&
+      source.includes("home-section-reveal") &&
+      source.includes("home-brand-card") &&
+      source.includes("home-application-card") &&
+      read("src/components/accessories/accessories-home-section.tsx").includes("home-accessory-tile") &&
+      source.includes("min-h-[calc(100dvh-96px)]") &&
+      !source.includes("md:text-7xl") &&
+      !source.includes("min-h-[640px]") &&
+      !source.includes("c.applicationEyebrow") &&
+      !source.includes("h-screen") &&
+      !source.includes("window.addEventListener") &&
+      !i18nSource.includes("categoriesLead: \"Выберите бренд, измерительную задачу и условия установки: точка росы, влажность, температура или кислород, а при необходимости — совместимые комплектующие.\"") &&
+      cssSource.includes("@media (prefers-reduced-motion: no-preference)") &&
+      cssSource.includes(".home-section-reveal") &&
+      cssSource.includes(".home-brand-card:hover") &&
+      cssSource.includes("prefers-reduced-motion: reduce")
+  },
+  {
     name: "cookie banner is compact on narrow screens",
     pass: () => {
       const cookieBannerSource = read("src/components/cookie-banner.tsx");
@@ -151,7 +172,7 @@ const checks = [
   },
   {
     name: "home hero title fits narrow screens without horizontal overflow",
-    pass: () => source.includes("text-4xl") && source.includes("sm:text-5xl") && source.includes("md:text-7xl")
+    pass: () => source.includes("text-4xl") && source.includes("sm:text-5xl") && source.includes("lg:text-[64px]") && !source.includes("md:text-7xl")
   }
 ];
 

@@ -160,9 +160,65 @@ select {
   object-position: center;
 }
 
+.home-hero-shell {
+  min-height: calc(100dvh - 96px);
+}
+
+.home-hero-visual-grid {
+  transform: translateY(8px);
+}
+
+.home-section-reveal {
+  opacity: 1;
+}
+
+.home-brand-card,
+.home-application-card,
+.home-accessory-tile {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-brand-card:hover,
+.home-application-card:hover,
+.home-accessory-tile:hover {
+  transform: translateY(-4px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-industrial-video {
     display: none;
+  }
+
+  .home-section-reveal,
+  .home-brand-card,
+  .home-application-card,
+  .home-accessory-tile,
+  .btn {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-section-reveal {
+    animation: home-section-rise 0.62s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes home-section-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

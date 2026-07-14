@@ -8,20 +8,19 @@ export function AccessoriesHomeSection({ locale }: { locale: Locale }) {
   const c = accessoryCopy[locale];
   return (
     <section className="section bg-[#e9eef4]">
-      <div className="section-narrow">
-        <div className="mb-8 max-w-3xl">
-          <p className="eyebrow !text-slate-500">{c.eyebrow}</p>
-          <h2 className="mt-3 text-3xl font-black">{c.homeTitle}</h2>
-          <p className="mt-3 text-lg leading-8 text-muted">{c.homeLead}</p>
+      <div className="section-narrow home-section-reveal grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <div className="max-w-xl">
+          <h2 className="text-3xl font-black">{c.homeTitle}</h2>
+          <p className="mt-4 text-lg leading-8 text-muted">{c.homeLead}</p>
         </div>
         <div className="grid grid-cols-2 gap-x-5 gap-y-7 lg:grid-cols-3">
           {homeAccessoryProducts.map((product) => (
             <Link
-              className="group block"
+              className="home-accessory-tile group block"
               href={localizedPath(locale, `/accessories/${product.categorySlug}/${product.slug}`)}
               key={`${product.categorySlug}-${product.slug}`}
             >
-              <div className="grid aspect-[4/3] place-items-center border border-line bg-white p-4 shadow-sm transition group-hover:border-accent/50 group-hover:shadow-md">
+              <div className="grid aspect-[4/3] place-items-center border border-line bg-white p-4 shadow-sm transition duration-300 group-hover:border-accent/50 group-hover:shadow-md">
                 <img
                   className="max-h-[92%] max-w-[92%] object-contain transition duration-300 group-hover:scale-[1.03]"
                   src={product.image}

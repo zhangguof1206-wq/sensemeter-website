@@ -52,7 +52,7 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
     ["privacy", c.navPrivacy, localizedPath(locale, "/privacy")]
   ] as const;
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-[100dvh] flex-col">
       <header className="sticky top-0 z-30 border-b-[3px] border-accent bg-steel px-5 py-3 text-white shadow-lg md:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-3 xl:grid-cols-[auto_1fr_auto]">
           <Link className="flex min-w-[210px] items-center gap-3" href={localizedPath(locale, "/")}>
@@ -170,9 +170,13 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
 
 export function HomePage({ locale }: { locale: Locale }) {
   const c = t(locale);
+  const heroTextParts = c.heroText.split(". ");
+  const heroLead = heroTextParts.length > 1 ? `${heroTextParts[0]}.` : c.heroText;
+  const heroDetails = heroTextParts.length > 1 ? heroTextParts.slice(1).join(". ") : "";
+
   return (
     <PageShell locale={locale} active="home" languagePath={localizedPath(oppositeLocale(locale), "/")}>
-      <section className="relative isolate min-h-[640px] overflow-hidden px-5 py-24 text-white md:px-10">
+      <section className="home-hero-shell relative isolate overflow-hidden px-5 py-16 text-white md:px-10 md:py-20">
         <div
           className="absolute inset-0 -z-30 bg-cover bg-center"
           style={{ backgroundImage: "url('/assets/video/industrial-measurement-poster.webp')" }}
@@ -191,54 +195,78 @@ export function HomePage({ locale }: { locale: Locale }) {
         >
           <source src="/assets/video/industrial-measurement-hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(20,31,42,.92),rgba(20,31,42,.54))]" aria-hidden="true" />
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <p className="eyebrow">{c.heroEyebrow}</p>
-          <h1 className="max-w-4xl text-4xl font-black leading-[1.04] sm:text-5xl md:text-7xl">{c.heroTitle}</h1>
-          <p className="mt-6 max-w-3xl text-lg text-slate-100 md:text-xl">{c.heroText}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link className="btn btn-primary" href={localizedPath(locale, "/catalog")}>
-              {c.viewCatalog}
-            </Link>
-            <Link className="btn btn-secondary" href={localizedPath(locale, "/contact")}>
-              {c.requestQuote}
-            </Link>
+        <div
+          className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(20,31,42,.94)_0%,rgba(20,31,42,.78)_48%,rgba(20,31,42,.48)_100%)]"
+          aria-hidden="true"
+        />
+        <div className="relative z-10 mx-auto grid min-h-[calc(100dvh-96px)] max-w-7xl items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,.72fr)]">
+          <div className="home-section-reveal max-w-4xl">
+            <p className="eyebrow">{c.heroEyebrow}</p>
+            <h1 className="max-w-4xl text-4xl font-black leading-[1.02] sm:text-5xl lg:text-[64px]">{c.heroTitle}</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-100 md:text-xl">{heroLead}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link className="btn btn-primary whitespace-nowrap" href={localizedPath(locale, "/catalog")}>
+                {c.viewCatalog}
+              </Link>
+              <Link className="btn btn-secondary whitespace-nowrap" href={localizedPath(locale, "/contact")}>
+                {c.requestQuote}
+              </Link>
+            </div>
+          </div>
+
+          <div className="home-section-reveal hidden lg:block" aria-hidden="true">
+            <div className="home-hero-visual-grid grid gap-4">
+              {categories.map((category) => (
+                <div className="grid min-h-28 grid-cols-[1fr_1.15fr] items-center overflow-hidden border border-white/15 bg-white/[0.08] p-4 shadow-[0_24px_70px_rgba(0,0,0,.18)] backdrop-blur-sm" key={category.id}>
+                  <img className="h-16 max-w-full object-contain object-left opacity-95" src={assetPath(category.image)} alt="" />
+                  <img className="ml-auto h-24 max-w-full object-contain opacity-75 grayscale" src={assetPath(category.backgroundImage)} alt="" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="section-narrow">
-          <div className="mb-7 max-w-3xl">
+      {heroDetails ? (
+        <section className="border-b border-line bg-white px-5 py-6 md:px-10">
+          <div className="section-narrow home-section-reveal">
+            <p className="max-w-5xl text-base leading-7 text-muted md:text-lg">{heroDetails}</p>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="section bg-white">
+        <div className="section-narrow home-section-reveal">
+          <div className="mb-8 max-w-3xl">
             <h2 className="text-3xl font-black">{c.categoriesTitle}</h2>
             <p className="mt-3 text-lg text-muted">{c.categoriesLead}</p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 min-[1150px]:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 min-[1150px]:grid-cols-4">
             {categories.map((category) => {
               return (
                 <Link
-                  className="card group flex min-h-[380px] flex-col overflow-hidden border border-line bg-white transition hover:border-accent/50 hover:shadow-lg"
+                  className="card home-brand-card group flex min-h-[360px] flex-col overflow-hidden border border-line bg-white transition duration-300 hover:border-accent/50"
                   href={`${localizedPath(locale, "/catalog")}?category=${category.id}`}
                   key={category.id}
                 >
-                  <div className="relative h-52 shrink-0 overflow-hidden border-b border-line bg-[#eef2f5]">
+                  <div className="relative h-48 shrink-0 overflow-hidden border-b border-line bg-[#eef2f5]">
                     <img
-                      className="brand-instrument-background absolute inset-y-3 right-2 h-[calc(100%-1.5rem)] w-[66%] object-contain object-right opacity-55 grayscale transition duration-300 group-hover:scale-[1.03] group-hover:opacity-65"
+                      className="brand-instrument-background absolute inset-y-4 right-2 h-[calc(100%-2rem)] w-[68%] object-contain object-right opacity-50 grayscale transition duration-300 group-hover:scale-[1.03] group-hover:opacity-65"
                       src={assetPath(category.backgroundImage)}
                       alt=""
                       aria-hidden="true"
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(90deg,#eef2f5_12%,rgba(238,242,245,.92)_34%,rgba(238,242,245,.25)_78%)]" aria-hidden="true" />
+                    <div className="absolute inset-0 bg-[linear-gradient(90deg,#eef2f5_8%,rgba(238,242,245,.95)_38%,rgba(238,242,245,.26)_82%)]" aria-hidden="true" />
                     <img
-                      className="brand-logo absolute bottom-0 left-4 z-10 h-28 w-[70%] object-contain object-left mix-blend-multiply contrast-125"
+                      className="brand-logo absolute bottom-3 left-5 z-10 h-24 w-[68%] object-contain object-left mix-blend-multiply contrast-125"
                       src={assetPath(category.image)}
                       alt={`${category.title} logo`}
                     />
                   </div>
-                  <div className="flex flex-1 flex-col p-6">
+                  <div className="flex flex-1 flex-col p-5">
                     <h3 className="text-2xl font-black">{category.title}</h3>
                     <p className="mt-3 text-muted">{category.description[locale]}</p>
-                    <span className="btn btn-outline mt-auto w-full !border-accent !text-accent">{c.viewCategoryProducts}</span>
+                    <span className="btn btn-outline mt-auto w-full whitespace-nowrap !border-accent !text-accent">{c.viewCategoryProducts}</span>
                   </div>
                 </Link>
               );
@@ -250,15 +278,14 @@ export function HomePage({ locale }: { locale: Locale }) {
       <AccessoriesHomeSection locale={locale} />
 
       <section className="section">
-        <div className="section-narrow">
-          <p className="eyebrow !text-slate-400">{c.applicationEyebrow}</p>
+        <div className="section-narrow home-section-reveal">
           <h2 className="mb-7 text-3xl font-black">{c.applicationTitle}</h2>
           <CardCarousel ariaLabel={c.applicationTitle}>
             {applicationScenes.map((scene) => {
               const href = applicationSceneLinks[scene.id] || "/catalog";
 
               return (
-                <Link className="card block h-full overflow-hidden transition hover:-translate-y-1 hover:shadow-2xl" href={localizedPath(locale, href)} key={scene.id}>
+                <Link className="card home-application-card block h-full overflow-hidden transition duration-300 hover:shadow-2xl" href={localizedPath(locale, href)} key={scene.id}>
                   <img className="h-44 w-full object-cover" src={assetPath(scene.image)} alt={scene.title[locale]} />
                   <div className="p-5">
                     <h3 className="text-lg font-black">{scene.title[locale]}</h3>
