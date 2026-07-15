@@ -50,10 +50,19 @@ for (const category of categoryFiles) {
     name: `${category} has 6 local accessory images`,
     pass: images.length === 6 && images.every((image) => existsSync(join(root, "public", "assets", "accessories", image)))
   });
+  checks.push({
+    name: `${category} uses 6 distinct product images`,
+    pass: images.length === 6 && new Set(images).size === 6
+  });
 }
 
 const categoriesSource = read("src/data/accessories/categories.ts");
+const categoryImages = [...categoriesSource.matchAll(/image:\s*"\/assets\/accessories\/([^"]+\.webp)"/g)].map((match) => match[1]);
 checks.push({ name: "accessory catalog contains 36 products", pass: productSlugs.length === 36 });
+checks.push({
+  name: "accessory overview categories use 6 distinct representative images",
+  pass: categoryImages.length === 6 && new Set(categoryImages).size === 6
+});
 checks.push({
   name: "all accessory categories include localized specification ranges",
   pass: (categoriesSource.match(/specs:\s*\[/g) || []).length === 6
@@ -80,11 +89,30 @@ checks.push({ name: "RU and EN accessory routes exist", pass: requiredRoutes.eve
 
 const homeSection = read("src/components/accessories/accessories-home-section.tsx");
 const homeAccessoryData = read("src/data/home-accessories.ts");
+const getProductImage = (category, slug) => {
+  const source = read(`src/data/accessories/${category}.ts`);
+  const marker = `slug: "${slug}"`;
+  const start = source.indexOf(marker);
+  if (start === -1) return null;
+  const nextProduct = source.indexOf("\n  {", start + marker.length);
+  const block = source.slice(start, nextProduct === -1 ? source.length : nextProduct);
+  const image = block.match(/image:\s*"([^"]+)"/);
+  return image ? image[1] : null;
+};
+const homeRefs = [...homeAccessoryData.matchAll(/\["([^"]+)",\s*"([^"]+)"\]/g)].map((match) => ({
+  category: match[1],
+  slug: match[2]
+}));
+const homeImages = homeRefs.map(({ category, slug }) => getProductImage(category, slug)).filter(Boolean);
 checks.push({
   name: "homepage accessory data contains exactly 6 representative products",
-  pass: (homeAccessoryData.match(/\["[^"]+",\s*"[^"]+"\]/g) || []).length === 6 &&
+  pass: homeRefs.length === 6 &&
     categoryFiles.every((category) => homeAccessoryData.includes(`"${category}"`)) &&
     homeAccessoryData.includes("getAccessoryProduct")
+});
+checks.push({
+  name: "homepage representative accessories use 6 distinct images",
+  pass: homeImages.length === 6 && new Set(homeImages).size === 6
 });
 checks.push({
   name: "homepage accessory section has no all accessories button",
@@ -101,9 +129,9 @@ checks.push({
 checks.push({
   name: "homepage accessory images use stable sizing and containment",
   pass: homeSection.includes("aspect-[4/3]") &&
-    homeSection.includes("bg-white") &&
+    homeSection.includes("bg-[#f7fafc]") &&
     homeSection.includes("p-4") &&
-    homeSection.includes("max-h-[92%] max-w-[92%] object-contain") &&
+    homeSection.includes("max-h-[94%] max-w-[94%] object-contain mix-blend-multiply") &&
     !homeSection.includes("h-full w-full object-contain") &&
     !homeSection.includes("max-h-32")
 });

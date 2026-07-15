@@ -12,7 +12,7 @@ export const accessoryCategories: AccessoryCategory[] = [
       ru: "SenseMeter поставляет стандартные и заказные спечённые элементы для фильтрации газа, защиты измерительных линий и установки в приборные узлы. При подборе учитываются материал, геометрия, размер пор, расход, перепад давления, температура и способ очистки.",
       en: "SenseMeter supplies standard and custom sintered elements for gas filtration, measurement-line protection and instrument assemblies. Selection considers material, geometry, pore size, flow, pressure drop, temperature and cleaning method."
     },
-    image: "/assets/accessories/filter-industrial-cartridge.webp",
+    image: "/assets/accessories/filter-custom-microporous.webp",
     specs: [
       { label: { ru: "Материалы", en: "Materials" }, value: { ru: "304, 316, 316L и специальные сплавы", en: "304, 316, 316L and special alloys" } },
       { label: { ru: "Тонкость фильтрации", en: "Filtration grade" }, value: { ru: "Ориентировочно 0,2-100 мкм по задаче", en: "Typically 0.2-100 μm by requirement" } },
@@ -51,7 +51,7 @@ export const accessoryCategories: AccessoryCategory[] = [
       ru: "Микропористые металлические детали используются как защитные, фильтрующие, демпфирующие и газораспределительные элементы. Важны равномерность пор, чистота поверхности, отсутствие выделения частиц и совместимость с газом или средой.",
       en: "Microporous metal parts are used as protective, filtering, damping and gas-distribution elements. Uniform pores, surface cleanliness, no particle shedding and media compatibility are key selection points."
     },
-    image: "/assets/accessories/filter-custom-microporous.webp",
+    image: "/assets/accessories/filter-face-seal-disc.webp",
     specs: [
       { label: { ru: "Материалы", en: "Materials" }, value: { ru: "316L, 316, никелевые и медные сплавы", en: "316L, 316, nickel and copper alloys" } },
       { label: { ru: "Пористость", en: "Porosity" }, value: { ru: "0,1-120 мкм по применению", en: "0.1-120 μm by application" } },
@@ -90,7 +90,7 @@ export const accessoryCategories: AccessoryCategory[] = [
       ru: "Фильтрующие стаканы применяются там, где нужен прочный пористый объём: защита датчика, предварительная очистка газа, удержание частиц или работа в корпусе с обслуживаемым элементом.",
       en: "Filter cups are used where a robust porous volume is required: sensor protection, gas prefiltration, particle retention or a serviceable filter inside a housing."
     },
-    image: "/assets/accessories/filter-shaped-element.webp",
+    image: "/assets/accessories/filter-industrial-cartridge.webp",
     specs: [
       { label: { ru: "Материалы", en: "Materials" }, value: { ru: "304, 316, 316L", en: "304, 316, 316L" } },
       { label: { ru: "Форма", en: "Form" }, value: { ru: "Стакан, чашка, цилиндр, резьбовое или сварное исполнение", en: "Cup, cap, cylinder, threaded or welded construction" } },
