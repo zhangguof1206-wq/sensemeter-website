@@ -160,12 +160,16 @@ select {
   object-position: center;
 }
 
-.home-hero-shell {
-  min-height: calc(100dvh - 96px);
+:root {
+  --site-header-height: 174px;
 }
 
-.home-hero-visual-grid {
-  transform: translateY(8px);
+.home-hero-shell {
+  min-height: calc(100dvh - var(--site-header-height));
+}
+
+.home-hero-content {
+  min-height: calc(100dvh - var(--site-header-height));
 }
 
 .home-section-reveal {

@@ -144,17 +144,20 @@ const checks = [
     name: "home redesign follows design-taste pre-flight essentials",
     pass: () =>
       source.includes("home-hero-shell") &&
+      source.includes("home-hero-content") &&
       source.includes("home-section-reveal") &&
       source.includes("home-brand-card") &&
       source.includes("home-application-card") &&
       read("src/components/accessories/accessories-home-section.tsx").includes("home-accessory-tile") &&
-      source.includes("min-h-[calc(100dvh-96px)]") &&
+      !source.includes("home-hero-visual-grid") &&
       !source.includes("md:text-7xl") &&
       !source.includes("min-h-[640px]") &&
       !source.includes("c.applicationEyebrow") &&
       !source.includes("h-screen") &&
       !source.includes("window.addEventListener") &&
       !i18nSource.includes("categoriesLead: \"Выберите бренд, измерительную задачу и условия установки: точка росы, влажность, температура или кислород, а при необходимости — совместимые комплектующие.\"") &&
+      cssSource.includes("--site-header-height") &&
+      cssSource.includes("calc(100dvh - var(--site-header-height))") &&
       cssSource.includes("@media (prefers-reduced-motion: no-preference)") &&
       cssSource.includes(".home-section-reveal") &&
       cssSource.includes(".home-brand-card:hover") &&

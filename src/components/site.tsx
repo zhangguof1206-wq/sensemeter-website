@@ -176,7 +176,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <PageShell locale={locale} active="home" languagePath={localizedPath(oppositeLocale(locale), "/")}>
-      <section className="home-hero-shell relative isolate overflow-hidden px-5 py-16 text-white md:px-10 md:py-20">
+      <section className="home-hero-shell relative isolate overflow-hidden px-5 text-white md:px-10">
         <div
           className="absolute inset-0 -z-30 bg-cover bg-center"
           style={{ backgroundImage: "url('/assets/video/industrial-measurement-poster.webp')" }}
@@ -199,7 +199,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(20,31,42,.94)_0%,rgba(20,31,42,.78)_48%,rgba(20,31,42,.48)_100%)]"
           aria-hidden="true"
         />
-        <div className="relative z-10 mx-auto grid min-h-[calc(100dvh-96px)] max-w-7xl items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,.72fr)]">
+        <div className="home-hero-content relative z-10 mx-auto flex max-w-7xl items-center">
           <div className="home-section-reveal max-w-4xl">
             <p className="eyebrow">{c.heroEyebrow}</p>
             <h1 className="max-w-4xl text-4xl font-black leading-[1.02] sm:text-5xl lg:text-[64px]">{c.heroTitle}</h1>
@@ -211,17 +211,6 @@ export function HomePage({ locale }: { locale: Locale }) {
               <Link className="btn btn-secondary whitespace-nowrap" href={localizedPath(locale, "/contact")}>
                 {c.requestQuote}
               </Link>
-            </div>
-          </div>
-
-          <div className="home-section-reveal hidden lg:block" aria-hidden="true">
-            <div className="home-hero-visual-grid grid gap-4">
-              {categories.map((category) => (
-                <div className="grid min-h-28 grid-cols-[1fr_1.15fr] items-center overflow-hidden border border-white/15 bg-white/[0.08] p-4 shadow-[0_24px_70px_rgba(0,0,0,.18)] backdrop-blur-sm" key={category.id}>
-                  <img className="h-16 max-w-full object-contain object-left opacity-95" src={assetPath(category.image)} alt="" />
-                  <img className="ml-auto h-24 max-w-full object-contain opacity-75 grayscale" src={assetPath(category.backgroundImage)} alt="" />
-                </div>
-              ))}
             </div>
           </div>
         </div>
