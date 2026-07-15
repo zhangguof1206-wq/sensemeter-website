@@ -9,8 +9,8 @@ export function AccessoryCategoryCard({ category, locale }: { category: Accessor
   const c = accessoryCopy[locale];
   return (
     <Link className="card group flex h-full flex-col overflow-hidden bg-white transition hover:border-accent/50 hover:shadow-lg" href={localizedPath(locale, `/accessories/${category.slug}`)}>
-      <div className="grid aspect-[4/3] place-items-center border-b border-line bg-white p-4">
-        <img className="accessory-category-image max-h-[92%] max-w-[92%] object-contain transition duration-300 group-hover:scale-[1.02]" src={category.image} alt={category.title[locale]} />
+      <div className="grid aspect-[4/3] place-items-center border-b border-line bg-[#f7fafc] p-4">
+        <img className="accessory-category-image max-h-[94%] max-w-[94%] object-contain mix-blend-multiply transition duration-300 group-hover:scale-[1.02]" src={category.image} alt={category.title[locale]} />
       </div>
       <div className="flex flex-1 flex-col p-4">
         <h3 className="text-lg font-black leading-6">{category.title[locale]}</h3>
@@ -26,8 +26,8 @@ export function AccessoryProductCard({ product, locale }: { product: AccessoryPr
   const path = `/accessories/${product.categorySlug}/${product.slug}`;
   return (
     <Link className="card group flex h-full flex-col overflow-hidden transition hover:border-accent/50 hover:shadow-lg" href={localizedPath(locale, path)}>
-      <div className="grid aspect-[4/3] place-items-center overflow-hidden border-b border-line bg-white p-4">
-        <img className="accessory-product-image max-h-[92%] max-w-[92%] object-contain transition duration-300 group-hover:scale-[1.02]" src={product.image} alt={product.title[locale]} />
+      <div className="grid aspect-[4/3] place-items-center overflow-hidden border-b border-line bg-[#f7fafc] p-4">
+        <img className="accessory-product-image max-h-[94%] max-w-[94%] object-contain mix-blend-multiply transition duration-300 group-hover:scale-[1.02]" src={product.image} alt={product.title[locale]} />
       </div>
       <div className="flex flex-1 flex-col p-5">
         <p className="text-xs font-black uppercase text-accent">{product.model}</p>

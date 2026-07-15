@@ -115,8 +115,9 @@ const checks = [
         !indexPage.includes("ProductCatalogSwitch") &&
         section.includes("homeAccessoryProducts") &&
         section.includes("aspect-[4/3]") &&
-        section.includes("bg-[#f7fafc]") &&
-        section.includes("max-h-[94%] max-w-[94%] object-contain mix-blend-multiply") &&
+        section.includes("p-3") &&
+        section.includes("max-h-[98%] max-w-[98%] object-contain mix-blend-multiply drop-shadow-sm") &&
+        !section.includes("border border-line bg-[#f7fafc]") &&
         !section.includes("h-full w-full object-contain") &&
         !section.includes("max-h-32") &&
         !section.includes("AccessorySpecTable") &&

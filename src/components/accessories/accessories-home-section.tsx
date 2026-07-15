@@ -20,9 +20,9 @@ export function AccessoriesHomeSection({ locale }: { locale: Locale }) {
               href={localizedPath(locale, `/accessories/${product.categorySlug}/${product.slug}`)}
               key={`${product.categorySlug}-${product.slug}`}
             >
-              <div className="grid aspect-[4/3] place-items-center border border-line bg-[#f7fafc] p-4 shadow-sm transition duration-300 group-hover:border-accent/50 group-hover:shadow-md">
+              <div className="grid aspect-[4/3] place-items-center p-3 transition duration-300">
                 <img
-                  className="max-h-[94%] max-w-[94%] object-contain mix-blend-multiply transition duration-300 group-hover:scale-[1.03]"
+                  className="max-h-[98%] max-w-[98%] object-contain mix-blend-multiply drop-shadow-sm transition duration-300 group-hover:scale-[1.03]"
                   src={product.image}
                   alt={product.title[locale]}
                 />

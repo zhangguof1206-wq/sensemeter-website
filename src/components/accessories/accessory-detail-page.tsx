@@ -49,8 +49,8 @@ export function AccessoryDetailPage({ category, product, locale }: { category: A
       <section className="section">
         <div className="section-narrow grid gap-8 lg:grid-cols-[380px_1fr]">
           <aside className="card h-fit overflow-hidden lg:sticky lg:top-32">
-            <div className="grid aspect-square place-items-center bg-white p-4">
-              <img className="accessory-detail-image max-h-[92%] max-w-[92%] object-contain" src={product.image} alt={product.title[locale]} />
+            <div className="grid aspect-square place-items-center bg-[#f7fafc] p-4">
+              <img className="accessory-detail-image max-h-[94%] max-w-[94%] object-contain mix-blend-multiply" src={product.image} alt={product.title[locale]} />
             </div>
             <div className="p-6">
               <p className="text-xs font-black uppercase text-accent">{product.model}</p>

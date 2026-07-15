@@ -129,9 +129,9 @@ checks.push({
 checks.push({
   name: "homepage accessory images use stable sizing and containment",
   pass: homeSection.includes("aspect-[4/3]") &&
-    homeSection.includes("bg-[#f7fafc]") &&
-    homeSection.includes("p-4") &&
-    homeSection.includes("max-h-[94%] max-w-[94%] object-contain mix-blend-multiply") &&
+    homeSection.includes("p-3") &&
+    homeSection.includes("max-h-[98%] max-w-[98%] object-contain mix-blend-multiply drop-shadow-sm") &&
+    !homeSection.includes("border border-line bg-[#f7fafc]") &&
     !homeSection.includes("h-full w-full object-contain") &&
     !homeSection.includes("max-h-32")
 });
@@ -218,17 +218,17 @@ checks.push({
     accessoryCards.includes("category.summary[locale]") &&
     accessoryCards.includes("aspect-[4/3]") &&
     accessoryCards.includes("accessory-product-image") &&
-    accessoryCards.includes("accessory-category-image max-h-[92%] max-w-[92%] object-contain") &&
-    accessoryCards.includes("accessory-product-image max-h-[92%] max-w-[92%] object-contain") &&
-    accessoryCards.includes("bg-white p-4") &&
+    accessoryCards.includes("accessory-category-image max-h-[94%] max-w-[94%] object-contain mix-blend-multiply") &&
+    accessoryCards.includes("accessory-product-image max-h-[94%] max-w-[94%] object-contain mix-blend-multiply") &&
+    accessoryCards.includes("bg-[#f7fafc] p-4") &&
     !accessoryCards.includes("h-full w-full object-contain") &&
     !accessoryCards.includes("bg-[#eef2f5]") &&
     !accessoryCards.includes("category.specs.slice(0, 3)")
 });
 checks.push({
-  name: "accessory detail image panel uses the same white product treatment",
-  pass: accessoryDetailPage.includes("bg-white p-4") &&
-    accessoryDetailPage.includes("accessory-detail-image max-h-[92%] max-w-[92%] object-contain") &&
+  name: "accessory detail image panel uses the same neutral product treatment",
+  pass: accessoryDetailPage.includes("bg-[#f7fafc] p-4") &&
+    accessoryDetailPage.includes("accessory-detail-image max-h-[94%] max-w-[94%] object-contain mix-blend-multiply") &&
     !accessoryDetailPage.includes("grid aspect-square place-items-center bg-[#eef2f5]") &&
     !accessoryDetailPage.includes('className="h-full w-full object-contain"')
 });
