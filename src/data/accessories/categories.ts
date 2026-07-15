@@ -12,7 +12,7 @@ export const accessoryCategories: AccessoryCategory[] = [
       ru: "SenseMeter поставляет стандартные и заказные спечённые элементы для фильтрации газа, защиты измерительных линий и установки в приборные узлы. При подборе учитываются материал, геометрия, размер пор, расход, перепад давления, температура и способ очистки.",
       en: "SenseMeter supplies standard and custom sintered elements for gas filtration, measurement-line protection and instrument assemblies. Selection considers material, geometry, pore size, flow, pressure drop, temperature and cleaning method."
     },
-    image: "/assets/accessories/filter-custom-microporous.webp",
+    image: "/assets/accessories/filter-custom-microporous-uniform.webp",
     specs: [
       { label: { ru: "Материалы", en: "Materials" }, value: { ru: "304, 316, 316L и специальные сплавы", en: "304, 316, 316L and special alloys" } },
       { label: { ru: "Тонкость фильтрации", en: "Filtration grade" }, value: { ru: "Ориентировочно 0,2-100 мкм по задаче", en: "Typically 0.2-100 μm by requirement" } },
@@ -51,7 +51,7 @@ export const accessoryCategories: AccessoryCategory[] = [
       ru: "Микропористые металлические детали используются как защитные, фильтрующие, демпфирующие и газораспределительные элементы. Важны равномерность пор, чистота поверхности, отсутствие выделения частиц и совместимость с газом или средой.",
       en: "Microporous metal parts are used as protective, filtering, damping and gas-distribution elements. Uniform pores, surface cleanliness, no particle shedding and media compatibility are key selection points."
     },
-    image: "/assets/accessories/filter-face-seal-disc.webp",
+    image: "/assets/accessories/filter-face-seal-disc-uniform.webp",
     specs: [
       { label: { ru: "Материалы", en: "Materials" }, value: { ru: "316L, 316, никелевые и медные сплавы", en: "316L, 316, nickel and copper alloys" } },
       { label: { ru: "Пористость", en: "Porosity" }, value: { ru: "0,1-120 мкм по применению", en: "0.1-120 μm by application" } },
@@ -90,7 +90,7 @@ export const accessoryCategories: AccessoryCategory[] = [
       ru: "Фильтрующие стаканы применяются там, где нужен прочный пористый объём: защита датчика, предварительная очистка газа, удержание частиц или работа в корпусе с обслуживаемым элементом.",
       en: "Filter cups are used where a robust porous volume is required: sensor protection, gas prefiltration, particle retention or a serviceable filter inside a housing."
     },
-    image: "/assets/accessories/filter-industrial-cartridge.webp",
+    image: "/assets/accessories/filter-industrial-cartridge-uniform.webp",
     specs: [
       { label: { ru: "Материалы", en: "Materials" }, value: { ru: "304, 316, 316L", en: "304, 316, 316L" } },
       { label: { ru: "Форма", en: "Form" }, value: { ru: "Стакан, чашка, цилиндр, резьбовое или сварное исполнение", en: "Cup, cap, cylinder, threaded or welded construction" } },
@@ -129,7 +129,7 @@ export const accessoryCategories: AccessoryCategory[] = [
       ru: "Диффузоры и аэрационные элементы подбираются по газу, расходу, давлению, размеру пузырьков или характеру распределения потока. Пористая структура помогает равномерно распределить газ и защитить линию от резких скачков потока.",
       en: "Diffusers and aeration elements are selected by gas, flow, pressure, bubble size or flow-distribution target. Porous structure helps distribute gas evenly and protect the line from sudden flow changes."
     },
-    image: "/assets/accessories/flow-damping-fitting.webp",
+    image: "/assets/accessories/flow-damping-fitting-uniform.webp",
     specs: [
       { label: { ru: "Материал", en: "Material" }, value: { ru: "316L или 316 нержавеющая сталь", en: "316L or 316 stainless steel" } },
       { label: { ru: "Подача газа", en: "Gas delivery" }, value: { ru: "Подбирается по расходу, давлению и распределению", en: "Selected by flow, pressure and distribution pattern" } },
@@ -168,7 +168,7 @@ export const accessoryCategories: AccessoryCategory[] = [
       ru: "SenseMeter поставляет стандартные и заказные защитные элементы для зондов. Подбор выполняется по резьбе, посадочным размерам, материалу, структуре пор, проницаемости, скорости отклика и условиям среды.",
       en: "SenseMeter supplies standard and custom probe protection. Selection is based on thread, fit dimensions, material, pore structure, permeability, response speed and process conditions."
     },
-    image: "/assets/accessories/sensor-g14.webp",
+    image: "/assets/accessories/sensor-g14-uniform.webp",
     specs: [
       { label: { ru: "Материалы", en: "Materials" }, value: { ru: "316L, 316 и специальные сплавы", en: "316L, 316 and special alloys" } },
       { label: { ru: "Пористость", en: "Porosity" }, value: { ru: "По защите, проницаемости и скорости отклика", en: "Matched to protection, permeability and response needs" } },
@@ -207,7 +207,7 @@ export const accessoryCategories: AccessoryCategory[] = [
       ru: "Компоненты подбираются по входному давлению, целевому расходу, газу, перепаду давления и типу соединения. Пористая структура помогает стабилизировать ламинарный поток, снижать пульсации и работать без выделения частиц.",
       en: "Components are selected by inlet pressure, target flow, gas, pressure drop and connection. The porous structure helps stabilize laminar flow, reduce pulsation and operate with no particle shedding."
     },
-    image: "/assets/accessories/flow-porous-restrictor.webp",
+    image: "/assets/accessories/flow-porous-restrictor-uniform.webp",
     specs: [
       { label: { ru: "Материал", en: "Material" }, value: { ru: "Нержавеющая сталь 316L", en: "316L stainless steel" } },
       { label: { ru: "Диапазон расхода", en: "Flow range" }, value: { ru: "Подбирается по входному давлению и газу", en: "Selected by inlet pressure and gas" } },

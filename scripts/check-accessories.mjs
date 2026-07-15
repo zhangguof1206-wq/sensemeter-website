@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const root = process.cwd();
@@ -14,6 +14,8 @@ const categoryFiles = [
 
 const checks = [];
 const productSlugs = [];
+const uniformAccessoryBackground = "bg-[#e9eef4]";
+const usesUniformImageAsset = (image) => image.endsWith("-uniform.webp");
 
 checks.push({
   name: "accessory category definitions exist",
@@ -47,8 +49,8 @@ for (const category of categoryFiles) {
 
   const images = [...source.matchAll(/image:\s*"\/assets\/accessories\/([^"]+\.webp)"/g)].map((match) => match[1]);
   checks.push({
-    name: `${category} has 6 local accessory images`,
-    pass: images.length === 6 && images.every((image) => existsSync(join(root, "public", "assets", "accessories", image)))
+    name: `${category} has 6 local cache-safe uniform accessory images`,
+    pass: images.length === 6 && images.every((image) => usesUniformImageAsset(image) && existsSync(join(root, "public", "assets", "accessories", image)))
   });
   checks.push({
     name: `${category} uses 6 distinct product images`,
@@ -58,10 +60,16 @@ for (const category of categoryFiles) {
 
 const categoriesSource = read("src/data/accessories/categories.ts");
 const categoryImages = [...categoriesSource.matchAll(/image:\s*"\/assets\/accessories\/([^"]+\.webp)"/g)].map((match) => match[1]);
+const accessoryAssetFiles = readdirSync(join(root, "public", "assets", "accessories")).filter((file) => file.endsWith(".webp"));
+const legacyAccessoryAssetFiles = accessoryAssetFiles.filter((file) => !usesUniformImageAsset(file));
 checks.push({ name: "accessory catalog contains 36 products", pass: productSlugs.length === 36 });
 checks.push({
+  name: "accessory asset directory keeps only uniform browser-safe webp images",
+  pass: accessoryAssetFiles.length >= 24 && legacyAccessoryAssetFiles.length === 0
+});
+checks.push({
   name: "accessory overview categories use 6 distinct representative images",
-  pass: categoryImages.length === 6 && new Set(categoryImages).size === 6
+  pass: categoryImages.length === 6 && new Set(categoryImages).size === 6 && categoryImages.every(usesUniformImageAsset)
 });
 checks.push({
   name: "all accessory categories include localized specification ranges",
@@ -129,8 +137,9 @@ checks.push({
 checks.push({
   name: "homepage accessory images use stable sizing and containment",
   pass: homeSection.includes("aspect-[4/3]") &&
-    homeSection.includes("p-3") &&
-    homeSection.includes("max-h-[98%] max-w-[98%] object-contain mix-blend-multiply drop-shadow-sm") &&
+    homeSection.includes(`${uniformAccessoryBackground} p-3`) &&
+    homeSection.includes("max-h-[98%] max-w-[98%] object-contain drop-shadow-sm") &&
+    !homeSection.includes("mix-blend-multiply") &&
     !homeSection.includes("border border-line bg-[#f7fafc]") &&
     !homeSection.includes("h-full w-full object-contain") &&
     !homeSection.includes("max-h-32")
@@ -218,17 +227,19 @@ checks.push({
     accessoryCards.includes("category.summary[locale]") &&
     accessoryCards.includes("aspect-[4/3]") &&
     accessoryCards.includes("accessory-product-image") &&
-    accessoryCards.includes("accessory-category-image max-h-[94%] max-w-[94%] object-contain mix-blend-multiply") &&
-    accessoryCards.includes("accessory-product-image max-h-[94%] max-w-[94%] object-contain mix-blend-multiply") &&
-    accessoryCards.includes("bg-[#f7fafc] p-4") &&
+    accessoryCards.includes("accessory-category-image max-h-[94%] max-w-[94%] object-contain") &&
+    accessoryCards.includes("accessory-product-image max-h-[94%] max-w-[94%] object-contain") &&
+    accessoryCards.includes(`${uniformAccessoryBackground} p-4`) &&
+    !accessoryCards.includes("mix-blend-multiply") &&
     !accessoryCards.includes("h-full w-full object-contain") &&
     !accessoryCards.includes("bg-[#eef2f5]") &&
     !accessoryCards.includes("category.specs.slice(0, 3)")
 });
 checks.push({
   name: "accessory detail image panel uses the same neutral product treatment",
-  pass: accessoryDetailPage.includes("bg-[#f7fafc] p-4") &&
-    accessoryDetailPage.includes("accessory-detail-image max-h-[94%] max-w-[94%] object-contain mix-blend-multiply") &&
+  pass: accessoryDetailPage.includes(`${uniformAccessoryBackground} p-4`) &&
+    accessoryDetailPage.includes("accessory-detail-image max-h-[94%] max-w-[94%] object-contain") &&
+    !accessoryDetailPage.includes("mix-blend-multiply") &&
     !accessoryDetailPage.includes("grid aspect-square place-items-center bg-[#eef2f5]") &&
     !accessoryDetailPage.includes('className="h-full w-full object-contain"')
 });
