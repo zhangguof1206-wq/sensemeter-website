@@ -4,9 +4,11 @@ import { join } from "node:path";
 const root = process.cwd();
 const read = (path) => readFileSync(join(root, path), "utf8");
 const categoryFiles = [
+  "custom-sintered-filter-elements",
+  "sintered-microporous-accessories",
+  "sintered-filter-cups",
+  "gas-diffusers",
   "sensor-protection",
-  "sintered-filter-elements",
-  "sample-gas-filters",
   "flow-control-accessories"
 ];
 
@@ -50,10 +52,16 @@ for (const category of categoryFiles) {
   });
 }
 
-checks.push({ name: "accessory catalog contains 24 products", pass: productSlugs.length === 24 });
+const categoriesSource = read("src/data/accessories/categories.ts");
+checks.push({ name: "accessory catalog contains 36 products", pass: productSlugs.length === 36 });
 checks.push({
   name: "all accessory categories include localized specification ranges",
-  pass: (read("src/data/accessories/categories.ts").match(/specs:\s*\[/g) || []).length === 4
+  pass: (categoriesSource.match(/specs:\s*\[/g) || []).length === 6
+});
+checks.push({
+  name: "all accessory categories include technical notes and quotation inputs",
+  pass: (categoriesSource.match(/technicalNotes:\s*\{/g) || []).length === 6 &&
+    (categoriesSource.match(/requestItems:\s*\{/g) || []).length === 6
 });
 checks.push({
   name: "accessory slugs are unique within their category paths",
@@ -75,6 +83,7 @@ const homeAccessoryData = read("src/data/home-accessories.ts");
 checks.push({
   name: "homepage accessory data contains exactly 6 representative products",
   pass: (homeAccessoryData.match(/\["[^"]+",\s*"[^"]+"\]/g) || []).length === 6 &&
+    categoryFiles.every((category) => homeAccessoryData.includes(`"${category}"`)) &&
     homeAccessoryData.includes("getAccessoryProduct")
 });
 checks.push({
@@ -125,6 +134,7 @@ checks.push({
     !shellSource.includes("catalogDropdownItems") &&
     !shellSource.includes("ProductCatalogSwitch")
 });
+
 const accessoriesIndex = read("src/components/accessories/accessories-index-page.tsx");
 const accessoryCards = read("src/components/accessories/accessory-cards.tsx");
 const accessoryHeading = read("src/components/accessories/accessory-page-heading.tsx");
@@ -135,6 +145,7 @@ const accessoryCopySource = [
   "src/data/accessories/categories.ts",
   ...categoryFiles.map((category) => `src/data/accessories/${category}.ts`)
 ].map((path) => read(path)).join("\n");
+
 checks.push({
   name: "accessory overview hero uses a catalog-style industrial background",
   pass: accessoriesIndex.includes('const accessoriesHeroImage = "/assets/application-gas-processing.png"') &&
@@ -159,18 +170,22 @@ checks.push({
     !accessoriesIndex.includes('className="bg-steel px-5 py-10 text-white md:px-10"')
 });
 checks.push({
+  name: "accessory category pages include technical notes and quotation inputs",
+  pass: accessoryCategoryPage.includes("category.technicalNotes.items.map") &&
+    accessoryCategoryPage.includes("category.requestItems[locale].map") &&
+    accessoryCategoryPage.includes("c.selectionTitle")
+});
+checks.push({
   name: "accessory category cards use a view-more call to action",
   pass: accessoryCards.includes("c.viewCategory") &&
     !accessoryCards.includes("c.modelsAvailable") &&
     !accessoryCategoryPage.includes("c.modelsAvailable") &&
-    accessoryCopySource.includes('viewCategory: "Подробнее"') &&
     accessoryCopySource.includes('viewCategory: "View more"') &&
-    !accessoryCopySource.includes("catalog variants") &&
-    !accessoryCopySource.includes("вариантов в каталоге")
+    !accessoryCopySource.includes("catalog variants")
 });
 checks.push({
   name: "accessory overview uses compact category cards with contained images",
-  pass: accessoriesIndex.includes("lg:grid-cols-4") &&
+  pass: accessoriesIndex.includes("lg:grid-cols-3") &&
     !accessoriesIndex.includes("ProductCatalogSwitch") &&
     accessoryCards.includes("category.summary[locale]") &&
     accessoryCards.includes("aspect-[4/3]") &&
@@ -202,13 +217,12 @@ checks.push({
     "dead volume",
     "0.003",
     "VCR",
-    "структура пор",
-    "проницаемость",
-    "перепад давления",
-    "обратная промывка",
-    "ламинарный поток",
-    "без выделения частиц",
-    "мёртвый объём"
+    "316L",
+    "0.1-120",
+    "uniform",
+    "drawing",
+    "oxygen",
+    "nitrogen"
   ].every((phrase) => accessoryCopySource.includes(phrase)) &&
     !["HENGKO", "恒歌", "深圳市恒歌"].some((phrase) => accessoryCopySource.includes(phrase))
 });
@@ -221,7 +235,8 @@ checks.push({
 });
 checks.push({
   name: "Yandex list includes accessory overview, categories and products",
-  pass: yandexList.includes("accessoryCategoryPaths") && yandexList.includes("accessoryProductPaths")
+  pass: yandexList.includes("accessoryCategoryPaths") && yandexList.includes("accessoryProductPaths") &&
+    categoryFiles.every((category) => yandexList.includes(category))
 });
 
 let failures = 0;

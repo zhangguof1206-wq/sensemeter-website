@@ -42,7 +42,7 @@ export const flowControlProducts: AccessoryProduct[] = [
     categorySlug: "flow-control-accessories",
     model: "SM-FR-UHP",
     title: { ru: "Ограничитель расхода для высокочистого газа", en: "High-Purity Gas Flow Restrictor" },
-    summary: { ru: "Исполнение 316L для контролируемой подачи высокочистого или специального газа без выделения частиц.", en: "316L construction for controlled delivery of high-purity or specialty gas with no particle shedding." },
+    summary: { ru: "Исполнение 316L для контролируемой подачи высокочистого или специального газа с малым мертвым объемом и без выделения частиц.", en: "316L construction for controlled delivery of high-purity or specialty gas with low dead volume and no particle shedding." },
     image: "/assets/accessories/flow-high-purity.webp",
     selection: { ru: ["Чистота газа", "Герметичность", "Диапазон расхода и перепад давления"], en: ["Gas purity", "Leak tightness", "Flow range and pressure drop"] },
     compatibleWith: { ru: ["Высокочистые газовые панели", "Лабораторные анализаторы", "Полупроводниковые линии"], en: ["High-purity gas panels", "Laboratory analyzers", "Semiconductor lines"] },
@@ -50,7 +50,8 @@ export const flowControlProducts: AccessoryProduct[] = [
     specs: [
       { label: { ru: "Материал", en: "Material" }, value: { ru: "Нержавеющая сталь 316L", en: "316L stainless steel" } },
       { label: { ru: "Диапазон расхода", en: "Flow range" }, value: { ru: "0,1 sccm-40 slpm по исполнению", en: "0.1 sccm-40 slpm by configuration" } },
-      { label: { ru: "Соединение", en: "Connection" }, value: { ru: "1/4 дюйма VCR", en: "1/4 in VCR" } }
+      { label: { ru: "Соединение", en: "Connection" }, value: { ru: "1/4 дюйма VCR", en: "1/4 in VCR" } },
+      { label: { ru: "Чистота", en: "Cleanliness" }, value: { ru: "Мертвый объем и фильтрация до 0,003 мкм по задаче", en: "Dead volume and filtration down to 0.003 um by configuration" } }
     ],
     applications: { ru: ["Высокочистые газы", "Полупроводниковые линии", "Распределительные коллекторы"], en: ["High-purity gases", "Semiconductor lines", "Distribution manifolds"] },
     relatedSlugs: ["porous-metal-flow-restrictor", "fitting-flow-limiter"]

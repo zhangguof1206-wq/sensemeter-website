@@ -1,11 +1,11 @@
 import { getAccessoryProduct } from "@/data/accessories";
 
 const homeAccessoryRefs = [
-  ["sintered-filter-elements", "industrial-sintered-cartridge"],
-  ["sintered-filter-elements", "316l-powder-sintered-element"],
-  ["sintered-filter-elements", "face-seal-filter-disc"],
+  ["custom-sintered-filter-elements", "custom-sintered-filter-cartridge"],
+  ["sintered-microporous-accessories", "micro-porous-filter-disc"],
+  ["sintered-filter-cups", "standard-sintered-filter-cup"],
+  ["gas-diffusers", "stainless-gas-diffuser-head"],
   ["sensor-protection", "g14-threaded-probe-guard"],
-  ["sensor-protection", "outdoor-vented-probe-housing"],
   ["flow-control-accessories", "porous-metal-flow-restrictor"]
 ] as const;
 

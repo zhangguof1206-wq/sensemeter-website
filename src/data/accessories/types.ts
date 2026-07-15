@@ -1,6 +1,10 @@
 import type { Locale } from "@/data/catalog";
 
 export type AccessoryCategorySlug =
+  | "custom-sintered-filter-elements"
+  | "sintered-microporous-accessories"
+  | "sintered-filter-cups"
+  | "gas-diffusers"
   | "sensor-protection"
   | "sintered-filter-elements"
   | "sample-gas-filters"
@@ -21,6 +25,14 @@ export type AccessoryCategory = {
   intro: LocalizedText;
   image: string;
   specs: LocalizedSpec[];
+  technicalNotes: {
+    title: LocalizedText;
+    items: Array<{
+      title: LocalizedText;
+      text: LocalizedText;
+    }>;
+  };
+  requestItems: LocalizedList;
 };
 
 export type AccessoryProduct = {

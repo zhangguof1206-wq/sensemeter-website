@@ -17,7 +17,7 @@ export function AccessoriesIndexPage({ locale }: { locale: Locale }) {
       <AccessoryPageHeading title={c.overviewTitle} lead={c.overviewLead} image={accessoriesHeroImage} />
       <section className="section">
         <div className="section-narrow">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {accessoryCategories.map((category) => <AccessoryCategoryCard category={category} locale={locale} key={category.slug} />)}
           </div>
         </div>

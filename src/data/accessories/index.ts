@@ -1,17 +1,21 @@
 import { accessoryCategories } from "./categories";
+import { customSinteredFilterProducts } from "./custom-sintered-filter-elements";
 import { flowControlProducts } from "./flow-control-accessories";
-import { sampleGasFilterProducts } from "./sample-gas-filters";
+import { gasDiffuserProducts } from "./gas-diffusers";
 import { sensorProtectionProducts } from "./sensor-protection";
-import { sinteredFilterProducts } from "./sintered-filter-elements";
+import { sinteredFilterCupProducts } from "./sintered-filter-cups";
+import { sinteredMicroporousAccessoryProducts } from "./sintered-microporous-accessories";
 import type { AccessoryCategorySlug } from "./types";
 
 export type { AccessoryCategory, AccessoryCategorySlug, AccessoryProduct } from "./types";
 export { accessoryCategories } from "./categories";
 
 export const accessoryProducts = [
+  ...customSinteredFilterProducts,
+  ...sinteredMicroporousAccessoryProducts,
+  ...sinteredFilterCupProducts,
+  ...gasDiffuserProducts,
   ...sensorProtectionProducts,
-  ...sinteredFilterProducts,
-  ...sampleGasFilterProducts,
   ...flowControlProducts
 ];
 

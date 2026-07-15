@@ -12,7 +12,7 @@ if (!existsSync(scriptPath)) {
 
 const catalog = readFileSync(join(root, "src", "data", "catalog.ts"), "utf8");
 const productSlugs = [...catalog.matchAll(/slug:\s*"([^"]+)"/g)].map((match) => match[1]);
-const accessoryCategorySlugs = ["sensor-protection", "sintered-filter-elements", "sample-gas-filters", "flow-control-accessories"];
+const accessoryCategorySlugs = ["custom-sintered-filter-elements", "sintered-microporous-accessories", "sintered-filter-cups", "gas-diffusers", "sensor-protection", "flow-control-accessories"];
 const accessoryCategoryPaths = ["/accessories", ...accessoryCategorySlugs.map((slug) => "/accessories/" + slug)];
 const accessoryProductPaths = accessoryCategorySlugs.flatMap((category) => {
   const source = readFileSync(join(root, "src", "data", "accessories", category + ".ts"), "utf8");
