@@ -16,18 +16,20 @@ export function AccessoriesHomeSection({ locale }: { locale: Locale }) {
         <div className="grid grid-cols-2 gap-x-5 gap-y-7 lg:grid-cols-3">
           {homeAccessoryProducts.map((product) => (
             <Link
-              className="home-accessory-tile group block"
+              className="home-accessory-tile group flex h-full flex-col overflow-hidden rounded-[6px] border border-line bg-white shadow-sm transition duration-300 hover:border-accent/45 hover:shadow-md"
               href={localizedPath(locale, `/accessories/${product.categorySlug}/${product.slug}`)}
               key={`${product.categorySlug}-${product.slug}`}
             >
-              <div className="grid aspect-[4/3] place-items-center bg-[#e9eef4] p-3 transition duration-300">
+              <div className="grid aspect-[4/3] place-items-center border-b border-line bg-[#e9eef4] p-3 transition duration-300">
                 <img
                   className="max-h-[98%] max-w-[98%] object-contain drop-shadow-sm transition duration-300 group-hover:scale-[1.03]"
                   src={product.image}
                   alt={product.title[locale]}
                 />
               </div>
-              <h3 className="mt-3 text-center text-base font-bold leading-6 text-ink">{product.title[locale]}</h3>
+              <div className="flex min-h-[76px] items-center justify-center px-3 py-4">
+                <h3 className="text-center text-base font-bold leading-6 text-ink">{product.title[locale]}</h3>
+              </div>
             </Link>
           ))}
         </div>

@@ -145,6 +145,13 @@ checks.push({
     !homeSection.includes("max-h-32")
 });
 checks.push({
+  name: "homepage accessory tiles use complete framed product cards",
+  pass: homeSection.includes("rounded-[6px] border border-line bg-white shadow-sm") &&
+    homeSection.includes("border-b border-line bg-[#e9eef4]") &&
+    homeSection.includes("hover:border-accent/45 hover:shadow-md") &&
+    homeSection.includes("min-h-[76px]")
+});
+checks.push({
   name: "homepage accessory section keeps specs and models off overview cards",
   pass: !homeSection.includes("AccessorySpecTable") &&
     !homeSection.includes("modelsLabel") &&

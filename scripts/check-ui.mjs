@@ -116,6 +116,9 @@ const checks = [
         section.includes("homeAccessoryProducts") &&
         section.includes("aspect-[4/3]") &&
         section.includes("bg-[#e9eef4] p-3") &&
+        section.includes("rounded-[6px] border border-line bg-white shadow-sm") &&
+        section.includes("hover:border-accent/45 hover:shadow-md") &&
+        section.includes("min-h-[76px]") &&
         section.includes("max-h-[98%] max-w-[98%] object-contain drop-shadow-sm") &&
         !section.includes("mix-blend-multiply") &&
         !section.includes("border border-line bg-[#f7fafc]") &&
