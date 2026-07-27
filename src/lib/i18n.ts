@@ -22,7 +22,7 @@ export const copy = {
     cookieNecessary: "Только необходимые",
     cookieLearnMore: "Подробнее",
     heroEyebrow: "MICHELL / ROTRONIC / VAISALA / AII",
-    heroTitle: "Промышленные анализаторы влажности, точки росы и кислорода",
+    heroTitle: "SenseMeter: промышленные анализаторы влажности, точки росы и кислорода",
     heroText:
       "SenseMeter поставляет промышленные измерительные приборы и комплектующие для измерения влажности, точки росы, кислорода и температуры. Мы помогаем выполнить подбор модели, подобрать совместимые комплектующие, согласовать интеграцию в панели и шкафы, а также OEM- и проектные закупки. В каждом предложении мы подтверждаем наличие и сроки поставки.",
     viewCatalog: "Смотреть каталог",
@@ -112,7 +112,7 @@ export const copy = {
     cookieNecessary: "Necessary only",
     cookieLearnMore: "Learn more",
     heroEyebrow: "MICHELL / ROTRONIC / VAISALA / AII",
-    heroTitle: "Industrial humidity, dew-point and oxygen analyzers",
+    heroTitle: "SenseMeter: industrial humidity, dew-point and oxygen analyzers",
     heroText:
       "SenseMeter supplies industrial measurement instruments and accessories for humidity, dew point, oxygen and temperature measurement. We support model selection, compatible accessory combinations, instrument panel and cabinet integration, and OEM or project procurement. Product availability and lead times are confirmed with each quotation.",
     viewCatalog: "View Catalog",

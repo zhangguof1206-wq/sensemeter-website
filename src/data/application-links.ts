@@ -83,7 +83,7 @@ export const productApplicationLinks: Record<string, ProductApplicationLink[]> =
   "hygroflex1": [applicationPages.industrialHumidity, applicationPages.climateChamberHumidity],
   "hmt310": [applicationPages.industrialHumidity, applicationPages.climateChamberHumidity],
   "hmt370ex": [applicationPages.industrialHumidity],
-  "hmp3-hmpx": [applicationPages.climateChamberHumidity],
+  "hmp3-hmpx": [applicationPages.industrialHumidity, applicationPages.climateChamberHumidity],
   "hp31-hp32": [applicationPages.climateChamberHumidity]
 };
 

@@ -4,8 +4,8 @@ import { staticPageMetadata } from "@/lib/seo";
 export const metadata = staticPageMetadata({
   locale: "en",
   path: "/",
-  title: "Industrial measurement instruments and accessories",
-  description: "SenseMeter supplies instruments and accessories for humidity, dew point, oxygen and temperature measurement, with model selection and RFQ support."
+  title: "SenseMeter — industrial measurement instruments and accessories",
+  description: "SenseMeter supports Russian and international B2B projects with humidity, dew-point, oxygen and temperature instruments, accessories and RFQ selection."
 });
 
 export default function Page() {

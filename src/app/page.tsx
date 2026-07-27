@@ -4,8 +4,8 @@ import { staticPageMetadata } from "@/lib/seo";
 export const metadata = staticPageMetadata({
   locale: "ru",
   path: "/",
-  title: "Промышленные измерительные приборы и комплектующие",
-  description: "SenseMeter поставляет приборы и комплектующие для влажности, точки росы, кислорода и температуры с подбором модели, RFQ и поддержкой проектов."
+  title: "SenseMeter — промышленные измерительные приборы и комплектующие",
+  description: "SenseMeter подбирает и поставляет приборы влажности, точки росы, кислорода и температуры для промышленных B2B-проектов в России и за рубежом."
 });
 
 export default function Page() {

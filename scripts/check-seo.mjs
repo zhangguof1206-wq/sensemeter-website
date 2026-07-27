@@ -175,6 +175,51 @@ const checks = [
     }
   },
   {
+    name: "homepage metadata leads with the SenseMeter brand for Yandex brand search",
+    pass: () => {
+      const ruHome = read("src/app/page.tsx");
+      const enHome = read("src/app/en/page.tsx");
+      return ruHome.includes('title: "SenseMeter') &&
+        enHome.includes('title: "SenseMeter') &&
+        ruHome.includes("SenseMeter") &&
+        enHome.includes("SenseMeter");
+    }
+  },
+  {
+    name: "Organization JSON-LD exposes brand aliases and confirmed public profile",
+    pass: () => {
+      const seo = read("src/lib/seo.ts");
+      return seo.includes("alternateName") &&
+        seo.includes("sensemeter") &&
+        seo.includes("SenseMeter.ru") &&
+        seo.includes("Sense Meter") &&
+        seo.includes("sameAs") &&
+        seo.includes("https://t.me/Sensemeter");
+    }
+  },
+  {
+    name: "priority model pages have precise SEO type labels",
+    pass: () => {
+      const seo = read("src/lib/seo.ts");
+      return seo.includes("productSeoNames") &&
+        seo.includes('"optidew-hz"') &&
+        seo.includes("hydrocarbon dew-point analyzer") &&
+        seo.includes('"hmp3-hmpx"') &&
+        seo.includes("humidity and temperature probe") &&
+        seo.includes('"dmt143-dmt143l"') &&
+        seo.includes("dew-point transmitter");
+    }
+  },
+  {
+    name: "priority model pages link back to matching application pages",
+    pass: () => {
+      const links = read("src/data/application-links.ts");
+      return /"optidew-hz":\s*\[[^\]]*naturalGasMoisture[^\]]*\]/s.test(links) &&
+        /"dmt143-dmt143l":\s*\[[^\]]*compressedAirDewPoint[^\]]*\]/s.test(links) &&
+        /"hmp3-hmpx":\s*\[[^\]]*industrialHumidity[^\]]*climateChamberHumidity[^\]]*\]/s.test(links);
+    }
+  },
+  {
     name: "sitemap does not use generation time as lastModified",
     pass: () => !read("src/app/sitemap.ts").includes("new Date()")
   },

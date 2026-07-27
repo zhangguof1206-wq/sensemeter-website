@@ -18,6 +18,12 @@ const categoryNames: Record<Product["category"], Record<Locale, string>> = {
   AII: { ru: "анализатор кислорода", en: "oxygen analyzer" }
 };
 
+const productSeoNames: Partial<Record<Product["slug"], Record<Locale, string>>> = {
+  "optidew-hz": { ru: "анализатор углеводородной точки росы", en: "hydrocarbon dew-point analyzer" },
+  "hmp3-hmpx": { ru: "датчик влажности и температуры", en: "humidity and temperature probe" },
+  "dmt143-dmt143l": { ru: "датчик точки росы", en: "dew-point transmitter" }
+};
+
 export function absoluteUrl(path: string) {
   return new URL(path, siteUrl).toString();
 }
@@ -76,7 +82,7 @@ export function staticPageMetadata({
 
 export function productMetadata(locale: Locale, product: Product): Metadata {
   const path = `/products/${product.slug}`;
-  const category = categoryNames[product.category][locale];
+  const category = productSeoNames[product.slug]?.[locale] || categoryNames[product.category][locale];
   const title = locale === "ru" ? `${product.model} - ${category}` : `${product.model} - ${category}`;
   const description = trimDescription(
     locale === "ru"
@@ -110,10 +116,12 @@ export function siteJsonLd() {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: siteName,
+      alternateName: ["sensemeter", "SenseMeter.ru", "Sense Meter"],
       legalName: "SINOETM TECH LTD",
       url: absoluteUrl("/"),
       logo: absoluteUrl("/logo-header.png"),
       email: "sales@sensemeter.ru",
+      sameAs: ["https://t.me/Sensemeter"],
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "sales",
