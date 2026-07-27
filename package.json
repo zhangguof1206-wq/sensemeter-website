@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:release": "npm run check:seo && npm run check:yandex-urls && npm run check:applications && npm run check:application-links && npm run check:ui && npm run check:i18n && npm run build",
     "postbuild": "node scripts/copy-netlify-forms.mjs",
     "check:catalog": "node scripts/check-catalog-integrity.mjs",
     "check:accessories": "node scripts/check-accessories.mjs",
