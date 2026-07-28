@@ -4,6 +4,8 @@ import { execFileSync } from "node:child_process";
 
 const root = process.cwd();
 const scriptPath = join(root, "scripts", "list-yandex-urls.mjs");
+const indexNowScriptPath = join(root, "scripts", "indexnow-submit.mjs");
+const indexNowKeyRoutePath = join(root, "src", "app", "[indexnowKey]", "route.ts");
 
 if (!existsSync(scriptPath)) {
   console.error("FAIL scripts/list-yandex-urls.mjs exists");
@@ -48,6 +50,8 @@ for (const slug of productSlugs) {
 }
 
 const checks = [
+  { name: "IndexNow helper exists for post-deploy changed URL notification", pass: existsSync(indexNowScriptPath) },
+  { name: "IndexNow key verification route is gated by environment key", pass: existsSync(indexNowKeyRoutePath) && readFileSync(indexNowKeyRoutePath, "utf8").includes("INDEXNOW_KEY") },
   { name: "Yandex URL list has no duplicate URLs", pass: new Set(urls).size === urls.length },
   { name: "Yandex URL list includes " + expectedCount + " sitemap URLs", pass: urls.length === expectedCount },
   { name: "Yandex URL list includes every core, application, product and accessory URL", pass: requiredUrls.every((url) => urls.includes(url)) },
@@ -57,6 +61,15 @@ const checks = [
   },
   { name: "Yandex URL list excludes noindex thank-you pages", pass: !output.includes("/thank-you") }
 ];
+
+if (existsSync(indexNowScriptPath)) {
+  const indexNowSource = readFileSync(indexNowScriptPath, "utf8");
+  checks.push(
+    { name: "IndexNow helper requires an explicit key and production confirmation", pass: indexNowSource.includes("INDEXNOW_KEY") && indexNowSource.includes("--confirm-production") },
+    { name: "IndexNow helper supports dry-run without network submission", pass: indexNowSource.includes("--dry-run") && indexNowSource.includes("dryRun") },
+    { name: "IndexNow helper submits only canonical sensemeter.ru URLs", pass: indexNowSource.includes("https://sensemeter.ru") && indexNowSource.includes("host") }
+  );
+}
 
 let failures = 0;
 for (const check of checks) {
