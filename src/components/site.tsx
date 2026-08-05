@@ -314,7 +314,7 @@ export function ProductCard({ locale, product }: { locale: Locale; product: Prod
           ))}
         </ul>
         <Link className="btn btn-primary mt-auto w-full" href={localizedPath(locale, `/products/${product.slug}`)}>
-          {c.details}
+          {c.details}<span className="sr-only">: {product.model}</span>
         </Link>
       </div>
     </article>

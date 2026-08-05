@@ -375,7 +375,34 @@ const checks = [
         content.includes("Climate chamber humidity measurement") &&
         ruPages.every((page) => !read(page).includes("languages: false"));
     }
-  },  {
+  },
+  {
+    name: "first SEO/GEO batch covers confirmed search-console targets",
+    pass: () => {
+      const applicationContent = read("src/data/application-page-content.ts");
+      const catalogPage = read("src/app/catalog/page.tsx");
+      const i18n = read("src/lib/i18n.ts");
+      const catalog = read("src/data/catalog.ts");
+      const requiredText = [
+        "Compressed air dew point testing and monitoring",
+        "compressed air dew point testing",
+        "Recommended instruments for compressed air dew point testing",
+        "How do I test dew point in compressed air?",
+        "oxygen analyzer for glovebox applications",
+        "glovebox",
+        "industrial humidity monitoring",
+        "промышленные датчики влажности, точки росы и кислородные анализаторы",
+        "PDF datasheet",
+        "HMP3 / HMPX датчик влажности и температуры",
+        "Optidew-HZ анализатор углеводородной точки росы",
+        "DMT143 / DMT143L преобразователь точки росы"
+      ];
+
+      const haystack = [applicationContent, catalogPage, i18n, catalog].join("\n");
+      return requiredText.every((text) => haystack.includes(text));
+    }
+  },
+  {
     name: "metadata titles and descriptions are unique for Yandex",
     pass: () => {
       const catalog = read("src/data/catalog.ts");

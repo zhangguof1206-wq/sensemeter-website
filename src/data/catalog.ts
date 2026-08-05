@@ -445,20 +445,20 @@ export const products = [
     image: "assets/products/Michell_Instruments_Optidew.png",
     pdf: "Michell_Instruments_Optidew_US_Datasheet_v3-1.pdf",
     overview: {
-      ru: "Optidew-HZ для углеводородной точки росы в природном газе и технологических газах: анализатор chilled mirror для точных измерений и промышленного мониторинга. Цена по запросу: уточните наличие и получите коммерческое предложение.",
-      en: "Optidew-HZ hydrocarbon dew-point chilled mirror analyzer for natural gas and process gases, supporting accurate measurement and industrial monitoring. Request price, availability and a quotation for Optidew-HZ."
+      ru: "Optidew-HZ анализатор углеводородной точки росы для природного газа и технологических газов: chilled mirror решение для точных измерений и промышленного мониторинга. Цена по запросу: уточните наличие, комплектацию, условия отбора пробы и получите коммерческое предложение.",
+      en: "Optidew-HZ hydrocarbon dew-point chilled mirror analyzer for natural gas and process gases, supporting accurate measurement and industrial monitoring. Request price, availability and a quotation for Optidew-HZ. Sampling configuration is confirmed by project conditions."
     },
     params: {
       ru: ["Диапазон точки росы: -40 до +120 deg C", "Точность точки росы +/-0.15 deg C", "Цветной сенсорный экран 5.7 inch", "Опция Modbus TCP Ethernet"],
       en: ["Dew-point range: -40 to +120 deg C", "Dew-point accuracy +/-0.15 deg C", "5.7 inch color touchscreen", "Optional Modbus TCP Ethernet"]
     },
     highlights: {
-      ru: ["Drift-free reference measurement", "Hybrid mirror sensor", "Настольная или настенная конфигурация"],
-      en: ["Drift-free reference measurement", "Hybrid mirror sensor", "Bench or wall-mount configuration"]
+      ru: ["Подходит для контроля углеводородной точки росы в газовых задачах", "Hybrid mirror sensor", "Настольная или настенная конфигурация подтверждается по проекту"],
+      en: ["Suitable for hydrocarbon dew-point control in gas applications", "Hybrid mirror sensor", "Bench or wall-mount configuration confirmed by project conditions"]
     },
     applications: {
-      ru: ["Эталон для климатических камер", "Испытания воздуха двигателя", "HVAC, cleanroom и фармацевтические процессы"],
-      en: ["Humidity reference for environmental chambers", "Engine intake air testing", "HVAC, cleanroom and pharmaceutical processes"]
+      ru: ["Природный газ и технологические газы", "Контроль углеводородной точки росы", "Инженерное подтверждение пробоотбора, монтажа и документации"],
+      en: ["Natural gas and process gases", "Hydrocarbon dew-point monitoring", "Engineering confirmation of sampling, installation and documentation"]
     }
   },
   {
@@ -589,20 +589,20 @@ export const products = [
     image: "assets/products/Humidity and Temperature Probe HMP3.png",
     pdf: "VA_HMP3-HMPX-Datasheet-B211826EN-E.pdf",
     overview: {
-      ru: "HMP3 / HMPX для точного измерения влажности и температуры в камерах, помещениях, воздуховодах и промышленных системах мониторинга. Цена по запросу: уточните наличие и получите коммерческое предложение.",
-      en: "HMP3 / HMPX humidity and temperature probes for precise measurement in chambers, rooms, ducts and industrial monitoring systems. Request price, availability and a quotation for HMP3 / HMPX."
+      ru: "HMP3 / HMPX датчик влажности и температуры для камер, помещений, воздуховодов и промышленных систем мониторинга, где важны стабильные измерения и корректная установка зонда. Цена по запросу: уточните наличие, совместимые аксессуары и получите коммерческое предложение.",
+      en: "HMP3 / HMPX humidity and temperature probes for chambers, rooms, ducts and industrial humidity monitoring systems where stable measurement and correct probe installation matter. Request price, availability and a quotation for HMP3 / HMPX. Compatible accessories are confirmed by application."
     },
     params: {
       ru: ["Измерение влажности и температуры", "Зондовое исполнение для интеграции", "Совместимость с системами мониторинга Vaisala", "PDF datasheet содержит варианты HMP и аксессуары"],
       en: ["Humidity and temperature measurement", "Probe design for integration", "Compatibility with Vaisala monitoring systems", "PDF datasheet includes HMP variants and accessories"]
     },
     highlights: {
-      ru: ["Компактный зонд для точек измерения", "Подходит для лабораторных и производственных условий", "Удобен для OEM и системной интеграции"],
-      en: ["Compact probe for measurement points", "Suitable for laboratory and production environments", "Convenient for OEM and system integration"]
+      ru: ["Компактный зонд для точек измерения", "Подходит для лабораторных и производственных условий", "Выбор исполнения, аксессуаров и монтажа подтверждается по задаче"],
+      en: ["Compact probe for measurement points", "Suitable for laboratory and production environments", "Probe version, accessories and mounting are confirmed by application"]
     },
     applications: {
-      ru: ["Климатические камеры", "Лабораторные помещения", "Системы мониторинга влажности"],
-      en: ["Climate chambers", "Laboratory rooms", "Humidity monitoring systems"]
+      ru: ["Климатические камеры", "Лабораторные и производственные помещения", "Промышленный мониторинг влажности и температуры"],
+      en: ["Climate chambers", "Laboratory and production rooms", "Industrial humidity and temperature monitoring"]
     }
   },
   {
@@ -637,20 +637,20 @@ export const products = [
     image: "assets/products/VA_DMT143-DMT143L.png",
     pdf: "VA_DMT143-Datasheet-B211207EN-L.pdf",
     overview: {
-      ru: "DMT143 / DMT143L для промышленных осушителей, сжатого воздуха, OEM-оборудования и сухих технологических газов: миниатюрные преобразователи точки росы. Цена по запросу: уточните наличие и получите коммерческое предложение.",
-      en: "DMT143 / DMT143L miniature dew-point transmitters for industrial dryers, compressed air, OEM equipment and dry process gases. Request price, availability and a quotation for DMT143 / DMT143L."
+      ru: "DMT143 / DMT143L преобразователь точки росы для промышленных осушителей, сжатого воздуха, OEM-оборудования и сухих технологических газов. Цена по запросу: уточните наличие, исполнение, точку установки и получите коммерческое предложение.",
+      en: "DMT143 / DMT143L miniature dew-point transmitters for industrial dryers, compressed air dew point testing, OEM equipment and dry process gases. Request price, availability and a quotation for DMT143 / DMT143L. Configuration is confirmed by installation point and project conditions."
     },
     params: {
       ru: ["Измерение точки росы в сухих газах", "Миниатюрное исполнение", "Варианты стандартной и удлиненной конструкции", "PDF datasheet содержит диапазоны и варианты моделей"],
       en: ["Dew-point measurement in dry gases", "Miniature transmitter design", "Standard and long probe versions", "PDF datasheet includes ranges and model options"]
     },
     highlights: {
-      ru: ["Компактная установка в оборудовании", "Подходит для непрерывного контроля сухости", "Удобен для сжатого воздуха и OEM"],
-      en: ["Compact installation in equipment", "Suitable for continuous dryness monitoring", "Convenient for compressed air and OEM use"]
+      ru: ["Компактная установка в оборудовании", "Подходит для непрерывного контроля сухости", "Конфигурация для сжатого воздуха и OEM подтверждается по условиям проекта"],
+      en: ["Compact installation in equipment", "Suitable for continuous dryness monitoring", "Configuration for compressed air and OEM use is confirmed by project conditions"]
     },
     applications: {
-      ru: ["Сжатый воздух", "Промышленные осушители", "Сухие технологические газы"],
-      en: ["Compressed air", "Industrial dryers", "Dry process gases"]
+      ru: ["Сжатый воздух и контроль точки росы", "Промышленные осушители", "Сухие технологические газы и OEM-системы"],
+      en: ["Compressed air dew point testing and monitoring", "Industrial dryers", "Dry process gases and OEM systems"]
     }
   }
 ] satisfies Product[];
