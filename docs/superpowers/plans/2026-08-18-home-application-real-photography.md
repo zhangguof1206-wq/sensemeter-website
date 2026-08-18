@@ -425,6 +425,84 @@ git commit -m "重构首页应用场景并替换真实摄影素材"
 
 提交前确认暂存区不含临时文件；提交后再次执行 `git status --short`，Expected: 无输出。
 
+## Task 7: 根据浏览器批注修正标题层级和操作按钮
+
+**Files:**
+
+- Modify: `scripts/check-ui.mjs`
+- Modify: `src/components/home/home-applications-section.tsx`
+
+- [ ] **Step 1: 先增加排版回归检查**
+
+在“home applications use the approved editorial grid”中追加以下约束：
+
+```js
+homeApplicationsSource.includes("application-section-heading") &&
+homeApplicationsSource.includes("application-card-action") &&
+homeApplicationsSource.includes("mt-auto") &&
+homeApplicationsSource.includes("bg-accent") &&
+!homeApplicationsSource.includes("border-t border-line pt-4")
+```
+
+检查名称保持不变，确保旧版无结构标题和普通文字链接无法通过。
+
+- [ ] **Step 2: 运行检查并确认旧实现失败**
+
+```powershell
+npm run check:ui
+```
+
+Expected: 仅“home applications use the approved editorial grid”失败，其余 UI 检查通过。
+
+- [ ] **Step 3: 重排模块标题区**
+
+标题区使用现有文案和品牌色，不增加新数据字段：
+
+```tsx
+<div className="application-section-heading mb-10 grid gap-6 border-b border-line pb-8 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end lg:gap-12">
+  <div className="border-l-4 border-accent pl-5">
+    <p className="text-xs font-black uppercase text-accent">{c.applicationEyebrow}</p>
+    <h2 className="mt-2 text-3xl font-black leading-tight sm:text-4xl">{c.applicationTitle}</h2>
+  </div>
+  <p className="max-w-xl text-base leading-7 text-muted lg:justify-self-end">{c.applicationLead}</p>
+</div>
+```
+
+桌面形成左标题、右说明；手机按栏目名、标题、说明自然纵向排列。不得添加营销口号、额外卡片或装饰图片。
+
+- [ ] **Step 4: 固定卡片按钮基线并强化操作样式**
+
+保持整张卡片为唯一链接，将原普通文字入口替换为：
+
+```tsx
+<span className="application-card-action mt-auto inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-[3px] bg-accent px-4 py-3 text-sm font-black text-white transition-colors group-hover:bg-accent-dark">
+  {c.viewApplication}
+  <span aria-hidden="true">→</span>
+</span>
+```
+
+正文容器继续使用 `flex flex-1 flex-col`，描述保持 `line-clamp-2`。按钮通过 `mt-auto` 对齐同一网格行底部，不再使用横跨卡片的上边框。
+
+- [ ] **Step 5: 运行自动检查和三档视觉验收**
+
+```powershell
+npm run check:ui
+npm run check:i18n
+npm run typecheck
+npm run build
+```
+
+浏览器检查 1440、768、390 宽度：标题无遮挡、同一行按钮上下坐标一致、五张图片和链接保持不变、无横向溢出。手机按钮文字完整且悬浮 Telegram 图标不遮挡按钮。
+
+- [ ] **Step 6: 提交完整修正**
+
+```powershell
+git add scripts/check-ui.mjs src/components/home/home-applications-section.tsx docs/superpowers/plans/2026-08-18-home-application-real-photography.md
+git commit -m "优化首页应用场景标题和按钮对齐"
+```
+
+提交后保留本地预览，不部署线上。
+
 ## 完成标准
 
 - RU/EN 首页均显示五张不同、来源可核验的真实工业照片。
@@ -432,5 +510,6 @@ git commit -m "重构首页应用场景并替换真实摄影素材"
 - 首页应用场景不再依赖轮播，旧客户端轮播代码在无引用时已删除。
 - 五个详情路由、顶部导航和其他首页内容没有行为回归。
 - 图片授权、作者/机构、来源、处理方式和最终文件一一对应。
+- 标题区具有明确层级，同一网格行的操作按钮底部对齐且视觉突出。
 - 所有自动检查、发布构建和三档视觉验收通过。
 - 没有部署到线上；本地验收通过后再单独进入 Ubuntu VPS / PM2 发布流程。
