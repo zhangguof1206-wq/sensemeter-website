@@ -7,7 +7,7 @@ export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sensemeter.r
 export const siteName = "SenseMeter";
 export const defaultLastModified = "2026-06-24";
 export const corePageLastModified = "2026-07-02";
-export const applicationPageLastModified = "2026-07-03";
+export const applicationPageLastModified = "2026-08-18";
 export const productPageLastModified = "2026-07-05";
 export const accessoryPageLastModified = "2026-07-13";
 
@@ -165,6 +165,33 @@ export function breadcrumbJsonLd(locale: Locale, product: Product) {
         position: 3,
         name: product.model,
         item: absoluteUrl(localizedCanonical(locale, `/products/${product.slug}`))
+      }
+    ]
+  };
+}
+
+export function applicationBreadcrumbJsonLd(locale: Locale, path: string, title: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: locale === "ru" ? "Главная" : "Home",
+        item: absoluteUrl(localizedCanonical(locale, "/"))
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: locale === "ru" ? "Применения" : "Applications",
+        item: `${absoluteUrl(localizedCanonical(locale, "/"))}#applications`
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: absoluteUrl(localizedCanonical(locale, path))
       }
     ]
   };

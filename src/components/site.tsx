@@ -266,7 +266,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       <AccessoriesHomeSection locale={locale} />
 
-      <section className="section">
+      <section className="section application-anchor" id="applications">
         <div className="section-narrow home-section-reveal">
           <h2 className="mb-7 text-3xl font-black">{c.applicationTitle}</h2>
           <CardCarousel ariaLabel={c.applicationTitle}>

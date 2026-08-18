@@ -3,6 +3,16 @@ import { join } from "node:path";
 
 const root = process.cwd();
 const read = (path) => readFileSync(join(root, path), "utf8");
+const applicationSlugs = [
+  "industrial-humidity-monitoring",
+  "compressed-air-dew-point",
+  "glove-box-oxygen-analysis",
+  "natural-gas-moisture-monitoring",
+  "climate-chamber-humidity"
+];
+const readApplicationContent = () => applicationSlugs
+  .map((slug) => read(`src/data/applications/${slug}.ts`))
+  .join("\n");
 
 const checks = [
   {
@@ -357,7 +367,7 @@ const checks = [
     name: "EN application pages exist and keep hreflang alternates",
     pass: () => {
       const enRoute = read("src/app/en/applications/[slug]/page.tsx");
-      const content = read("src/data/application-page-content.ts");
+      const content = readApplicationContent();
       const ruPages = [
         "src/app/applications/industrial-humidity-monitoring/page.tsx",
         "src/app/applications/compressed-air-dew-point/page.tsx",
@@ -370,7 +380,7 @@ const checks = [
         enRoute.includes("generateMetadata") &&
         content.includes("Industrial humidity and temperature monitoring") &&
         content.includes("Compressed air dew point monitoring") &&
-        content.includes("Glove box oxygen analysis") &&
+        content.includes("glovebox oxygen analysis") &&
         content.includes("Natural gas moisture monitoring") &&
         content.includes("Climate chamber humidity measurement") &&
         ruPages.every((page) => !read(page).includes("languages: false"));
@@ -379,7 +389,7 @@ const checks = [
   {
     name: "first SEO/GEO batch covers confirmed search-console targets",
     pass: () => {
-      const applicationContent = read("src/data/application-page-content.ts");
+      const applicationContent = readApplicationContent();
       const catalogPage = read("src/app/catalog/page.tsx");
       const i18n = read("src/lib/i18n.ts");
       const catalog = read("src/data/catalog.ts");
@@ -407,7 +417,7 @@ const checks = [
     pass: () => {
       const catalog = read("src/data/catalog.ts");
       const seo = read("src/lib/seo.ts");
-      const applicationContent = read("src/data/application-page-content.ts");
+      const applicationContent = readApplicationContent();
       const staticPages = [
         "src/app/page.tsx",
         "src/app/catalog/page.tsx",
@@ -416,12 +426,7 @@ const checks = [
         "src/app/en/page.tsx",
         "src/app/en/catalog/page.tsx",
         "src/app/en/about/page.tsx",
-        "src/app/en/contact/page.tsx",
-        "src/app/applications/industrial-humidity-monitoring/page.tsx",
-        "src/app/applications/compressed-air-dew-point/page.tsx",
-        "src/app/applications/glove-box-oxygen-analysis/page.tsx",
-        "src/app/applications/natural-gas-moisture-monitoring/page.tsx",
-        "src/app/applications/climate-chamber-humidity/page.tsx"
+        "src/app/en/contact/page.tsx"
       ];
 
       const productMatches = [...catalog.matchAll(/slug: "([^"]+)"[\s\S]*?model: "([^"]+)"[\s\S]*?category: "([^"]+)"[\s\S]*?overview: \{[\s\S]*?en: "([^"]+)"/g)];
@@ -446,7 +451,7 @@ const checks = [
 
       const applicationMetaTitles = [...applicationContent.matchAll(/metaTitle: "([^"]+)"/g)].map((match) => match[1]);
       const applicationMetaDescriptions = [...applicationContent.matchAll(/metaDescription: "([^"]+)"/g)].map((match) => match[1]);
-      if (applicationMetaTitles.length !== 5 || applicationMetaDescriptions.length !== 5) return false;
+      if (applicationMetaTitles.length !== 10 || applicationMetaDescriptions.length !== 10) return false;
       titleValues.push(...applicationMetaTitles);
       descriptionValues.push(...applicationMetaDescriptions);
 

@@ -1,24 +1,24 @@
 import { notFound } from "next/navigation";
-import { ApplicationPage } from "@/components/application-page";
-import { applicationPageContent, getApplicationPageContent } from "@/data/application-page-content";
+import { ApplicationPage } from "@/components/applications/application-page";
+import { applicationPages, getApplicationPage } from "@/data/applications";
 import { staticPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return applicationPageContent.map((page) => ({ slug: page.slug }));
+  return applicationPages.map((page) => ({ slug: page.slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const content = getApplicationPageContent(slug);
-  if (!content) return {};
-  return staticPageMetadata({ locale: "en", path: content.path, title: content.metaTitle, description: content.metaDescription, image: content.image });
+  const page = getApplicationPage(slug, "en");
+  if (!page) return {};
+  return staticPageMetadata({ locale: "en", path: page.path, title: page.copy.metaTitle, description: page.copy.metaDescription, image: page.heroImage });
 }
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  const content = getApplicationPageContent(slug);
-  if (!content) notFound();
-  return <ApplicationPage locale="en" content={content} />;
+  const page = getApplicationPage(slug, "en");
+  if (!page) notFound();
+  return <ApplicationPage page={page} languagePath={page.path} />;
 }

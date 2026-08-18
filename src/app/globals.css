@@ -258,6 +258,30 @@ select {
   }
 }
 
+.application-anchor {
+  scroll-margin-top: 96px;
+}
+
+.application-scene-image,
+.application-product-image {
+  transition: transform 0.28s ease;
+}
+
+@media (hover: hover) {
+  .group:hover .application-scene-image,
+  .group:hover .application-product-image {
+    transform: scale(1.025);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .application-scene-image,
+  .application-product-image {
+    transition: none;
+    transform: none !important;
+  }
+}
+
 @media (max-width: 760px) {
   .carousel-marquee-item {
     width: min(78vw, 360px);
