@@ -28,7 +28,8 @@ const checks = [
       source.includes("Chat with us") &&
       source.includes('href={TELEGRAM_URL}') &&
       source.includes("fixed bottom-5 right-5") &&
-      source.includes('className="hidden sm:inline">Chat with us</span>')
+      source.includes('className="hidden lg:inline">Chat with us</span>') &&
+      source.includes("lg:h-auto lg:w-auto lg:min-h-12")
   },
   {
     name: "product catalog cards use compact spec rows",
@@ -50,6 +51,11 @@ const checks = [
       homeApplicationsSource.includes("lg:col-span-7") &&
       homeApplicationsSource.includes("lg:col-span-5") &&
       homeApplicationsSource.includes("md:col-span-2") &&
+      homeApplicationsSource.includes("application-section-heading") &&
+      homeApplicationsSource.includes("application-card-action") &&
+      homeApplicationsSource.includes("mt-auto") &&
+      homeApplicationsSource.includes("bg-accent") &&
+      !homeApplicationsSource.includes("border-t border-line pt-4") &&
       !homeApplicationsSource.includes("hover:scale") &&
       !homeApplicationsSource.includes("hover:shadow-2xl")
   },

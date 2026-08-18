@@ -24,9 +24,12 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
   return (
     <section className="application-anchor bg-[#f4f7fa] py-16 sm:py-20" id="applications">
       <div className="section-narrow home-section-reveal px-4 sm:px-6 lg:px-0">
-        <div className="mb-8 max-w-3xl">
-          <h2 className="text-3xl font-black">{c.applicationTitle}</h2>
-          <p className="mt-3 text-lg text-muted">{c.applicationLead}</p>
+        <div className="application-section-heading mb-10 grid gap-6 border-b border-line pb-8 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end lg:gap-12">
+          <div className="border-l-4 border-accent pl-5">
+            <p className="text-xs font-black uppercase text-accent">{c.applicationEyebrow}</p>
+            <h2 className="mt-2 text-3xl font-black leading-tight sm:text-4xl">{c.applicationTitle}</h2>
+          </div>
+          <p className="max-w-xl text-base leading-7 text-muted lg:justify-self-end">{c.applicationLead}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-12">
@@ -47,8 +50,8 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
               <div className="flex flex-1 flex-col p-5 sm:p-6">
                 <p className="text-xs font-black uppercase text-accent">{scene.category[locale]}</p>
                 <h3 className="mt-2 text-xl font-black leading-tight text-[#182434]">{scene.title[locale]}</h3>
-                <p className="mt-3 line-clamp-2 text-muted">{scene.text[locale]}</p>
-                <span className="mt-5 inline-flex items-center gap-2 border-t border-line pt-4 text-sm font-black text-[#182434] group-hover:text-accent">
+                <p className="mb-6 mt-3 line-clamp-2 text-muted">{scene.text[locale]}</p>
+                <span className="application-card-action mt-auto inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-[3px] bg-accent px-4 py-3 text-sm font-black text-white transition-colors group-hover:bg-accent-dark">
                   {c.viewApplication}
                   <span aria-hidden="true">→</span>
                 </span>

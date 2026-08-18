@@ -431,6 +431,7 @@ git commit -m "重构首页应用场景并替换真实摄影素材"
 
 - Modify: `scripts/check-ui.mjs`
 - Modify: `src/components/home/home-applications-section.tsx`
+- Modify: `src/components/site.tsx`
 
 - [ ] **Step 1: 先增加排版回归检查**
 
@@ -492,12 +493,12 @@ npm run typecheck
 npm run build
 ```
 
-浏览器检查 1440、768、390 宽度：标题无遮挡、同一行按钮上下坐标一致、五张图片和链接保持不变、无横向溢出。手机按钮文字完整且悬浮 Telegram 图标不遮挡按钮。
+浏览器检查 1440、768、390 宽度：标题无遮挡、同一行按钮上下坐标一致、五张图片和链接保持不变、无横向溢出。平板和手机使用圆形 Telegram 图标，不显示长条文字，且不得遮挡卡片按钮。
 
 - [ ] **Step 6: 提交完整修正**
 
 ```powershell
-git add scripts/check-ui.mjs src/components/home/home-applications-section.tsx docs/superpowers/plans/2026-08-18-home-application-real-photography.md
+git add scripts/check-ui.mjs src/components/home/home-applications-section.tsx src/components/site.tsx docs/superpowers/plans/2026-08-18-home-application-real-photography.md
 git commit -m "优化首页应用场景标题和按钮对齐"
 ```
 

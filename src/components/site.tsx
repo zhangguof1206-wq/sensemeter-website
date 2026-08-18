@@ -140,7 +140,7 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
         </div>
       </footer>
       <MetricaTrackedLink
-        className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-accent p-0 text-sm font-black text-white shadow-2xl transition hover:bg-accent-dark focus:outline-none focus:ring-4 focus:ring-accent/30 sm:h-auto sm:w-auto sm:min-h-12 sm:gap-2 sm:px-4 sm:py-3 md:bottom-7 md:right-7"
+        className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-accent p-0 text-sm font-black text-white shadow-2xl transition hover:bg-accent-dark focus:outline-none focus:ring-4 focus:ring-accent/30 md:bottom-7 md:right-7 lg:h-auto lg:w-auto lg:min-h-12 lg:gap-2 lg:px-4 lg:py-3"
         href={TELEGRAM_URL}
         target="_blank"
         rel="noreferrer"
@@ -152,7 +152,7 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
           <path d="M21 4 3 11l7 3 3 7 8-17Z" />
           <path d="m10 14 4-4" />
         </svg>
-        <span className="hidden sm:inline">Chat with us</span>
+        <span className="hidden lg:inline">Chat with us</span>
       </MetricaTrackedLink>
       <CookieBanner locale={locale} />
     </div>
