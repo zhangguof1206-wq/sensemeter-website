@@ -1,13 +1,10 @@
-import Image from "next/image";
 import type { ResolvedApplicationPage } from "@/data/applications";
 
 export function ApplicationSelection({ page }: { page: ResolvedApplicationPage }) {
   const { copy } = page;
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#102235] px-5 py-20 text-white md:px-10 md:py-24">
-      <Image fill loading="lazy" sizes="100vw" className="-z-20 object-cover object-center" src={page.scenarioImage} alt="" aria-hidden="true" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(16,34,53,.98)_0%,rgba(16,34,53,.96)_58%,rgba(16,34,53,.3)_100%)]" />
+    <section className="bg-[#102235] px-5 py-20 text-white md:px-10 md:py-24">
       <div className="mx-auto max-w-7xl">
         <h2 className="max-w-2xl text-3xl font-black leading-tight md:text-4xl">{copy.selectionTitle}</h2>
         <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">{copy.selectionLead}</p>

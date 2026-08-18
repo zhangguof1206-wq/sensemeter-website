@@ -1,14 +1,13 @@
 import type { ApplicationPageRecord } from "@/data/applications/types";
 
-const heroImage = "/assets/application-gas-manufacturing.png";
-const scenarioImage = "/assets/application-glove-box-user.png";
-
 export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
   slug: "glove-box-oxygen-analysis",
   path: "/applications/glove-box-oxygen-analysis",
-  heroImage,
-  scenarioImage,
-  ctaImage: scenarioImage,
+  heroImage: "/assets/applications/glove-box-oxygen-analysis/hero.webp",
+  scenarioImages: [
+    "/assets/applications/glove-box-oxygen-analysis/process-installation.webp",
+    "/assets/applications/glove-box-oxygen-analysis/field-verification.webp"
+  ],
   recommendedSlugs: ["gpr-1500", "gpr-1900-2900", "gpr-1500gb-2500gb", "gpr-1600-2600-3100", "gpr-1000-1100-2000-3500"],
   content: {
     ru: {
@@ -25,13 +24,16 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       overviewText: "Контроль кислорода нужен там, где качество газа влияет на безопасность, стабильность процесса и защиту продукции. Для перчаточных боксов, инертных атмосфер и газовых линий важно заранее определить диапазон O2, условия пробоотбора и формат передачи сигнала.",
       scenariosTitle: "Где применяются анализаторы",
       scenariosLead: "Диапазон O2, газовый фон и пробоотбор определяют сенсор, исполнение и способ интеграции.",
-      scenarios: [
-        { title: "Перчаточные боксы", text: "Контроль остаточного кислорода в инертной атмосфере для защиты образцов и процессов.", image: heroImage, imageAlt: "Контроль кислорода в перчаточном боксе" },
-        { title: "Инертные газы", text: "Мониторинг кислорода в азоте, аргоне и технологических газовых линиях.", image: scenarioImage, imageAlt: "Анализ кислорода в инертном газе" },
-        { title: "Генераторы газа", text: "Проверка чистоты газа и стабильности работы генераторной установки.", image: heroImage, imageAlt: "Контроль кислорода на генераторе газа" },
-        { title: "Промышленные печи", text: "Измерение O2 в газовой среде технологического оборудования.", image: scenarioImage, imageAlt: "Кислородный анализатор для промышленной печи" },
-        { title: "Система сигнализации", text: "Передача показаний в локальную индикацию, реле или систему управления.", image: heroImage, imageAlt: "Система сигнализации кислородного анализатора" }
+      photoScenarios: [
+        { title: "Линия инертного газа", text: "Пробоподготовка и контроль кислорода в азоте, аргоне и газовых линиях.", imageAlt: "Панель пробоподготовки кислородного анализатора у перчаточного бокса" },
+        { title: "Промышленная печь", text: "Проверка O2 в защитной атмосфере технологического оборудования.", imageAlt: "Инженер проверяет кислородную линию промышленной печи" }
       ],
+      technicalScenarios: [
+        { title: "Перчаточный бокс", text: "Контроль остаточного кислорода в инертной атмосфере для защиты образцов и процессов.", criterion: "Диапазон O2, объем бокса и время восстановления" },
+        { title: "Генератор газа", text: "Проверка чистоты газа и стабильности работы генераторной установки.", criterion: "Газовый фон, давление, расход и точка отбора" },
+        { title: "Система сигнализации", text: "Передача показаний в локальную индикацию, реле или систему управления.", criterion: "Пороги тревог, выходы и способ интеграции" }
+      ],
+      criterionLabel: "Критерии подбора",
       selectionTitle: "Как выбрать анализатор O2",
       selectionLead: "Сначала определяют газовую среду и диапазон, затем проверяют пробоотбор и интерфейс.",
       selectionCards: [
@@ -74,13 +76,16 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       overviewText: "An oxygen analyzer for glovebox applications helps confirm low O2 levels where gas quality affects safety, process stability and product protection. The right solution depends on range, gas background, sample condition and integration needs.",
       scenariosTitle: "Where analyzers are used",
       scenariosLead: "O2 range, gas background and sampling conditions define the sensor, construction and integration method.",
-      scenarios: [
-        { title: "Glove boxes", text: "Control residual oxygen in inert atmospheres for sensitive materials and processes.", image: heroImage, imageAlt: "Oxygen monitoring in a glove box" },
-        { title: "Inert gases", text: "Monitor oxygen in nitrogen, argon and industrial gas lines.", image: scenarioImage, imageAlt: "Oxygen analysis in inert gas" },
-        { title: "Gas generators", text: "Check gas purity and generator operating stability.", image: heroImage, imageAlt: "Oxygen monitoring for a gas generator" },
-        { title: "Industrial furnaces", text: "Measure O2 in the gas environment of process equipment.", image: scenarioImage, imageAlt: "Oxygen analyzer for an industrial furnace" },
-        { title: "Alarm systems", text: "Send readings to a local display, relay or process control system.", image: heroImage, imageAlt: "Oxygen analyzer alarm and signal system" }
+      photoScenarios: [
+        { title: "Inert-gas sample line", text: "Condition the sample and monitor oxygen in nitrogen, argon and process-gas lines.", imageAlt: "Oxygen analyzer sample conditioning panel beside a glove box" },
+        { title: "Industrial furnace", text: "Verify O2 in the protective atmosphere of process equipment.", imageAlt: "Engineer checking an oxygen sample line at an industrial furnace" }
       ],
+      technicalScenarios: [
+        { title: "Glove box", text: "Control residual oxygen in an inert atmosphere for sensitive materials and processes.", criterion: "O2 range, box volume and recovery time" },
+        { title: "Gas generator", text: "Check gas purity and generator operating stability.", criterion: "Gas background, pressure, flow and sample point" },
+        { title: "Alarm system", text: "Send readings to a local display, relay or process control system.", criterion: "Alarm thresholds, outputs and integration method" }
+      ],
+      criterionLabel: "Selection focus",
       selectionTitle: "How to choose an oxygen analyzer",
       selectionLead: "Define the gas and range first, then confirm sampling and interface requirements.",
       selectionCards: [

@@ -1,14 +1,13 @@
 import type { ApplicationPageRecord } from "@/data/applications/types";
 
-const heroImage = "/assets/application-climate-chamber-lab.png";
-const scenarioImage = "/assets/application-climate-chamber-inline.png";
-
 export const climateChamberHumidity: ApplicationPageRecord = {
   slug: "climate-chamber-humidity",
   path: "/applications/climate-chamber-humidity",
-  heroImage,
-  scenarioImage,
-  ctaImage: heroImage,
+  heroImage: "/assets/applications/climate-chamber-humidity/hero.webp",
+  scenarioImages: [
+    "/assets/applications/climate-chamber-humidity/process-installation.webp",
+    "/assets/applications/climate-chamber-humidity/field-verification.webp"
+  ],
   recommendedSlugs: ["hmp3-hmpx", "hc2a-series", "hp31-hp32", "hmt310", "hygroflex1"],
   content: {
     ru: {
@@ -25,13 +24,16 @@ export const climateChamberHumidity: ApplicationPageRecord = {
       overviewText: "Для лабораторных испытаний и климатических камер важны стабильность, повторяемость и точность. Подбор прибора зависит от диапазона измерения, места установки, требований к калибровке и способа регистрации данных.",
       scenariosTitle: "Где применяются приборы",
       scenariosLead: "Тип камеры, рабочий диапазон и требования к данным определяют датчик и способ установки.",
-      scenarios: [
-        { title: "Климатические камеры", text: "Контроль влажности и температуры при испытаниях материалов, электроники и компонентов.", image: heroImage, imageAlt: "Измерение влажности в климатической камере" },
-        { title: "Лабораторный контроль", text: "Стабильные измерения для проверки условий и повторяемых испытаний.", image: scenarioImage, imageAlt: "Лабораторное измерение влажности" },
-        { title: "Чистые помещения", text: "Мониторинг температуры и влажности в контролируемых технических зонах.", image: heroImage, imageAlt: "Контроль влажности в чистом помещении" },
-        { title: "Проверка нескольких точек", text: "Портативные приборы для сравнения условий и сервисного контроля.", image: scenarioImage, imageAlt: "Переносная проверка влажности в лаборатории" },
-        { title: "Регистрация данных", text: "Передача сигнала в регистратор, ПЛК, BMS или локальную систему.", image: heroImage, imageAlt: "Регистрация влажности и температуры" }
+      photoScenarios: [
+        { title: "Зонд в рабочем объеме", text: "Стабильное измерение влажности и температуры непосредственно в камере.", imageAlt: "Зонд влажности установлен внутри климатической камеры" },
+        { title: "Проверка эталонным прибором", text: "Портативное сравнение показаний при валидации и обслуживании.", imageAlt: "Инженер проверяет влажность в климатической камере" }
       ],
+      technicalScenarios: [
+        { title: "Климатическая камера", text: "Контроль условий при испытаниях материалов, электроники и компонентов.", criterion: "Диапазоны температуры и влажности, размер камеры" },
+        { title: "Чистое помещение", text: "Мониторинг температуры и влажности в контролируемых технических зонах.", criterion: "Точность, размещение зонда и требования к калибровке" },
+        { title: "Регистрация данных", text: "Передача сигнала в регистратор, ПЛК, BMS или локальную систему.", criterion: "Выходной сигнал, частота записи и документация" }
+      ],
+      criterionLabel: "Критерии подбора",
       selectionTitle: "Как выбрать датчик для камеры",
       selectionLead: "Нужно связать задачу испытаний, диапазон, монтаж и документы с системой регистрации.",
       selectionCards: [
@@ -74,13 +76,16 @@ export const climateChamberHumidity: ApplicationPageRecord = {
       overviewText: "Laboratory and climate chamber applications need stable readings, repeatability and suitable probe placement. The selection depends on chamber size, temperature range, humidity range and data requirements.",
       scenariosTitle: "Where instruments are used",
       scenariosLead: "Chamber type, operating range and data requirements define the sensor and mounting method.",
-      scenarios: [
-        { title: "Climate chambers", text: "Monitor humidity and temperature during material, electronics and component testing.", image: heroImage, imageAlt: "Humidity measurement in a climate chamber" },
-        { title: "Laboratory monitoring", text: "Stable readings for condition checks and repeatable tests.", image: scenarioImage, imageAlt: "Laboratory humidity measurement" },
-        { title: "Clean rooms", text: "Monitor temperature and humidity in controlled technical areas.", image: heroImage, imageAlt: "Humidity monitoring in a clean room" },
-        { title: "Multi-point checks", text: "Use portable instruments for comparison and service checks.", image: scenarioImage, imageAlt: "Portable laboratory humidity check" },
-        { title: "Data recording", text: "Send signals to a logger, PLC, BMS or local monitoring system.", image: heroImage, imageAlt: "Humidity and temperature data recording" }
+      photoScenarios: [
+        { title: "Probe in the test volume", text: "Measure humidity and temperature directly inside the chamber.", imageAlt: "Humidity probe installed inside an environmental test chamber" },
+        { title: "Reference verification", text: "Compare readings with a portable reference during validation and service.", imageAlt: "Engineer verifying humidity inside an environmental chamber" }
       ],
+      technicalScenarios: [
+        { title: "Climate chamber", text: "Monitor conditions during material, electronics and component testing.", criterion: "Temperature and humidity ranges, chamber volume" },
+        { title: "Clean room", text: "Monitor temperature and humidity in controlled technical areas.", criterion: "Accuracy, probe placement and calibration requirements" },
+        { title: "Data recording", text: "Send signals to a logger, PLC, BMS or local monitoring system.", criterion: "Output signal, logging interval and documentation" }
+      ],
+      criterionLabel: "Selection focus",
       selectionTitle: "How to choose a chamber sensor",
       selectionLead: "Match the test task, range, mounting and documentation to the data system.",
       selectionCards: [

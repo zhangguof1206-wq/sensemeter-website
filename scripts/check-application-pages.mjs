@@ -55,6 +55,18 @@ if (existsSync(join(root, pageComponentPath))) {
   if (!pageComponent.includes("applicationBreadcrumbJsonLd")) fail("shared application page renders breadcrumb JSON-LD");
 }
 
+const scenarioComponent = read("src/components/applications/application-scenarios.tsx");
+for (const token of ["copy.photoScenarios", "copy.technicalScenarios", "page.scenarioImages", "copy.criterionLabel"]) {
+  if (!scenarioComponent.includes(token)) fail(`application scenarios render ${token}`);
+}
+
+for (const imageFreeComponent of ["application-selection.tsx", "application-faq.tsx"]) {
+  const source = read(`src/components/applications/${imageFreeComponent}`);
+  if (source.includes("<Image") || source.includes("page.heroImage") || source.includes("page.scenarioImage") || source.includes("page.ctaImage")) {
+    fail(`${imageFreeComponent} does not reuse application photography`);
+  }
+}
+
 for (const slug of applicationSlugs) {
   const dataPath = `src/data/applications/${slug}.ts`;
   const ruRoutePath = `src/app/applications/${slug}/page.tsx`;
@@ -64,16 +76,26 @@ for (const slug of applicationSlugs) {
   }
 
   const data = read(dataPath);
-  for (const token of ["content:", "ru:", "en:", "recommendedSlugs:", "heroImage", "scenarioImage", "ctaImage:"]) {
+  for (const token of ["content:", "ru:", "en:", "recommendedSlugs:", "heroImage:", "scenarioImages:", "photoScenarios:", "technicalScenarios:", "criterionLabel:"]) {
     if (!data.includes(token)) fail(`${slug} data includes ${token}`);
+  }
+  for (const legacyToken of ["const scenarioImage", "ctaImage:"]) {
+    if (data.includes(legacyToken)) fail(`${slug} data removes legacy ${legacyToken}`);
+  }
+
+  const expectedAssetPrefix = `/assets/applications/${slug}/`;
+  const pageImages = [...data.matchAll(/"(\/assets\/applications\/[^"']+\.webp)"/g)].map((match) => match[1]);
+  const uniquePageImages = new Set(pageImages);
+  if (pageImages.length !== 3 || uniquePageImages.size !== 3) {
+    fail(`${slug} references exactly three unique production photos`);
+  }
+  for (const image of uniquePageImages) {
+    if (!image.startsWith(expectedAssetPrefix)) fail(`${slug} owns its application photography: ${image}`);
+    if (!existsSync(join(root, "public", image.slice(1)))) fail(`${slug} image exists: ${image}`);
   }
   for (const label of ruVisibleEnglishLabels) {
     const ruBlock = data.split("ru:")[1]?.split("en:")[0] || "";
     if (ruBlock.includes(label)) fail(`${slug} Russian content translates visible label ${label}`);
-  }
-
-  for (const match of data.matchAll(/"(\/assets\/application-[^"]+)"/g)) {
-    if (!existsSync(join(root, "public", match[1].slice(1)))) fail(`${slug} image exists: ${match[1]}`);
   }
 
   if (!existsSync(join(root, ruRoutePath))) {

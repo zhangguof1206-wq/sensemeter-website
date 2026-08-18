@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ResolvedApplicationPage } from "@/data/applications";
 import { localizedPath } from "@/lib/i18n";
@@ -22,20 +21,21 @@ export function ApplicationFaq({ page }: { page: ResolvedApplicationPage }) {
               ))}
             </div>
           </div>
-          <aside className="h-fit overflow-hidden border-b-[3px] border-accent bg-[#eef2f5]">
-            <div className="relative aspect-[16/10]"><Image fill loading="lazy" sizes="(min-width: 1024px) 390px, 90vw" className="object-cover" src={page.ctaImage} alt={copy.advisorTitle} /></div>
-            <div className="p-7">
-              <h2 className="text-2xl font-black leading-tight">{copy.advisorTitle}</h2>
-              <p className="mt-3 text-sm leading-6 text-muted">{copy.advisorText}</p>
-              <Link className="btn btn-primary mt-6 w-full whitespace-nowrap" href={contactHref}>{copy.advisorButton}</Link>
+          <aside className="h-fit border-t-[3px] border-accent bg-[#eef2f5] p-7 md:p-8">
+            <h2 className="text-2xl font-black leading-tight">{copy.advisorTitle}</h2>
+            <p className="mt-3 text-sm leading-6 text-muted">{copy.advisorText}</p>
+            <div className="mt-6 border-t border-slate-300 pt-5">
+              <h3 className="text-sm font-black">{copy.rfqTitle}</h3>
+              <ul className="mt-3 space-y-2 text-xs leading-5 text-muted">
+                {copy.rfqPoints.slice(0, 4).map((point) => <li className="flex gap-2" key={point}><span className="mt-2 h-1 w-1 shrink-0 bg-accent" /><span>{point}</span></li>)}
+              </ul>
             </div>
+            <Link className="btn btn-primary mt-6 w-full whitespace-nowrap" href={contactHref}>{copy.advisorButton}</Link>
           </aside>
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden bg-[#102235] px-5 py-20 text-white md:px-10">
-        <Image fill loading="lazy" sizes="100vw" className="-z-20 object-cover" src={page.heroImage} alt="" aria-hidden="true" />
-        <div className="absolute inset-0 -z-10 bg-[#102235]/90" />
+      <section className="bg-[#102235] px-5 py-20 text-white md:px-10">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
             <h2 className="max-w-3xl text-3xl font-black leading-tight md:text-4xl">{copy.finalCtaTitle}</h2>

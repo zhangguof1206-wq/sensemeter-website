@@ -1,14 +1,13 @@
 import type { ApplicationPageRecord } from "@/data/applications/types";
 
-const heroImage = "/assets/application-industrial-humidity-monitoring-v2.png";
-const scenarioImage = "/assets/application-humidity-lab-user.png";
-
 export const industrialHumidityMonitoring: ApplicationPageRecord = {
   slug: "industrial-humidity-monitoring",
   path: "/applications/industrial-humidity-monitoring",
-  heroImage,
-  scenarioImage,
-  ctaImage: scenarioImage,
+  heroImage: "/assets/applications/industrial-humidity-monitoring/hero.webp",
+  scenarioImages: [
+    "/assets/applications/industrial-humidity-monitoring/process-installation.webp",
+    "/assets/applications/industrial-humidity-monitoring/field-verification.webp"
+  ],
   recommendedSlugs: ["hc2a-series", "hc2a-industrial", "hygroflex1", "hmt310", "hmt370ex"],
   content: {
     ru: {
@@ -28,13 +27,16 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       overviewText: "Подбор датчика зависит от среды, диапазона измерения, способа монтажа и выходного сигнала. Для промышленных задач важны точность, стабильность, сервис, калибровка и совместимость с системой контроля.",
       scenariosTitle: "Где применяются датчики",
       scenariosLead: "Среда, точка установки и способ передачи сигнала определяют конструкцию зонда и передатчика.",
-      scenarios: [
-        { title: "Производственные зоны", text: "Стабильный мониторинг условий, влияющих на процесс и качество продукции.", image: heroImage, imageAlt: "Контроль влажности в производственной зоне" },
-        { title: "Камеры и воздуховоды", text: "Зондовое измерение в климатическом оборудовании и вентиляционных каналах.", image: scenarioImage, imageAlt: "Датчик влажности в климатической системе" },
-        { title: "Технические помещения", text: "Передача температуры и влажности в PLC, SCADA или BMS.", image: heroImage, imageAlt: "Промышленный преобразователь влажности" },
-        { title: "Сервисный контроль", text: "Проверка нескольких точек переносным прибором при настройке и обслуживании.", image: scenarioImage, imageAlt: "Переносная проверка влажности" },
-        { title: "Сложные условия", text: "Подбор исполнения с учетом пыли, конденсата, паров, давления или опасной зоны.", image: heroImage, imageAlt: "Измерение влажности в сложных промышленных условиях" }
+      photoScenarios: [
+        { title: "Монтаж в воздуховоде", text: "Зондовое измерение в вентиляционных каналах и климатическом оборудовании.", imageAlt: "Промышленный датчик влажности установлен в воздуховоде" },
+        { title: "Сервисный контроль", text: "Проверка нескольких точек переносным прибором при настройке и обслуживании.", imageAlt: "Портативная проверка влажности в техническом помещении" }
       ],
+      technicalScenarios: [
+        { title: "Производственная зона", text: "Стабильный мониторинг условий, влияющих на процесс и качество продукции.", criterion: "Диапазон влажности, температура и скорость воздуха" },
+        { title: "Техническое помещение", text: "Передача температуры и влажности в PLC, SCADA или BMS.", criterion: "Место установки, выходной сигнал и питание" },
+        { title: "Сложные условия", text: "Подбор исполнения с учетом пыли, конденсата, паров, давления или опасной зоны.", criterion: "Материал зонда, защита и допуски участка" }
+      ],
+      criterionLabel: "Критерии подбора",
       selectionTitle: "Как выбрать промышленный датчик",
       selectionLead: "Для подбора нужно связать точку измерения, монтаж, точность и интерфейс с условиями процесса.",
       selectionCards: [
@@ -80,13 +82,16 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       overviewText: "Industrial humidity monitoring depends on the medium, measurement range, mounting method and output signal. Stability, calibration, service access and control-system compatibility are as important as accuracy.",
       scenariosTitle: "Where sensors are used",
       scenariosLead: "The medium, measurement point and signal requirements define the probe and transmitter configuration.",
-      scenarios: [
-        { title: "Production areas", text: "Stable monitoring of conditions that affect processes and product quality.", image: heroImage, imageAlt: "Industrial humidity monitoring in a production area" },
-        { title: "Chambers and ducts", text: "Probe measurement in climate equipment and ventilation ducts.", image: scenarioImage, imageAlt: "Humidity probe in a climate system" },
-        { title: "Technical rooms", text: "Send humidity and temperature data to PLC, SCADA or BMS.", image: heroImage, imageAlt: "Industrial humidity transmitter" },
-        { title: "Service checks", text: "Inspect several points with a portable meter during setup and maintenance.", image: scenarioImage, imageAlt: "Portable industrial humidity check" },
-        { title: "Demanding conditions", text: "Select construction for dust, condensation, vapors, pressure or hazardous areas.", image: heroImage, imageAlt: "Humidity measurement in demanding industrial conditions" }
+      photoScenarios: [
+        { title: "Duct installation", text: "Use a probe in ventilation ducts and climate equipment.", imageAlt: "Industrial humidity probe installed in an air duct" },
+        { title: "Service verification", text: "Inspect selected points with a portable meter during setup and maintenance.", imageAlt: "Portable humidity verification in an industrial technical room" }
       ],
+      technicalScenarios: [
+        { title: "Production area", text: "Monitor conditions that affect processes and product quality.", criterion: "Humidity range, temperature and air velocity" },
+        { title: "Technical room", text: "Send humidity and temperature data to PLC, SCADA or BMS.", criterion: "Installation point, output signal and power" },
+        { title: "Demanding conditions", text: "Select construction for dust, condensation, vapors, pressure or hazardous areas.", criterion: "Probe material, protection and site approvals" }
+      ],
+      criterionLabel: "Selection focus",
       selectionTitle: "How to choose an industrial sensor",
       selectionLead: "Match the measurement point, mounting, accuracy and interface to the process conditions.",
       selectionCards: [

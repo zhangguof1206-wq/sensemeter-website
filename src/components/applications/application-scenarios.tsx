@@ -17,20 +17,44 @@ export function ApplicationScenarios({ page }: { page: ResolvedApplicationPage }
         </div>
       </section>
 
-      <section className="bg-white px-5 pb-24 md:px-10 md:pb-28">
+      <section className="bg-[#f4f6f8] px-5 py-20 md:px-10 md:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 grid gap-4 md:grid-cols-[1fr_420px] md:items-end">
-            <h2 className="text-3xl font-black leading-tight md:text-4xl">{copy.scenariosTitle}</h2>
+            <h2 className="max-w-3xl text-3xl font-black leading-tight md:text-4xl">{copy.scenariosTitle}</h2>
             <p className="text-sm leading-7 text-muted md:text-base">{copy.scenariosLead}</p>
           </div>
-          <div className="grid gap-x-7 gap-y-8 md:grid-cols-2 lg:grid-cols-[1.15fr_.95fr_.95fr]">
-            {copy.scenarios.map((scenario, index) => (
-              <article className={`group border-b border-slate-400 pb-6 ${index === 0 ? "md:col-span-2 lg:col-span-1 lg:row-span-2" : ""}`} key={scenario.title}>
-                <div className={`relative overflow-hidden bg-slate-200 ${index === 0 ? "aspect-[4/3] lg:h-[570px] lg:aspect-auto" : "aspect-[16/10]"}`}>
-                  <Image fill loading="lazy" sizes={index === 0 ? "(min-width: 1024px) 40vw, 90vw" : "(min-width: 1024px) 28vw, 90vw"} className="application-scene-image object-cover" src={scenario.image} alt={scenario.imageAlt} />
+
+          <div className="grid gap-7 lg:grid-cols-[1.35fr_.85fr]">
+            {copy.photoScenarios.map((scenario, index) => (
+              <article className="group overflow-hidden border-b-[3px] border-accent bg-white" key={scenario.title}>
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-200 lg:h-[390px] lg:aspect-auto">
+                  <Image
+                    fill
+                    loading="lazy"
+                    sizes={index === 0 ? "(min-width: 1024px) 58vw, 90vw" : "(min-width: 1024px) 36vw, 90vw"}
+                    className="application-scene-image object-cover"
+                    src={page.scenarioImages[index]}
+                    alt={scenario.imageAlt}
+                  />
                 </div>
-                <h3 className="mt-5 text-xl font-black">{scenario.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-muted">{scenario.text}</p>
+                <div className="min-h-[128px] p-6 md:p-7">
+                  <h3 className="text-xl font-black">{scenario.title}</h3>
+                  <p className="mt-2 max-w-[68ch] text-sm leading-6 text-muted">{scenario.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 border-t border-slate-400">
+            {copy.technicalScenarios.map((scenario, index) => (
+              <article className="grid gap-3 border-b border-slate-400 py-6 md:grid-cols-[54px_230px_1fr_280px] md:items-center md:gap-6" key={scenario.title}>
+                <span className="text-xs font-black text-accent">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="text-lg font-black">{scenario.title}</h3>
+                <p className="text-sm leading-6 text-muted">{scenario.text}</p>
+                <div className="border-l border-slate-300 pl-5 text-sm leading-6 text-steel">
+                  <strong className="mb-1 block text-xs uppercase text-ink">{copy.criterionLabel}</strong>
+                  {scenario.criterion}
+                </div>
               </article>
             ))}
           </div>

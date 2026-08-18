@@ -1,10 +1,15 @@
 import type { Locale } from "@/data/catalog";
 
-export type ApplicationScenario = {
+export type ApplicationPhotoScenario = {
   title: string;
   text: string;
-  image: string;
   imageAlt: string;
+};
+
+export type ApplicationTechnicalScenario = {
+  title: string;
+  text: string;
+  criterion: string;
 };
 
 export type LocalizedApplicationPage = {
@@ -21,7 +26,9 @@ export type LocalizedApplicationPage = {
   overviewText: string;
   scenariosTitle: string;
   scenariosLead: string;
-  scenarios: ApplicationScenario[];
+  photoScenarios: [ApplicationPhotoScenario, ApplicationPhotoScenario];
+  technicalScenarios: [ApplicationTechnicalScenario, ApplicationTechnicalScenario, ApplicationTechnicalScenario];
+  criterionLabel: string;
   selectionTitle: string;
   selectionLead: string;
   selectionCards: Array<{ title: string; text: string }>;
@@ -45,8 +52,7 @@ export type ApplicationPageRecord = {
   slug: string;
   path: string;
   heroImage: string;
-  scenarioImage: string;
-  ctaImage: string;
+  scenarioImages: [string, string];
   recommendedSlugs: string[];
   content: Record<Locale, LocalizedApplicationPage>;
 };

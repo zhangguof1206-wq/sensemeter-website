@@ -1,14 +1,13 @@
 import type { ApplicationPageRecord } from "@/data/applications/types";
 
-const heroImage = "/assets/application-gas-processing.png";
-const scenarioImage = "/assets/application-compressed-air-user.png";
-
 export const compressedAirDewPoint: ApplicationPageRecord = {
   slug: "compressed-air-dew-point",
   path: "/applications/compressed-air-dew-point",
-  heroImage,
-  scenarioImage,
-  ctaImage: scenarioImage,
+  heroImage: "/assets/applications/compressed-air-dew-point/hero.webp",
+  scenarioImages: [
+    "/assets/applications/compressed-air-dew-point/process-installation.webp",
+    "/assets/applications/compressed-air-dew-point/field-verification.webp"
+  ],
   recommendedSlugs: ["easidew-34-m12", "easidew-online", "sf82-online", "dmt143-dmt143l", "mdm300"],
   content: {
     ru: {
@@ -28,13 +27,16 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
       overviewText: "В системах сжатого воздуха влажность может приводить к конденсату, коррозии, отказам клапанов и нестабильной работе оборудования. Контроль точки росы помогает оценить эффективность осушителя и поддерживать требуемую сухость воздуха в линии.",
       scenariosTitle: "Где выполняют измерение",
       scenariosLead: "Конфигурация прибора зависит от давления, ожидаемого диапазона, способа монтажа и требований к сигнализации.",
-      scenarios: [
-        { title: "Выход осушителя", text: "Непрерывное подтверждение качества осушки и раннее обнаружение отклонений.", image: heroImage, imageAlt: "Контроль точки росы на выходе осушителя" },
-        { title: "Распределительная линия", text: "Измерение сухости воздуха при фактическом рабочем давлении.", image: scenarioImage, imageAlt: "Измерение точки росы в распределительной линии" },
-        { title: "Критический потребитель", text: "Контроль перед технологическим и пневматическим оборудованием.", image: heroImage, imageAlt: "Контроль качества сжатого воздуха перед оборудованием" },
-        { title: "Сервисная проверка", text: "Периодический аудит нескольких точек переносным анализатором.", image: scenarioImage, imageAlt: "Сервисная проверка сжатого воздуха" },
-        { title: "Контроль качества", text: "Документирование параметров для ответственных производственных процессов.", image: heroImage, imageAlt: "Контроль качества сухого сжатого воздуха" }
+      photoScenarios: [
+        { title: "Установка в линии", text: "Стационарный датчик контролирует точку росы в байпасе после осушителя.", imageAlt: "Датчик точки росы на выходе осушителя сжатого воздуха" },
+        { title: "Сервисная проверка", text: "Периодический аудит нескольких точек переносным анализатором.", imageAlt: "Портативная проверка точки росы сжатого воздуха" }
       ],
+      technicalScenarios: [
+        { title: "Выход осушителя", text: "Непрерывное подтверждение качества осушки и раннее обнаружение отклонений.", criterion: "Минимальная точка росы, давление и время отклика" },
+        { title: "Критический потребитель", text: "Контроль перед технологическим и пневматическим оборудованием.", criterion: "Точка монтажа, соединение и допустимый расход" },
+        { title: "Контроль качества", text: "Документирование параметров для ответственных производственных процессов.", criterion: "Выходной сигнал, журналирование и калибровка" }
+      ],
+      criterionLabel: "Критерии подбора",
       selectionTitle: "Как выбрать прибор точки росы",
       selectionLead: "Для корректного подбора достаточно четырех групп исходных данных.",
       selectionCards: [
@@ -80,13 +82,16 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
       overviewText: "Compressed air dew point monitoring shows whether a dryer and distribution line are keeping moisture under control. Reliable measurements help protect pneumatic equipment, instruments and quality-critical production processes.",
       scenariosTitle: "Where dew point is measured",
       scenariosLead: "Instrument configuration depends on pressure, expected dryness, installation method and alarm requirements.",
-      scenarios: [
-        { title: "Dryer outlet", text: "Continuous confirmation of dryer performance and early detection of moisture excursions.", image: heroImage, imageAlt: "Dew point monitoring at a compressed air dryer outlet" },
-        { title: "Distribution line", text: "Measure air dryness under the actual operating pressure.", image: scenarioImage, imageAlt: "Compressed air distribution line dew point measurement" },
-        { title: "Critical user point", text: "Verify air quality before pneumatic or process equipment.", image: heroImage, imageAlt: "Compressed air quality monitoring before process equipment" },
-        { title: "Service inspection", text: "Audit several test points with a portable analyzer.", image: scenarioImage, imageAlt: "Portable compressed air dew point service check" },
-        { title: "Quality documentation", text: "Record moisture conditions for responsible production processes.", image: heroImage, imageAlt: "Compressed air quality documentation point" }
+      photoScenarios: [
+        { title: "In-line installation", text: "A fixed transmitter monitors dew point in a bypass downstream of the dryer.", imageAlt: "Dew point transmitter installed at a compressed air dryer outlet" },
+        { title: "Service inspection", text: "Audit selected test points with a portable analyzer.", imageAlt: "Portable compressed air dew point service inspection" }
       ],
+      technicalScenarios: [
+        { title: "Dryer outlet", text: "Continuously confirm dryer performance and detect moisture excursions.", criterion: "Minimum dew point, pressure and response time" },
+        { title: "Critical user point", text: "Verify air quality before pneumatic or process equipment.", criterion: "Installation point, process connection and sample flow" },
+        { title: "Quality documentation", text: "Record moisture conditions for responsible production processes.", criterion: "Output signal, logging and calibration" }
+      ],
+      criterionLabel: "Selection focus",
       selectionTitle: "How to choose a dew point instrument",
       selectionLead: "Four groups of operating data define the suitable measuring solution.",
       selectionCards: [

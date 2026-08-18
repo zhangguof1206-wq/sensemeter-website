@@ -1,14 +1,13 @@
 import type { ApplicationPageRecord } from "@/data/applications/types";
 
-const heroImage = "/assets/application-gas-processing.png";
-const scenarioImage = "/assets/application-natural-gas-inline.png";
-
 export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
   slug: "natural-gas-moisture-monitoring",
   path: "/applications/natural-gas-moisture-monitoring",
-  heroImage,
-  scenarioImage,
-  ctaImage: "/assets/application-natural-gas-cta.png",
+  heroImage: "/assets/applications/natural-gas-moisture-monitoring/hero.webp",
+  scenarioImages: [
+    "/assets/applications/natural-gas-moisture-monitoring/sample-conditioning.webp",
+    "/assets/applications/natural-gas-moisture-monitoring/field-verification.webp"
+  ],
   recommendedSlugs: ["easidew-pro-is", "easidew-pro-xp", "optidew-hz", "mdm300", "easidew-online"],
   content: {
     ru: {
@@ -25,13 +24,16 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
       overviewText: "Влага в природном и технологическом газе может вызывать конденсацию, коррозию, образование гидратов и проблемы с качеством продукта. Подбор прибора зависит от состава газа, давления, точки установки, требований к безопасности и точности.",
       scenariosTitle: "Где выполняют измерение",
       scenariosLead: "Состав газа, давление и безопасность определяют способ установки и подготовки пробы.",
-      scenarios: [
-        { title: "Газоподготовка", text: "Контроль влаги после осушки и технологической обработки газа.", image: heroImage, imageAlt: "Контроль влажности на установке газоподготовки" },
-        { title: "Магистральная линия", text: "Измерение точки росы в трубопроводах природного и технологического газа.", image: scenarioImage, imageAlt: "Измерение точки росы в газопроводе" },
-        { title: "Пробоотборная система", text: "Фильтрация, регулирование расхода и стабильная подача газа к анализатору.", image: "/assets/application-natural-gas-cta.png", imageAlt: "Пробоотборная система анализатора влажности газа" },
-        { title: "Опасная зона", text: "Подбор исполнения с учетом классификации зоны, давления и сертификатов.", image: scenarioImage, imageAlt: "Анализатор влажности газа для опасной зоны" },
-        { title: "Сервисная проверка", text: "Портативный контроль нескольких измерительных точек при обслуживании.", image: heroImage, imageAlt: "Сервисная проверка влажности газа" }
+      photoScenarios: [
+        { title: "Пробоотборная система", text: "Фильтрация, регулирование расхода и стабильная подача газа к анализатору.", imageAlt: "Пробоотборная система анализатора влажности природного газа" },
+        { title: "Сервисная проверка", text: "Портативный контроль нескольких измерительных точек при обслуживании.", imageAlt: "Портативная проверка точки росы на газопроводе" }
       ],
+      technicalScenarios: [
+        { title: "Выход газоподготовки", text: "Контроль влаги после осушки и технологической обработки газа.", criterion: "Ожидаемая точка росы, давление и время отклика" },
+        { title: "Магистральная линия", text: "Измерение точки росы в трубопроводах природного и технологического газа.", criterion: "Отбор пробы, снижение давления и расход" },
+        { title: "Опасная зона", text: "Подбор исполнения с учетом классификации зоны, давления и сертификатов.", criterion: "Сертификаты, корпус и электрическое подключение" }
+      ],
+      criterionLabel: "Критерии подбора",
       selectionTitle: "Как выбрать прибор для газа",
       selectionLead: "Подбор начинается с состава газа и давления, затем уточняются диапазон, установка и безопасность.",
       selectionCards: [
@@ -74,13 +76,16 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
       overviewText: "Moisture and dew point control helps reduce hydrate formation, corrosion, pipeline risk and process instability. Instrument selection depends on pressure, gas composition, hazardous-area requirements and sampling method.",
       scenariosTitle: "Where measurements are made",
       scenariosLead: "Gas composition, pressure and safety requirements define installation and sample conditioning.",
-      scenarios: [
-        { title: "Gas treatment", text: "Monitor moisture after gas drying and process treatment.", image: heroImage, imageAlt: "Moisture monitoring at a gas treatment system" },
-        { title: "Pipeline", text: "Measure dew point in natural gas and process gas transmission lines.", image: scenarioImage, imageAlt: "Natural gas pipeline dew point measurement" },
-        { title: "Sampling system", text: "Filter and control sample flow for stable analyzer operation.", image: "/assets/application-natural-gas-cta.png", imageAlt: "Natural gas moisture analyzer sampling system" },
-        { title: "Hazardous area", text: "Select construction for zone classification, pressure and approval requirements.", image: scenarioImage, imageAlt: "Gas moisture analyzer for a hazardous area" },
-        { title: "Service checks", text: "Use portable instruments to inspect several measurement points.", image: heroImage, imageAlt: "Portable gas moisture service check" }
+      photoScenarios: [
+        { title: "Sample conditioning system", text: "Filter and control sample flow for stable analyzer operation.", imageAlt: "Natural gas moisture analyzer sample conditioning panel" },
+        { title: "Field verification", text: "Use portable instruments to inspect selected measurement points.", imageAlt: "Portable natural gas dew point field verification" }
       ],
+      technicalScenarios: [
+        { title: "Gas treatment outlet", text: "Monitor moisture after gas drying and process treatment.", criterion: "Expected dew point, pressure and response time" },
+        { title: "Transmission pipeline", text: "Measure dew point in natural gas and process gas transmission lines.", criterion: "Sample extraction, pressure reduction and flow" },
+        { title: "Hazardous-area installation", text: "Select construction for zone classification, pressure and approval requirements.", criterion: "Area approval, enclosure and electrical interface" }
+      ],
+      criterionLabel: "Selection focus",
       selectionTitle: "How to choose a gas instrument",
       selectionLead: "Start with gas composition and pressure, then confirm range, installation and safety requirements.",
       selectionCards: [
