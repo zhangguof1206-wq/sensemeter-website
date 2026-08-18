@@ -177,13 +177,11 @@ select {
 }
 
 .home-brand-card,
-.home-application-card,
 .home-accessory-tile {
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .home-brand-card:hover,
-.home-application-card:hover,
 .home-accessory-tile:hover {
   transform: translateY(-4px);
 }
@@ -199,7 +197,6 @@ select {
 
   .home-section-reveal,
   .home-brand-card,
-  .home-application-card,
   .home-accessory-tile,
   .btn {
     animation: none !important;
@@ -259,7 +256,19 @@ select {
 }
 
 .application-anchor {
-  scroll-margin-top: 96px;
+  scroll-margin-top: 220px;
+}
+
+@media (min-width: 640px) {
+  .application-anchor {
+    scroll-margin-top: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .application-anchor {
+    scroll-margin-top: 96px;
+  }
 }
 
 .application-scene-image,

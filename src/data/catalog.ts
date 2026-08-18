@@ -13,8 +13,10 @@ export type Category = {
 };
 
 export type ApplicationScene = {
-  id: string;
+  id: "compressedAir" | "gas" | "industrialHumidity" | "lab" | "oxygen";
   image: string;
+  imagePosition: string;
+  category: LocalizedText;
   title: LocalizedText;
   text: LocalizedText;
 };
@@ -79,7 +81,9 @@ export const categories: Category[] = [
 export const applicationScenes: ApplicationScene[] = [
   {
     id: "compressedAir",
-    image: "assets/application-compressed-air-user.png",
+    image: "assets/home-applications/compressed-air.webp",
+    imagePosition: "54% 50%",
+    category: { ru: "Точка росы", en: "Dew point" },
     title: { ru: "Сжатый воздух и осушители", en: "Compressed Air and Dryers" },
     text: {
       ru: "Контроль точки росы в осушителях, пневмолиниях, медицинском и технологическом воздухе.",
@@ -88,7 +92,9 @@ export const applicationScenes: ApplicationScene[] = [
   },
   {
     id: "gas",
-    image: "assets/application-gas-processing.png",
+    image: "assets/home-applications/natural-gas.webp",
+    imagePosition: "50% 52%",
+    category: { ru: "Влага в газе", en: "Gas moisture" },
     title: { ru: "Газопереработка и трубопроводы", en: "Gas Processing and Pipelines" },
     text: {
       ru: "Контроль влаги и точки росы в природном газе, сжатом воздухе и технологических линиях.",
@@ -97,7 +103,9 @@ export const applicationScenes: ApplicationScene[] = [
   },
   {
     id: "industrialHumidity",
-    image: "assets/application-industrial-humidity-monitoring-v2.png",
+    image: "assets/home-applications/industrial-humidity.webp",
+    imagePosition: "50% 48%",
+    category: { ru: "Влажность и температура", en: "Humidity and temperature" },
     title: { ru: "Промышленная влажность", en: "Industrial Humidity Monitoring" },
     text: {
       ru: "Измерение влажности и температуры в производстве, воздуховодах, HVAC и технических системах.",
@@ -106,7 +114,9 @@ export const applicationScenes: ApplicationScene[] = [
   },
   {
     id: "lab",
-    image: "assets/application-lab-chambers.png",
+    image: "assets/home-applications/climate-chamber.webp",
+    imagePosition: "48% 42%",
+    category: { ru: "Испытания и калибровка", en: "Testing and calibration" },
     title: { ru: "Лаборатории и климатические камеры", en: "Laboratories and Climate Chambers" },
     text: {
       ru: "Точные измерения влажности для испытаний, калибровки, фармацевтики и чистых помещений.",
@@ -115,7 +125,9 @@ export const applicationScenes: ApplicationScene[] = [
   },
   {
     id: "oxygen",
-    image: "assets/application-gas-manufacturing.png",
+    image: "assets/home-applications/glove-box.webp",
+    imagePosition: "60% 50%",
+    category: { ru: "Кислород и чистота газа", en: "Oxygen and gas purity" },
     title: { ru: "Промышленные газы и производство", en: "Industrial Gases and Manufacturing" },
     text: {
       ru: "Контроль кислорода и чистоты газов для генераторов, glove box, печей и производственных линий.",

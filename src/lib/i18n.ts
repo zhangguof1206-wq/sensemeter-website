@@ -32,6 +32,8 @@ export const copy = {
     viewCategoryProducts: "Смотреть продукты",
     applicationEyebrow: "Области применения",
     applicationTitle: "Типовые промышленные сценарии",
+    applicationLead: "Реальные условия измерений на технологических линиях, инженерных системах и в испытательных камерах.",
+    viewApplication: "Смотреть применение",
     products: "продуктов",
     catalogTitle: "Каталог промышленных датчиков и анализаторов",
     catalogLead:
@@ -122,6 +124,8 @@ export const copy = {
     viewCategoryProducts: "View products",
     applicationEyebrow: "Application Areas",
     applicationTitle: "Typical Industrial Use Cases",
+    applicationLead: "Real measurement environments across process lines, utility systems and controlled chambers.",
+    viewApplication: "View application",
     products: "products",
     catalogTitle: "Product Catalog",
     catalogLead:

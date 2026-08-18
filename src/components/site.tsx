@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import {
-  applicationScenes,
   assetPath,
   categories,
   findProduct,
@@ -16,21 +15,13 @@ import { getProductApplicationLinks } from "@/data/application-links";
 import { legalCopy, type LegalPageKey } from "@/lib/legal";
 import { CookieBanner } from "@/components/cookie-banner";
 import { RfqForm } from "@/components/rfq-form";
-import { CardCarousel } from "@/components/card-carousel";
 import { AccessoriesHomeSection } from "@/components/accessories/accessories-home-section";
 import { CatalogNavDropdown } from "@/components/catalog/catalog-nav-dropdown";
+import { HomeApplicationsSection } from "@/components/home/home-applications-section";
 import { METRICA_GOALS, MetricaTrackedLink, ProductDwellGoal } from "@/components/metrica-goals";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
 const TELEGRAM_URL = "https://t.me/Sensemeter";
-
-const applicationSceneLinks: Record<string, string> = {
-  compressedAir: "/applications/compressed-air-dew-point",
-  gas: "/applications/natural-gas-moisture-monitoring",
-  industrialHumidity: "/applications/industrial-humidity-monitoring",
-  lab: "/applications/climate-chamber-humidity",
-  oxygen: "/applications/glove-box-oxygen-analysis"
-};
 
 type ShellProps = {
   locale: Locale;
@@ -149,7 +140,7 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
         </div>
       </footer>
       <MetricaTrackedLink
-        className="fixed bottom-5 right-5 z-50 flex min-h-12 items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-black text-white shadow-2xl transition hover:bg-accent-dark focus:outline-none focus:ring-4 focus:ring-accent/30 md:bottom-7 md:right-7"
+        className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-accent p-0 text-sm font-black text-white shadow-2xl transition hover:bg-accent-dark focus:outline-none focus:ring-4 focus:ring-accent/30 sm:h-auto sm:w-auto sm:min-h-12 sm:gap-2 sm:px-4 sm:py-3 md:bottom-7 md:right-7"
         href={TELEGRAM_URL}
         target="_blank"
         rel="noreferrer"
@@ -161,7 +152,7 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
           <path d="M21 4 3 11l7 3 3 7 8-17Z" />
           <path d="m10 14 4-4" />
         </svg>
-        <span>Chat with us</span>
+        <span className="hidden sm:inline">Chat with us</span>
       </MetricaTrackedLink>
       <CookieBanner locale={locale} />
     </div>
@@ -266,26 +257,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       <AccessoriesHomeSection locale={locale} />
 
-      <section className="section application-anchor" id="applications">
-        <div className="section-narrow home-section-reveal">
-          <h2 className="mb-7 text-3xl font-black">{c.applicationTitle}</h2>
-          <CardCarousel ariaLabel={c.applicationTitle}>
-            {applicationScenes.map((scene) => {
-              const href = applicationSceneLinks[scene.id] || "/catalog";
-
-              return (
-                <Link className="card home-application-card block h-full overflow-hidden transition duration-300 hover:shadow-2xl" href={localizedPath(locale, href)} key={scene.id}>
-                  <img className="h-44 w-full object-cover" src={assetPath(scene.image)} alt={scene.title[locale]} />
-                  <div className="p-5">
-                    <h3 className="text-lg font-black">{scene.title[locale]}</h3>
-                    <p className="mt-2 text-muted">{scene.text[locale]}</p>
-                  </div>
-                </Link>
-              );
-            })}
-          </CardCarousel>
-        </div>
-      </section>
+      <HomeApplicationsSection locale={locale} />
     </PageShell>
   );
 }

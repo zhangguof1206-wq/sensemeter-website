@@ -11,6 +11,7 @@ const applicationSlugs = [
 ];
 const mappingPath = join(root, "src", "data", "application-links.ts");
 const productPagePath = join(root, "src", "components", "site.tsx");
+const homeApplicationsPath = join(root, "src", "components", "home", "home-applications-section.tsx");
 let failures = 0;
 
 const fail = (message) => {
@@ -53,10 +54,15 @@ if (!existsSync(mappingPath)) {
 const productPageSource = readFileSync(productPagePath, "utf8");
 if (!productPageSource.includes("getProductApplicationLinks")) fail("product page renders application backlinks");
 if (!productPageSource.includes("relatedApplications")) fail("product page has localized related application heading");
-for (const slug of applicationSlugs) {
-  if (!productPageSource.includes(`/applications/${slug}`)) {
-    fail("home application cards link to all application pages");
-    break;
+if (!existsSync(homeApplicationsPath)) {
+  fail("home applications component exists");
+} else {
+  const homeApplicationsSource = readFileSync(homeApplicationsPath, "utf8");
+  for (const slug of applicationSlugs) {
+    if (!homeApplicationsSource.includes(`/applications/${slug}`)) {
+      fail("home application cards link to all application pages");
+      break;
+    }
   }
 }
 

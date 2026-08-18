@@ -7,8 +7,11 @@ const read = (path) => readFileSync(join(root, path), "utf8");
 const source = read("src/components/site.tsx");
 const cssSource = read("src/app/globals.css");
 const i18nSource = read("src/lib/i18n.ts");
+const catalogSource = read("src/data/catalog.ts");
 const catalogNavDropdownPath = join(root, "src", "components", "catalog", "catalog-nav-dropdown.tsx");
 const catalogNavDropdown = existsSync(catalogNavDropdownPath) ? read("src/components/catalog/catalog-nav-dropdown.tsx") : "";
+const homeApplicationsPath = join(root, "src", "components", "home", "home-applications-section.tsx");
+const homeApplicationsSource = existsSync(homeApplicationsPath) ? read("src/components/home/home-applications-section.tsx") : "";
 
 const checks = [
   {
@@ -21,7 +24,11 @@ const checks = [
   },
   {
     name: "all pages render floating Telegram chat link",
-    pass: () => source.includes("Chat with us") && source.includes('href={TELEGRAM_URL}') && source.includes("fixed bottom-5 right-5")
+    pass: () =>
+      source.includes("Chat with us") &&
+      source.includes('href={TELEGRAM_URL}') &&
+      source.includes("fixed bottom-5 right-5") &&
+      source.includes('className="hidden sm:inline">Chat with us</span>')
   },
   {
     name: "product catalog cards use compact spec rows",
@@ -32,24 +39,47 @@ const checks = [
       !source.includes('<p className="mt-3 text-muted">{product.overview[locale]}</p>')
   },
   {
-    name: "home application section keeps its carousel",
+    name: "home applications use the approved editorial grid",
+    pass: () =>
+      source.includes('import { HomeApplicationsSection } from "@/components/home/home-applications-section"') &&
+      source.includes("<HomeApplicationsSection locale={locale} />") &&
+      !source.includes("<CardCarousel ariaLabel={c.applicationTitle}>") &&
+      homeApplicationsSource.includes("grid grid-cols-1") &&
+      homeApplicationsSource.includes("md:grid-cols-2") &&
+      homeApplicationsSource.includes("lg:grid-cols-12") &&
+      homeApplicationsSource.includes("lg:col-span-7") &&
+      homeApplicationsSource.includes("lg:col-span-5") &&
+      homeApplicationsSource.includes("md:col-span-2") &&
+      !homeApplicationsSource.includes("hover:scale") &&
+      !homeApplicationsSource.includes("hover:shadow-2xl")
+  },
+  {
+    name: "home applications use five unique documented WebP photographs",
     pass: () => {
-      const carouselPath = join(root, "src", "components", "card-carousel.tsx");
-      if (!existsSync(carouselPath)) return false;
-      const carouselSource = read("src/components/card-carousel.tsx");
-      const uses = source.match(/<CardCarousel/g) || [];
-      return source.includes('import { CardCarousel } from "@/components/card-carousel"') &&
-        uses.length === 1 &&
-        source.includes("<CardCarousel ariaLabel={c.applicationTitle}>") &&
-        carouselSource.includes('"use client"') &&
-        carouselSource.includes('scrollTo') &&
-        carouselSource.includes('md:auto-cols-[calc((100%-3rem)/3)]');
+      const imagePaths = [
+        "assets/home-applications/compressed-air.webp",
+        "assets/home-applications/natural-gas.webp",
+        "assets/home-applications/industrial-humidity.webp",
+        "assets/home-applications/climate-chamber.webp",
+        "assets/home-applications/glove-box.webp"
+      ];
+      return imagePaths.every((path) =>
+        catalogSource.includes(`image: "${path}"`) && existsSync(join(root, "public", path))
+      ) &&
+        new Set(imagePaths).size === 5 &&
+        catalogSource.includes("imagePosition:") &&
+        catalogSource.includes("category:") &&
+        !catalogSource.includes('image: "assets/application-compressed-air-user.png"') &&
+        !catalogSource.includes('image: "assets/application-gas-processing.png"') &&
+        !catalogSource.includes('image: "assets/application-industrial-humidity-monitoring-v2.png"') &&
+        !catalogSource.includes('image: "assets/application-lab-chambers.png"') &&
+        !catalogSource.includes('image: "assets/application-gas-manufacturing.png"') &&
+        existsSync(join(root, "docs", "image-sources", "home-applications.md"));
     }
   },
   {
     name: "home categories use a stable grid with real product images",
     pass: () => {
-      const catalogSource = read("src/data/catalog.ts");
       return source.includes("home-brand-card") &&
         source.includes("grid gap-5 sm:grid-cols-2 min-[1150px]:grid-cols-4") &&
         !source.includes("<CardCarousel ariaLabel={c.categoriesTitle}>") &&
@@ -153,7 +183,7 @@ const checks = [
       source.includes("home-hero-content") &&
       source.includes("home-section-reveal") &&
       source.includes("home-brand-card") &&
-      source.includes("home-application-card") &&
+      homeApplicationsSource.includes("home-application-card") &&
       read("src/components/accessories/accessories-home-section.tsx").includes("home-accessory-tile") &&
       !source.includes("home-hero-visual-grid") &&
       !source.includes("md:text-7xl") &&
