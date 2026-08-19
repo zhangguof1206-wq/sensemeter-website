@@ -12,8 +12,8 @@ const applicationSceneLinks: Record<ApplicationScene["id"], string> = {
 
 function ApplicationTextLink({ label }: { label: string }) {
   return (
-    <span className="application-text-link mt-5 inline-flex border-b border-slate-400 pb-1 text-sm font-bold text-[#173963]">
-      {label}&nbsp; →
+    <span className="application-action mt-5 inline-flex min-h-10 items-center border border-[#173963] px-4 py-2 text-sm font-bold text-[#173963] transition-colors group-hover:bg-[#173963] group-hover:text-white group-focus-visible:bg-[#173963] group-focus-visible:text-white">
+      {label}<span className="ml-2" aria-hidden="true">→</span>
     </span>
   );
 }
@@ -29,7 +29,7 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
   return (
     <section className="application-anchor bg-white py-16 sm:py-20 lg:py-24" id="applications">
       <div className="section-narrow home-section-reveal px-4 sm:px-6 lg:px-0">
-        <div className="application-section-heading mb-12 grid gap-6 lg:grid-cols-[minmax(0,1fr)_520px] lg:items-end lg:gap-16">
+        <div className="application-section-heading mb-12 grid gap-6 lg:grid-cols-[minmax(0,1fr)_520px] lg:items-end lg:gap-16" data-home-reveal>
           <div>
             <p className="home-editorial-eyebrow">{c.applicationEyebrow}</p>
             <h2 className="text-3xl font-bold leading-tight sm:text-4xl">{c.applicationTitle}</h2>
@@ -40,6 +40,7 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
         <div className="application-editorial-grid grid gap-10 lg:grid-cols-[1.18fr_.82fr] lg:grid-rows-2 lg:gap-x-12">
           <Link
             className="application-feature group lg:row-span-2"
+            data-home-reveal
             href={localizedPath(locale, applicationSceneLinks[feature.id])}
           >
             <img
@@ -54,9 +55,10 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
             <ApplicationTextLink label={c.viewApplication} />
           </Link>
 
-          {sideScenes.map((scene) => (
+          {sideScenes.map((scene, index) => (
             <Link
-              className="application-side grid gap-6 border-b border-line pb-8 sm:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[44%_minmax(0,1fr)]"
+              className={`application-side home-reveal-delay-${index + 1} grid gap-6 border-b border-line pb-8 sm:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[44%_minmax(0,1fr)]`}
+              data-home-reveal
               href={localizedPath(locale, applicationSceneLinks[scene.id])}
               key={scene.id}
             >
@@ -77,9 +79,10 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
         </div>
 
         <div className="application-lower-grid mt-12 grid gap-10 pt-2 lg:grid-cols-2 lg:gap-12 lg:border-t lg:border-line lg:pt-10">
-          {lowerScenes.map((scene) => (
+          {lowerScenes.map((scene, index) => (
             <Link
-              className="grid gap-6 sm:grid-cols-[260px_minmax(0,1fr)]"
+              className={`home-reveal-delay-${index} grid gap-6 sm:grid-cols-[260px_minmax(0,1fr)]`}
+              data-home-reveal
               href={localizedPath(locale, applicationSceneLinks[scene.id])}
               key={scene.id}
             >

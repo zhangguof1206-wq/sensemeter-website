@@ -19,6 +19,7 @@ import { AccessoriesHomeSection } from "@/components/accessories/accessories-hom
 import { CatalogNavDropdown } from "@/components/catalog/catalog-nav-dropdown";
 import { HomeApplicationsSection } from "@/components/home/home-applications-section";
 import { HomeBrandCategoriesSection } from "@/components/home/home-brand-categories-section";
+import { HomeRevealObserver } from "@/components/home/home-reveal-observer";
 import { METRICA_GOALS, MetricaTrackedLink, ProductDwellGoal } from "@/components/metrica-goals";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
@@ -168,6 +169,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <PageShell locale={locale} active="home" languagePath={localizedPath(oppositeLocale(locale), "/")}>
+      <HomeRevealObserver />
       <section className="home-hero-shell relative isolate overflow-hidden px-5 text-white md:px-10">
         <div
           className="absolute inset-0 -z-30 bg-cover bg-center"
@@ -210,7 +212,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       {heroDetails ? (
         <section className="home-hero-details border-b border-line bg-white px-5 py-10 md:px-10 md:py-12">
-          <div className="section-narrow home-section-reveal grid gap-5 md:grid-cols-[280px_minmax(0,1fr)] md:gap-12 lg:gap-20">
+          <div className="section-narrow home-section-reveal grid gap-5 md:grid-cols-[280px_minmax(0,1fr)] md:gap-12 lg:gap-20" data-home-reveal>
             <p className="home-hero-details-label text-xs font-bold uppercase text-accent">{c.heroDetailsEyebrow}</p>
             <p className="max-w-4xl text-base leading-7 text-[#3f4c59] md:text-lg md:leading-8">{heroDetails}</p>
           </div>

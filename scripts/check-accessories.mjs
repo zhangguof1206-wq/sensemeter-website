@@ -136,8 +136,9 @@ checks.push({
 });
 checks.push({
   name: "homepage accessory images use stable sizing and containment",
-  pass: homeSection.includes("grid h-36 place-items-center p-1") &&
-    homeSection.includes("h-full w-full object-contain mix-blend-multiply") &&
+  pass: homeSection.includes("home-accessory-image") &&
+    homeSection.includes("grid h-40 place-items-center overflow-hidden") &&
+    homeSection.includes("h-28 w-full object-contain mix-blend-multiply") &&
     !homeSection.includes("drop-shadow") &&
     !homeSection.includes("hover:scale") &&
     !homeSection.includes("max-h-32")
@@ -147,7 +148,10 @@ checks.push({
   pass: homeSection.includes("home-accessory-matrix") &&
     homeSection.includes("border-l border-t border-line") &&
     homeSection.includes("home-accessory-entry") &&
-    homeSection.includes("border-b border-r border-line bg-white/35") &&
+    homeSection.includes("home-accessory-copy") &&
+    homeSection.includes("border-t border-line bg-white") &&
+    homeSection.includes("btn btn-primary") &&
+    !homeSection.includes('className="mt-5 text-sm font-bold') &&
     !homeSection.includes("rounded-") &&
     !homeSection.includes("shadow")
 });

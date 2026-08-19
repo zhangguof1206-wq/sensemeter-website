@@ -9,32 +9,35 @@ export function AccessoriesHomeSection({ locale }: { locale: Locale }) {
   return (
     <section className="section bg-[#f1f4f6]">
       <div className="section-narrow home-section-reveal grid gap-10 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start lg:gap-16">
-        <div className="max-w-xl lg:sticky lg:top-28">
+        <div className="max-w-xl lg:sticky lg:top-28" data-home-reveal>
           <p className="home-editorial-eyebrow">{c.nav}</p>
           <h2 className="text-3xl font-bold leading-tight sm:text-4xl">{c.homeTitle}</h2>
           <p className="mt-5 text-base leading-8 text-muted sm:text-lg">{c.homeLead}</p>
           <Link
-            className="accessory-text-link mt-7 inline-flex border-b border-slate-400 pb-1 text-sm font-bold text-[#173963]"
+            className="btn btn-primary mt-7 w-fit"
             href={localizedPath(locale, "/accessories")}
           >
-            {c.overviewTitle}&nbsp; →
+            {c.overviewTitle}<span className="ml-2" aria-hidden="true">→</span>
           </Link>
         </div>
         <div className="home-accessory-matrix grid grid-cols-2 border-l border-t border-line lg:grid-cols-3">
-          {homeAccessoryProducts.map((product) => (
+          {homeAccessoryProducts.map((product, index) => (
             <Link
-              className="home-accessory-entry group flex min-h-[230px] flex-col border-b border-r border-line bg-white/35 p-4 sm:p-5"
+              className={`home-accessory-entry home-reveal-delay-${index % 3} group flex min-h-[248px] flex-col border-b border-r border-line bg-white/35`}
+              data-home-reveal
               href={localizedPath(locale, `/accessories/${product.categorySlug}/${product.slug}`)}
               key={`${product.categorySlug}-${product.slug}`}
             >
-              <div className="grid h-36 place-items-center p-1">
+              <div className="home-accessory-image grid h-40 place-items-center overflow-hidden bg-[#e9eef3] p-4 sm:p-5">
                 <img
-                  className="h-full w-full object-contain mix-blend-multiply"
+                  className="h-28 w-full object-contain mix-blend-multiply"
                   src={product.image}
                   alt={product.title[locale]}
                 />
               </div>
-              <h3 className="mt-5 text-sm font-bold leading-6 text-ink sm:text-base">{product.title[locale]}</h3>
+              <div className="home-accessory-copy flex min-h-20 flex-1 items-start border-t border-line bg-white px-4 py-4 sm:px-5">
+                <h3 className="text-sm font-bold leading-6 text-ink sm:text-base">{product.title[locale]}</h3>
+              </div>
             </Link>
           ))}
         </div>

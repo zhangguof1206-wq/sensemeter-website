@@ -195,16 +195,46 @@ select {
   content: "";
 }
 
+.home-brand-entry {
+  position: relative;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
 .home-brand-entry .brand-instrument-background {
-  transition: opacity 180ms ease;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
 }
 
-.home-brand-entry:hover .brand-instrument-background {
+.home-brand-entry:hover,
+.home-brand-entry:focus-visible {
+  z-index: 1;
+  background: #f8fafc;
+  box-shadow: 0 14px 28px rgba(29, 46, 64, 0.1);
+  transform: translateY(-4px);
+}
+
+.home-brand-entry:hover .brand-instrument-background,
+.home-brand-entry:focus-visible .brand-instrument-background {
   opacity: 0.9;
+  transform: translateY(-6px);
 }
 
-.home-section-reveal {
-  opacity: 1;
+.home-brand-entry:focus-visible,
+.home-accessory-entry:focus-visible,
+.application-feature:focus-visible,
+.application-side:focus-visible,
+.application-lower-grid a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.home-accessory-entry:hover .home-accessory-copy,
+.home-accessory-entry:focus-visible .home-accessory-copy {
+  background: #f8fafc;
 }
 
 .btn:active {
@@ -216,7 +246,11 @@ select {
     display: none;
   }
 
-  .home-section-reveal,
+  [data-home-reveal],
+  .home-brand-entry,
+  .brand-instrument-background,
+  .home-accessory-copy,
+  .application-action,
   .btn {
     animation: none !important;
     transition: none !important;
@@ -231,20 +265,25 @@ select {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .home-section-reveal {
-    animation: home-section-rise 0.62s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-}
-
-@keyframes home-section-rise {
-  from {
+  .home-reveal-ready [data-home-reveal] {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(20px);
+    transition:
+      opacity 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.58s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  to {
+  .home-reveal-ready [data-home-reveal].is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .home-reveal-ready [data-home-reveal].home-reveal-delay-1 {
+    transition-delay: 70ms;
+  }
+
+  .home-reveal-ready [data-home-reveal].home-reveal-delay-2 {
+    transition-delay: 140ms;
   }
 }
 

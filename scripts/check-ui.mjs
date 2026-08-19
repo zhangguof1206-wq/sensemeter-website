@@ -15,6 +15,8 @@ const homeApplicationsSource = existsSync(homeApplicationsPath) ? read("src/comp
 const homeBrandCategoriesPath = join(root, "src", "components", "home", "home-brand-categories-section.tsx");
 const homeBrandCategoriesSource = existsSync(homeBrandCategoriesPath) ? read("src/components/home/home-brand-categories-section.tsx") : "";
 const homeAccessoriesSource = read("src/components/accessories/accessories-home-section.tsx");
+const homeRevealObserverPath = join(root, "src", "components", "home", "home-reveal-observer.tsx");
+const homeRevealObserverSource = existsSync(homeRevealObserverPath) ? read("src/components/home/home-reveal-observer.tsx") : "";
 
 const checks = [
   {
@@ -53,7 +55,7 @@ const checks = [
       homeApplicationsSource.includes("application-side") &&
       homeApplicationsSource.includes("application-lower-grid") &&
       homeApplicationsSource.includes("application-section-heading") &&
-      homeApplicationsSource.includes("application-text-link") &&
+      homeApplicationsSource.includes("application-action") &&
       !homeApplicationsSource.includes("application-card-action") &&
       !homeApplicationsSource.includes("bg-accent") &&
       !homeApplicationsSource.includes("rounded-") &&
@@ -101,7 +103,8 @@ const checks = [
         !homeBrandCategoriesSource.includes("card") &&
         !homeBrandCategoriesSource.includes("shadow") &&
         !homeBrandCategoriesSource.includes("rounded-") &&
-        !homeBrandCategoriesSource.includes("btn") &&
+        !homeBrandCategoriesSource.includes("home-brand-action") &&
+        !homeBrandCategoriesSource.includes("viewCategoryProducts") &&
         !source.includes("<CardCarousel ariaLabel={c.categoriesTitle}>") &&
         !source.includes("<CardCarousel ariaLabel={c.categoriesTitle} autoPlay>") &&
         !source.includes("{count} {c.products}") &&
@@ -166,7 +169,9 @@ const checks = [
         section.includes("lg:grid-cols-3") &&
         section.includes("border-line") &&
         section.includes("mix-blend-multiply") &&
-        section.includes("accessory-text-link") &&
+        section.includes("btn btn-primary") &&
+        section.includes("home-accessory-image") &&
+        section.includes("home-accessory-copy") &&
         !section.includes("bg-[#e5ebf0]") &&
         !section.includes("home-accessory-tile") &&
         !section.includes("rounded-") &&
@@ -220,10 +225,46 @@ const checks = [
       cssSource.includes("--site-header-height") &&
       cssSource.includes("calc(100dvh - var(--site-header-height))") &&
       cssSource.includes("@media (prefers-reduced-motion: no-preference)") &&
-      cssSource.includes(".home-section-reveal") &&
+      cssSource.includes(".home-reveal-ready [data-home-reveal]") &&
       cssSource.includes(".home-hero-title") &&
       cssSource.includes(".home-brand-entry") &&
       cssSource.includes("prefers-reduced-motion: reduce")
+  },
+  {
+    name: "home calls to action are visually distinct from body text",
+    pass: () =>
+      homeApplicationsSource.includes("application-action") &&
+      homeApplicationsSource.includes("border border-[#173963]") &&
+      homeAccessoriesSource.includes("btn btn-primary") &&
+      !homeApplicationsSource.includes("border-b border-slate-400 pb-1") &&
+      !homeAccessoriesSource.includes("accessory-text-link")
+  },
+  {
+    name: "home brand rows reveal clickability without repeated text actions",
+    pass: () =>
+      homeBrandCategoriesSource.includes("home-brand-entry") &&
+      !homeBrandCategoriesSource.includes("home-brand-action") &&
+      !homeBrandCategoriesSource.includes("viewCategoryProducts") &&
+      cssSource.includes(".home-brand-entry:hover") &&
+      cssSource.includes("translateY(-4px)") &&
+      cssSource.includes(".home-brand-entry:focus-visible")
+  },
+  {
+    name: "home entry motion runs on viewport entry and respects reduced motion",
+    pass: () =>
+      source.includes('import { HomeRevealObserver } from "@/components/home/home-reveal-observer"') &&
+      source.includes("<HomeRevealObserver />") &&
+      source.includes("data-home-reveal") &&
+      homeBrandCategoriesSource.includes("data-home-reveal") &&
+      homeAccessoriesSource.includes("data-home-reveal") &&
+      homeApplicationsSource.includes("data-home-reveal") &&
+      homeRevealObserverSource.includes("IntersectionObserver") &&
+      homeRevealObserverSource.includes('classList.add("is-visible")') &&
+      homeRevealObserverSource.includes("unobserve") &&
+      cssSource.includes(".home-reveal-ready [data-home-reveal]") &&
+      cssSource.includes('[data-home-reveal].is-visible') &&
+      cssSource.includes("@media (prefers-reduced-motion: reduce)") &&
+      !cssSource.includes("animation: home-section-rise")
   },
   {
     name: "cookie banner is compact on narrow screens",
