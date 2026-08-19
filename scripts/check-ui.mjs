@@ -12,6 +12,9 @@ const catalogNavDropdownPath = join(root, "src", "components", "catalog", "catal
 const catalogNavDropdown = existsSync(catalogNavDropdownPath) ? read("src/components/catalog/catalog-nav-dropdown.tsx") : "";
 const homeApplicationsPath = join(root, "src", "components", "home", "home-applications-section.tsx");
 const homeApplicationsSource = existsSync(homeApplicationsPath) ? read("src/components/home/home-applications-section.tsx") : "";
+const homeBrandCategoriesPath = join(root, "src", "components", "home", "home-brand-categories-section.tsx");
+const homeBrandCategoriesSource = existsSync(homeBrandCategoriesPath) ? read("src/components/home/home-brand-categories-section.tsx") : "";
+const homeAccessoriesSource = read("src/components/accessories/accessories-home-section.tsx");
 
 const checks = [
   {
@@ -40,22 +43,21 @@ const checks = [
       !source.includes('<p className="mt-3 text-muted">{product.overview[locale]}</p>')
   },
   {
-    name: "home applications use the approved editorial grid",
+    name: "home applications use the approved open editorial composition",
     pass: () =>
       source.includes('import { HomeApplicationsSection } from "@/components/home/home-applications-section"') &&
       source.includes("<HomeApplicationsSection locale={locale} />") &&
       !source.includes("<CardCarousel ariaLabel={c.applicationTitle}>") &&
-      homeApplicationsSource.includes("grid grid-cols-1") &&
-      homeApplicationsSource.includes("md:grid-cols-2") &&
-      homeApplicationsSource.includes("lg:grid-cols-12") &&
-      homeApplicationsSource.includes("lg:col-span-7") &&
-      homeApplicationsSource.includes("lg:col-span-5") &&
-      homeApplicationsSource.includes("md:col-span-2") &&
+      homeApplicationsSource.includes("application-editorial-grid") &&
+      homeApplicationsSource.includes("application-feature") &&
+      homeApplicationsSource.includes("application-side") &&
+      homeApplicationsSource.includes("application-lower-grid") &&
       homeApplicationsSource.includes("application-section-heading") &&
-      homeApplicationsSource.includes("application-card-action") &&
-      homeApplicationsSource.includes("mt-auto") &&
-      homeApplicationsSource.includes("bg-accent") &&
-      !homeApplicationsSource.includes("border-t border-line pt-4") &&
+      homeApplicationsSource.includes("application-text-link") &&
+      !homeApplicationsSource.includes("application-card-action") &&
+      !homeApplicationsSource.includes("bg-accent") &&
+      !homeApplicationsSource.includes("rounded-") &&
+      !homeApplicationsSource.includes("shadow") &&
       !homeApplicationsSource.includes("hover:scale") &&
       !homeApplicationsSource.includes("hover:shadow-2xl")
   },
@@ -84,14 +86,24 @@ const checks = [
     }
   },
   {
-    name: "home categories use a stable grid with real product images",
+    name: "home categories use an open divided grid with real product images",
     pass: () => {
-      return source.includes("home-brand-card") &&
-        source.includes("grid gap-5 sm:grid-cols-2 min-[1150px]:grid-cols-4") &&
+      return source.includes('import { HomeBrandCategoriesSection } from "@/components/home/home-brand-categories-section"') &&
+        source.includes("<HomeBrandCategoriesSection locale={locale} />") &&
+        homeBrandCategoriesSource.includes("home-brand-grid") &&
+        homeBrandCategoriesSource.includes("home-brand-entry") &&
+        homeBrandCategoriesSource.includes("category.backgroundImage") &&
+        homeBrandCategoriesSource.includes("category.image") &&
+        homeBrandCategoriesSource.includes("category.description[locale]") &&
+        homeBrandCategoriesSource.includes("grid-cols-[minmax(0,1fr)_110px]") &&
+        homeBrandCategoriesSource.includes("border-line") &&
+        !homeBrandCategoriesSource.includes("absolute right-0") &&
+        !homeBrandCategoriesSource.includes("card") &&
+        !homeBrandCategoriesSource.includes("shadow") &&
+        !homeBrandCategoriesSource.includes("rounded-") &&
+        !homeBrandCategoriesSource.includes("btn") &&
         !source.includes("<CardCarousel ariaLabel={c.categoriesTitle}>") &&
         !source.includes("<CardCarousel ariaLabel={c.categoriesTitle} autoPlay>") &&
-        source.includes("mix-blend-multiply") &&
-        source.includes("btn btn-outline mt-auto w-full whitespace-nowrap !border-accent !text-accent") &&
         !source.includes("{count} {c.products}") &&
         !source.includes("category.showcaseProduct") &&
         !source.includes("category.showcaseBullets") &&
@@ -103,10 +115,8 @@ const checks = [
         catalogSource.includes('backgroundImage: "assets/products/RT_HC2A_Industrial_Humidity_Probes.png"') &&
         catalogSource.includes('backgroundImage: "assets/products/VA_DMT143-DMT143L.png"') &&
         catalogSource.includes('backgroundImage: "assets/products/AI_GPR-1900-Oxygen-Analyzer.png"') &&
-        source.includes("brand-instrument-background") &&
-        source.includes("brand-logo") &&
-        source.includes("h-24 w-[68%]") &&
-        source.includes("contrast-125") &&
+        homeBrandCategoriesSource.includes("brand-instrument-background") &&
+        homeBrandCategoriesSource.includes("brand-logo") &&
         ["michell.webp", "rotronic.webp", "vaisala.webp", "aii.webp"].every((file) =>
           existsSync(join(root, "public", "assets", "brands", file))
         ) &&
@@ -123,7 +133,7 @@ const checks = [
     pass: () => {
       const sectionPath = join(root, "src", "components", "accessories", "accessories-home-section.tsx");
       if (!existsSync(sectionPath)) return false;
-      const section = read("src/components/accessories/accessories-home-section.tsx");
+      const section = homeAccessoriesSource;
       const indexPage = read("src/components/accessories/accessories-index-page.tsx");
       const categoryPage = read("src/components/accessories/accessory-category-page.tsx");
       const detailPage = read("src/components/accessories/accessory-detail-page.tsx");
@@ -150,16 +160,18 @@ const checks = [
         !source.includes("ProductCatalogSwitch") &&
         !indexPage.includes("ProductCatalogSwitch") &&
         section.includes("homeAccessoryProducts") &&
-        section.includes("aspect-[4/3]") &&
-        section.includes("bg-[#e9eef4] p-3") &&
-        section.includes("rounded-[6px] border border-line bg-white shadow-sm") &&
-        section.includes("hover:border-accent/45 hover:shadow-md") &&
-        section.includes("min-h-[76px]") &&
-        section.includes("max-h-[98%] max-w-[98%] object-contain drop-shadow-sm") &&
-        !section.includes("mix-blend-multiply") &&
-        !section.includes("border border-line bg-[#f7fafc]") &&
-        !section.includes("h-full w-full object-contain") &&
-        !section.includes("max-h-32") &&
+        section.includes("home-accessory-matrix") &&
+        section.includes("home-accessory-entry") &&
+        section.includes("grid-cols-2") &&
+        section.includes("lg:grid-cols-3") &&
+        section.includes("border-line") &&
+        section.includes("mix-blend-multiply") &&
+        section.includes("accessory-text-link") &&
+        !section.includes("bg-[#e5ebf0]") &&
+        !section.includes("home-accessory-tile") &&
+        !section.includes("rounded-") &&
+        !section.includes("shadow") &&
+        !section.includes("hover:scale") &&
         !section.includes("AccessorySpecTable") &&
         !section.includes("categoryModels") &&
         !section.includes("backOverview");
@@ -183,14 +195,21 @@ const checks = [
     }
   },
   {
-    name: "home redesign follows design-taste pre-flight essentials",
+    name: "home redesign follows the approved industrial editorial system",
     pass: () =>
       source.includes("home-hero-shell") &&
       source.includes("home-hero-content") &&
+      source.includes("home-hero-title") &&
+      source.includes("home-hero-secondary-link") &&
+      source.includes("home-hero-details") &&
+      source.includes("home-hero-details-label") &&
+      i18nSource.includes("categoriesHeading:") &&
       source.includes("home-section-reveal") &&
-      source.includes("home-brand-card") &&
-      homeApplicationsSource.includes("home-application-card") &&
-      read("src/components/accessories/accessories-home-section.tsx").includes("home-accessory-tile") &&
+      homeBrandCategoriesSource.includes("home-brand-entry") &&
+      homeApplicationsSource.includes("application-editorial-grid") &&
+      homeApplicationsSource.includes("lg:border-t") &&
+      !homeApplicationsSource.includes("border-t border-line pt-10") &&
+      homeAccessoriesSource.includes("home-accessory-matrix") &&
       !source.includes("home-hero-visual-grid") &&
       !source.includes("md:text-7xl") &&
       !source.includes("min-h-[640px]") &&
@@ -202,7 +221,8 @@ const checks = [
       cssSource.includes("calc(100dvh - var(--site-header-height))") &&
       cssSource.includes("@media (prefers-reduced-motion: no-preference)") &&
       cssSource.includes(".home-section-reveal") &&
-      cssSource.includes(".home-brand-card:hover") &&
+      cssSource.includes(".home-hero-title") &&
+      cssSource.includes(".home-brand-entry") &&
       cssSource.includes("prefers-reduced-motion: reduce")
   },
   {
@@ -216,8 +236,15 @@ const checks = [
     }
   },
   {
-    name: "home hero title fits narrow screens without horizontal overflow",
-    pass: () => source.includes("text-4xl") && source.includes("sm:text-5xl") && source.includes("lg:text-[64px]") && !source.includes("md:text-7xl")
+    name: "home hero uses a restrained responsive title and keeps the original video",
+    pass: () =>
+      source.includes("home-hero-title") &&
+      source.includes("text-[38px]") &&
+      source.includes("sm:text-[46px]") &&
+      source.includes("lg:text-[54px]") &&
+      source.includes('src="/assets/video/industrial-measurement-hero.mp4"') &&
+      !source.includes("lg:text-[64px]") &&
+      !source.includes("font-black leading-[1.02]")
   }
 ];
 

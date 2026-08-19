@@ -18,6 +18,7 @@ import { RfqForm } from "@/components/rfq-form";
 import { AccessoriesHomeSection } from "@/components/accessories/accessories-home-section";
 import { CatalogNavDropdown } from "@/components/catalog/catalog-nav-dropdown";
 import { HomeApplicationsSection } from "@/components/home/home-applications-section";
+import { HomeBrandCategoriesSection } from "@/components/home/home-brand-categories-section";
 import { METRICA_GOALS, MetricaTrackedLink, ProductDwellGoal } from "@/components/metrica-goals";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
@@ -192,15 +193,15 @@ export function HomePage({ locale }: { locale: Locale }) {
         />
         <div className="home-hero-content relative z-10 mx-auto flex max-w-7xl items-center">
           <div className="home-section-reveal max-w-4xl">
-            <p className="eyebrow">{c.heroEyebrow}</p>
-            <h1 className="max-w-4xl text-4xl font-black leading-[1.02] sm:text-5xl lg:text-[64px]">{c.heroTitle}</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-100 md:text-xl">{heroLead}</p>
+            <p className="eyebrow home-hero-eyebrow">{c.heroEyebrow}</p>
+            <h1 className="home-hero-title max-w-4xl text-[38px] font-bold leading-[1.08] sm:text-[46px] lg:text-[54px]">{c.heroTitle}</h1>
+            <p className="mt-6 max-w-2xl text-lg font-normal leading-8 text-slate-100 md:text-xl">{heroLead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link className="btn btn-primary whitespace-nowrap" href={localizedPath(locale, "/catalog")}>
                 {c.viewCatalog}
               </Link>
-              <Link className="btn btn-secondary whitespace-nowrap" href={localizedPath(locale, "/contact")}>
-                {c.requestQuote}
+              <Link className="home-hero-secondary-link inline-flex min-h-11 items-center gap-2 border-b border-white/45 px-2 font-semibold" href={localizedPath(locale, "/contact")}>
+                {c.requestQuote}<span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
@@ -208,52 +209,15 @@ export function HomePage({ locale }: { locale: Locale }) {
       </section>
 
       {heroDetails ? (
-        <section className="border-b border-line bg-white px-5 py-6 md:px-10">
-          <div className="section-narrow home-section-reveal">
-            <p className="max-w-5xl text-base leading-7 text-muted md:text-lg">{heroDetails}</p>
+        <section className="home-hero-details border-b border-line bg-white px-5 py-10 md:px-10 md:py-12">
+          <div className="section-narrow home-section-reveal grid gap-5 md:grid-cols-[280px_minmax(0,1fr)] md:gap-12 lg:gap-20">
+            <p className="home-hero-details-label text-xs font-bold uppercase text-accent">{c.heroDetailsEyebrow}</p>
+            <p className="max-w-4xl text-base leading-7 text-[#3f4c59] md:text-lg md:leading-8">{heroDetails}</p>
           </div>
         </section>
       ) : null}
 
-      <section className="section bg-white">
-        <div className="section-narrow home-section-reveal">
-          <div className="mb-8 max-w-3xl">
-            <h2 className="text-3xl font-black">{c.categoriesTitle}</h2>
-            <p className="mt-3 text-lg text-muted">{c.categoriesLead}</p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 min-[1150px]:grid-cols-4">
-            {categories.map((category) => {
-              return (
-                <Link
-                  className="card home-brand-card group flex min-h-[360px] flex-col overflow-hidden border border-line bg-white transition duration-300 hover:border-accent/50"
-                  href={`${localizedPath(locale, "/catalog")}?category=${category.id}`}
-                  key={category.id}
-                >
-                  <div className="relative h-48 shrink-0 overflow-hidden border-b border-line bg-[#eef2f5]">
-                    <img
-                      className="brand-instrument-background absolute inset-y-4 right-2 h-[calc(100%-2rem)] w-[68%] object-contain object-right opacity-50 grayscale transition duration-300 group-hover:scale-[1.03] group-hover:opacity-65"
-                      src={assetPath(category.backgroundImage)}
-                      alt=""
-                      aria-hidden="true"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(90deg,#eef2f5_8%,rgba(238,242,245,.95)_38%,rgba(238,242,245,.26)_82%)]" aria-hidden="true" />
-                    <img
-                      className="brand-logo absolute bottom-3 left-5 z-10 h-24 w-[68%] object-contain object-left mix-blend-multiply contrast-125"
-                      src={assetPath(category.image)}
-                      alt={`${category.title} logo`}
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-5">
-                    <h3 className="text-2xl font-black">{category.title}</h3>
-                    <p className="mt-3 text-muted">{category.description[locale]}</p>
-                    <span className="btn btn-outline mt-auto w-full whitespace-nowrap !border-accent !text-accent">{c.viewCategoryProducts}</span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <HomeBrandCategoriesSection locale={locale} />
 
       <AccessoriesHomeSection locale={locale} />
 

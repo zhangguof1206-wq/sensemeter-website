@@ -136,20 +136,20 @@ checks.push({
 });
 checks.push({
   name: "homepage accessory images use stable sizing and containment",
-  pass: homeSection.includes("aspect-[4/3]") &&
-    homeSection.includes(`${uniformAccessoryBackground} p-3`) &&
-    homeSection.includes("max-h-[98%] max-w-[98%] object-contain drop-shadow-sm") &&
-    !homeSection.includes("mix-blend-multiply") &&
-    !homeSection.includes("border border-line bg-[#f7fafc]") &&
-    !homeSection.includes("h-full w-full object-contain") &&
+  pass: homeSection.includes("grid h-36 place-items-center p-1") &&
+    homeSection.includes("h-full w-full object-contain mix-blend-multiply") &&
+    !homeSection.includes("drop-shadow") &&
+    !homeSection.includes("hover:scale") &&
     !homeSection.includes("max-h-32")
 });
 checks.push({
-  name: "homepage accessory tiles use complete framed product cards",
-  pass: homeSection.includes("rounded-[6px] border border-line bg-white shadow-sm") &&
-    homeSection.includes("border-b border-line bg-[#e9eef4]") &&
-    homeSection.includes("hover:border-accent/45 hover:shadow-md") &&
-    homeSection.includes("min-h-[76px]")
+  name: "homepage accessories use an open technical matrix",
+  pass: homeSection.includes("home-accessory-matrix") &&
+    homeSection.includes("border-l border-t border-line") &&
+    homeSection.includes("home-accessory-entry") &&
+    homeSection.includes("border-b border-r border-line bg-white/35") &&
+    !homeSection.includes("rounded-") &&
+    !homeSection.includes("shadow")
 });
 checks.push({
   name: "homepage accessory section keeps specs and models off overview cards",
