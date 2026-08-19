@@ -131,14 +131,17 @@ checks.push({
   pass: homeSection.includes("homeAccessoryProducts") &&
     homeSection.includes("grid-cols-2") &&
     homeSection.includes("lg:grid-cols-3") &&
-    homeSection.includes("object-contain") &&
+    homeSection.includes("home-accessory-image") &&
+    homeSection.includes("object-cover") &&
     homeSection.includes("localizedPath(locale, `/accessories/${product.categorySlug}/${product.slug}`)")
 });
 checks.push({
   name: "homepage accessory images use stable sizing and containment",
   pass: homeSection.includes("home-accessory-image") &&
-    homeSection.includes("grid h-40 place-items-center overflow-hidden") &&
-    homeSection.includes("h-28 w-full object-contain mix-blend-multiply") &&
+    homeSection.includes("home-accessory-image relative h-40 overflow-hidden bg-[#e9eef3]") &&
+    homeSection.includes("absolute inset-0 block h-full w-full object-cover mix-blend-multiply") &&
+    homeSection.includes("home-accessory-copy relative z-10") &&
+    !homeSection.includes("h-28") &&
     !homeSection.includes("drop-shadow") &&
     !homeSection.includes("hover:scale") &&
     !homeSection.includes("max-h-32")

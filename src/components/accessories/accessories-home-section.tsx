@@ -28,14 +28,14 @@ export function AccessoriesHomeSection({ locale }: { locale: Locale }) {
               href={localizedPath(locale, `/accessories/${product.categorySlug}/${product.slug}`)}
               key={`${product.categorySlug}-${product.slug}`}
             >
-              <div className="home-accessory-image grid h-40 place-items-center overflow-hidden bg-[#e9eef3] p-4 sm:p-5">
+              <div className="home-accessory-image relative h-40 overflow-hidden bg-[#e9eef3] shrink-0">
                 <img
-                  className="h-28 w-full object-contain mix-blend-multiply"
+                  className="absolute inset-0 block h-full w-full object-cover mix-blend-multiply"
                   src={product.image}
                   alt={product.title[locale]}
                 />
               </div>
-              <div className="home-accessory-copy flex min-h-20 flex-1 items-start border-t border-line bg-white px-4 py-4 sm:px-5">
+              <div className="home-accessory-copy relative z-10 flex min-h-20 flex-1 items-start border-t border-line bg-white px-4 py-4 sm:px-5">
                 <h3 className="text-sm font-bold leading-6 text-ink sm:text-base">{product.title[locale]}</h3>
               </div>
             </Link>
