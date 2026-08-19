@@ -17,8 +17,36 @@ const homeBrandCategoriesSource = existsSync(homeBrandCategoriesPath) ? read("sr
 const homeAccessoriesSource = read("src/components/accessories/accessories-home-section.tsx");
 const homeRevealObserverPath = join(root, "src", "components", "home", "home-reveal-observer.tsx");
 const homeRevealObserverSource = existsSync(homeRevealObserverPath) ? read("src/components/home/home-reveal-observer.tsx") : "";
+const aboutPagePath = join(root, "src", "components", "about", "about-page-content.tsx");
+const aboutPageSource = existsSync(aboutPagePath) ? read("src/components/about/about-page-content.tsx") : "";
+const aboutDataPath = join(root, "src", "data", "about.ts");
+const aboutDataSource = existsSync(aboutDataPath) ? read("src/data/about.ts") : "";
 
 const checks = [
+  {
+    name: "about page uses the approved real-photography editorial layout",
+    pass: () => {
+      const aboutImages = [
+        "assets/about/laboratory-equipment.jpg",
+        "assets/about/industrial-engineer.jpg",
+        "assets/about/precision-instrument.jpg",
+        "assets/about/control-panels.jpg"
+      ];
+      return source.includes('import { AboutPageContent } from "@/components/about/about-page-content"') &&
+        source.includes("<AboutPageContent locale={locale} />") &&
+        !source.includes('<article className="card p-8">') &&
+        aboutPageSource.includes("about-hero") &&
+        aboutPageSource.includes("about-domain-grid") &&
+        aboutPageSource.includes("about-support-band") &&
+        aboutPageSource.includes("about-environment-grid") &&
+        aboutPageSource.includes("about-rfq-band") &&
+        aboutPageSource.includes("stockDisclosure") &&
+        aboutImages.every((path) =>
+          (aboutPageSource.includes(`/${path}`) || aboutDataSource.includes(`/${path}`)) && existsSync(join(root, "public", path))
+        ) &&
+        existsSync(join(root, "docs", "image-sources", "about.md"));
+    }
+  },
   {
     name: "footer copyright starts with copyright symbol",
     pass: () => source.includes("&copy; 2026 SINOETM TECH LTD. All rights reserved.") && !source.includes("婕?2026")

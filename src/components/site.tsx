@@ -16,6 +16,7 @@ import { legalCopy, type LegalPageKey } from "@/lib/legal";
 import { CookieBanner } from "@/components/cookie-banner";
 import { RfqForm } from "@/components/rfq-form";
 import { AccessoriesHomeSection } from "@/components/accessories/accessories-home-section";
+import { AboutPageContent } from "@/components/about/about-page-content";
 import { CatalogNavDropdown } from "@/components/catalog/catalog-nav-dropdown";
 import { HomeApplicationsSection } from "@/components/home/home-applications-section";
 import { HomeBrandCategoriesSection } from "@/components/home/home-brand-categories-section";
@@ -411,22 +412,9 @@ function InfoList({ title, items }: { title: string; items: string[] }) {
 }
 
 export function AboutPage({ locale }: { locale: Locale }) {
-  const c = t(locale);
   return (
     <PageShell locale={locale} active="about" languagePath={localizedPath(oppositeLocale(locale), "/about")}>
-      <PageHeading title={c.aboutTitle} lead={c.aboutLead} image="/assets/application-lab-chambers.png" />
-      <section className="section">
-        <div className="section-narrow">
-          <article className="card p-8">
-            <p className="eyebrow !mb-5 !text-slate-400">Sinoetm Tech. Ltd.</p>
-            <div className="space-y-5 text-lg leading-8 text-muted">
-              {c.aboutBody.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </article>
-        </div>
-      </section>
+      <AboutPageContent locale={locale} />
     </PageShell>
   );
 }

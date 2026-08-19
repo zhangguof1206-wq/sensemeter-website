@@ -6,12 +6,35 @@ const require = createRequire(import.meta.url);
 const { copy } = require("../src/lib/i18n.ts");
 const { products } = require("../src/data/catalog.ts");
 const root = process.cwd();
+const aboutContentPath = join(root, "src", "data", "about.ts");
 const readOptional = (path) => {
   const fullPath = join(root, path);
   return existsSync(fullPath) ? readFileSync(fullPath, "utf8") : "";
 };
 
 const checks = [
+  {
+    name: "About editorial content is complete and aligned across locales",
+    pass: () => {
+      if (!existsSync(aboutContentPath)) return false;
+      const { aboutContent } = require("../src/data/about.ts");
+      const ru = aboutContent.ru;
+      const en = aboutContent.en;
+      const enText = JSON.stringify(en);
+      const ruText = JSON.stringify(ru);
+      const enCriteria = ["medium", "range", "installation", "output", "operating conditions"];
+      const ruCriteria = ["среду", "диапазон", "монтаж", "выходной сигнал", "условия эксплуатации"];
+      return ru.domains.length === en.domains.length &&
+        ru.supportSteps.length === en.supportSteps.length &&
+        ru.environments.length === en.environments.length &&
+        ru.domains.length === 3 &&
+        ru.supportSteps.length === 4 &&
+        ru.environments.length === 3 &&
+        enCriteria.every((phrase) => enText.includes(phrase)) &&
+        ruCriteria.every((phrase) => ruText.includes(phrase)) &&
+        !/[А-Яа-яЁё]/.test(enText);
+    }
+  },
   {
     name: "core localized array copy has matching item counts",
     pass: () => {
