@@ -139,7 +139,9 @@ checks.push({
   name: "homepage accessory images use stable sizing and containment",
   pass: homeSection.includes("home-accessory-image") &&
     homeSection.includes("home-accessory-image relative h-40 overflow-hidden bg-[#e9eef3]") &&
-    homeSection.includes("absolute inset-0 block h-full w-full object-cover mix-blend-multiply") &&
+    homeSection.includes("absolute inset-0 block h-full w-full mix-blend-multiply") &&
+    homeSection.includes('product.categorySlug === "sensor-protection"') &&
+    homeSection.includes('? "object-contain" : "object-cover"') &&
     homeSection.includes("home-accessory-copy relative z-10") &&
     !homeSection.includes("h-28") &&
     !homeSection.includes("drop-shadow") &&

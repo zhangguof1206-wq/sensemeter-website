@@ -30,7 +30,9 @@ export function AccessoriesHomeSection({ locale }: { locale: Locale }) {
             >
               <div className="home-accessory-image relative h-40 overflow-hidden bg-[#e9eef3] shrink-0">
                 <img
-                  className="absolute inset-0 block h-full w-full object-cover mix-blend-multiply"
+                  className={`absolute inset-0 block h-full w-full mix-blend-multiply ${
+                    product.categorySlug === "sensor-protection" ? "object-contain" : "object-cover"
+                  }`}
                   src={product.image}
                   alt={product.title[locale]}
                 />

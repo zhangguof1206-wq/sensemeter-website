@@ -12,7 +12,7 @@ const applicationSceneLinks: Record<ApplicationScene["id"], string> = {
 
 function ApplicationTextLink({ label }: { label: string }) {
   return (
-    <span className="application-action mt-5 inline-flex min-h-10 items-center border border-[#173963] px-4 py-2 text-sm font-bold text-[#173963] transition-colors group-hover:bg-[#173963] group-hover:text-white group-focus-visible:bg-[#173963] group-focus-visible:text-white">
+    <span className="application-action mt-5 inline-flex min-h-10 items-center border border-[#173963] px-4 py-2 text-sm font-bold text-[#173963] transition-colors hover:bg-[#173963] hover:text-white group-hover:bg-[#173963] group-hover:text-white group-focus-visible:bg-[#173963] group-focus-visible:text-white">
       {label}<span className="ml-2" aria-hidden="true">→</span>
     </span>
   );
@@ -57,7 +57,7 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
 
           {sideScenes.map((scene, index) => (
             <Link
-              className={`application-side home-reveal-delay-${index + 1} grid gap-6 border-b border-line pb-8 sm:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[44%_minmax(0,1fr)]`}
+              className={`application-side group home-reveal-delay-${index + 1} grid gap-6 border-b border-line pb-8 sm:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[44%_minmax(0,1fr)]`}
               data-home-reveal
               href={localizedPath(locale, applicationSceneLinks[scene.id])}
               key={scene.id}
@@ -81,7 +81,7 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
         <div className="application-lower-grid mt-12 grid gap-10 pt-2 lg:grid-cols-2 lg:gap-12 lg:border-t lg:border-line lg:pt-10">
           {lowerScenes.map((scene, index) => (
             <Link
-              className={`home-reveal-delay-${index} grid gap-6 sm:grid-cols-[260px_minmax(0,1fr)]`}
+              className={`home-reveal-delay-${index} group grid gap-6 sm:grid-cols-[260px_minmax(0,1fr)]`}
               data-home-reveal
               href={localizedPath(locale, applicationSceneLinks[scene.id])}
               key={scene.id}

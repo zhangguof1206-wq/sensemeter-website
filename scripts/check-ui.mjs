@@ -235,9 +235,20 @@ const checks = [
     pass: () =>
       homeApplicationsSource.includes("application-action") &&
       homeApplicationsSource.includes("border border-[#173963]") &&
+      homeApplicationsSource.includes("hover:bg-[#173963]") &&
+      homeApplicationsSource.includes("hover:text-white") &&
       homeAccessoriesSource.includes("btn btn-primary") &&
       !homeApplicationsSource.includes("border-b border-slate-400 pb-1") &&
       !homeAccessoriesSource.includes("accessory-text-link")
+  },
+  {
+    name: "all home application actions use the same direct hover treatment",
+    pass: () =>
+      homeApplicationsSource.includes("application-action") &&
+      homeApplicationsSource.includes("hover:bg-[#173963]") &&
+      homeApplicationsSource.includes("hover:text-white") &&
+      homeApplicationsSource.includes("application-side group") &&
+      homeApplicationsSource.includes("home-reveal-delay-${index} group grid")
   },
   {
     name: "home brand rows reveal clickability without repeated text actions",
