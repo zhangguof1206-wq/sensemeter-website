@@ -9,7 +9,7 @@ export function AboutPageContent({ locale }: { locale: Locale }) {
   const content = aboutContent[locale];
 
   return (
-    <main className="about-page">
+    <div className="about-page">
       <AboutRevealObserver />
       <section className="about-hero">
         <Image
@@ -108,6 +108,6 @@ export function AboutPageContent({ locale }: { locale: Locale }) {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

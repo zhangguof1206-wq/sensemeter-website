@@ -36,6 +36,9 @@ const checks = [
       ];
       return source.includes('import { AboutPageContent } from "@/components/about/about-page-content"') &&
         source.includes("<AboutPageContent locale={locale} />") &&
+        source.includes('<main className="flex-1">{children}</main>') &&
+        aboutPageSource.includes('<div className="about-page">') &&
+        !aboutPageSource.includes('<main className="about-page">') &&
         !source.includes('<article className="card p-8">') &&
         aboutPageSource.includes("about-hero") &&
         aboutPageSource.includes("about-domain-grid") &&
