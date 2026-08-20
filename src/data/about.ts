@@ -36,7 +36,7 @@ export const aboutContent = {
     introEyebrow: "Чем мы занимаемся",
     introTitle: "Практическая помощь в подборе измерительных решений",
     introBody:
-      "Sinoetm Tech. Ltd. поставляет промышленные измерительные приборы и совместимые комплектующие для производства, управления процессами, газового контроля и лабораторных испытаний. Мы помогаем определить измерительную задачу, сравнить подходящие модели и подготовить данные, необходимые для коммерческого предложения.",
+      "Sinoetm Tech. Ltd. — ведущая компания, специализирующаяся на поставке высоконадежных измерительных приборов и сенсорных решений для промышленных и профессиональных применений. Мы занимаемся поиском и поставкой передового оборудования, включая Dew Point Meters, Temperature & Humidity Sensors и Oxygen Analyzers, для критически важных задач в промышленном производстве, лабораторных испытаниях, газовом мониторинге и соответствии экологическим требованиям. Понимая, что точность имеет решающее значение для управления процессами, безопасности и контроля качества, мы стремимся поставлять исключительно стабильные, точные и надежные приборы. Наш ориентированный на клиента подход обеспечивает поддержку на каждом этапе: от экспертного подбора продукта и оперативной подготовки коммерческого предложения до комплексной документации и отзывчивого послепродажного обслуживания. Sinoetm стремится быть вашим надежным партнером в области устойчивых измерительных решений для сложных промышленных и лабораторных условий.",
     domains: [
       {
         title: "Точка росы и влажность",
@@ -111,7 +111,7 @@ export const aboutContent = {
     introEyebrow: "What we do",
     introTitle: "Practical support for demanding measurement tasks",
     introBody:
-      "Sinoetm Tech. Ltd. supplies industrial measurement instruments and compatible accessories for production, process control, gas monitoring and laboratory testing. We help customers define the measurement task, compare suitable models and prepare the information required for quotation.",
+      "Sinoetm Tech. Ltd. is a premier company dedicated to providing high-reliability measurement instruments and sensor solutions for industrial and professional applications. We specialize in sourcing and supplying advanced equipment—including Dew Point Meters, Temperature & Humidity Sensors, and Oxygen Analyzers—to support critical operations in industrial production, laboratory testing, gas monitoring, and environmental compliance. Recognizing that precision is vital for process control, safety, and quality assurance, we commit to delivering exceptionally stable, accurate, and dependable instrumentation. Our customer-centric approach ensures seamless support at every stage, from expert product selection and efficient quotation to comprehensive documentation and responsive after-sales service. Sinoetm aims to be your trusted partner for robust measurement solutions in demanding industrial and laboratory environments.",
     domains: [
       {
         title: "Dew point and moisture",

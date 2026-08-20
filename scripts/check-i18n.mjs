@@ -25,6 +25,8 @@ const checks = [
       const enCriteria = ["medium", "range", "installation", "output", "operating conditions"];
       const ruCriteria = ["среду", "диапазон", "монтаж", "выходной сигнал", "условия эксплуатации"];
       return ru.domains.length === en.domains.length &&
+        ru.introBody === copy.ru.aboutBody[0] &&
+        en.introBody === copy.en.aboutBody[0] &&
         ru.supportSteps.length === en.supportSteps.length &&
         ru.environments.length === en.environments.length &&
         ru.domains.length === 3 &&
