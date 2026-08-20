@@ -19,6 +19,8 @@ const homeRevealObserverPath = join(root, "src", "components", "home", "home-rev
 const homeRevealObserverSource = existsSync(homeRevealObserverPath) ? read("src/components/home/home-reveal-observer.tsx") : "";
 const aboutPagePath = join(root, "src", "components", "about", "about-page-content.tsx");
 const aboutPageSource = existsSync(aboutPagePath) ? read("src/components/about/about-page-content.tsx") : "";
+const aboutRevealObserverPath = join(root, "src", "components", "about", "about-reveal-observer.tsx");
+const aboutRevealObserverSource = existsSync(aboutRevealObserverPath) ? read("src/components/about/about-reveal-observer.tsx") : "";
 const aboutDataPath = join(root, "src", "data", "about.ts");
 const aboutDataSource = existsSync(aboutDataPath) ? read("src/data/about.ts") : "";
 
@@ -46,6 +48,23 @@ const checks = [
         ) &&
         existsSync(join(root, "docs", "image-sources", "about.md"));
     }
+  },
+  {
+    name: "about page uses restrained viewport entry motion",
+    pass: () =>
+      aboutPageSource.includes('import { AboutRevealObserver } from "@/components/about/about-reveal-observer"') &&
+      aboutPageSource.includes("<AboutRevealObserver />") &&
+      aboutPageSource.includes("data-about-reveal") &&
+      aboutPageSource.includes("about-reveal-delay-${index}") &&
+      aboutRevealObserverSource.includes("IntersectionObserver") &&
+      aboutRevealObserverSource.includes('classList.add("is-visible")') &&
+      aboutRevealObserverSource.includes("unobserve") &&
+      aboutRevealObserverSource.includes('classList.add("about-reveal-ready")') &&
+      cssSource.includes(".about-reveal-ready [data-about-reveal]") &&
+      cssSource.includes("[data-about-reveal].is-visible") &&
+      cssSource.includes("about-image-settle") &&
+      cssSource.includes("prefers-reduced-motion: reduce") &&
+      !cssSource.includes("animation: about-enter")
   },
   {
     name: "footer copyright starts with copyright symbol",
