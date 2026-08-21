@@ -79,7 +79,7 @@ export function AboutPageContent({ locale }: { locale: Locale }) {
               <p className="about-eyebrow">{content.environmentsEyebrow}</p>
               <h2>{content.environmentsTitle}</h2>
             </div>
-            <p className="about-reveal-delay-1" data-about-reveal>{content.stockDisclosure}</p>
+            <p className="about-reveal-delay-1" data-about-reveal>{content.environmentsLead}</p>
           </div>
 
           <div className="about-environment-grid">

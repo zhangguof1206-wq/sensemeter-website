@@ -19,7 +19,7 @@ type AboutContent = {
   supportSteps: AboutItem[];
   environmentsEyebrow: string;
   environmentsTitle: string;
-  stockDisclosure: string;
+  environmentsLead: string;
   environments: Array<AboutItem & { image: string; alt: string }>;
   rfqEyebrow: string;
   rfqTitle: string;
@@ -75,8 +75,8 @@ export const aboutContent = {
     ],
     environmentsEyebrow: "Промышленные условия",
     environmentsTitle: "Где особенно важны надежные измерения",
-    stockDisclosure:
-      "Представительные рабочие условия для промышленных приборов. Использованы лицензированные стоковые фотографии, а не изображения собственных объектов компании.",
+    environmentsLead:
+      "Мы подбираем измерительные решения для производственных линий, газовых систем, климатических камер и лабораторий, где точные данные о влажности, точке росы, температуре и кислороде необходимы для стабильного управления процессом.",
     environments: [
       {
         title: "Производство и технологические системы",
@@ -150,8 +150,8 @@ export const aboutContent = {
     ],
     environmentsEyebrow: "Industrial environments",
     environmentsTitle: "Where reliable measurement matters",
-    stockDisclosure:
-      "Representative working environments for industrial instruments. Licensed stock photographs are shown; they do not depict our own facilities.",
+    environmentsLead:
+      "We select measurement solutions for production lines, gas systems, environmental chambers and laboratories where accurate humidity, dew-point, temperature and oxygen data support stable process control.",
     environments: [
       {
         title: "Production and process systems",

@@ -45,11 +45,31 @@ const checks = [
         aboutPageSource.includes("about-support-band") &&
         aboutPageSource.includes("about-environment-grid") &&
         aboutPageSource.includes("about-rfq-band") &&
-        aboutPageSource.includes("stockDisclosure") &&
+        aboutPageSource.includes("environmentsLead") &&
         aboutImages.every((path) =>
           (aboutPageSource.includes(`/${path}`) || aboutDataSource.includes(`/${path}`)) && existsSync(join(root, "public", path))
         ) &&
         existsSync(join(root, "docs", "image-sources", "about.md"));
+    }
+  },
+  {
+    name: "about page keeps internal image licensing notes out of customer copy",
+    pass: () => {
+      const internalDisclosureTerms = [
+        "stockDisclosure",
+        "licensed stock",
+        "stock photographs",
+        "do not depict our own facilities",
+        "лицензированные стоковые фотографии",
+        "не изображения собственных объектов"
+      ];
+
+      return aboutDataSource.includes("environmentsLead:") &&
+        aboutPageSource.includes("content.environmentsLead") &&
+        internalDisclosureTerms.every((term) =>
+          !aboutDataSource.toLowerCase().includes(term.toLowerCase()) &&
+          !aboutPageSource.toLowerCase().includes(term.toLowerCase())
+        );
     }
   },
   {
