@@ -96,6 +96,8 @@ async function sendViaSmtp(fields: RfqFields) {
     text: buildText(fields),
     html: buildHtml(fields)
   });
+
+  return { ok: true as const };
 }
 
 async function sendViaBrevo(fields: RfqFields) {
@@ -147,7 +149,5 @@ export async function sendRfqEmail(body: string) {
     return sendViaBrevo(fields);
   }
 
-  await sendViaSmtp(fields);
-
-  return { ok: true as const };
+  return sendViaSmtp(fields);
 }
