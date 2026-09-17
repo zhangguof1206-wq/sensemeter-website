@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { applicationScenes, assetPath, type ApplicationScene, type Locale } from "@/data/catalog";
 import { localizedPath, t } from "@/lib/i18n";
 
@@ -43,12 +44,16 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
             data-home-reveal
             href={localizedPath(locale, applicationSceneLinks[feature.id])}
           >
-            <img
-              alt={feature.title[locale]}
-              className="aspect-[16/11] w-full object-cover lg:h-[570px] lg:aspect-auto"
-              src={assetPath(feature.image)}
-              style={{ objectPosition: feature.imagePosition }}
-            />
+            <div className="relative aspect-[16/11] w-full lg:h-[570px] lg:aspect-auto">
+              <Image
+                alt={feature.title[locale]}
+                className="object-cover"
+                src={assetPath(feature.image)}
+                style={{ objectPosition: feature.imagePosition }}
+                fill
+                sizes="(min-width: 1024px) 58vw, 100vw"
+              />
+            </div>
             <p className="mt-5 text-xs font-bold uppercase text-accent">{feature.category[locale]}</p>
             <h3 className="mt-2 text-2xl font-bold leading-tight">{feature.title[locale]}</h3>
             <p className="mt-3 max-w-2xl leading-7 text-muted">{feature.text[locale]}</p>
@@ -62,12 +67,16 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
               href={localizedPath(locale, applicationSceneLinks[scene.id])}
               key={scene.id}
             >
-              <img
-                alt={scene.title[locale]}
-                className="aspect-[16/10] h-full min-h-44 w-full object-cover"
-                src={assetPath(scene.image)}
-                style={{ objectPosition: scene.imagePosition }}
-              />
+              <div className="relative aspect-[16/10] min-h-44 w-full sm:h-full sm:aspect-auto">
+                <Image
+                  alt={scene.title[locale]}
+                  className="object-cover"
+                  src={assetPath(scene.image)}
+                  style={{ objectPosition: scene.imagePosition }}
+                  fill
+                  sizes="(min-width: 1024px) 19vw, (min-width: 640px) 220px, 100vw"
+                />
+              </div>
               <div>
                 <p className="text-xs font-bold uppercase text-accent">{scene.category[locale]}</p>
                 <h3 className="mt-2 text-xl font-bold leading-tight">{scene.title[locale]}</h3>
@@ -86,12 +95,16 @@ export function HomeApplicationsSection({ locale }: { locale: Locale }) {
               href={localizedPath(locale, applicationSceneLinks[scene.id])}
               key={scene.id}
             >
-              <img
-                alt={scene.title[locale]}
-                className="aspect-[16/10] h-full min-h-48 w-full object-cover"
-                src={assetPath(scene.image)}
-                style={{ objectPosition: scene.imagePosition }}
-              />
+              <div className="relative aspect-[16/10] min-h-48 w-full sm:h-full sm:aspect-auto">
+                <Image
+                  alt={scene.title[locale]}
+                  className="object-cover"
+                  src={assetPath(scene.image)}
+                  style={{ objectPosition: scene.imagePosition }}
+                  fill
+                  sizes="(min-width: 1024px) 260px, (min-width: 640px) 260px, 100vw"
+                />
+              </div>
               <div>
                 <p className="text-xs font-bold uppercase text-accent">{scene.category[locale]}</p>
                 <h3 className="mt-2 text-xl font-bold leading-tight">{scene.title[locale]}</h3>

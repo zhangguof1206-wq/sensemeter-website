@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
 import {
   assetPath,
@@ -50,7 +51,15 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
       <header className="sticky top-0 z-30 border-b-[3px] border-accent bg-steel px-5 py-3 text-white shadow-lg md:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-3 xl:grid-cols-[auto_1fr_auto]">
           <Link className="flex min-w-[210px] items-center gap-3" href={localizedPath(locale, "/")}>
-            <img className="h-11 w-11 rounded-full bg-white object-contain p-0.5" src="/logo-header.png" alt={c.brand} />
+            <Image
+              className="h-11 w-11 rounded-full bg-white object-contain p-0.5"
+              src="/logo-header.png"
+              alt={`${c.brand} logo`}
+              width={44}
+              height={44}
+              sizes="44px"
+              priority
+            />
             <span>
               <strong className="block text-base leading-tight">{c.brand}</strong>
               <small className="block text-xs text-slate-200">{c.brandLine}</small>

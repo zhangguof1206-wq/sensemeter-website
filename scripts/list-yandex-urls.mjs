@@ -18,15 +18,6 @@ const enPriorityPages = ["/en", "/en/catalog", "/en/about", "/en/contact"];
 const enApplicationPages = ruApplicationPages.map((path) => "/en" + path);
 const ruAccessoryPages = [...accessoryCategoryPaths, ...accessoryProductPaths];
 const enAccessoryPages = ruAccessoryPages.map((path) => "/en" + path);
-const optionalLegalPages = [
-  "/privacy",
-  "/personal-data-consent",
-  "/cookie-policy",
-  "/en/privacy",
-  "/en/personal-data-consent",
-  "/en/cookie-policy"
-];
-
 const absolute = (path) => siteUrl + path;
 const printSection = (title, urls) => {
   console.log(title);
@@ -44,8 +35,7 @@ const groups = [
   ["5. EN priority pages", enPriorityPages.map(absolute)],
   ["6. EN application pages", enApplicationPages.map(absolute)],
   ["7. EN product pages", enProductPages],
-  ["8. EN accessory pages", enAccessoryPages.map(absolute)],
-  ["9. Optional legal pages", optionalLegalPages.map(absolute)]
+  ["8. EN accessory pages", enAccessoryPages.map(absolute)]
 ];
 
 console.log("SenseMeter Yandex URL submission list");

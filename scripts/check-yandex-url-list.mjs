@@ -24,7 +24,7 @@ const applicationPaths = ["/applications/industrial-humidity-monitoring", "/appl
 const output = execFileSync(process.execPath, [scriptPath], { cwd: root, encoding: "utf8" });
 
 const urls = output.split(/\r?\n/).map((line) => line.trim()).filter((line) => line.startsWith("https://sensemeter.ru"));
-const expectedCount = 14 + applicationPaths.length * 2 + productSlugs.length * 2 + (accessoryCategoryPaths.length + accessoryProductPaths.length) * 2;
+const expectedCount = 8 + applicationPaths.length * 2 + productSlugs.length * 2 + (accessoryCategoryPaths.length + accessoryProductPaths.length) * 2;
 const requiredUrls = [
   "https://sensemeter.ru/",
   "https://sensemeter.ru/catalog",
@@ -34,8 +34,6 @@ const requiredUrls = [
   "https://sensemeter.ru/en/catalog",
   "https://sensemeter.ru/en/about",
   "https://sensemeter.ru/en/contact",
-  "https://sensemeter.ru/privacy",
-  "https://sensemeter.ru/en/privacy",
   ...applicationPaths.map((path) => "https://sensemeter.ru" + path),
   ...applicationPaths.map((path) => "https://sensemeter.ru/en" + path),
   ...accessoryCategoryPaths.map((path) => "https://sensemeter.ru" + path),
@@ -57,7 +55,7 @@ const checks = [
   { name: "Yandex URL list includes every core, application, product and accessory URL", pass: requiredUrls.every((url) => urls.includes(url)) },
   {
     name: "Yandex URL list labels manual submission order",
-    pass: output.includes("1. RU priority pages") && output.includes("2. RU application pages") && output.includes("3. RU product pages") && output.includes("4. RU accessory pages") && output.includes("5. EN priority pages") && output.includes("6. EN application pages") && output.includes("7. EN product pages") && output.includes("8. EN accessory pages") && output.includes("9. Optional legal pages")
+    pass: output.includes("1. RU priority pages") && output.includes("2. RU application pages") && output.includes("3. RU product pages") && output.includes("4. RU accessory pages") && output.includes("5. EN priority pages") && output.includes("6. EN application pages") && output.includes("7. EN product pages") && output.includes("8. EN accessory pages") && !output.includes("Optional legal pages")
   },
   { name: "Yandex URL list excludes noindex thank-you pages", pass: !output.includes("/thank-you") }
 ];

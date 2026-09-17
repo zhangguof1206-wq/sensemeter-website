@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { assetPath, categories, type Locale } from "@/data/catalog";
 import { localizedPath, t } from "@/lib/i18n";
 
@@ -26,17 +27,23 @@ export function HomeBrandCategoriesSection({ locale }: { locale: Locale }) {
               href={`${localizedPath(locale, "/catalog")}?category=${category.id}`}
               key={category.id}
             >
-              <img
-                className="brand-instrument-background col-start-2 row-start-1 h-40 w-full object-contain object-right opacity-75 sm:h-48"
-                src={assetPath(category.backgroundImage)}
-                alt=""
-                aria-hidden="true"
-              />
+              <div className="brand-instrument-background relative col-start-2 row-start-1 h-40 w-full opacity-75 sm:h-48" aria-hidden="true">
+                <Image
+                  className="object-contain object-right"
+                  src={assetPath(category.backgroundImage)}
+                  alt=""
+                  fill
+                  sizes="(min-width: 640px) 190px, 110px"
+                />
+              </div>
               <div className="col-start-1 row-start-1 min-w-0">
-                <img
+                <Image
                   className="brand-logo h-14 w-40 object-contain object-left mix-blend-multiply"
                   src={assetPath(category.image)}
                   alt={`${category.title} logo`}
+                  width={160}
+                  height={56}
+                  sizes="160px"
                 />
                 <h3 className="mt-6 text-xl font-bold">{category.title}</h3>
                 <p className="mt-2 leading-7 text-muted">{category.description[locale]}</p>

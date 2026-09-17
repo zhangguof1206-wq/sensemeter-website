@@ -82,10 +82,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang={htmlLang}>
       <body>
-        <Script
+        <script
           id="site-json-ld"
           type="application/ld+json"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteStructuredData).replace(/</g, "\\u003c") }}
         />
         <YandexMetrica />

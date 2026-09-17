@@ -16,6 +16,81 @@ const readApplicationContent = () => applicationSlugs
 
 const checks = [
   {
+    name: "legal pages have explicit noindex metadata and stay out of discovery feeds",
+    pass: () => {
+      const routes = [
+        ["src/app/privacy/page.tsx", "ru", "privacy"],
+        ["src/app/en/privacy/page.tsx", "en", "privacy"],
+        ["src/app/personal-data-consent/page.tsx", "ru", "consent"],
+        ["src/app/en/personal-data-consent/page.tsx", "en", "consent"],
+        ["src/app/cookie-policy/page.tsx", "ru", "cookies"],
+        ["src/app/en/cookie-policy/page.tsx", "en", "cookies"]
+      ];
+      const seo = read("src/lib/seo.ts");
+      const sitemap = read("src/app/sitemap.ts");
+      const yandexList = read("scripts/list-yandex-urls.mjs");
+
+      return routes.every(([route, locale, page]) => {
+        const source = read(route);
+        return source.includes(`legalPageMetadata("${locale}", "${page}")`);
+      }) &&
+        seo.includes("export function legalPageMetadata") &&
+        seo.includes("index: false") &&
+        seo.includes("follow: true") &&
+        !sitemap.includes("legalPaths") &&
+        !yandexList.includes("optionalLegalPages");
+    }
+  },
+  {
+    name: "site entity JSON-LD uses one graph with stable entity IDs",
+    pass: () => {
+      const seo = read("src/lib/seo.ts");
+      const layout = read("src/app/layout.tsx");
+      return layout.includes("<script") &&
+        layout.includes('id="site-json-ld"') &&
+        seo.includes('"@graph"') &&
+        seo.includes('absoluteUrl("/#organization")') &&
+        seo.includes('absoluteUrl("/#website")') &&
+        seo.includes('"@id": organizationId') &&
+        seo.includes('"@id": websiteId');
+    }
+  },
+  {
+    name: "homepage titles and application descriptions fit search snippets",
+    pass: () => {
+      const homePages = [read("src/app/page.tsx"), read("src/app/en/page.tsx")];
+      const titles = homePages.map((source) => source.match(/title: "([^"]+)"/)?.[1] || "");
+      const application = read("src/data/applications/climate-chamber-humidity.ts");
+      const descriptions = [...application.matchAll(/metaDescription: "([^"]+)"/g)].map((match) => match[1]);
+      return titles.every((title) => title.length > 0 && title.length <= 60) &&
+        descriptions.length === 2 &&
+        descriptions.every((description) => description.length <= 160);
+    }
+  },
+  {
+    name: "homepage responsive images avoid shipping full-size product PNGs",
+    pass: () => {
+      const shell = read("src/components/site.tsx");
+      const brands = read("src/components/home/home-brand-categories-section.tsx");
+      const applications = read("src/components/home/home-applications-section.tsx");
+      return shell.includes('import Image from "next/image"') &&
+        shell.includes("<Image") &&
+        brands.includes('import Image from "next/image"') &&
+        brands.includes("sizes=") &&
+        applications.includes('import Image from "next/image"') &&
+        applications.includes("sizes=");
+    }
+  },
+  {
+    name: "mobile cookie banner limits viewport obstruction",
+    pass: () => {
+      const banner = read("src/components/cookie-banner.tsx");
+      return banner.includes("max-h-[32dvh]") &&
+        banner.includes("overflow-y-auto") &&
+        banner.includes("line-clamp-3");
+    }
+  },
+  {
     name: "root layout defines metadataBase and alternates support",
     pass: () => {
       const source = read("src/app/layout.tsx");

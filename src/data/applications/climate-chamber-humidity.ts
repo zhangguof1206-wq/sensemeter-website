@@ -64,7 +64,7 @@ export const climateChamberHumidity: ApplicationPageRecord = {
     },
     en: {
       metaTitle: "Climate chamber humidity measurement",
-      metaDescription: "Humidity and temperature sensors for laboratories, climate chambers, calibration rooms and environmental test systems. Select probes and transmitters for stable monitoring.",
+      metaDescription: "Humidity and temperature sensors for climate chambers, laboratories and environmental testing. Compare probes and transmitters for stable monitoring.",
       heroEyebrow: "Laboratories and climate chambers",
       title: "Climate chamber humidity and temperature measurement",
       lead: "Humidity and temperature instruments for laboratories, climate chambers, calibration rooms, environmental testing and clean technical areas.",

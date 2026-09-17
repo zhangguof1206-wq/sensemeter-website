@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { assetPath, type Locale, type Product } from "@/data/catalog";
 import { localizedPath } from "@/lib/i18n";
 import type { AccessoryCategory, AccessoryProduct } from "@/data/accessories";
+import { legalCopy, type LegalPageKey } from "@/lib/legal";
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sensemeter.ru";
 export const siteName = "SenseMeter";
-export const defaultLastModified = "2026-06-24";
 export const corePageLastModified = "2026-07-02";
 export const applicationPageLastModified = "2026-08-18";
 export const productPageLastModified = "2026-07-05";
@@ -111,36 +111,47 @@ export function productMetadata(locale: Locale, product: Product): Metadata {
 }
 
 export function siteJsonLd() {
-  return [
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: siteName,
-      alternateName: ["sensemeter", "SenseMeter.ru", "Sense Meter"],
-      legalName: "SINOETM TECH LTD",
-      url: absoluteUrl("/"),
-      logo: absoluteUrl("/logo-header.png"),
-      email: "sales@sensemeter.ru",
-      sameAs: ["https://t.me/Sensemeter"],
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "sales",
+  const organizationId = absoluteUrl("/#organization");
+  const websiteId = absoluteUrl("/#website");
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": organizationId,
+        name: siteName,
+        alternateName: ["sensemeter", "SenseMeter.ru", "Sense Meter"],
+        legalName: "SINOETM TECH LTD",
+        url: absoluteUrl("/"),
+        logo: absoluteUrl("/logo-header.png"),
         email: "sales@sensemeter.ru",
-        availableLanguage: ["ru", "en"]
+        sameAs: ["https://t.me/Sensemeter"],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          email: "sales@sensemeter.ru",
+          availableLanguage: ["ru", "en"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        name: siteName,
+        url: absoluteUrl("/"),
+        inLanguage: ["ru-RU", "en"],
+        publisher: { "@id": organizationId },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${absoluteUrl("/catalog")}?q={search_term_string}`
+          },
+          "query-input": "required name=search_term_string"
+        }
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: siteName,
-      url: absoluteUrl("/"),
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${absoluteUrl("/catalog")}?q={search_term_string}`,
-        "query-input": "required name=search_term_string"
-      }
-    }
-  ];
+    ]
+  };
 }
 
 export function breadcrumbJsonLd(locale: Locale, product: Product) {
@@ -194,6 +205,39 @@ export function applicationBreadcrumbJsonLd(locale: Locale, path: string, title:
         item: absoluteUrl(localizedCanonical(locale, path))
       }
     ]
+  };
+}
+
+const legalPagePaths: Record<LegalPageKey, string> = {
+  privacy: "/privacy",
+  consent: "/personal-data-consent",
+  cookies: "/cookie-policy"
+};
+
+export function legalPageMetadata(locale: Locale, page: LegalPageKey): Metadata {
+  const copy = legalCopy[locale][page];
+  const path = legalPagePaths[page];
+  const canonical = localizedCanonical(locale, path);
+  const description = trimDescription(copy.lead);
+
+  return {
+    title: copy.title,
+    description,
+    robots: {
+      index: false,
+      follow: true
+    },
+    alternates: {
+      canonical
+    },
+    openGraph: {
+      title: copy.title,
+      description,
+      url: absoluteUrl(canonical),
+      siteName,
+      locale: locale === "ru" ? "ru_RU" : "en_US",
+      type: "article"
+    }
   };
 }
 
