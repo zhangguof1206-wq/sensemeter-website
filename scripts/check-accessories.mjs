@@ -16,6 +16,7 @@ const checks = [];
 const productSlugs = [];
 const uniformAccessoryBackground = "bg-[#e9eef4]";
 const usesUniformImageAsset = (image) => image.endsWith("-uniform.webp");
+const usesHomepageImageAsset = (image) => image.endsWith("-home.webp");
 
 checks.push({
   name: "accessory category definitions exist",
@@ -61,10 +62,12 @@ for (const category of categoryFiles) {
 const categoriesSource = read("src/data/accessories/categories.ts");
 const categoryImages = [...categoriesSource.matchAll(/image:\s*"\/assets\/accessories\/([^"]+\.webp)"/g)].map((match) => match[1]);
 const accessoryAssetFiles = readdirSync(join(root, "public", "assets", "accessories")).filter((file) => file.endsWith(".webp"));
-const legacyAccessoryAssetFiles = accessoryAssetFiles.filter((file) => !usesUniformImageAsset(file));
+const legacyAccessoryAssetFiles = accessoryAssetFiles.filter(
+  (file) => !usesUniformImageAsset(file) && !usesHomepageImageAsset(file)
+);
 checks.push({ name: "accessory catalog contains 36 products", pass: productSlugs.length === 36 });
 checks.push({
-  name: "accessory asset directory keeps only uniform browser-safe webp images",
+  name: "accessory asset directory keeps only approved browser-safe webp images",
   pass: accessoryAssetFiles.length >= 24 && legacyAccessoryAssetFiles.length === 0
 });
 checks.push({
@@ -107,11 +110,15 @@ const getProductImage = (category, slug) => {
   const image = block.match(/image:\s*"([^"]+)"/);
   return image ? image[1] : null;
 };
-const homeRefs = [...homeAccessoryData.matchAll(/\["([^"]+)",\s*"([^"]+)"\]/g)].map((match) => ({
+const homeRefs = [...homeAccessoryData.matchAll(/\["([^"]+)",\s*"([^"]+)"(?:,\s*"([^"]+)")?\]/g)].map((match) => ({
   category: match[1],
-  slug: match[2]
+  slug: match[2],
+  homeImage: match[3] ?? null
 }));
-const homeImages = homeRefs.map(({ category, slug }) => getProductImage(category, slug)).filter(Boolean);
+const homeImages = homeRefs.map(({ category, slug, homeImage }) => homeImage ?? getProductImage(category, slug)).filter(Boolean);
+const probeGuardHomeRef = homeRefs.find(({ category, slug }) =>
+  category === "sensor-protection" && slug === "g14-threaded-probe-guard"
+);
 checks.push({
   name: "homepage accessory data contains exactly 6 representative products",
   pass: homeRefs.length === 6 &&
@@ -121,6 +128,12 @@ checks.push({
 checks.push({
   name: "homepage representative accessories use 6 distinct images",
   pass: homeImages.length === 6 && new Set(homeImages).size === 6
+});
+checks.push({
+  name: "homepage probe guard uses its dedicated landscape image",
+  pass: probeGuardHomeRef?.homeImage === "/assets/accessories/sensor-g14-home.webp" &&
+    existsSync(join(root, "public", probeGuardHomeRef.homeImage.slice(1))) &&
+    homeAccessoryData.includes("homeImage ?? product.image")
 });
 checks.push({
   name: "homepage accessory section has no all accessories button",
@@ -136,12 +149,12 @@ checks.push({
     homeSection.includes("localizedPath(locale, `/accessories/${product.categorySlug}/${product.slug}`)")
 });
 checks.push({
-  name: "homepage accessory images use stable sizing and containment",
+  name: "homepage accessory images use stable sizing and uniform cover fitting",
   pass: homeSection.includes("home-accessory-image") &&
     homeSection.includes("home-accessory-image relative h-40 overflow-hidden bg-[#e9eef3]") &&
-    homeSection.includes("absolute inset-0 block h-full w-full mix-blend-multiply") &&
-    homeSection.includes('product.categorySlug === "sensor-protection"') &&
-    homeSection.includes('? "object-contain" : "object-cover"') &&
+    homeSection.includes("absolute inset-0 block h-full w-full object-cover mix-blend-multiply") &&
+    !homeSection.includes('product.categorySlug === "sensor-protection"') &&
+    !homeSection.includes("object-contain") &&
     homeSection.includes("home-accessory-copy relative z-10") &&
     !homeSection.includes("h-28") &&
     !homeSection.includes("drop-shadow") &&
