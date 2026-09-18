@@ -11,11 +11,11 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
   recommendedSlugs: ["gpr-1500", "gpr-1900-2900", "gpr-1500gb-2500gb", "gpr-1600-2600-3100", "gpr-1000-1100-2000-3500"],
   content: {
     ru: {
-      metaTitle: "Анализатор кислорода для перчаточных боксов",
-      metaDescription: "Кислородные анализаторы для перчаточных боксов, инертных газов, генераторов, печей и производственных линий. Подбор GPR решений и запрос цены.",
+      metaTitle: "Промышленный анализатор кислорода для чистых газов",
+      metaDescription: "Промышленные анализаторы кислорода для контроля чистоты газа, перчаточных боксов, генераторов, печей и линий. Поставка из Китая в Россию.",
       heroEyebrow: "Анализ кислорода",
-      title: "Анализ кислорода для перчаточных боксов и газовых систем",
-      lead: "Кислородные анализаторы для инертных атмосфер, перчаточных боксов, генераторов, печей, промышленных газов и производственных линий.",
+      title: "Промышленные анализаторы кислорода для контроля чистоты газа",
+      lead: "Промышленный анализатор кислорода измеряет O2 в инертных и чистых газах, перчаточных боксах, генераторах, печах и производственных линиях.",
       primaryButton: "Запросить предложение",
       secondaryButton: "Смотреть анализаторы",
       breadcrumbs: { home: "Главная", applications: "Применения" },
@@ -34,7 +34,7 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
         { title: "Система сигнализации", text: "Передача показаний в локальную индикацию, реле или систему управления.", criterion: "Пороги тревог, выходы и способ интеграции" }
       ],
       criterionLabel: "Критерии подбора",
-      selectionTitle: "Как выбрать анализатор O2",
+      selectionTitle: "Как выбрать промышленный анализатор кислорода",
       selectionLead: "Сначала определяют газовую среду и диапазон, затем проверяют пробоотбор и интерфейс.",
       selectionCards: [
         { title: "Газовая среда", text: "Укажите газ, фоновые компоненты, наличие влаги и возможные примеси." },
@@ -45,7 +45,7 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       rfqTitle: "Что указать в запросе",
       rfqPoints: ["измеряемый газ или газовую смесь", "ожидаемый диапазон O2", "требуемую точность", "точку установки или пробоотбор", "давление и расход пробы", "нужен ли дисплей или сигнализация", "выходной сигнал и питание", "количество и требования к документации"],
       productsEyebrow: "Рекомендуемые анализаторы",
-      productsTitle: "Анализаторы кислорода",
+      productsTitle: "Промышленные анализаторы кислорода",
       productsLead: "Модели для перчаточных боксов, инертных атмосфер, генераторов и промышленных газов.",
       productLinkLabel: "Подробнее",
       faqsTitle: "Частые вопросы",
@@ -58,8 +58,8 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       advisorTitle: "Подобрать анализатор по параметрам",
       advisorText: "Укажите газовую среду, диапазон O2, давление, расход и требования к сигналу. Мы поможем выбрать подходящую модель.",
       advisorButton: "Отправить параметры",
-      finalCtaTitle: "Нужен анализатор для вашей газовой системы?",
-      finalCtaText: "Сопоставим газовый фон, диапазон O2 и пробоотбор с подходящими моделями.",
+      finalCtaTitle: "Нужен анализатор кислорода для газовой системы?",
+      finalCtaText: "Сопоставим газовый фон, диапазон O2, давление, расход и пробоотбор с подходящими моделями. Поставку из Китая в Россию, транспорт и таможенные обязанности согласуем при подготовке предложения.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -111,7 +111,7 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       advisorText: "Share your gas background, O2 range, pressure and sampling conditions. We will help select the right analyzer.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need an analyzer for your gas system?",
-      finalCtaText: "We will match the gas background, O2 range and sampling conditions with suitable models.",
+      finalCtaText: "We will match gas background, O2 range, pressure, flow and sampling with suitable models, then quote supply from China to Russia with agreed transport and customs responsibilities.",
       finalCtaButton: "Request a selection"
     }
   }

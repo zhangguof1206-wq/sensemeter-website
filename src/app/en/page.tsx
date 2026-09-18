@@ -4,8 +4,8 @@ import { staticPageMetadata } from "@/lib/seo";
 export const metadata = staticPageMetadata({
   locale: "en",
   path: "/",
-  title: "SenseMeter — industrial sensors and analyzers",
-  description: "SenseMeter supports Russian and international B2B projects with humidity, dew-point, oxygen and temperature instruments, accessories and RFQ selection."
+  title: "SenseMeter — industrial sensors supplied from China",
+  description: "Dew point meters, gas moisture and oxygen analyzers, and industrial humidity sensors selected in China and supplied to customers in Russia."
 });
 
 export default function Page() {

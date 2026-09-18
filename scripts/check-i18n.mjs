@@ -102,6 +102,24 @@ const checks = [
     }
   },
   {
+    name: "homepage copy states the confirmed China-to-Russia supply model in both languages",
+    pass: () => {
+      const ru = copy.ru.heroText;
+      const en = copy.en.heroText;
+      return [
+        "из Китая в Россию",
+        "международную доставку",
+        "таможенное оформление",
+        "коммерческом предложении"
+      ].every((phrase) => ru.includes(phrase)) && [
+        "from China to Russia",
+        "international delivery",
+        "customs clearance",
+        "quotation"
+      ].every((phrase) => en.includes(phrase));
+    }
+  },
+  {
     name: "product localized lists have matching item counts",
     pass: () => {
       const listKeys = ["params", "highlights", "applications"];

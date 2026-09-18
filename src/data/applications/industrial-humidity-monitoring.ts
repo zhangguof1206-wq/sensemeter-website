@@ -11,11 +11,11 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
   recommendedSlugs: ["hc2a-series", "hc2a-industrial", "hygroflex1", "hmt310", "hmt370ex"],
   content: {
     ru: {
-      metaTitle: "Промышленные датчики температуры и влажности",
-      metaDescription: "Датчики и преобразователи температуры и влажности для промышленных процессов, камер, воздуховодов и технических систем. Подбор решения и запрос цены.",
+      metaTitle: "Промышленные датчики влажности и температуры",
+      metaDescription: "Промышленные датчики влажности для камер, воздуховодов, помещений и технологических процессов. Подбор и поставка из Китая в Россию.",
       heroEyebrow: "Промышленный контроль влажности",
-      title: "Промышленный контроль температуры и влажности",
-      lead: "Датчики, зонды и преобразователи для производственных процессов, климатических камер, воздуховодов, чистых помещений и технических систем.",
+      title: "Промышленные датчики влажности и температуры",
+      lead: "Промышленный датчик влажности обеспечивает стационарный контроль в производственных процессах, климатических камерах, воздуховодах, чистых помещениях и технических системах.",
       primaryButton: "Запросить предложение",
       secondaryButton: "Смотреть решения",
       breadcrumbs: { home: "Главная", applications: "Применения" },
@@ -37,7 +37,7 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
         { title: "Сложные условия", text: "Подбор исполнения с учетом пыли, конденсата, паров, давления или опасной зоны.", criterion: "Материал зонда, защита и допуски участка" }
       ],
       criterionLabel: "Критерии подбора",
-      selectionTitle: "Как выбрать промышленный датчик",
+      selectionTitle: "Как выбрать промышленный датчик влажности",
       selectionLead: "Для подбора нужно связать точку измерения, монтаж, точность и интерфейс с условиями процесса.",
       selectionCards: [
         { title: "Среда измерения", text: "Воздух, технологический газ, камера, склад или вентиляционный канал." },
@@ -48,7 +48,7 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       rfqTitle: "Что указать в запросе",
       rfqPoints: ["измеряемую среду", "диапазон температуры", "диапазон влажности", "требуемую точность", "условия монтажа", "необходимый выходной сигнал", "количество", "требования к сертификатам или документации"],
       productsEyebrow: "Рекомендуемые приборы",
-      productsTitle: "Датчики и преобразователи",
+      productsTitle: "Промышленные датчики и преобразователи влажности",
       productsLead: "Модели для стандартного мониторинга, воздуховодов, камер, систем управления и сложных условий.",
       productLinkLabel: "Подробнее",
       faqsTitle: "Частые вопросы",
@@ -61,8 +61,8 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       advisorTitle: "Подобрать модель по параметрам",
       advisorText: "Укажите среду, диапазон, точность и способ монтажа. Мы поможем сопоставить параметры с подходящими моделями.",
       advisorButton: "Отправить параметры",
-      finalCtaTitle: "Нужен датчик под условия процесса?",
-      finalCtaText: "Сопоставим среду, монтаж, диапазон и сигнал с подходящими промышленными моделями.",
+      finalCtaTitle: "Нужен датчик влажности для ваших условий?",
+      finalCtaText: "Сопоставим среду, монтаж, диапазон, точность и выходной сигнал с подходящими моделями. Международную доставку из Китая в Россию и поддержку таможенного оформления включим по выбранной заказчиком схеме.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -117,7 +117,7 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       advisorText: "Send the medium, range, accuracy and mounting details. We will match them with suitable instruments.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need a sensor for your process conditions?",
-      finalCtaText: "We will match the medium, mounting, range and signal with suitable industrial models.",
+      finalCtaText: "We will match the medium, mounting, range, accuracy and output with suitable models, then quote supply from China to Russia under the customer's selected delivery and customs arrangement.",
       finalCtaButton: "Request a selection"
     }
   }

@@ -22,9 +22,9 @@ export const copy = {
     cookieNecessary: "Только необходимые",
     cookieLearnMore: "Подробнее",
     heroEyebrow: "MICHELL / ROTRONIC / VAISALA / AII",
-    heroTitle: "SenseMeter: промышленные анализаторы влажности, точки росы и кислорода",
+    heroTitle: "Промышленные датчики и анализаторы для российских предприятий",
     heroText:
-      "SenseMeter поставляет промышленные измерительные приборы и комплектующие для измерения влажности, точки росы, кислорода и температуры. Мы помогаем выполнить подбор модели, подобрать совместимые комплектующие, согласовать интеграцию в панели и шкафы, а также OEM- и проектные закупки. В каждом предложении мы подтверждаем наличие и сроки поставки.",
+      "SenseMeter поставляет из Китая в Россию промышленные измерительные приборы и комплектующие: измерители и преобразователи точки росы, анализаторы влажности газа и кислорода, датчики влажности и температуры. Помогаем выполнить подбор модели, подобрать совместимые комплектующие, согласовать интеграцию в панели и шкафы, а также OEM- и проектные закупки. В коммерческом предложении подтверждаем наличие и сроки поставки; международную доставку, таможенное оформление и распределение расходов согласовываем по выбранной клиентом схеме.",
     heroDetailsEyebrow: "Подбор и поставка",
     viewCatalog: "Смотреть каталог",
     requestQuote: "Запросить предложение",
@@ -116,9 +116,9 @@ export const copy = {
     cookieNecessary: "Necessary only",
     cookieLearnMore: "Learn more",
     heroEyebrow: "MICHELL / ROTRONIC / VAISALA / AII",
-    heroTitle: "SenseMeter: industrial humidity, dew-point and oxygen analyzers",
+    heroTitle: "Industrial sensors and analyzers supplied from China to Russia",
     heroText:
-      "SenseMeter supplies industrial measurement instruments and accessories for humidity, dew point, oxygen and temperature measurement. We support model selection, compatible accessory combinations, instrument panel and cabinet integration, and OEM or project procurement. Product availability and lead times are confirmed with each quotation.",
+      "SenseMeter supplies industrial dew point meters and transmitters, gas moisture and oxygen analyzers, and humidity and temperature sensors from China to Russia. We support model selection, compatible measurement instruments and accessories, instrument panel and cabinet integration, and OEM or project procurement. Product availability and lead times are confirmed in each quotation; international delivery, customs clearance and cost allocation are agreed according to the customer's selected arrangement.",
     heroDetailsEyebrow: "Selection and supply",
     viewCatalog: "View Catalog",
     requestQuote: "Request a Quote",

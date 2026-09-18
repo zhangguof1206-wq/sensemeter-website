@@ -68,6 +68,51 @@ const checks = [
     }
   },
   {
+    name: "Russian industrial pages cover target commercial queries",
+    pass: () => {
+      const source = [
+        read("src/app/page.tsx"),
+        read("src/lib/i18n.ts"),
+        readApplicationContent()
+      ].join("\n").toLocaleLowerCase("ru-RU");
+      const requiredPhrases = [
+        "промышленный измеритель точки росы",
+        "преобразователь точки росы",
+        "анализатор влажности газа",
+        "промышленный датчик влажности",
+        "промышленный анализатор кислорода",
+        "из китая в россию",
+        "международную доставку",
+        "таможенное оформление"
+      ];
+      return requiredPhrases.every((phrase) => source.includes(phrase));
+    }
+  },
+  {
+    name: "Russian market copy avoids unsupported local-presence claims",
+    pass: () => {
+      const source = [read("src/lib/i18n.ts"), readApplicationContent()].join("\n").toLocaleLowerCase("ru-RU");
+      const forbiddenPhrases = [
+        "официальный дистрибьютор",
+        "склад в россии",
+        "в наличии в россии",
+        "российское юридическое лицо",
+        "гарантированный срок доставки"
+      ];
+      return forbiddenPhrases.every((phrase) => !source.includes(phrase));
+    }
+  },
+  {
+    name: "Organization sales contact declares Russia as the served market",
+    pass: () => {
+      const seo = read("src/lib/seo.ts");
+      return seo.includes("areaServed: {") &&
+        seo.includes('"@type": "Country"') &&
+        seo.includes('name: "Russia"') &&
+        seo.includes('availableLanguage: ["ru", "en"]');
+    }
+  },
+  {
     name: "homepage responsive images avoid shipping full-size product PNGs",
     pass: () => {
       const shell = read("src/components/site.tsx");

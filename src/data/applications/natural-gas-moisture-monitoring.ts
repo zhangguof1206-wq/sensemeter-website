@@ -11,11 +11,11 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
   recommendedSlugs: ["easidew-pro-is", "easidew-pro-xp", "optidew-hz", "mdm300", "easidew-online"],
   content: {
     ru: {
-      metaTitle: "Измерение точки росы и влажности газа",
-      metaDescription: "Датчики и анализаторы точки росы для природного газа, технологических газов, трубопроводов и газоподготовки. Подбор решения и запрос цены.",
+      metaTitle: "Анализатор влажности газа и точки росы",
+      metaDescription: "Анализаторы влажности газа для природного и технологического газа, трубопроводов и газоподготовки. Подбор и поставка из Китая в Россию.",
       heroEyebrow: "Контроль влажности газа",
-      title: "Измерение точки росы и влажности газа",
-      lead: "Датчики, анализаторы и измерители точки росы для природного газа, технологических газов, трубопроводов, газоподготовки и промышленных процессов.",
+      title: "Анализаторы влажности газа для промышленных процессов",
+      lead: "Анализатор влажности газа контролирует содержание влаги и точку росы в природном и технологическом газе, трубопроводах, системах газоподготовки и опасных зонах.",
       primaryButton: "Запросить предложение",
       secondaryButton: "Смотреть приборы",
       breadcrumbs: { home: "Главная", applications: "Применения" },
@@ -34,7 +34,7 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
         { title: "Опасная зона", text: "Подбор исполнения с учетом классификации зоны, давления и сертификатов.", criterion: "Сертификаты, корпус и электрическое подключение" }
       ],
       criterionLabel: "Критерии подбора",
-      selectionTitle: "Как выбрать прибор для газа",
+      selectionTitle: "Как выбрать анализатор влажности газа",
       selectionLead: "Подбор начинается с состава газа и давления, затем уточняются диапазон, установка и безопасность.",
       selectionCards: [
         { title: "Газ и давление", text: "Укажите состав газа, давление линии, температуру и возможные примеси." },
@@ -45,7 +45,7 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
       rfqTitle: "Что указать в запросе",
       rfqPoints: ["тип газа: природный газ, водород, азот или технологическая смесь", "рабочее давление и температуру", "ожидаемый диапазон точки росы", "требуемую точность и стабильность", "точку установки или пробоотборную систему", "требования к опасной зоне и сертификатам", "выходной сигнал и питание", "количество и требования к документации"],
       productsEyebrow: "Рекомендуемые приборы",
-      productsTitle: "Приборы для контроля влажности газа",
+      productsTitle: "Анализаторы влажности газа и точки росы",
       productsLead: "Решения для трубопроводов, газоподготовки, опасных зон и сервисных измерений.",
       productLinkLabel: "Подробнее",
       faqsTitle: "Частые вопросы",
@@ -58,8 +58,8 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
       advisorTitle: "Подобрать прибор по параметрам",
       advisorText: "Укажите газ, давление, диапазон точки росы, место установки и требования к безопасности. Мы поможем выбрать подходящую модель.",
       advisorButton: "Отправить параметры",
-      finalCtaTitle: "Нужно измерение влажности в газовой системе?",
-      finalCtaText: "Сопоставим состав газа, давление, диапазон и условия участка с подходящими приборами.",
+      finalCtaTitle: "Нужен анализатор влажности для газовой системы?",
+      finalCtaText: "Проверим состав газа, давление, диапазон, пробоотбор и требования участка. Условия поставки из Китая в Россию, международной доставки и таможенного оформления зафиксируем в коммерческом предложении.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -111,7 +111,7 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
       advisorText: "Send gas type, pressure, dew point range, installation point and safety requirements. We will help select a suitable model.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need moisture measurement for a gas system?",
-      finalCtaText: "We will match gas composition, pressure, range and site conditions with suitable instruments.",
+      finalCtaText: "We will review gas composition, pressure, range, sampling and site requirements, then quote supply from China to Russia with the selected delivery and customs responsibilities.",
       finalCtaButton: "Request a selection"
     }
   }
