@@ -1,0 +1,62 @@
+{
+  "auditDate": "2026-09-18",
+  "site": "https://sensemeter.ru/",
+  "auditedCommit": "8268420",
+  "scope": {
+    "sitemapUrls": 148,
+    "indexableHtmlPages": 148,
+    "noindexLegalPages": 6,
+    "totalCrawlRecords": 310
+  },
+  "crawl": {
+    "missingTitles": 0,
+    "missingDescriptions": 0,
+    "missingH1": 0,
+    "multipleH1": 0,
+    "canonicalMismatches": 0,
+    "hreflangIssues": 0,
+    "jsonLdParseErrors": 0,
+    "orphanSitemapPages": 0,
+    "titleLengthIssues": 30,
+    "descriptionLengthIssues": 73,
+    "contentCoverageFlags": 128,
+    "depthOverThree": 18
+  },
+  "pageTypes": {
+    "product": { "count": 44, "averageWords": 117, "minWords": 90, "maxWords": 152 },
+    "accessoryDetail": { "count": 72, "averageWords": 156, "minWords": 137, "maxWords": 182 },
+    "application": { "count": 10, "averageWords": 656, "minWords": 611, "maxWords": 716 },
+    "catalog": { "count": 2, "averageWords": 536 },
+    "home": { "count": 2, "averageWords": 326 },
+    "accessoriesIndex": { "count": 2, "averageWords": 174 }
+  },
+  "images": {
+    "occurrences": 908,
+    "missingAltAttribute": 0,
+    "emptyAlt": 248
+  },
+  "pdf": {
+    "checked": 22,
+    "status200": 22,
+    "correctMimeType": 22
+  },
+  "lighthouse": {
+    "mobile": { "performance": 96, "accessibility": 100, "bestPractices": 96, "seo": 92, "fcpSeconds": 1.2, "lcpSeconds": 1.6, "tbtMilliseconds": 60, "cls": 0, "speedIndexSeconds": 5.1, "transferKiB": 630 },
+    "desktop": { "performance": 84, "accessibility": 100, "bestPractices": 96, "seo": 92, "fcpSeconds": 1.2, "lcpSeconds": 1.3, "tbtMilliseconds": 0, "cls": 0, "speedIndexSeconds": 11.7, "transferKiB": 764 }
+  },
+  "scores": {
+    "technical": 90,
+    "content": 57,
+    "onPage": 76,
+    "schema": 84,
+    "performance": 88,
+    "geo": 58,
+    "images": 94,
+    "weightedOverall": 76
+  },
+  "limitations": [
+    "No Yandex Webmaster, Google Search Console, GA4 or server log access",
+    "PageSpeed Insights public API returned 429, so no CrUX field data",
+    "Full route crawl used the identical production build at commit 8268420, with live spot checks"
+  ]
+}
