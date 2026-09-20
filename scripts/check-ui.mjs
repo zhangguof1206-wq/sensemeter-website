@@ -107,6 +107,17 @@ const checks = [
       source.includes("lg:h-auto lg:w-auto lg:min-h-12")
   },
   {
+    name: "desktop homepage first fold contains hero and supply details",
+    pass: () =>
+      source.includes('<div className="home-first-screen">') &&
+      cssSource.includes(".home-first-screen") &&
+      cssSource.includes("height: calc(100svh - var(--site-header-height))") &&
+      cssSource.includes("grid-template-rows: minmax(0, 1fr) auto") &&
+      cssSource.includes(".home-first-screen .home-hero-shell") &&
+      cssSource.includes(".home-first-screen .home-hero-content") &&
+      cssSource.includes(".home-first-screen .home-hero-details")
+  },
+  {
     name: "product catalog cards use compact spec rows",
     pass: () =>
       source.includes("product.params[locale].slice(0, 3)") &&

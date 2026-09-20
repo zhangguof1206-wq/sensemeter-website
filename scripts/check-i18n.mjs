@@ -77,7 +77,7 @@ const checks = [
       const enText = `${copy.en.heroText} ${copy.en.catalogLead} ${copy.en.contactLead} ${copy.en.emailNote}`;
       const ruText = `${copy.ru.heroText} ${copy.ru.catalogLead} ${copy.ru.contactLead} ${copy.ru.emailNote}`;
       const enRequired = [
-        "measurement instruments and accessories",
+        "industrial measurement instruments and accessories",
         "model selection",
         "instrument panel and cabinet integration",
         "availability and lead times",
@@ -88,8 +88,8 @@ const checks = [
         "installation method"
       ];
       const ruRequired = [
-        "измерительные приборы и комплектующие",
-        "подбор модели",
+        "промышленное измерительное оборудование и комплектующие",
+        "подобрать модель",
         "интеграцию в панели и шкафы",
         "наличие и сроки поставки",
         "диапазон измерения",
@@ -102,19 +102,21 @@ const checks = [
     }
   },
   {
-    name: "homepage copy states the confirmed China-to-Russia supply model in both languages",
+    name: "homepage copy states international supply from China in both languages",
     pass: () => {
       const ru = copy.ru.heroText;
       const en = copy.en.heroText;
       return [
-        "из Китая в Россию",
+        "из Китая",
+        "международным заказчикам",
         "международную доставку",
-        "таможенное оформление",
+        "страны назначения",
         "коммерческом предложении"
       ].every((phrase) => ru.includes(phrase)) && [
-        "from China to Russia",
+        "from China",
+        "international customers",
         "international delivery",
-        "customs clearance",
+        "destination country",
         "quotation"
       ].every((phrase) => en.includes(phrase));
     }

@@ -131,10 +131,6 @@ export function siteJsonLd() {
           "@type": "ContactPoint",
           contactType: "sales",
           email: "sales@sensemeter.ru",
-          areaServed: {
-            "@type": "Country",
-            name: "Russia"
-          },
           availableLanguage: ["ru", "en"]
         }
       },

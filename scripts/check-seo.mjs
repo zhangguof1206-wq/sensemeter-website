@@ -81,7 +81,7 @@ const checks = [
         "анализатор влажности газа",
         "промышленный датчик влажности",
         "промышленный анализатор кислорода",
-        "из китая в россию",
+        "международная поставка из китая",
         "международную доставку",
         "таможенное оформление"
       ];
@@ -103,13 +103,33 @@ const checks = [
     }
   },
   {
-    name: "Organization sales contact declares Russia as the served market",
+    name: "Commercial copy does not restrict international supply to Russia",
+    pass: () => {
+      const source = [
+        read("src/app/page.tsx"),
+        read("src/app/en/page.tsx"),
+        read("src/lib/i18n.ts"),
+        readApplicationContent(),
+        read("src/lib/seo.ts")
+      ].join("\n").toLocaleLowerCase("ru-RU");
+      const forbiddenPhrases = [
+        "для россии",
+        "для российских предприятий",
+        "из китая в россию",
+        "from china to russia",
+        "customers in russia",
+        'name: "russia"'
+      ];
+      return forbiddenPhrases.every((phrase) => !source.includes(phrase));
+    }
+  },
+  {
+    name: "Organization sales contact keeps supported languages without a single-country area",
     pass: () => {
       const seo = read("src/lib/seo.ts");
-      return seo.includes("areaServed: {") &&
-        seo.includes('"@type": "Country"') &&
-        seo.includes('name: "Russia"') &&
-        seo.includes('availableLanguage: ["ru", "en"]');
+      return seo.includes('availableLanguage: ["ru", "en"]') &&
+        !seo.includes("areaServed:") &&
+        !seo.includes('name: "Russia"');
     }
   },
   {

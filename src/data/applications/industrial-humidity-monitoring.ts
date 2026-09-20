@@ -12,7 +12,7 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
   content: {
     ru: {
       metaTitle: "Промышленные датчики влажности и температуры",
-      metaDescription: "Промышленные датчики влажности для камер, воздуховодов, помещений и технологических процессов. Подбор и поставка из Китая в Россию.",
+      metaDescription: "Промышленные датчики влажности для камер, воздуховодов, помещений и технологических процессов. Подбор и международная поставка из Китая.",
       heroEyebrow: "Промышленный контроль влажности",
       title: "Промышленные датчики влажности и температуры",
       lead: "Промышленный датчик влажности обеспечивает стационарный контроль в производственных процессах, климатических камерах, воздуховодах, чистых помещениях и технических системах.",
@@ -62,7 +62,7 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       advisorText: "Укажите среду, диапазон, точность и способ монтажа. Мы поможем сопоставить параметры с подходящими моделями.",
       advisorButton: "Отправить параметры",
       finalCtaTitle: "Нужен датчик влажности для ваших условий?",
-      finalCtaText: "Сопоставим среду, монтаж, диапазон, точность и выходной сигнал с подходящими моделями. Международную доставку из Китая в Россию и поддержку таможенного оформления включим по выбранной заказчиком схеме.",
+      finalCtaText: "Сопоставим среду, монтаж, диапазон, точность и выходной сигнал с подходящими моделями. Условия международной поставки из Китая, доставки и таможенного оформления согласуем в коммерческом предложении с учетом страны назначения.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -117,7 +117,7 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       advisorText: "Send the medium, range, accuracy and mounting details. We will match them with suitable instruments.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need a sensor for your process conditions?",
-      finalCtaText: "We will match the medium, mounting, range, accuracy and output with suitable models, then quote supply from China to Russia under the customer's selected delivery and customs arrangement.",
+      finalCtaText: "We will match the medium, mounting, range, accuracy and output with suitable models, then quote international supply from China, with delivery and customs responsibilities agreed for the destination country.",
       finalCtaButton: "Request a selection"
     }
   }

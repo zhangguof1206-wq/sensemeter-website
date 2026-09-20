@@ -12,7 +12,7 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
   content: {
     ru: {
       metaTitle: "Промышленный анализатор кислорода для чистых газов",
-      metaDescription: "Промышленные анализаторы кислорода для контроля чистоты газа, перчаточных боксов, генераторов, печей и линий. Поставка из Китая в Россию.",
+      metaDescription: "Промышленные анализаторы кислорода для контроля чистоты газа, перчаточных боксов, генераторов, печей и линий. Международная поставка из Китая.",
       heroEyebrow: "Анализ кислорода",
       title: "Промышленные анализаторы кислорода для контроля чистоты газа",
       lead: "Промышленный анализатор кислорода измеряет O2 в инертных и чистых газах, перчаточных боксах, генераторах, печах и производственных линиях.",
@@ -59,7 +59,7 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       advisorText: "Укажите газовую среду, диапазон O2, давление, расход и требования к сигналу. Мы поможем выбрать подходящую модель.",
       advisorButton: "Отправить параметры",
       finalCtaTitle: "Нужен анализатор кислорода для газовой системы?",
-      finalCtaText: "Сопоставим газовый фон, диапазон O2, давление, расход и пробоотбор с подходящими моделями. Поставку из Китая в Россию, транспорт и таможенные обязанности согласуем при подготовке предложения.",
+      finalCtaText: "Сопоставим газовый фон, диапазон O2, давление, расход и пробоотбор с подходящими моделями. Условия международной поставки из Китая, доставки и таможенного оформления согласуем в коммерческом предложении с учетом страны назначения.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -111,7 +111,7 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       advisorText: "Share your gas background, O2 range, pressure and sampling conditions. We will help select the right analyzer.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need an analyzer for your gas system?",
-      finalCtaText: "We will match gas background, O2 range, pressure, flow and sampling with suitable models, then quote supply from China to Russia with agreed transport and customs responsibilities.",
+      finalCtaText: "We will match gas background, O2 range, pressure, flow and sampling with suitable models, then quote international supply from China, with delivery and customs responsibilities agreed for the destination country.",
       finalCtaButton: "Request a selection"
     }
   }

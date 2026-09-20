@@ -12,7 +12,7 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
   content: {
     ru: {
       metaTitle: "Анализатор влажности газа и точки росы",
-      metaDescription: "Анализаторы влажности газа для природного и технологического газа, трубопроводов и газоподготовки. Подбор и поставка из Китая в Россию.",
+      metaDescription: "Анализаторы влажности газа для природного и технологического газа, трубопроводов и газоподготовки. Подбор и международная поставка из Китая.",
       heroEyebrow: "Контроль влажности газа",
       title: "Анализаторы влажности газа для промышленных процессов",
       lead: "Анализатор влажности газа контролирует содержание влаги и точку росы в природном и технологическом газе, трубопроводах, системах газоподготовки и опасных зонах.",
@@ -59,7 +59,7 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
       advisorText: "Укажите газ, давление, диапазон точки росы, место установки и требования к безопасности. Мы поможем выбрать подходящую модель.",
       advisorButton: "Отправить параметры",
       finalCtaTitle: "Нужен анализатор влажности для газовой системы?",
-      finalCtaText: "Проверим состав газа, давление, диапазон, пробоотбор и требования участка. Условия поставки из Китая в Россию, международной доставки и таможенного оформления зафиксируем в коммерческом предложении.",
+      finalCtaText: "Проверим состав газа, давление, диапазон, пробоотбор и требования участка. Условия международной поставки из Китая, доставки и таможенного оформления согласуем в коммерческом предложении с учетом страны назначения.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -111,7 +111,7 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
       advisorText: "Send gas type, pressure, dew point range, installation point and safety requirements. We will help select a suitable model.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need moisture measurement for a gas system?",
-      finalCtaText: "We will review gas composition, pressure, range, sampling and site requirements, then quote supply from China to Russia with the selected delivery and customs responsibilities.",
+      finalCtaText: "We will review gas composition, pressure, range, sampling and site requirements, then quote international supply from China, with delivery and customs responsibilities agreed for the destination country.",
       finalCtaButton: "Request a selection"
     }
   }

@@ -262,6 +262,40 @@ select {
   :root {
     --site-header-height: 72px;
   }
+
+  .home-first-screen {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    height: calc(100svh - var(--site-header-height));
+  }
+
+  .home-first-screen .home-hero-shell {
+    min-height: 0;
+  }
+
+  .home-first-screen .home-hero-content {
+    min-height: 100%;
+  }
+
+  .home-first-screen .home-hero-details {
+    padding-block: clamp(20px, 3vh, 28px);
+  }
+}
+
+@media (min-width: 1280px) and (max-height: 800px) {
+  .home-first-screen .home-hero-title {
+    font-size: 48px;
+  }
+
+  .home-first-screen .home-hero-lead {
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .home-first-screen .home-hero-actions {
+    margin-top: 20px;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

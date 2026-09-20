@@ -180,54 +180,56 @@ export function HomePage({ locale }: { locale: Locale }) {
   return (
     <PageShell locale={locale} active="home" languagePath={localizedPath(oppositeLocale(locale), "/")}>
       <HomeRevealObserver />
-      <section className="home-hero-shell relative isolate overflow-hidden px-5 text-white md:px-10">
-        <div
-          className="absolute inset-0 -z-30 bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/video/industrial-measurement-poster.webp')" }}
-          aria-hidden="true"
-        />
-        <video
-          className="hero-industrial-video absolute inset-0 -z-20 h-full w-full object-cover"
-          data-video-source="pexels-5571842"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/assets/video/industrial-measurement-poster.webp"
-          aria-hidden="true"
-        >
-          <source src="/assets/video/industrial-measurement-hero.mp4" type="video/mp4" />
-        </video>
-        <div
-          className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(20,31,42,.94)_0%,rgba(20,31,42,.78)_48%,rgba(20,31,42,.48)_100%)]"
-          aria-hidden="true"
-        />
-        <div className="home-hero-content relative z-10 mx-auto flex max-w-7xl items-center">
-          <div className="home-section-reveal max-w-4xl">
-            <p className="eyebrow home-hero-eyebrow">{c.heroEyebrow}</p>
-            <h1 className="home-hero-title max-w-4xl text-[38px] font-bold leading-[1.08] sm:text-[46px] lg:text-[54px]">{c.heroTitle}</h1>
-            <p className="mt-6 max-w-2xl text-lg font-normal leading-8 text-slate-100 md:text-xl">{heroLead}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link className="btn btn-primary whitespace-nowrap" href={localizedPath(locale, "/catalog")}>
-                {c.viewCatalog}
-              </Link>
-              <Link className="home-hero-secondary-link inline-flex min-h-11 items-center gap-2 border-b border-white/45 px-2 font-semibold" href={localizedPath(locale, "/contact")}>
-                {c.requestQuote}<span aria-hidden="true">→</span>
-              </Link>
+      <div className="home-first-screen">
+        <section className="home-hero-shell relative isolate overflow-hidden px-5 text-white md:px-10">
+          <div
+            className="absolute inset-0 -z-30 bg-cover bg-center"
+            style={{ backgroundImage: "url('/assets/video/industrial-measurement-poster.webp')" }}
+            aria-hidden="true"
+          />
+          <video
+            className="hero-industrial-video absolute inset-0 -z-20 h-full w-full object-cover"
+            data-video-source="pexels-5571842"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/assets/video/industrial-measurement-poster.webp"
+            aria-hidden="true"
+          >
+            <source src="/assets/video/industrial-measurement-hero.mp4" type="video/mp4" />
+          </video>
+          <div
+            className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(20,31,42,.94)_0%,rgba(20,31,42,.78)_48%,rgba(20,31,42,.48)_100%)]"
+            aria-hidden="true"
+          />
+          <div className="home-hero-content relative z-10 mx-auto flex max-w-7xl items-center">
+            <div className="home-section-reveal max-w-4xl">
+              <p className="eyebrow home-hero-eyebrow">{c.heroEyebrow}</p>
+              <h1 className="home-hero-title max-w-4xl text-[38px] font-bold leading-[1.08] sm:text-[46px] lg:text-[54px]">{c.heroTitle}</h1>
+              <p className="home-hero-lead mt-6 max-w-2xl text-lg font-normal leading-8 text-slate-100 md:text-xl">{heroLead}</p>
+              <div className="home-hero-actions mt-8 flex flex-wrap gap-3">
+                <Link className="btn btn-primary whitespace-nowrap" href={localizedPath(locale, "/catalog")}>
+                  {c.viewCatalog}
+                </Link>
+                <Link className="home-hero-secondary-link inline-flex min-h-11 items-center gap-2 border-b border-white/45 px-2 font-semibold" href={localizedPath(locale, "/contact")}>
+                  {c.requestQuote}<span aria-hidden="true">→</span>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {heroDetails ? (
-        <section className="home-hero-details border-b border-line bg-white px-5 py-10 md:px-10 md:py-12">
-          <div className="section-narrow home-section-reveal grid gap-5 md:grid-cols-[280px_minmax(0,1fr)] md:gap-12 lg:gap-20" data-home-reveal>
-            <p className="home-hero-details-label text-xs font-bold uppercase text-accent">{c.heroDetailsEyebrow}</p>
-            <p className="max-w-4xl text-base leading-7 text-[#3f4c59] md:text-lg md:leading-8">{heroDetails}</p>
-          </div>
         </section>
-      ) : null}
+
+        {heroDetails ? (
+          <section className="home-hero-details border-b border-line bg-white px-5 py-10 md:px-10 md:py-12">
+            <div className="section-narrow home-section-reveal grid gap-5 md:grid-cols-[280px_minmax(0,1fr)] md:gap-12 lg:gap-20" data-home-reveal>
+              <p className="home-hero-details-label text-xs font-bold uppercase text-accent">{c.heroDetailsEyebrow}</p>
+              <p className="max-w-4xl text-base leading-7 text-[#3f4c59] md:text-lg md:leading-8">{heroDetails}</p>
+            </div>
+          </section>
+        ) : null}
+      </div>
 
       <HomeBrandCategoriesSection locale={locale} />
 

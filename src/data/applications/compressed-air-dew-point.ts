@@ -12,7 +12,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
   content: {
     ru: {
       metaTitle: "Промышленный измеритель и преобразователь точки росы",
-      metaDescription: "Промышленные измерители и преобразователи точки росы для сжатого воздуха, осушителей и сухих газов. Подбор и поставка из Китая в Россию.",
+      metaDescription: "Промышленные измерители и преобразователи точки росы для сжатого воздуха, осушителей и сухих газов. Подбор и международная поставка из Китая.",
       heroEyebrow: "Контроль влажности в технологических газах",
       title: "Промышленные измерители точки росы для сжатого воздуха",
       lead: "Промышленный измеритель точки росы подходит для переносных проверок, а преобразователь точки росы — для постоянного контроля осушителей, пневмолиний и сухих технологических газов.",
@@ -62,7 +62,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
       advisorText: "Укажите газ, давление, диапазон точки росы и способ установки. Мы поможем сопоставить параметры с подходящими моделями.",
       advisorButton: "Отправить параметры",
       finalCtaTitle: "Нужен прибор для контроля точки росы?",
-      finalCtaText: "Сопоставим газ, давление, диапазон и способ установки с подходящими моделями. Поставку из Китая в Россию, международную доставку и поддержку таможенного оформления согласуем в коммерческом предложении.",
+      finalCtaText: "Сопоставим газ, давление, диапазон и способ установки с подходящими моделями. Условия международной поставки из Китая, доставки и таможенного оформления согласуем в коммерческом предложении с учетом страны назначения.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -117,7 +117,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
       advisorText: "Send gas, pressure, dew point range and installation details. We will match the parameters with suitable models.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need help choosing a measurement solution?",
-      finalCtaText: "We will match the gas, pressure, range and installation method with suitable models, then quote supply from China to Russia with the selected international delivery and customs-clearance arrangement.",
+      finalCtaText: "We will match the gas, pressure, range and installation method with suitable models, then quote international supply from China, with delivery and customs-clearance responsibilities agreed for the destination country.",
       finalCtaButton: "Request a selection"
     }
   }
