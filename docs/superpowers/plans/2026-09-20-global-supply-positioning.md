@@ -22,6 +22,9 @@
 - Modify `src/data/applications/industrial-humidity-monitoring.ts`: update RU metadata and RU/EN supply CTA copy.
 - Modify `src/data/applications/glove-box-oxygen-analysis.ts`: update RU metadata and RU/EN supply CTA copy.
 - Modify `src/lib/seo.ts`: remove the Russia-only `areaServed` value from the sales contact.
+- Modify `scripts/check-ui.mjs`: enforce the desktop first-fold layout contract.
+- Modify `src/components/site.tsx`: group the homepage hero and supply details into one first-screen wrapper.
+- Modify `src/app/globals.css`: allocate desktop viewport height between the hero and supply details while preserving mobile flow.
 - Preserve `src/lib/legal.ts`: its four Russia references describe legal and cross-border data-processing context.
 
 ### Task 1: Change the regression checks first
@@ -263,7 +266,96 @@ npm run check:seo
 
 Expected: PASS. The commercial source set contains international-supply language and no Russia-only destination phrase.
 
-### Task 5: Verify scope, email safety and production build
+### Task 5: Fit the desktop hero and supply details into the first viewport
+
+**Files:**
+- Modify: `scripts/check-ui.mjs`
+- Modify: `src/components/site.tsx:183-232`
+- Modify: `src/app/globals.css:159-171,260-265`
+
+- [ ] **Step 1: Add the failing desktop first-fold check**
+
+Add this entry to the `checks` array in `scripts/check-ui.mjs`:
+
+```js
+{
+  name: "desktop homepage first fold contains hero and supply details",
+  pass: () =>
+    source.includes('<div className="home-first-screen">') &&
+    cssSource.includes(".home-first-screen") &&
+    cssSource.includes("min-height: calc(100svh - var(--site-header-height))") &&
+    cssSource.includes("grid-template-rows: minmax(520px, 1fr) auto") &&
+    cssSource.includes(".home-first-screen .home-hero-shell") &&
+    cssSource.includes(".home-first-screen .home-hero-content") &&
+    cssSource.includes(".home-first-screen .home-hero-details")
+},
+```
+
+- [ ] **Step 2: Run the UI check and verify the new check fails**
+
+Run:
+
+```powershell
+npm run check:ui
+```
+
+Expected: FAIL only for `desktop homepage first fold contains hero and supply details`.
+
+- [ ] **Step 3: Wrap the hero and supply details in one first-screen container**
+
+In `src/components/site.tsx`, wrap the existing hero section and conditional `home-hero-details` section without changing their internal content:
+
+```tsx
+<div className="home-first-screen">
+  <section className="home-hero-shell ...">
+    {/* Existing video, overlay and hero content remain unchanged. */}
+  </section>
+
+  {heroDetails ? (
+    <section className="home-hero-details ...">
+      {/* Existing supply-detail content remains unchanged. */}
+    </section>
+  ) : null}
+</div>
+```
+
+- [ ] **Step 4: Add desktop-only viewport allocation styles**
+
+Inside the existing `@media (min-width: 1280px)` block in `src/app/globals.css`, keep the header variable and add:
+
+```css
+.home-first-screen {
+  display: grid;
+  grid-template-rows: minmax(520px, 1fr) auto;
+  min-height: calc(100svh - var(--site-header-height));
+}
+
+.home-first-screen .home-hero-shell {
+  min-height: 0;
+}
+
+.home-first-screen .home-hero-content {
+  min-height: 100%;
+}
+
+.home-first-screen .home-hero-details {
+  padding-block: 28px;
+}
+```
+
+Do not add these rules outside the desktop media query. Existing mobile and tablet `home-hero-shell` behavior must remain unchanged.
+
+- [ ] **Step 5: Run the UI check again**
+
+Run:
+
+```powershell
+npm run check:ui
+```
+
+Expected: PASS with the new first-fold assertion satisfied.
+
+### Task 6: Verify scope, email safety and production build
 
 **Files:**
 - Verify only; do not modify `src/lib/legal.ts`, RFQ components, API routes or email modules.
@@ -297,6 +389,7 @@ Run:
 npm run check:i18n
 npm run check:seo
 npm run check:applications
+npm run check:ui
 npm run check:rfq-email
 ```
 
@@ -327,7 +420,7 @@ Expected: no whitespace errors; only the planned copy, metadata, schema and vali
 - [ ] **Step 5: Commit the complete verified change**
 
 ```powershell
-git add scripts/check-seo.mjs scripts/check-i18n.mjs src/app/page.tsx src/app/en/page.tsx src/lib/i18n.ts src/lib/seo.ts src/data/applications/compressed-air-dew-point.ts src/data/applications/natural-gas-moisture-monitoring.ts src/data/applications/industrial-humidity-monitoring.ts src/data/applications/glove-box-oxygen-analysis.ts
+git add docs/superpowers/specs/2026-09-20-global-supply-positioning-design.md docs/superpowers/plans/2026-09-20-global-supply-positioning.md scripts/check-seo.mjs scripts/check-i18n.mjs scripts/check-ui.mjs src/app/page.tsx src/app/en/page.tsx src/lib/i18n.ts src/lib/seo.ts src/components/site.tsx src/app/globals.css src/data/applications/compressed-air-dew-point.ts src/data/applications/natural-gas-moisture-monitoring.ts src/data/applications/industrial-humidity-monitoring.ts src/data/applications/glove-box-oxygen-analysis.ts
 git commit -m "优化：统一全站国际供货定位"
 ```
 
