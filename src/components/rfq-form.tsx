@@ -112,7 +112,33 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
         <Field label={c.formName} name="Name" />
         <Field label={c.formCompany} name="Company" />
         <Field label={c.formCountryCity} name="Country / City" />
-        <Field label={c.formPhone} name="Phone / WhatsApp / Telegram" />
+        <div className="field">
+          <label className="mb-2 block font-bold" htmlFor="contactMethod">
+            {c.formContact}
+          </label>
+          <div className="grid gap-2 sm:grid-cols-[minmax(130px,0.8fr)_minmax(0,1.2fr)]">
+            <select
+              className="min-h-12 w-full rounded border border-line px-3 py-3"
+              id="contactMethod"
+              name="Contact Method"
+              defaultValue=""
+              aria-label={c.formContactMethod}
+            >
+              <option value="">{c.formContactMethod}</option>
+              <option value="Phone">Phone</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Telegram">Telegram</option>
+            </select>
+            <input
+              className="min-h-12 w-full rounded border border-line px-3 py-3"
+              id="contactDetails"
+              name="Contact Details"
+              type="text"
+              placeholder={c.formContactDetails}
+              aria-label={c.formContactDetails}
+            />
+          </div>
+        </div>
         <div className="field">
           <label className="mb-2 block font-bold" htmlFor="productModel">
             {c.formProductModel}
@@ -124,6 +150,7 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
                 {product.model}
               </option>
             ))}
+            <option value="Other">Other</option>
           </select>
         </div>
         <Field label={c.formQuantity} name="Quantity" type="number" />

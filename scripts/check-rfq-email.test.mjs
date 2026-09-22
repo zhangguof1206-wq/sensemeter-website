@@ -37,3 +37,23 @@ test("returns email_not_configured when SMTP credentials are missing", async () 
     }
   }
 });
+
+test("reads the selected contact method and contact details", async () => {
+  const { readRfqFields } = await import("../src/lib/rfq-email.ts");
+  const fields = readRfqFields(
+    "Email=test%40example.com&Contact+Method=WhatsApp&Contact+Details=%2B7+999+000+00+00"
+  );
+
+  assert.equal(fields["Contact Method"], "WhatsApp");
+  assert.equal(fields["Contact Details"], "+7 999 000 00 00");
+});
+
+test("maps the legacy combined contact field into contact details", async () => {
+  const { readRfqFields } = await import("../src/lib/rfq-email.ts");
+  const fields = readRfqFields(
+    "Email=test%40example.com&Phone+%2F+WhatsApp+%2F+Telegram=%40legacy_contact"
+  );
+
+  assert.equal(fields["Contact Method"], "");
+  assert.equal(fields["Contact Details"], "@legacy_contact");
+});

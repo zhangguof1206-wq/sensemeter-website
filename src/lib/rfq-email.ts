@@ -8,7 +8,8 @@ export const rfqFieldOrder = [
   "Name",
   "Company",
   "Country / City",
-  "Phone / WhatsApp / Telegram",
+  "Contact Method",
+  "Contact Details",
   "Product Model",
   "Quantity",
   "Application",
@@ -31,7 +32,14 @@ function escapeHtml(value: string) {
 
 export function readRfqFields(body: string) {
   const params = new URLSearchParams(body);
-  return Object.fromEntries(rfqFieldOrder.map((field) => [field, params.get(field)?.trim() || ""]));
+  const legacyContact = params.get("Phone / WhatsApp / Telegram")?.trim() || "";
+
+  return Object.fromEntries(
+    rfqFieldOrder.map((field) => {
+      const value = params.get(field)?.trim() || "";
+      return [field, field === "Contact Details" && !value ? legacyContact : value];
+    })
+  );
 }
 
 function buildText(fields: Record<string, string>) {

@@ -122,6 +122,16 @@ const checks = [
     }
   },
   {
+    name: "RFQ contact controls have complete Russian and English copy",
+    pass: () =>
+      copy.ru.formContact === "Контакт" &&
+      copy.ru.formContactMethod === "Выберите способ связи" &&
+      copy.ru.formContactDetails === "Номер или имя пользователя" &&
+      copy.en.formContact === "Contact" &&
+      copy.en.formContactMethod === "Select contact method" &&
+      copy.en.formContactDetails === "Number or username"
+  },
+  {
     name: "product localized lists have matching item counts",
     pass: () => {
       const listKeys = ["params", "highlights", "applications"];

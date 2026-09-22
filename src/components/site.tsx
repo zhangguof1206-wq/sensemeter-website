@@ -119,7 +119,8 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
           <input name="Name" />
           <input name="Company" />
           <input name="Country / City" />
-          <input name="Phone / WhatsApp / Telegram" />
+          <input name="Contact Method" />
+          <input name="Contact Details" />
           <input name="Product Model" />
           <input name="Quantity" />
           <input name="Application" />

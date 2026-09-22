@@ -16,7 +16,7 @@
 - Modify: `scripts/check-rfq-email.test.mjs`
 - Modify: `src/lib/rfq-email.ts`
 
-- [ ] **Step 1: Write failing tests for the new contact fields**
+- [x] **Step 1: Write failing tests for the new contact fields**
 
 Add tests that import `readRfqFields` and verify:
 
@@ -42,13 +42,13 @@ test("maps the legacy combined contact field into contact details", async () => 
 });
 ```
 
-- [ ] **Step 2: Run the focused test and confirm RED**
+- [x] **Step 2: Run the focused test and confirm RED**
 
 Run: `npm run check:rfq-email`
 
 Expected: FAIL because `readRfqFields` is not exported and the new fields are not normalized.
 
-- [ ] **Step 3: Implement minimal field normalization**
+- [x] **Step 3: Implement minimal field normalization**
 
 In `src/lib/rfq-email.ts`:
 
@@ -83,7 +83,7 @@ export function readRfqFields(body: string) {
 
 The old combined key remains accepted as input but is omitted from the formatted field order.
 
-- [ ] **Step 4: Run the focused test and confirm GREEN**
+- [x] **Step 4: Run the focused test and confirm GREEN**
 
 Run: `npm run check:rfq-email`
 
@@ -98,7 +98,7 @@ Expected: all RFQ email tests pass.
 - Modify: `src/components/rfq-form.tsx`
 - Modify: `src/components/site.tsx`
 
-- [ ] **Step 1: Add failing static checks**
+- [x] **Step 1: Add failing static checks**
 
 Make `scripts/check-ui.mjs` read `src/components/rfq-form.tsx` and require:
 
@@ -116,13 +116,13 @@ source.includes('<input name="Contact Details" />')
 
 Make `scripts/check-i18n.mjs` require both locale objects to contain `formContact`, `formContactMethod`, and `formContactDetails`.
 
-- [ ] **Step 2: Run checks and confirm RED**
+- [x] **Step 2: Run checks and confirm RED**
 
 Run: `npm run check:ui && npm run check:i18n`
 
 Expected: FAIL because the new controls and copy do not exist yet.
 
-- [ ] **Step 3: Add localized labels**
+- [x] **Step 3: Add localized labels**
 
 Replace `formPhone` in `src/lib/i18n.ts` with:
 
@@ -138,7 +138,7 @@ formContactMethod: "Select contact method",
 formContactDetails: "Number or username",
 ```
 
-- [ ] **Step 4: Replace the ambiguous visible field**
+- [x] **Step 4: Replace the ambiguous visible field**
 
 In `src/components/rfq-form.tsx`, replace the old `Field` with one labeled group. Keep both controls optional and use this responsive layout:
 
@@ -178,7 +178,7 @@ Append this after the mapped product options so it is always last:
 <option value="Other">Other</option>
 ```
 
-- [ ] **Step 5: Update the hidden archive form**
+- [x] **Step 5: Update the hidden archive form**
 
 In `src/components/site.tsx`, replace the old combined contact input with:
 
@@ -187,7 +187,7 @@ In `src/components/site.tsx`, replace the old combined contact input with:
 <input name="Contact Details" />
 ```
 
-- [ ] **Step 6: Run checks and confirm GREEN**
+- [x] **Step 6: Run checks and confirm GREEN**
 
 Run: `npm run check:ui && npm run check:i18n && npm run check:rfq-email`
 
@@ -200,25 +200,44 @@ Expected: all checks pass.
 - Verify: `src/lib/rfq-email.ts`
 - Verify: generated Next.js build output
 
-- [ ] **Step 1: Run the complete project checks**
+- [x] **Step 1: Run the complete project checks**
 
-Run: `npm run check`
+Run all existing project checks:
+
+```powershell
+$scripts = @(
+  'typecheck',
+  'check:catalog',
+  'check:accessories',
+  'check:seo',
+  'check:yandex-urls',
+  'check:applications',
+  'check:application-links',
+  'check:ui',
+  'check:i18n',
+  'check:rfq-email'
+)
+foreach ($script in $scripts) {
+  npm run $script
+  if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+}
+```
 
 Expected: all project checks pass.
 
-- [ ] **Step 2: Build the release bundle**
+- [x] **Step 2: Build the release bundle**
 
 Run: `npm run build:release`
 
 Expected: Next.js production build and postbuild form-copy step finish successfully.
 
-- [ ] **Step 3: Start a local preview**
+- [x] **Step 3: Start a local preview**
 
 Run: `npm run dev -- --port 3012`
 
 Keep the process running and open `http://localhost:3012/contact` in the in-app browser.
 
-- [ ] **Step 4: Visually verify RU and EN**
+- [x] **Step 4: Visually verify RU and EN**
 
 Check `/contact` and `/en/contact` at desktop and mobile widths:
 - The contact method selector and contact details input align in one row on desktop and stack on narrow screens.
@@ -228,7 +247,7 @@ Check `/contact` and `/en/contact` at desktop and mobile widths:
 - No additional product-model text input appears.
 - There is no horizontal overflow or overlapping text.
 
-- [ ] **Step 5: Commit the complete feature**
+- [x] **Step 5: Commit the complete feature**
 
 Run:
 

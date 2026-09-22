@@ -23,6 +23,7 @@ const aboutRevealObserverPath = join(root, "src", "components", "about", "about-
 const aboutRevealObserverSource = existsSync(aboutRevealObserverPath) ? read("src/components/about/about-reveal-observer.tsx") : "";
 const aboutDataPath = join(root, "src", "data", "about.ts");
 const aboutDataSource = existsSync(aboutDataPath) ? read("src/data/about.ts") : "";
+const rfqFormSource = read("src/components/rfq-form.tsx");
 
 const checks = [
   {
@@ -357,6 +358,19 @@ const checks = [
       cssSource.includes('[data-home-reveal].is-visible') &&
       cssSource.includes("@media (prefers-reduced-motion: reduce)") &&
       !cssSource.includes("animation: home-section-rise")
+  },
+  {
+    name: "RFQ form separates contact method and details and keeps Other as the final model option",
+    pass: () =>
+      rfqFormSource.includes('name="Contact Method"') &&
+      rfqFormSource.includes('name="Contact Details"') &&
+      rfqFormSource.includes('<option value="Phone">Phone</option>') &&
+      rfqFormSource.includes('<option value="WhatsApp">WhatsApp</option>') &&
+      rfqFormSource.includes('<option value="Telegram">Telegram</option>') &&
+      rfqFormSource.includes('<option value="Other">Other</option>') &&
+      source.includes('<input name="Contact Method" />') &&
+      source.includes('<input name="Contact Details" />') &&
+      !source.includes('<input name="Phone / WhatsApp / Telegram" />')
   },
   {
     name: "cookie banner is compact on narrow screens",
