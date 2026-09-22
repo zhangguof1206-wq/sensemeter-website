@@ -360,14 +360,16 @@ const checks = [
       !cssSource.includes("animation: home-section-rise")
   },
   {
-    name: "RFQ form separates contact method and details and keeps Other as the final model option",
+    name: "RFQ form uses a neutral segmented contact method control and keeps Other as the final model option",
     pass: () =>
+      rfqFormSource.includes('const CONTACT_METHODS = ["Phone", "WhatsApp", "Telegram"] as const;') &&
       rfqFormSource.includes('name="Contact Method"') &&
+      rfqFormSource.includes('type="radio"') &&
+      rfqFormSource.includes("peer-checked:bg-[#1f3044]") &&
+      rfqFormSource.includes("peer-checked:text-white") &&
       rfqFormSource.includes('name="Contact Details"') &&
-      rfqFormSource.includes('<option value="Phone">Phone</option>') &&
-      rfqFormSource.includes('<option value="WhatsApp">WhatsApp</option>') &&
-      rfqFormSource.includes('<option value="Telegram">Telegram</option>') &&
       rfqFormSource.includes('<option value="Other">Other</option>') &&
+      !rfqFormSource.includes('id="contactMethod"') &&
       source.includes('<input name="Contact Method" />') &&
       source.includes('<input name="Contact Details" />') &&
       !source.includes('<input name="Phone / WhatsApp / Telegram" />')

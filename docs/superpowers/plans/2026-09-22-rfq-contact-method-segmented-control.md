@@ -16,7 +16,7 @@
 - Modify: `scripts/check-ui.mjs`
 - Test: `scripts/check-ui.mjs`
 
-- [ ] **Step 1: Replace the old dropdown assertions with segmented-control assertions**
+- [x] **Step 1: Replace the old dropdown assertions with segmented-control assertions**
 
 Update the RFQ check so it requires the radio group and rejects the old select:
 
@@ -38,7 +38,7 @@ Update the RFQ check so it requires the radio group and rejects the old select:
 }
 ```
 
-- [ ] **Step 2: Run the UI check and confirm RED**
+- [x] **Step 2: Run the UI check and confirm RED**
 
 Run: `npm run check:ui`
 
@@ -50,7 +50,7 @@ Expected: FAIL on the RFQ segmented-control check because the page still uses a 
 - Modify: `src/components/rfq-form.tsx`
 - Test: `scripts/check-ui.mjs`
 
-- [ ] **Step 1: Add the fixed method list**
+- [x] **Step 1: Add the fixed method list**
 
 Add below the existing form constants:
 
@@ -58,7 +58,7 @@ Add below the existing form constants:
 const CONTACT_METHODS = ["Phone", "WhatsApp", "Telegram"] as const;
 ```
 
-- [ ] **Step 2: Replace the Contact heading and dropdown**
+- [x] **Step 2: Replace the Contact heading and dropdown**
 
 Replace the visible contact field with:
 
@@ -94,7 +94,7 @@ Replace the visible contact field with:
 
 This leaves no method selected by default, keeps all values unchanged, and gives the details input the entire column width.
 
-- [ ] **Step 3: Run focused checks and confirm GREEN**
+- [x] **Step 3: Run focused checks and confirm GREEN**
 
 Run:
 
@@ -112,17 +112,17 @@ Expected: all three commands pass.
 - Verify: `src/components/rfq-form.tsx`
 - Verify: generated Next.js build output
 
-- [ ] **Step 1: Run the release build**
+- [x] **Step 1: Run the release build**
 
 Run: `npm run build:release`
 
 Expected: all SEO, URL, application, UI, i18n, type/build and postbuild steps finish successfully.
 
-- [ ] **Step 2: Start the local preview**
+- [x] **Step 2: Start the local preview**
 
 Run: `npm run dev -- --port 3012`
 
-- [ ] **Step 3: Visually verify the result**
+- [x] **Step 3: Visually verify the result**
 
 Open `/contact` and `/en/contact` at the default desktop viewport and at `390x844`:
 
@@ -134,7 +134,7 @@ Open `/contact` and `/en/contact` at the default desktop viewport and at `390x84
 - There is no overlap or horizontal overflow.
 - `Other` remains the last product-model option.
 
-- [ ] **Step 4: Commit the complete change**
+- [x] **Step 4: Commit the complete change**
 
 Run:
 
