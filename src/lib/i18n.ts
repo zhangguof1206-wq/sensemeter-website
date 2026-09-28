@@ -48,6 +48,7 @@ export const copy = {
     keyParams: "Ключевые параметры",
     highlights: "Особенности",
     applications: "Применение",
+    selectionInputs: "Что указать для подбора",
     relatedApplications: "Связанные применения",
     aboutTitle: "О нас",
     aboutLead:
@@ -144,6 +145,7 @@ export const copy = {
     keyParams: "Key Parameters",
     highlights: "Highlights",
     applications: "Applications",
+    selectionInputs: "What to specify for selection",
     relatedApplications: "Related applications",
     aboutTitle: "About",
     aboutLead:

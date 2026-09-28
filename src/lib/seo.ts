@@ -21,7 +21,8 @@ const categoryNames: Record<Product["category"], Record<Locale, string>> = {
 const productSeoNames: Partial<Record<Product["slug"], Record<Locale, string>>> = {
   "optidew-hz": { ru: "анализатор углеводородной точки росы", en: "hydrocarbon dew-point analyzer" },
   "hmp3-hmpx": { ru: "датчик влажности и температуры", en: "humidity and temperature probe" },
-  "dmt143-dmt143l": { ru: "датчик точки росы", en: "dew-point transmitter" }
+  "dmt143-dmt143l": { ru: "датчик точки росы", en: "dew-point transmitter" },
+  "mdm300": { ru: "портативный гигрометр точки росы", en: "portable dew-point hygrometer" }
 };
 
 export function absoluteUrl(path: string) {

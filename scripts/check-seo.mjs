@@ -279,6 +279,30 @@ const checks = [
     }
   },
   {
+    name: "MDM300 page separates product variants and collects RFQ inputs",
+    pass: () => {
+      const catalog = read("src/data/catalog.ts");
+      const component = read("src/components/site.tsx");
+      const i18n = read("src/lib/i18n.ts");
+      const seo = read("src/lib/seo.ts");
+      const requiredCatalogCopy = [
+        "selectionInputs?: LocalizedList",
+        "MDM300: T95 to -60 deg Cdp in up to 15 minutes",
+        "MDM300 I.S.: T95 to -60 deg Cdp in up to 30 minutes",
+        "MDM300: up to 48 hours of typical use",
+        "MDM300 I.S.: up to 24 hours of typical use",
+        "Gas type and measurement units",
+        "Ordinary or intrinsically safe version"
+      ];
+
+      return requiredCatalogCopy.every((phrase) => catalog.includes(phrase)) &&
+        component.includes("product.selectionInputs") &&
+        i18n.includes('selectionInputs: "What to specify for selection"') &&
+        i18n.includes('selectionInputs: "Что указать для подбора"') &&
+        seo.includes('"mdm300": { ru: "портативный гигрометр точки росы", en: "portable dew-point hygrometer" }');
+    }
+  },
+  {
     name: "third batch product pages include RFQ-ready search phrases",
     pass: () => {
       const catalog = read("src/data/catalog.ts");

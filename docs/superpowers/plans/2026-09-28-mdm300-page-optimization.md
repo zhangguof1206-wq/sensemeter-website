@@ -15,7 +15,7 @@
 **Files:**
 - Modify: `scripts/check-seo.mjs`
 
-- [ ] **Step 1: Add a focused failing check**
+- [x] **Step 1: Add a focused failing check**
 
 Add a check that reads `src/data/catalog.ts`, `src/components/site.tsx`, `src/lib/i18n.ts`, and `src/lib/seo.ts`. Require the following signals:
 
@@ -46,7 +46,7 @@ Add a check that reads `src/data/catalog.ts`, `src/components/site.tsx`, `src/li
 }
 ```
 
-- [ ] **Step 2: Run the check and verify RED**
+- [x] **Step 2: Run the check and verify RED**
 
 Run: `npm run check:seo`
 
@@ -60,7 +60,7 @@ Expected: the new `MDM300 page separates product variants and collects RFQ input
 - Modify: `src/lib/i18n.ts`
 - Modify: `src/lib/seo.ts`
 
-- [ ] **Step 1: Extend the product type**
+- [x] **Step 1: Extend the product type**
 
 Add the optional field without changing existing products:
 
@@ -81,7 +81,7 @@ export type Product = {
 };
 ```
 
-- [ ] **Step 2: Replace only the MDM300 bilingual content**
+- [x] **Step 2: Replace only the MDM300 bilingual content**
 
 Update the MDM300 record with manufacturer-supported copy. Keep exact variant distinctions:
 
@@ -148,7 +148,7 @@ selectionInputs: {
 
 Do not add exact SenseMeter stock, lead time, distributor status, or unsupported approval promises.
 
-- [ ] **Step 3: Render the optional selection section**
+- [x] **Step 3: Render the optional selection section**
 
 Add the localized heading to both locale dictionaries in `src/lib/i18n.ts`, then render after applications and before related applications:
 
@@ -158,7 +158,7 @@ Add the localized heading to both locale dictionaries in `src/lib/i18n.ts`, then
 ) : null}
 ```
 
-- [ ] **Step 4: Add the precise MDM300 SEO name**
+- [x] **Step 4: Add the precise MDM300 SEO name**
 
 Extend `productSeoNames` in `src/lib/seo.ts`:
 
@@ -169,7 +169,7 @@ Extend `productSeoNames` in `src/lib/seo.ts`:
 }
 ```
 
-- [ ] **Step 5: Run the focused check and verify GREEN**
+- [x] **Step 5: Run the focused check and verify GREEN**
 
 Run: `npm run check:seo`
 
@@ -184,7 +184,7 @@ Expected: all SEO checks pass, including the new MDM300 contract.
 - Verify: `src/lib/seo.ts`
 - Verify: `scripts/check-seo.mjs`
 
-- [ ] **Step 1: Run targeted structural checks**
+- [x] **Step 1: Run targeted structural checks**
 
 Run:
 
@@ -196,13 +196,15 @@ npm run typecheck
 
 Expected: all commands exit with code `0`.
 
-- [ ] **Step 2: Run the production build**
+- [x] **Step 2: Run the production build**
 
 Run: `npm run build`
 
 Expected: Next.js build succeeds and both `/products/mdm300` and `/en/products/mdm300` are generated.
 
 - [ ] **Step 3: Inspect rendered RU and EN pages**
+
+  Automated HTML verification passed for both locales. Browser screenshot access to `localhost` was denied by the desktop permission gate, so visual confirmation remains a manual release gate.
 
 Start the built site on port `3012`:
 
@@ -225,7 +227,7 @@ Expected: both requests return HTTP `200`, and every requested phrase is found. 
 - PDF and RFQ links remain present.
 - Desktop and mobile screenshots have no overlap or clipped content.
 
-- [ ] **Step 4: Review the diff**
+- [x] **Step 4: Review the diff**
 
 Run:
 
@@ -237,7 +239,7 @@ git status --short
 
 Expected: only the plan, SEO check, catalog data, shared product component, translations, and SEO metadata mapping are changed.
 
-- [ ] **Step 5: Commit the complete implementation**
+- [x] **Step 5: Commit the complete implementation**
 
 Run:
 

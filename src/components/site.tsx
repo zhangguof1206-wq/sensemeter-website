@@ -350,6 +350,7 @@ export function ProductPage({ locale, product }: { locale: Locale; product: Prod
             <InfoList title={c.keyParams} items={product.params[locale]} />
             <InfoList title={c.highlights} items={product.highlights[locale]} />
             <InfoList title={c.applications} items={product.applications[locale]} />
+            {product.selectionInputs ? <InfoList title={c.selectionInputs} items={product.selectionInputs[locale]} /> : null}
             <RelatedApplicationLinks title={c.relatedApplications} locale={locale} links={applicationLinks} />
           </article>
 

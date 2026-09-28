@@ -33,6 +33,7 @@ export type Product = {
   params: LocalizedList;
   highlights: LocalizedList;
   applications: LocalizedList;
+  selectionInputs?: LocalizedList;
 };
 
 export const categories: Category[] = [
@@ -136,7 +137,7 @@ export const applicationScenes: ApplicationScene[] = [
   }
 ];
 
-export const products = [
+export const products: Product[] = [
   {
     slug: "easidew-pro-is",
     model: "Easidew PRO I.S.",
@@ -433,20 +434,24 @@ export const products = [
     image: "assets/products/MI_MDM300_EN-v9-7.png",
     pdf: "MI_MDM300_EN-v9-7.pdf",
     overview: {
-      ru: "MDM300 для выездной проверки точки росы в природном газе, сжатом воздухе и опасных зонах: портативный гигрометр для сервисных и пусконаладочных работ. Цена по запросу: уточните наличие и получите коммерческое предложение.",
-      en: "Portable MDM300 dew-point hygrometer for field checks in natural gas, compressed air and hazardous areas, suitable for service and commissioning work. Request price, availability and a quotation for MDM300."
+      ru: "Портативный гигрометр точки росы MDM300 / MDM300 I.S. для быстрых выборочных измерений в сжатом воздухе и природном газе. Запросите цену, наличие и коммерческое предложение.",
+      en: "Portable MDM300 / MDM300 I.S. dew-point hygrometer for rapid spot checks in compressed air and natural gas. Request price, availability and a quotation for MDM300."
     },
     params: {
-      ru: ["Точность +/-1 deg Cdp от -60 до +20 deg Cdp", "T95 до -60 deg Cdp менее 15 минут", "Измерение давления до 350 barg", "Батарея до 48 часов"],
-      en: ["Accuracy +/-1 deg Cdp from -60 to +20 deg Cdp", "T95 to -60 deg Cdp in under 15 minutes", "Pressure measurement up to 350 barg", "Battery life up to 48 hours"]
+      ru: ["Точность точки росы +/-1 deg C в диапазоне -60...+20 deg Cdp", "MDM300: T95 до -60 deg Cdp не более 15 минут", "MDM300 I.S.: T95 до -60 deg Cdp не более 30 минут", "Рабочее давление до 350 barg"],
+      en: ["Dew-point accuracy +/-1 deg C from -60 to +20 deg Cdp", "MDM300: T95 to -60 deg Cdp in up to 15 minutes", "MDM300 I.S.: T95 to -60 deg Cdp in up to 30 minutes", "Operating pressure up to 350 barg"]
     },
     highlights: {
-      ru: ["Легкий и прочный переносной формат", "Регистрация данных и аксессуары отбора проб", "I.S. версия для опасных зон"],
-      en: ["Lightweight and rugged portable format", "Data logging and sampling accessories", "I.S. version for hazardous areas"]
+      ru: ["MDM300: до 48 часов типичной работы между зарядками", "MDM300 I.S.: до 24 часов типичной работы между зарядками", "Переносной корпус IP66 / NEMA 4", "Регистрация данных и настраиваемые принадлежности для отбора проб"],
+      en: ["MDM300: up to 48 hours of typical use", "MDM300 I.S.: up to 24 hours of typical use", "IP66 / NEMA 4 portable enclosure", "Data logging and configurable sampling accessories"]
     },
     applications: {
-      ru: ["Природный газ, трубопроводы и контроль точки росы", "Осушители сжатого воздуха и сервисная проверка", "Petrochemical, industrial gas, medical gas и выездная диагностика"],
-      en: ["Natural gas, pipelines and dew-point control", "Compressed air dryers and field service checks", "Petrochemical, industrial gas, medical gas and portable diagnostics"]
+      ru: ["Переработка природного газа, трубопроводы и контроль точки росы", "Контроль адсорбционных осушителей сжатого воздуха", "Нефтехимия, промышленные и медицинские газы"],
+      en: ["Natural gas processing, pipelines and dew-point spot checks", "Monitoring desiccant dryers for compressed air", "Petrochemical, industrial gas and medical gas applications"]
+    },
+    selectionInputs: {
+      ru: ["Тип газа и требуемые единицы измерения", "Рабочее давление и ожидаемый диапазон точки росы", "Обычная или искробезопасная версия", "Подключение к пробе, принадлежности для отбора и количество"],
+      en: ["Gas type and measurement units", "Working pressure and expected dew-point range", "Ordinary or intrinsically safe version", "Sample connection, sampling accessories and quantity"]
     }
   },
   {
@@ -665,7 +670,7 @@ export const products = [
       en: ["Compressed air dew point testing and monitoring", "Industrial dryers", "Dry process gases and OEM systems"]
     }
   }
-] satisfies Product[];
+];
 
 export function productsByCategory(category: CategoryId) {
   return products.filter((product) => product.category === category);
