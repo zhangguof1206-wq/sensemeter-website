@@ -21,7 +21,9 @@
     "list:yandex-urls": "node scripts/list-yandex-urls.mjs",
     "check:yandex-urls": "node scripts/check-yandex-url-list.mjs",
     "check:application-links": "node scripts/check-application-backlinks.mjs",
-    "check:rfq-email": "node --no-warnings --experimental-strip-types --test scripts/check-rfq-email.test.mjs"
+    "check:rfq-email": "node --no-warnings --experimental-strip-types --test scripts/check-rfq-email.test.mjs",
+    "check:live-seo": "node scripts/check-live-seo.mjs --output artifacts/live-seo-report.md",
+    "test:live-seo": "node scripts/check-live-seo.test.mjs"
   },
   "dependencies": {
     "next": "^15.0.0",

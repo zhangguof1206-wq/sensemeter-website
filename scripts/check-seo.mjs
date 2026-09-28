@@ -519,7 +519,7 @@ const checks = [
       return enRoute.includes("generateStaticParams") &&
         enRoute.includes("generateMetadata") &&
         content.includes("Industrial humidity and temperature monitoring") &&
-        content.includes("Compressed air dew point monitoring") &&
+        content.includes("Compressed air dew point meters for testing and monitoring") &&
         content.includes("glovebox oxygen analysis") &&
         content.includes("Natural gas moisture monitoring") &&
         content.includes("Climate chamber humidity measurement") &&
@@ -534,9 +534,9 @@ const checks = [
       const i18n = read("src/lib/i18n.ts");
       const catalog = read("src/data/catalog.ts");
       const requiredText = [
-        "Compressed air dew point testing and monitoring",
-        "compressed air dew point testing",
-        "Recommended instruments for compressed air dew point testing",
+        "Compressed air dew point meters for testing and monitoring",
+        "compressed air dryer testing",
+        "Portable and online dew point meters for compressed air",
         "How do I test dew point in compressed air?",
         "oxygen analyzer for glovebox applications",
         "glovebox",

@@ -66,58 +66,58 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
       finalCtaButton: "Запросить подбор"
     },
     en: {
-      metaTitle: "Compressed air dew point testing and monitoring",
-      metaDescription: "Dew point meters and transmitters for compressed air dew point testing, dryer monitoring, process air and dry gas systems.",
-      heroEyebrow: "Compressed air dew point",
-      title: "Compressed air dew point testing and monitoring",
-      lead: "Dew point meters, transmitters and hygrometers for dryer checks, pneumatic lines, OEM skids and dry process gases.",
+      metaTitle: "Compressed air dew point meters for testing",
+      metaDescription: "Compare portable and online dew point meters for compressed air dryer testing, continuous monitoring and service checks. Select by pressure, range and output.",
+      heroEyebrow: "Portable and online dew point measurement",
+      title: "Compressed air dew point meters for testing and monitoring",
+      lead: "Compare portable dew point meters for service checks with online dew point transmitters for continuous dryer and pneumatic-line monitoring.",
       primaryButton: "Request a selection",
       secondaryButton: "View instruments",
       breadcrumbs: { home: "Home", applications: "Applications" },
       heroFacts: [
-        { title: "Continuous monitoring", text: "After the dryer and in the line" },
-        { title: "Service checks", text: "Portable dew point analyzers" }
+        { title: "Portable dew point testing", text: "Multiple test points and service checks" },
+        { title: "Online dryer monitoring", text: "Continuous measurement after the dryer" }
       ],
-      overviewTitle: "Why compressed air dew point matters",
-      overviewText: "Compressed air dew point monitoring shows whether a dryer and distribution line are keeping moisture under control. Reliable measurements help protect pneumatic equipment, instruments and quality-critical production processes.",
-      scenariosTitle: "Where dew point is measured",
-      scenariosLead: "Instrument configuration depends on pressure, expected dryness, installation method and alarm requirements.",
+      overviewTitle: "How to test compressed air dew point",
+      overviewText: "Compressed air dryer testing compares the measured pressure dew point with the required dryness at the dryer outlet or a critical user point. Stable pressure, controlled sample flow and a suitable measuring range help make readings repeatable.",
+      scenariosTitle: "Portable testing and online monitoring points",
+      scenariosLead: "Choose the measurement point and instrument format according to pressure, expected dryness, sampling method and alarm requirements.",
       photoScenarios: [
-        { title: "In-line installation", text: "A fixed transmitter monitors dew point in a bypass downstream of the dryer.", imageAlt: "Dew point transmitter installed at a compressed air dryer outlet" },
-        { title: "Service inspection", text: "Audit selected test points with a portable analyzer.", imageAlt: "Portable compressed air dew point service inspection" }
+        { title: "Online dew point transmitter", text: "Monitor a fixed point in a bypass downstream of the compressed air dryer.", imageAlt: "Dew point transmitter installed at a compressed air dryer outlet" },
+        { title: "Portable dew point meter", text: "Check multiple dryer outlets and distribution points during service inspections.", imageAlt: "Portable compressed air dew point service inspection" }
       ],
       technicalScenarios: [
-        { title: "Dryer outlet", text: "Continuously confirm dryer performance and detect moisture excursions.", criterion: "Minimum dew point, pressure and response time" },
+        { title: "Dryer outlet testing", text: "Confirm dryer performance and detect moisture excursions after the dryer.", criterion: "Minimum dew point, pressure and response time" },
         { title: "Critical user point", text: "Verify air quality before pneumatic or process equipment.", criterion: "Installation point, process connection and sample flow" },
-        { title: "Quality documentation", text: "Record moisture conditions for responsible production processes.", criterion: "Output signal, logging and calibration" }
+        { title: "Quality records", text: "Document moisture conditions for quality-critical production processes.", criterion: "Output signal, logging and calibration" }
       ],
       criterionLabel: "Selection focus",
-      selectionTitle: "How to choose a dew point instrument",
-      selectionLead: "Four groups of operating data define the suitable measuring solution.",
+      selectionTitle: "Choose a portable or online dew point meter",
+      selectionLead: "Start with the operating task, then confirm pressure, sampling and control requirements.",
       selectionCards: [
-        { title: "Gas and pressure", text: "Specify compressed air, nitrogen or another gas and the working line pressure." },
-        { title: "Dew point range", text: "Define the expected minimum, maximum and alarm threshold." },
-        { title: "Installation and sampling", text: "Choose direct mount, sample cell, bypass or portable kit." },
-        { title: "Output and control", text: "Specify display, relay, analog output or digital communication." }
+        { title: "Portable dew point meter", text: "Use a portable analyzer for dryer testing, commissioning and checks across multiple test points." },
+        { title: "Online dew point transmitter", text: "Use a fixed transmitter for continuous monitoring, alarms and connection to a control system." },
+        { title: "Pressure and sampling", text: "Confirm line pressure and choose direct mount, sample cell, bypass or a portable sampling kit." },
+        { title: "Output, alarms and logging", text: "Specify local display, relay, analog output, digital communication or data logging." }
       ],
       rfqTitle: "What to specify in your request",
       rfqPoints: ["Gas type", "Working pressure", "Expected dew point range", "Required accuracy", "Installation point", "Output signal and power", "Display or alarm needs", "Quantity and documentation needs"],
       productsEyebrow: "Recommended instruments",
-      productsTitle: "Recommended instruments for compressed air dew point testing",
-      productsLead: "These models support dryer monitoring, pneumatic lines, dry gases and service checks.",
+      productsTitle: "Portable and online dew point meters for compressed air",
+      productsLead: "Compare instruments for portable dryer testing, permanent monitoring, pneumatic lines and dry process gases.",
       productLinkLabel: "Learn more",
       faqsTitle: "Frequently asked questions",
       faqs: [
-        { question: "How do I test dew point in compressed air?", answer: "Use an online transmitter for permanent monitoring or a portable dew point analyzer for service checks. The right method depends on line pressure, expected dryness, sample point and whether alarms or data logging are required." },
-        { question: "Why measure dew point in compressed air?", answer: "Dew point shows the amount of moisture in compressed air. Monitoring helps prevent corrosion, icing, product contamination and dryer failure." },
-        { question: "Where should the sensor be installed?", answer: "Common locations include the dryer outlet, critical branch lines, process air supply points and quality-control test points." },
+        { question: "How do I test dew point in compressed air?", answer: "Measure at a representative point after the dryer or near a critical user. Confirm whether the reading must be pressure dew point, keep the sample conditions stable and use an instrument suited to the expected dry range." },
+        { question: "When should I use a portable dew point meter?", answer: "A portable meter is suitable for service checks, commissioning and comparing several dryer outlets or distribution points without installing a permanent instrument at each location." },
+        { question: "When should I use an online dew point transmitter?", answer: "An online transmitter is suitable for continuous monitoring, alarm thresholds and connection to a control or data-logging system at a fixed measurement point." },
         { question: "What data is needed for model selection?", answer: "Specify gas, pressure, expected dew point range, installation method, output requirements, display or alarm needs and operating conditions." }
       ],
       advisorTitle: "Select an instrument by parameters",
       advisorText: "Send gas, pressure, dew point range and installation details. We will match the parameters with suitable models.",
       advisorButton: "Send parameters",
-      finalCtaTitle: "Need help choosing a measurement solution?",
-      finalCtaText: "We will match the gas, pressure, range and installation method with suitable models, then quote international supply from China, with delivery and customs-clearance responsibilities agreed for the destination country.",
+      finalCtaTitle: "Need a compressed air dew point meter?",
+      finalCtaText: "Send the pressure, expected dew point range, measurement point and portable or online requirement. We will match suitable models and quote international supply from China, with delivery and customs-clearance responsibilities agreed for the destination country.",
       finalCtaButton: "Request a selection"
     }
   }

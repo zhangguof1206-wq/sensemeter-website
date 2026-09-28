@@ -109,6 +109,21 @@ for (const slug of applicationSlugs) {
   if (!route.includes("`/en${page.path}`")) fail(`${slug} Russian route links to EN equivalent`);
 }
 
+const compressedAirEnglish = read("src/data/applications/compressed-air-dew-point.ts")
+  .split("en:")[1]
+  ?.toLowerCase() || "";
+
+for (const phrase of [
+  "compressed air dew point meters",
+  "portable dew point meter",
+  "online dew point transmitter",
+  "dryer testing"
+]) {
+  if (!compressedAirEnglish.includes(phrase)) {
+    fail(`compressed-air English copy preserves buyer intent: ${phrase}`);
+  }
+}
+
 const enRoutePath = "src/app/en/applications/[slug]/page.tsx";
 if (!existsSync(join(root, enRoutePath))) {
   fail("English dynamic application route exists");

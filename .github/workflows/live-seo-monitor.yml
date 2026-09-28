@@ -1,0 +1,55 @@
+name: 线上SEO巡检
+
+on:
+  schedule:
+    - cron: "15 2 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-seo-audit:
+    name: 检查线上索引信号
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 读取仓库
+        uses: actions/checkout@v4
+
+      - name: 配置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 验证巡检器
+        run: npm run test:live-seo
+
+      - name: 运行线上SEO巡检
+        id: audit
+        continue-on-error: true
+        env:
+          SEO_AUDIT_BASE_URL: https://sensemeter.ru
+        run: node scripts/check-live-seo.mjs --output artifacts/live-seo-report.md
+
+      - name: 写入任务摘要
+        if: always()
+        run: |
+          if [ -f artifacts/live-seo-report.md ]; then
+            cat artifacts/live-seo-report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "SEO report was not generated." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: 保存巡检报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-seo-report
+          path: artifacts/live-seo-report.md
+          retention-days: 30
+
+      - name: 标记巡检失败
+        if: steps.audit.outcome == 'failure'
+        run: exit 1
