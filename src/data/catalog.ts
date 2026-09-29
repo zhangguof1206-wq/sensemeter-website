@@ -600,26 +600,30 @@ export const products: Product[] = [
   },
   {
     slug: "hmp3-hmpx",
-    model: "HMP3 / HMPX",
+    model: "HMP3",
     category: "VAISALA",
     brand: "VAISALA",
     image: "assets/products/Humidity and Temperature Probe HMP3.png",
     pdf: "VA_HMP3-HMPX-Datasheet-B211826EN-E.pdf",
     overview: {
-      ru: "HMP3 / HMPX датчик влажности и температуры для камер, помещений, воздуховодов и промышленных систем мониторинга, где важны стабильные измерения и корректная установка зонда. Цена по запросу: уточните наличие, совместимые аксессуары и получите коммерческое предложение.",
-      en: "HMP3 / HMPX humidity and temperature probes for chambers, rooms, ducts and industrial humidity monitoring systems where stable measurement and correct probe installation matter. Request price, availability and a quotation for HMP3 / HMPX. Compatible accessories are confirmed by application."
+      ru: "Vaisala HMP3 - промышленный датчик влажности и температуры для HVAC, чистых помещений, окрасочных камер и климатических камер. Поддерживает Modbus RTU по RS-485 и совместим с преобразователями Indigo. Запросите цену, наличие и коммерческое предложение на HMP3.",
+      en: "Vaisala HMP3 industrial humidity and temperature probe for HVAC, cleanrooms, paint booths and environmental chambers. Supports Modbus RTU over RS-485 and works with Indigo transmitters. Request price, availability and a quotation for HMP3."
     },
     params: {
-      ru: ["Измерение влажности и температуры", "Зондовое исполнение для интеграции", "Совместимость с системами мониторинга Vaisala", "PDF datasheet содержит варианты HMP и аксессуары"],
-      en: ["Humidity and temperature measurement", "Probe design for integration", "Compatibility with Vaisala monitoring systems", "PDF datasheet includes HMP variants and accessories"]
+      ru: ["Диапазон относительной влажности 0-100 %RH при максимальной точке росы +95 deg C", "Точность относительной влажности до +/-0.8 %RH при +23 deg C (0-90 %RH)", "Диапазон измерения температуры -40...+120 deg C", "Точность температуры до +/-0.1 deg C"],
+      en: ["Relative humidity range 0-100 %RH at a maximum dew point of +95 deg C", "Relative humidity accuracy up to +/-0.8 %RH at +23 deg C (0-90 %RH)", "Temperature measurement range -40 to +120 deg C", "Temperature accuracy up to +/-0.1 deg C"]
     },
     highlights: {
-      ru: ["Компактный зонд для точек измерения", "Подходит для лабораторных и производственных условий", "Выбор исполнения, аксессуаров и монтажа подтверждается по задаче"],
-      en: ["Compact probe for measurement points", "Suitable for laboratory and production environments", "Probe version, accessories and mounting are confirmed by application"]
+      ru: ["Modbus RTU по RS-485 для автономного подключения", "Корпус зонда IP66 для промышленной эксплуатации", "Совместимость с преобразователями Vaisala Indigo и программой Insight", "Сменные в полевых условиях сенсор и фильтр для обслуживания по месту установки"],
+      en: ["Modbus RTU over RS-485 for standalone connectivity", "IP66 probe body for industrial environments", "Compatible with Vaisala Indigo transmitters and Insight software", "Field-replaceable sensor and filter for on-site maintenance"]
     },
     applications: {
-      ru: ["Климатические камеры", "Лабораторные и производственные помещения", "Промышленный мониторинг влажности и температуры"],
-      en: ["Climate chambers", "Laboratory and production rooms", "Industrial humidity and temperature monitoring"]
+      ru: ["Промышленные HVAC и установки обработки воздуха", "Чистые помещения и климатические камеры", "Окрасочные камеры и общепромышленные процессы"],
+      en: ["Industrial HVAC and air handling units", "Cleanrooms and environmental chambers", "Paint booths and general industrial processes"]
+    },
+    selectionInputs: {
+      ru: ["Условия применения и измеряемый газ", "Ожидаемые диапазоны температуры и влажности", "Автономный RS-485 Modbus или преобразователь Indigo", "Конфигурация HMP3 или код заказа HMPX, если известен", "Длина кабеля, монтаж, фильтр, количество и страна поставки"],
+      en: ["Application environment and measured gas", "Expected temperature and humidity ranges", "Standalone RS-485 Modbus or Indigo transmitter", "HMP3 configuration or HMPX order code, if known", "Cable length, mounting, filter, quantity and delivery country"]
     }
   },
   {

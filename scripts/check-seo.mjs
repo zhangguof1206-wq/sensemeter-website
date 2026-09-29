@@ -303,6 +303,30 @@ const checks = [
     }
   },
   {
+    name: "HMP3 page focuses the model and collects qualified RFQ inputs",
+    pass: () => {
+      const catalog = read("src/data/catalog.ts");
+      const seo = read("src/lib/seo.ts");
+      const requiredCatalogCopy = [
+        'slug: "hmp3-hmpx"',
+        'model: "HMP3"',
+        "Vaisala HMP3 industrial humidity and temperature probe",
+        "Request price, availability and a quotation for HMP3.",
+        "Relative humidity accuracy up to +/-0.8 %RH at +23 deg C (0-90 %RH)",
+        "Temperature measurement range -40 to +120 deg C",
+        "Modbus RTU over RS-485",
+        "IP66 probe body",
+        "Application environment and measured gas",
+        "Standalone RS-485 Modbus or Indigo transmitter",
+        "HMP3 configuration or HMPX order code, if known",
+        "Cable length, mounting, filter, quantity and delivery country"
+      ];
+
+      return requiredCatalogCopy.every((phrase) => catalog.includes(phrase)) &&
+        seo.includes('"hmp3-hmpx": { ru: "промышленный датчик влажности и температуры", en: "industrial humidity and temperature probe" }');
+    }
+  },
+  {
     name: "third batch product pages include RFQ-ready search phrases",
     pass: () => {
       const catalog = read("src/data/catalog.ts");
@@ -326,7 +350,7 @@ const checks = [
         "Request price, availability and a quotation for Pura",
         "Request price, availability and a quotation for HygroFlex1",
         "Request price, availability and a quotation for HMT310",
-        "Request price, availability and a quotation for HMP3 / HMPX",
+        "Request price, availability and a quotation for HMP3.",
         "Request price, availability and a quotation for DMT143 / DMT143L"
       ];
       return requiredPhrases.every((phrase) => catalog.includes(phrase));
@@ -567,7 +591,7 @@ const checks = [
         "industrial humidity monitoring",
         "промышленные датчики влажности, точки росы и кислородные анализаторы",
         "PDF datasheet",
-        "HMP3 / HMPX датчик влажности и температуры",
+        "Vaisala HMP3 - промышленный датчик влажности и температуры",
         "Optidew-HZ анализатор углеводородной точки росы",
         "DMT143 / DMT143L преобразователь точки росы"
       ];

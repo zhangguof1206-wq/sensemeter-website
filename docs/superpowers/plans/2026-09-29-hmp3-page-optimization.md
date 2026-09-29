@@ -15,7 +15,7 @@
 **Files:**
 - Modify: `scripts/check-seo.mjs`
 
-- [ ] **Step 1: Add a focused failing check**
+- [x] **Step 1: Add a focused failing check**
 
 Add this check after the existing MDM300 contract:
 
@@ -36,6 +36,7 @@ Add this check after the existing MDM300 contract:
       "IP66 probe body",
       "Application environment and measured gas",
       "Standalone RS-485 Modbus or Indigo transmitter",
+      "HMP3 configuration or HMPX order code, if known",
       "Cable length, mounting, filter, quantity and delivery country"
     ];
 
@@ -45,7 +46,7 @@ Add this check after the existing MDM300 contract:
 }
 ```
 
-- [ ] **Step 2: Run the check and verify RED**
+- [x] **Step 2: Run the check and verify RED**
 
 Run: `npm run check:seo`
 
@@ -58,7 +59,7 @@ Expected: `HMP3 page focuses the model and collects qualified RFQ inputs` fails 
 - Modify: `src/lib/seo.ts`
 - Modify: `scripts/check-seo.mjs`
 
-- [ ] **Step 1: Focus the existing catalog record on HMP3**
+- [x] **Step 1: Focus the existing catalog record on HMP3**
 
 Keep `slug: "hmp3-hmpx"`, the image, and the PDF path. Change the model and bilingual content to:
 
@@ -113,12 +114,14 @@ selectionInputs: {
     "Условия применения и измеряемый газ",
     "Ожидаемые диапазоны температуры и влажности",
     "Автономный RS-485 Modbus или преобразователь Indigo",
+    "Конфигурация HMP3 или код заказа HMPX, если известен",
     "Длина кабеля, монтаж, фильтр, количество и страна поставки"
   ],
   en: [
     "Application environment and measured gas",
     "Expected temperature and humidity ranges",
     "Standalone RS-485 Modbus or Indigo transmitter",
+    "HMP3 configuration or HMPX order code, if known",
     "Cable length, mounting, filter, quantity and delivery country"
   ]
 }
@@ -126,7 +129,7 @@ selectionInputs: {
 
 Do not change the slug or add stock, price, delivery-time, distributor, or approval claims.
 
-- [ ] **Step 2: Strengthen the HMP3 metadata type**
+- [x] **Step 2: Strengthen the HMP3 metadata type**
 
 Replace the HMP3 mapping in `productSeoNames`:
 
@@ -137,7 +140,7 @@ Replace the HMP3 mapping in `productSeoNames`:
 }
 ```
 
-- [ ] **Step 3: Align older broad SEO assertions**
+- [x] **Step 3: Align older broad SEO assertions**
 
 Update the existing broad checks in `scripts/check-seo.mjs` so they expect the new focused phrases:
 
@@ -153,7 +156,7 @@ and:
 
 Do not weaken unrelated product checks.
 
-- [ ] **Step 4: Run the focused check and verify GREEN**
+- [x] **Step 4: Run the focused check and verify GREEN**
 
 Run: `npm run check:seo`
 
@@ -166,7 +169,7 @@ Expected: all SEO checks pass, including `HMP3 page focuses the model and collec
 - Verify: `src/lib/seo.ts`
 - Verify: `scripts/check-seo.mjs`
 
-- [ ] **Step 1: Run structural checks**
+- [x] **Step 1: Run structural checks**
 
 Run:
 
@@ -179,13 +182,15 @@ npm run typecheck
 
 Expected: every command exits with code `0`.
 
-- [ ] **Step 2: Run the production build**
+- [x] **Step 2: Run the production build**
 
 Run: `npm run build`
 
 Expected: the Next.js build succeeds and both `/products/hmp3-hmpx` and `/en/products/hmp3-hmpx` remain generated.
 
-- [ ] **Step 3: Verify the built bilingual pages**
+- [x] **Step 3: Verify the built bilingual pages**
+
+Automated HTML verification passed for both locales. Browser screenshot access was denied by the desktop permission gate, so final visual confirmation remains a manual release gate.
 
 Start the built site on an unused local port, then check both pages for these markers:
 
@@ -196,7 +201,7 @@ Russian: Vaisala HMP3, промышленный датчик влажности 
 
 Expected: both pages return HTTP `200`, canonical URLs retain `hmp3-hmpx`, PDF and RFQ links remain present, and all markers are found.
 
-- [ ] **Step 4: Review the final diff**
+- [x] **Step 4: Review the final diff**
 
 Run:
 
@@ -208,7 +213,7 @@ git status --short
 
 Expected: only the implementation plan, HMP3 catalog content, HMP3 SEO mapping, and focused SEO checks are changed. Temporary PDF preview files remain untracked and are excluded from the commit.
 
-- [ ] **Step 5: Commit the complete implementation**
+- [x] **Step 5: Commit the complete implementation**
 
 Run:
 
