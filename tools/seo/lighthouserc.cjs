@@ -7,6 +7,8 @@ const collect = {
   settings: {
     onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
     chromeFlags: '--headless --no-sandbox --disable-dev-shm-usage',
+    // Lighthouse 12 reads head metadata only; Next.js recognizes this bot identity.
+    emulatedUserAgent: 'Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36 Chrome-Lighthouse',
   },
 };
 if (process.env.CHROME_PATH) collect.chromePath = process.env.CHROME_PATH;

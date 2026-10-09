@@ -22,6 +22,8 @@ GitHub 排队可能延迟。依赖独立于网站，无需 VPS 安装 Docker 或
 
 Actions 报错时先看失败步骤，不要因此直接修改生产配置；请求失败、安装失败和网站内容问题是不同原因。若仓库未开启 Actions，进入 Settings → Actions → General，启用工作流。若组织禁止这些 Actions，需管理员按组织规则允许。
 
+Lighthouse CI 以移动端 `Chrome-Lighthouse` 标识检查框架的非流式元信息分支：Lighthouse 12 只读取 head 中的描述，而 Next.js 可以将普通浏览器的元信息流式输出到 body。此配置只影响检查请求，不修改线上渲染、不降低缺失描述的失败规则。普通访客体验仍以 Unlighthouse 的线上报告为参考，两个工具的体验分数不应直接混为一谈。
+
 ## 如何据此提升曝光和询盘
 
 优先级：商业页面出现 noindex、404/5xx、错误 canonical → 缺失或重复标题/描述、坏链接 → 移动端图片与加载体验 → 有曝光但点击少的搜索词及落地页内容 → 成功询盘及回复。
@@ -63,3 +65,4 @@ Unlighthouse 的汇总界面需要静态网页服务；无需安装额外工具�
 - [SiteOne 官方仓库](https://github.com/janreges/siteone-crawler)
 - [Unlighthouse 配置说明](https://unlighthouse.dev/api-doc/config)
 - [Lighthouse CI 官方配置](https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md)
+- [Next.js 流式元信息说明](https://nextjs.org/docs/app/api-reference/functions/generate-metadata#streaming-metadata)

@@ -16,3 +16,19 @@
 ## 自动运行
 
 新增配置：每周全站和重点页面线上诊断、代码更新时六个产品/应用页 Lighthouse 检查、报告附件保存 30 天。线上报告与运行结果以 GitHub Actions 为准；本地报告不代表排名、曝光或询盘改善。
+
+## 首次 GitHub 运行
+
+- [线上巡检 37869860473](https://github.com/zhangguof1206-wq/sensemeter-website/actions/runs/37869860473) 成功：原有巡检 16/16 页面通过；SiteOne 完成 288 URL；Unlighthouse 完成全部 10 个重点页面，报告已保存。
+- [代码回归 37869839451](https://github.com/zhangguof1206-wq/sensemeter-website/actions/runs/37869839451) 的完整 `build:release`、12 次浏览器采集和报告保存成功，但六页的原生描述断言失败，不能将此运行记为通过。
+- 失败报告的 Lighthouse 12.6.1 网络 User-Agent 没有 `Chrome-Lighthouse`。该版本的 MetaElements 只读取 `head meta`；本仓库 Next.js 15.5.19 的 HTML 限制机器人名单包含 `Chrome-Lighthouse`，否则允许流式元信息进入 body。先前带该标识的 HTML 检查能读取 head 描述。修正为保留移动端模拟、补充检查器标识，未降低缺失描述的失败规则，也未修改网站页面。
+- 补上真正的 `src/**` 工作流触发范围。新增回归测试覆盖机器人识别和 push/PR 触发范围。
+- 修正后的浏览器回归结果尚待核验；本地浏览器访问未获允许，未通过其他浏览器方式绕过。已询问是否允许由 GitHub 再次自动检查。
+
+## 线上报告的优先事项
+
+- SiteOne 的 6 个 noindex URL 仍是中英文法律政策页。要判断用户截图的 Search Console 告警是否误伤商业页面，必须取得该告警的受影响 URL，不能只凭通知移除 noindex。
+- 10 页移动端实验室性能分数为 75-100，联系页及部分 MDM300/HMP3 产品页为 75；先检查这些询盘入口的最大内容绘制与图片加载，不把一次实验室分数当作真实用户速度。
+- 英文页面的额外 SEO 扣分包括 Cookie 政策链接文字 `Learn more` 缺少描述性；属于小范围可读性改进，不是曝光增长的主要策略。
+- 最佳实践 77 分的部分扣分来自现有 Yandex 第三方 Cookie。未为了分数删除分析工具；隐私与同意配置需另行结合实际部署检查。
+- 上述为首次诊断线索，未在本次自动工具接入中修改生产内容、分析配置或询盘流程。

@@ -3,9 +3,9 @@ name: SEO代码回归检查
 on:
   push:
     branches: [main]
-    paths: ['app/**', 'components/**', 'lib/**', 'data/**', 'public/**', 'scripts/**', 'tools/seo/**', 'package*.json', 'next.config.*', '.github/workflows/seo-regression.yml']
+    paths: ['src/**', 'public/**', 'scripts/**', 'tools/seo/**', 'package*.json', 'next.config.*', '.github/workflows/seo-regression.yml']
   pull_request:
-    paths: ['app/**', 'components/**', 'lib/**', 'data/**', 'public/**', 'scripts/**', 'tools/seo/**', 'package*.json', 'next.config.*', '.github/workflows/seo-regression.yml']
+    paths: ['src/**', 'public/**', 'scripts/**', 'tools/seo/**', 'package*.json', 'next.config.*', '.github/workflows/seo-regression.yml']
   workflow_dispatch:
 
 permissions:

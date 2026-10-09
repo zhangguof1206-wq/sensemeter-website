@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { test } from 'node:test';
+import { readFile } from 'node:fs/promises';
 import { assetFor, verifyArchive } from './siteone.mjs';
 import { validateSiteoneReport, validateUnlighthouseReport } from './report-validation.mjs';
 
@@ -49,6 +50,23 @@ test('Lighthouse CI saves privately and blocks indexing regressions', () => {
     assert.equal(ci.assert.assertions[audit][0], 'error');
   }
   assert.equal(ci.collect.numberOfRuns, 2);
+});
+
+test('Lighthouse identifies its head-only metadata reader to Next.js without disabling mobile emulation', () => {
+  const { ci } = require('../../tools/seo/lighthouserc.cjs');
+  const { HTML_LIMITED_BOT_UA_RE } = require('next/dist/shared/lib/router/utils/is-bot.js');
+  const agent = ci.collect.settings.emulatedUserAgent;
+  assert.equal(typeof agent, 'string');
+  assert.match(agent, /Android.*Mobile.*Chrome-Lighthouse/);
+  assert.ok(HTML_LIMITED_BOT_UA_RE.test(agent));
+  assert.notEqual(ci.collect.settings.formFactor, 'desktop');
+});
+
+test('code regression triggers include the actual src directory for push and PR', async () => {
+  const workflow = await readFile(new URL('../../.github/workflows/seo-regression.yml', import.meta.url), 'utf8');
+  const filters = workflow.split('\n').filter(line => /^\s+paths:/.test(line));
+  assert.equal(filters.length, 2);
+  assert.ok(filters.every(line => line.includes("'src/**'")));
 });
 
 test('Unlighthouse uses a supported reporter and includes both languages without sampling', async () => {
