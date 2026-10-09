@@ -35,4 +35,5 @@ return <ContactPage locale="ru" model={params.model} application={application} /
 - [x] 用户截图确认独立构建 `57ba273` 完成；目录 `/var/www/sensemeter-website-release-20261009-075046-57ba273`，输出 `PREPARE_OK` 与 `NOT_SWITCHED`。尚未切换 PM2。
 - [x] 用户截图确认临时端口 RU/EN 10 个页面请求及邮件接口 GET 拒绝验证完成，输出 `RU_PAGES_OK`、`EN_PAGES_OK`、`PREVIEW_OK`；未发送邮件或切换 PM2。
 - [x] 用户确认收到本轮真实测试询盘，并确认 `Application` 的俄语用途正确。没有本轮 API 成功截图或单独的邮件型号字段确认，不混写为独立证据；不要再次发送测试邮件。
-- [ ] 读取实际 PM2 启动参数、模式和端口，根据结果准备准确切换及回滚步骤；验证正式入口后保存状态、记录实际上线时间。当前未上线。
+- [x] 用户截图确认旧目录在线、args 为 `start -- -p 3000`、fork_mode、解释器 `/usr/bin/node`、脚本 `/usr/bin/npm`，3000 端口监听。未将 `port: null` 误认为没有监听端口。
+- [ ] 执行手册中的固定版本切换：私密保存新旧配置及快照，仅操作该 PM2 名称，验证本机与正式域名内容/索引信号，失败尝试恢复旧配置，成功后保存状态、记录实际上线时间。当前命令尚未执行，不宣称已上线。

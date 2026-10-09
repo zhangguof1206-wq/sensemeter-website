@@ -267,14 +267,93 @@ MAIL
 
 ### 切换前读取实际启动参数
 
-先执行以下只读命令，确认当前目录、实际 npm 参数、启动模式和端口。只输出启动字段，不输出完整环境；参数含疑似密钥名时停止输出。用结果生成切换和回滚命令，不能将历史 `npm start -p 3000` 当成精确参数。以下尚未在服务器执行。
+以下只读命令已经由用户执行并提供截图，确认当前目录、实际 npm 参数、启动模式和端口。只输出启动字段，不输出完整环境；参数含疑似密钥名时停止输出。用结果生成切换和回滚命令，不能将历史 `npm start -p 3000` 当成精确参数；不需再次执行本段。
 
 ```bash
 pm2 jlist | node -e 'let s="";process.stdin.on("data",d=>s+=d);process.stdin.on("end",()=>{try{const p=JSON.parse(s).filter(x=>x.name==="sensemeter-website");if(p.length!==1)throw Error();const e=p[0].pm2_env;const args=e.args??[];if(/password|secret|token|api[_-]?key/i.test(JSON.stringify(args)))throw Error();const port=e.env?.PORT??e.PORT;console.log(JSON.stringify({name:p[0].name,status:e.status,cwd:e.pm_cwd,script:e.pm_exec_path,args,mode:e.exec_mode,interpreter:e.exec_interpreter,port:/^\d+$/.test(String(port??""))?String(port):null},null,2));}catch{console.error("PM2_START_INFO_FAILED");process.exitCode=1;}})'
 ss -H -ltn "sport = :3000"
 ```
 
-后续切换仍需核对目标固定版本及构建产物，保存原始启动方式，验证正式域名新内容、预填、canonical 和 HTTP 状态，失败恢复旧版本，成功后再保存 PM2 状态。当前仅请求启动信息，不执行切换或再次发邮件。
+后续切换仍需核对目标固定版本及构建产物，保存原始启动方式，验证正式域名新内容、预填、canonical 和 HTTP 状态，失败尝试恢复旧版本，成功后再保存 PM2 状态。获取启动信息本身不执行切换或再次发邮件。
+
+### 正式切换及失败恢复
+
+用户截图确认当前实际 args 为 `["start", "--", "-p", "3000"]`、fork_mode、解释器 `/usr/bin/node`、脚本 `/usr/bin/npm`，旧目录仍在线，3000 端口正在监听。`port: null` 仅表示未单独设置 PORT 环境变量，不代表服务没有端口。
+
+本步骤会重启这个网站进程，单进程切换可能短暂中断访问；保留旧目录，不更改 Nginx、邮箱配置或其他 PM2 应用。先在仅 root 可访问的目录保存 PM2 快照及新旧启动配置，环境值不输出、不上传 GitHub。保留已有环境、启动参数、日志路径和常用重启设置，只更换 cwd；新版本显式采用 production 环境。依据 [PM2 配置文件说明](https://pm2.keymetrics.io/docs/usage/application-declaration/) 和 [进程管理说明](https://pm2.keymetrics.io/docs/usage/process-management/)。
+
+以下等待用户执行，不是已上线证据。出现错误或中断后尝试恢复旧配置并检查可访问性；若出现 `ROLLBACK_NEEDS_HELP`，不要继续重复切换，发终端结果。恢复检查只是旧入口 HTTP 可访问，不宣称完成全部业务复核。不要上传备份目录或完整 PM2 快照。
+
+```bash
+(
+set -Eeuo pipefail
+umask 077
+export NEW=/var/www/sensemeter-website-release-20261009-075046-57ba273
+export OLD=/var/www/sensemeter-website-release-20260929-055145-bbfeab7
+export D="/root/sensemeter-config/switch-$(date -u +%Y%m%d-%H%M%S)-57ba273"
+test "$(git -C "$NEW" rev-parse HEAD)" = 57ba2739143818e360790ebf27e9e3fb844c534c
+test -s "$NEW/.next/BUILD_ID"
+test -s "$OLD/.next/BUILD_ID"
+test "$(readlink -f "$NEW/.env.production.local")" = /root/sensemeter-config/website.env
+test -s /root/sensemeter-config/website.env
+mkdir -m 700 "$D"
+pm2 jlist >"$D/snapshot.json"
+node --input-type=module <<'CONFIG'
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const p = JSON.parse(fs.readFileSync(process.env.D + '/snapshot.json', 'utf8')).filter(x => x.name === 'sensemeter-website');
+assert.equal(p.length, 1); const e = p[0].pm2_env;
+assert.equal(e.status, 'online'); assert.equal(e.pm_cwd, process.env.OLD);
+assert.equal(e.pm_exec_path, '/usr/bin/npm'); assert.equal(e.exec_interpreter, '/usr/bin/node');
+assert.equal(e.exec_mode, 'fork_mode'); assert.deepEqual(e.args, ['start', '--', '-p', '3000']);
+assert.ok(!e.env || (typeof e.env === 'object' && !Array.isArray(e.env)));
+const c = {name:'sensemeter-website', script:e.pm_exec_path, cwd:e.pm_cwd, args:e.args, interpreter:e.exec_interpreter, exec_mode:'fork', instances:1, env:e.env || {}};
+for (const k of ['node_args','autorestart','max_memory_restart','min_uptime','max_restarts','restart_delay','exp_backoff_restart_delay','kill_timeout','listen_timeout','wait_ready','watch','ignore_watch','cron_restart','merge_logs','log_date_format','time','vizion','source_map_support']) if (e[k] !== undefined) c[k] = e[k];
+if (e.pm_out_log_path) c.out_file = e.pm_out_log_path;
+if (e.pm_err_log_path) c.error_file = e.pm_err_log_path;
+fs.writeFileSync(process.env.D + '/old.json', JSON.stringify({apps:[c]}), {flag:'wx', mode:0o600});
+fs.writeFileSync(process.env.D + '/new.json', JSON.stringify({apps:[{...c, cwd:process.env.NEW, env:{...c.env, NODE_ENV:'production'}}]}), {flag:'wx', mode:0o600});
+CONFIG
+printf 'ROLLBACK_DIR=%s\n' "$D"
+ready() { for n in $(seq 1 40); do if curl -fsS --max-time 3 http://127.0.0.1:3000/contact >/dev/null 2>&1; then return 0; fi; sleep 1; done; return 1; }
+CHANGED=0
+rollback() { rc=${1:-$?}; trap - ERR INT TERM HUP; set +e; if test "$CHANGED" = 1; then echo 'RESTORING_OLD_VERSION'; pm2 delete sensemeter-website >/dev/null 2>&1; pm2 start "$D/old.json" --only sensemeter-website; if ready && pm2 save; then echo 'ROLLBACK_HTTP_OK'; else echo 'ROLLBACK_NEEDS_HELP'; fi; fi; exit "$rc"; }
+trap rollback ERR
+trap 'rollback 130' INT
+trap 'rollback 143' TERM
+trap 'rollback 129' HUP
+CHANGED=1
+pm2 delete sensemeter-website
+pm2 start "$D/new.json" --only sensemeter-website
+ready
+cd "$NEW"
+node --no-warnings --experimental-strip-types --input-type=module <<'VERIFY'
+import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import { compressedAirDewPoint as d } from './src/data/applications/compressed-air-dew-point.ts';
+import { auditHtmlPage } from './scripts/lib/live-seo-audit.mjs';
+let p; try { p = JSON.parse(execFileSync('pm2', ['jlist'], {encoding:'utf8', timeout:10000, stdio:['ignore','pipe','ignore']})).filter(x => x.name === 'sensemeter-website'); } catch { throw Error('PM2_STATE_READ_FAILED'); }
+assert.equal(p.length, 1); assert.equal(p[0].pm2_env.status, 'online'); assert.equal(p[0].pm2_env.pm_cwd, process.env.NEW);
+for (const base of ['http://127.0.0.1:3000', 'https://sensemeter.ru']) for (const locale of ['ru', 'en']) {
+  const prefix = locale === 'en' ? '/en' : '';
+  for (const path of [prefix + d.path, prefix + '/contact?application=' + d.slug]) {
+    const r = await fetch(base + path, {headers:{'Cache-Control':'no-cache'}, signal:AbortSignal.timeout(15000), redirect:'error'}), html = await r.text();
+    assert.deepEqual(auditHtmlPage({baseUrl:'https://sensemeter.ru', path:path.split('?')[0], status:r.status, html}).issues, [], base + path);
+    if (path.includes('/contact?')) assert.ok(html.match(/<input\b[^>]*id="application"[^>]*>/i)?.[0].includes(`value="${d.content[locale].title}"`), 'PREFILL_MISSING');
+    else if (locale === 'ru') for (const f of d.content.ru.faqs.slice(-2)) assert.ok(html.includes(f.question) && html.includes(f.answer), 'RU_FAQ_MISSING');
+  }
+}
+console.log('LIVE_PAGES_OK: local and public; no email sent');
+VERIFY
+pm2 save
+CHANGED=0
+printf 'UPGRADE_OK\nCURRENT_VERSION=57ba273\nCURRENT_DIR=%s\n' "$NEW"
+date -u '+DEPLOYED_AT_UTC=%Y-%m-%dT%H:%M:%SZ'
+pm2 status
+)
+```
+
+收到 `UPGRADE_OK`、`LIVE_PAGES_OK` 与当前状态截图后，助手另行读取正式域名页面并运行轻量巡检。用户手动检查网页展示，随后再检查本轮更新页面的 Google 索引并记录观察窗口。此前已验证测试邮件，不自动重发。
 
 ### 上线后的业务观察
 
