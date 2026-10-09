@@ -93,6 +93,15 @@ try {
           assert.ok(text.includes(faq.question) && text.includes(faq.answer), "Missing visible RU FAQ content.");
         }
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), "RU application overflows viewport.");
+        const images = await page.$$eval("#recommended-products img", async (items) => {
+          for (const item of items) item.loading = "eager";
+          return Promise.all(items.map(async (item) => {
+            try { await item.decode(); } catch { /* Keep failed assets in the diagnostic. */ }
+            return { alt: item.alt, loaded: item.naturalWidth > 0 && item.naturalHeight > 0 };
+          }));
+        });
+        assert.equal(images.length, compressedAirDewPoint.recommendedSlugs.length);
+        assert.ok(images.every((item) => item.loaded), `Product image failed: ${JSON.stringify(images)}`);
         await page.screenshot({ path: `${output}/ru-dew-point-${viewport.name}.png`, fullPage: true });
       }
       results.push({ locale, viewport: viewport.name, prefill: true, editable: true, modelPreserved: true, mockedSubmit: true, invalidFallbacks: 3 });
