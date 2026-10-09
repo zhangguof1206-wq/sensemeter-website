@@ -64,7 +64,7 @@ GitHub 每天北京时间 09:15 左右自动检查 `https://sensemeter.ru` 的 2
 
 - [x] GitHub 隔离构建及 4 个询盘浏览器场景通过；模拟提交未发送真实邮件。6 页共 12 次 Lighthouse 检查通过，报告已下载并校验。
 - [x] 2026-10-09 北京时间 15:37 直接读取正式俄语露点页和两个带应用参数的联系页，均 HTTP 200；新 FAQ 未出现，实际联系表单用途输入没有默认值。GitHub 验收不代表线上已经更新。
-- [ ] 用户登录服务器后执行下方只读检查，确认 PM2 实际目录、仓库状态、资源与配置链接。不要把历史目录当作当前事实。
+- [x] 用户登录并提供只读检查截图：主仓库干净、main 落后 49 个提交；PM2 运行 `bbfeab7` 独立目录，状态 online；Node 22.22.3、npm 10.9.8；可用内存约 2.0GiB、无 Swap；磁盘可用 5.3GiB；私密配置文件存在。未把历史目录当作当前事实，配置存在不等于本轮实际送达已验证。
 - [ ] 确认资源足够后，在新建的独立发布目录检出固定版本、安装依赖、链接现有私密配置并构建。保留旧目录；不在正在运行的目录拉取或构建，不安装 SEO 浏览器工具到 VPS。
 - [ ] 在未占用的本地端口启动新版本；验证 RU/EN 预填、未知/重复参数回退、俄语 FAQ、原 canonical 及 HTTP 状态。临时地址的 canonical 应保持正式域名，不能因端口差异改成 localhost。
 - [ ] 经用户确认后，对临时版本发一封有明确测试标识的询盘，并由用户确认收到且用途字段正确。CI 模拟提交不能替代这个送达检查。
@@ -94,6 +94,43 @@ fi
 ```
 
 不要运行 `cat website.env`、`pm2 env` 或输出完整 `pm2 jlist` 后截图。进程环境变量中看不到邮件配置不一定代表缺失，Next.js 可能从私密文件读取；最终以配置链接及真实测试邮件为准。
+
+### 独立目录构建
+
+根据上述截图准备以下命令。只在已登录的 Ubuntu 终端执行；括号把失败停止限制在本次准备过程，避免退出 SSH。它不调用 PM2、不更换 Nginx 配置，也不发送询盘。若出错，保留现有版本和新目录并发送错误，不删除任何发布目录。
+
+Next.js 当前锁定版本的默认 worker 数取决于 `CIRCLE_NODE_TOTAL - 1`，本次设置为 2 即单 worker；`NODE_OPTIONS` 将单进程 JS 堆限制为 1024MiB。这不是整个进程树的硬内存上限，也不保证 2GiB 一定足够；构建失败时不得盲目扩大内存限额。
+
+```bash
+(
+set -eu
+REPO=/var/www/sensemeter-website-new
+TARGET=57ba2739143818e360790ebf27e9e3fb844c534c
+CONFIG=/root/sensemeter-config/website.env
+NEW="/var/www/sensemeter-website-release-$(date -u +%Y%m%d-%H%M%S)-57ba273"
+test -s "$CONFIG"
+test ! -e "$NEW"
+test ! -L "$NEW"
+test "$(git -C "$REPO" remote get-url origin)" = "https://github.com/zhangguof1206-wq/sensemeter-website.git"
+git -C "$REPO" -c http.version=HTTP/1.1 fetch --progress origin main
+git -C "$REPO" cat-file -e "$TARGET^{commit}"
+git -C "$REPO" merge-base --is-ancestor "$TARGET" origin/main
+git -C "$REPO" worktree add --detach "$NEW" "$TARGET"
+test "$(git -C "$NEW" rev-parse HEAD)" = "$TARGET"
+ln -s "$CONFIG" "$NEW/.env.production.local"
+cd "$NEW"
+printf 'STAGING_DIR=%s\n' "$NEW"
+npm ci --no-audit --no-fund --registry https://registry.npmjs.org
+npm run test:rfq-application
+npm run test:dew-point-content
+npm run check:rfq-email
+CIRCLE_NODE_TOTAL=2 NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS=--max-old-space-size=1024 nice -n 10 npm run build:release
+test -s .next/BUILD_ID
+printf 'PREPARE_OK\nSTAGING_DIR=%s\nNOT_SWITCHED\n' "$NEW"
+)
+```
+
+用户发送 `PREPARE_OK` 与 `STAGING_DIR` 后，再分步安排临时端口检查和真实测试邮件。不能把本段准备完成等同于正式上线。
 
 ### 上线后的业务观察
 
