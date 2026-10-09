@@ -26,8 +26,8 @@ return <ContactPage locale="ru" model={params.model} application={application} /
 
 ## 2. 俄语内容
 
-- [ ] 新建 `scripts/check-dew-point-content.test.mjs`：检查压力/常压露点说明、取样/稳定读数说明、询盘压力信息、既有 URL/产品推荐/英文内容保持。
-- [ ] 仅增补俄语选型卡、rfqPoints 和 2 个 FAQ。说明“测量压力必须记录；常压读数与管线压力露点不可直接比较；取样、流量与稳定时间按具体型号手册”。不新增任意数字。
+- [x] 新建 `scripts/check-dew-point-content.test.mjs`：检查压力/常压露点说明、取样/稳定读数说明、询盘压力信息、既有 URL/产品推荐/英文内容保持；观察 3 项失败后实现，4/4 通过。
+- [x] 仅增补俄语选型卡、rfqPoints 和 2 个 FAQ。说明“测量压力必须记录；常压读数与管线压力露点不可直接比较；取样、流量与稳定时间按具体型号手册”。不新增任意数字。
 - [ ] 运行内容测试及 `check:applications`、`check:application-links`、`check:i18n`、`check:seo`、`typecheck`；中文提交。
 - [ ] 推送后核验 GitHub 正式构建、预填浏览器结果与 Lighthouse 结果；更新执行记录。CI 通过不代表 VPS 已上线。
 - [ ] 交付两项结果与现有发布流程所需的准确提交版本，不自动改服务器密钥或发真实测试询盘。

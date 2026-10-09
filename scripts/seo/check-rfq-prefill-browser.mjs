@@ -82,6 +82,15 @@ try {
         await page.goto(new URL(`${contact}${query}`, base).href, { waitUntil: "networkidle0" });
         assert.equal(await page.$eval("#application", (el) => el.value), "");
       }
+      if (locale === "ru") {
+        await page.goto(new URL(compressedAirDewPoint.path, base).href, { waitUntil: "networkidle0" });
+        const text = await page.$eval("main", (el) => el.textContent);
+        for (const faq of compressedAirDewPoint.content.ru.faqs) {
+          assert.ok(text.includes(faq.question) && text.includes(faq.answer), "Missing visible RU FAQ content.");
+        }
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), "RU application overflows viewport.");
+        await page.screenshot({ path: `${output}/ru-dew-point-${viewport.name}.png`, fullPage: true });
+      }
       results.push({ locale, viewport: viewport.name, prefill: true, editable: true, modelPreserved: true, mockedSubmit: true, invalidFallbacks: 3 });
       await page.close();
     }

@@ -42,6 +42,7 @@ jobs:
           npm run test:daily-seo
           npm run test:rfq-application
           npm run check:rfq-email
+          npm run test:dew-point-content
       - name: 构建网站
         env:
           NEXT_TELEMETRY_DISABLED: '1'

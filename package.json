@@ -27,6 +27,7 @@
     "test:daily-seo": "node scripts/seo/daily-monitor.test.mjs",
     "test:rfq-application": "node --no-warnings --experimental-strip-types scripts/check-rfq-application.test.mjs",
     "test:rfq-browser": "node --no-warnings --experimental-strip-types scripts/seo/check-rfq-prefill-browser.mjs",
+    "test:dew-point-content": "node --no-warnings --experimental-strip-types scripts/check-dew-point-content.test.mjs",
     "test:seo-tools": "node scripts/seo/seo-tools.test.mjs",
     "seo:install": "npm ci --prefix tools/seo --cache .cache/npm --registry https://registry.npmjs.org && node scripts/seo/siteone.mjs",
     "seo:siteone": "node scripts/seo/run-tool.mjs siteone",
