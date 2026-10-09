@@ -34,4 +34,5 @@ return <ContactPage locale="ru" model={params.model} application={application} /
 - [x] 用户已登录并提供服务器只读结果：PM2 在线运行 `bbfeab7`；Node 22.22.3/npm 10.9.8，约 2GiB 可用内存、无 Swap、5.3GiB 可用磁盘，配置文件存在。主仓库 main 干净但落后；新发布目录将检出固定提交，不更新正在运行的目录。
 - [x] 用户截图确认独立构建 `57ba273` 完成；目录 `/var/www/sensemeter-website-release-20261009-075046-57ba273`，输出 `PREPARE_OK` 与 `NOT_SWITCHED`。尚未切换 PM2。
 - [x] 用户截图确认临时端口 RU/EN 10 个页面请求及邮件接口 GET 拒绝验证完成，输出 `RU_PAGES_OK`、`EN_PAGES_OK`、`PREVIEW_OK`；未发送邮件或切换 PM2。
-- [ ] 用户同意后执行一次带 `TEST-57ba273` 标记的真实测试询盘；发送前写入一次性尝试记录，不重复发送。收到 API 成功及用户收件/用途字段确认后，再切换并保留回滚路径，记录实际上线时间。
+- [x] 用户确认收到本轮真实测试询盘，并确认 `Application` 的俄语用途正确。没有本轮 API 成功截图或单独的邮件型号字段确认，不混写为独立证据；不要再次发送测试邮件。
+- [ ] 读取实际 PM2 启动参数、模式和端口，根据结果准备准确切换及回滚步骤；验证正式入口后保存状态、记录实际上线时间。当前未上线。

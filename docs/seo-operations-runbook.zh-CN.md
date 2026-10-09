@@ -67,7 +67,7 @@ GitHub 每天北京时间 09:15 左右自动检查 `https://sensemeter.ru` 的 2
 - [x] 用户登录并提供只读检查截图：主仓库干净、main 落后 49 个提交；PM2 运行 `bbfeab7` 独立目录，状态 online；Node 22.22.3、npm 10.9.8；可用内存约 2.0GiB、无 Swap；磁盘可用 5.3GiB；私密配置文件存在。未把历史目录当作当前事实，配置存在不等于本轮实际送达已验证。
 - [x] 用户截图确认独立目录 `/var/www/sensemeter-website-release-20261009-075046-57ba273` 完成构建并输出 `PREPARE_OK`、`NOT_SWITCHED`。固定版本、依赖、配置链接及测试由前一整段准备命令验证，截图未单独展示所有测试明细；旧 PM2 目录保留，尚未切换。
 - [x] 用户截图确认 `RU_PAGES_OK`、`EN_PAGES_OK`、`PREVIEW_OK: 10 page checks; no email sent; not switched`。临时入口上的预填、型号、未知/重复参数回退、俄语 FAQ 及正式域名 canonical 检查通过；这是 HTTP 验证，不等同浏览器或邮件送达。
-- [ ] 经用户确认后，对临时版本发一封有明确测试标识的询盘，并由用户确认收到且用途字段正确。CI 模拟提交不能替代这个送达检查。
+- [x] 用户确认收到本轮测试邮件，并回答用途正确，具体为“Промышленные измерители точки росы для сжатого воздуха”。这是用户确认的实际送达/用途证据，不是 CI 模拟提交；没有独立的本轮 API 截图，不将两种证据混写。
 - [ ] 记录旧 PM2 启动信息后切换正式进程，验证正式域名页面和询盘入口；若验证失败，恢复旧目录和原启动信息。验证后保存 PM2 状态，记录实际目录、提交、上线时间。命令需根据只读检查结果生成，不能照抄历史目录。
 - [ ] 上线后手动运行一次轻量线上巡检；只对本轮有实质变化的主页面检查/请求索引，不反复提交。第 14 天和第 28 天导出同口径数据，保留上线前基线与实际有效询盘记录。
 
@@ -263,7 +263,18 @@ MAIL
 )
 ```
 
-用户需确认收到 `TEST-57ba273` 测试邮件，且 `Application` 为俄语压缩空气露点应用名称、`Product Model` 为 MDM300 / MDM300 I.S.。确认前不切换正式网站。尚未执行本段，不宣称邮件已送达。
+用户已确认本轮邮件收到，且 `Application` 为俄语压缩空气露点应用名称；没有再单独询问型号字段，不将其当作本轮收件确认事实。CI 与临时 HTTP 已检查型号保留。邮件已完成送达验证，不要重发。正式网站仍未切换。
+
+### 切换前读取实际启动参数
+
+先执行以下只读命令，确认当前目录、实际 npm 参数、启动模式和端口。只输出启动字段，不输出完整环境；参数含疑似密钥名时停止输出。用结果生成切换和回滚命令，不能将历史 `npm start -p 3000` 当成精确参数。以下尚未在服务器执行。
+
+```bash
+pm2 jlist | node -e 'let s="";process.stdin.on("data",d=>s+=d);process.stdin.on("end",()=>{try{const p=JSON.parse(s).filter(x=>x.name==="sensemeter-website");if(p.length!==1)throw Error();const e=p[0].pm2_env;const args=e.args??[];if(/password|secret|token|api[_-]?key/i.test(JSON.stringify(args)))throw Error();const port=e.env?.PORT??e.PORT;console.log(JSON.stringify({name:p[0].name,status:e.status,cwd:e.pm_cwd,script:e.pm_exec_path,args,mode:e.exec_mode,interpreter:e.exec_interpreter,port:/^\d+$/.test(String(port??""))?String(port):null},null,2));}catch{console.error("PM2_START_INFO_FAILED");process.exitCode=1;}})'
+ss -H -ltn "sport = :3000"
+```
+
+后续切换仍需核对目标固定版本及构建产物，保存原始启动方式，验证正式域名新内容、预填、canonical 和 HTTP 状态，失败恢复旧版本，成功后再保存 PM2 状态。当前仅请求启动信息，不执行切换或再次发邮件。
 
 ### 上线后的业务观察
 
