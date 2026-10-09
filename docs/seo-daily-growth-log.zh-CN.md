@@ -68,6 +68,16 @@
 - 此调度已进入默认分支；GitHub 定时任务可能排队延迟，首次手动通过不代表未来每天必定准点或成功。报告保留 30 天。应用每日自动评估仍未启用，不能把本次检查当作排名或询盘增长证据。
 - [同提交浏览器回归](https://github.com/zhangguof1206-wq/sensemeter-website/actions/runs/37894937308)成功：`build:release` 通过，6 个重点页面完成 12 次移动端 Lighthouse 检查。附件 SHA256 与 GitHub 元数据一致；独立读取 12 份 JSON，抓取允许、标题、描述和 HTTP 状态四项检查全部通过。这是构建版本验收，不是 VPS 已发布证明。
 
+## 2026-10-09：露点内容与询盘路径复核
+
+- 当前提交 `39fcb7a`；工作树只有既有未跟踪 `tmp/`，未编辑生产代码或 VPS。
+- 重新直接请求正式俄语露点页，HTTP 200。5 个推荐产品链接和带 `application=compressed-air-dew-point` 的联系链接均存在；源码也已有产品返回应用页的关联配置。没有把“缺少内链”当作当前事实，不重复添加相同链接。
+- 内容缺口：目前俄语 FAQ 和选型文字没有解释压力露点与常压露点的区别。厂商资料确认压力影响露点，取样条件需要明确；这是待验证的内容机会，不是已证明的排名下降原因。候选增加测量压力、读数对比条件、型号适用的取样/稳定读数说明；不统一宣称流量或稳定时间，不新增同义词页面，不承诺 FAQ 富媒体展示。
+- 技术资料：[Vaisala 安装与取样说明](https://www.vaisala.com/en/blog/2019-06/installing-vaisala-dew-point-instrument-compressed-air-line)、[Vaisala 露点测量](https://www.vaisala.com/en/measurement/dew-point-measurement)。只借鉴已核验原理，不把厂商产品参数泛化到所有推荐型号。
+- 询盘路径发现：中英文联系页只读取 `model`，`ContactPage` 与 `RfqForm` 也只传递型号，没有读取应用链接已有的 `application`。直接请求 `/contact?application=compressed-air-dew-point`，用途输入框存在但没有预填值。定位：`src/app/contact/page.tsx`、`src/app/en/contact/page.tsx`、`src/components/site.tsx`、`src/components/rfq-form.tsx`；不是邮件送达失败证据。
+- 下一轮建议先修复场景预填：仅接收已有应用 slug，按页面语言取得应用名称，用途保持可编辑；未知/重复参数回退空值，保留型号选择、邮件字段与现有成功事件。再开展俄语内容增补。此修复是询盘体验改善，不直接增加搜索曝光，也不能作为有效询盘增长证明。
+- 已向用户提出两种先后顺序并请求确认；没有得到本轮设计选择前不修改业务代码，不发送真实测试邮件。未来验收需涵盖 RU/EN、有效/未知/重复参数、客户覆盖预填值、型号保留、构建与现有巡检；服务器上线单独确认。
+
 ## 后续记录格式
 
 每次增加一个日期条目：数据覆盖期、最新线上证据、待处理机会、执行/观察/等待决定、实际改动、测试与报告、代码提交、实际上线状态、下一次评估时间。没有证据变化时不凑修改；没有用户操作事项时不重复催促。
