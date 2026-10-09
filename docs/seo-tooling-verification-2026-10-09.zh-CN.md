@@ -23,7 +23,16 @@
 - [代码回归 37869839451](https://github.com/zhangguof1206-wq/sensemeter-website/actions/runs/37869839451) 的完整 `build:release`、12 次浏览器采集和报告保存成功，但六页的原生描述断言失败，不能将此运行记为通过。
 - 失败报告的 Lighthouse 12.6.1 网络 User-Agent 没有 `Chrome-Lighthouse`。该版本的 MetaElements 只读取 `head meta`；本仓库 Next.js 15.5.19 的 HTML 限制机器人名单包含 `Chrome-Lighthouse`，否则允许流式元信息进入 body。先前带该标识的 HTML 检查能读取 head 描述。修正为保留移动端模拟、补充检查器标识，未降低缺失描述的失败规则，也未修改网站页面。
 - 补上真正的 `src/**` 工作流触发范围。新增回归测试覆盖机器人识别和 push/PR 触发范围。
-- 修正后的浏览器回归结果尚待核验；本地浏览器访问未获允许，未通过其他浏览器方式绕过。已询问是否允许由 GitHub 再次自动检查。
+- 初次本地浏览器访问未获允许，未绕过；随后用户明确同意 GitHub 自动检查，修正已推送，并完成以下独立测试构建验证。
+
+## 修正后验收（2026-10-09）
+
+- 修正提交：`c628f05c4a47f2a1f2829606e1dc003868a73613`。推送前再次运行 10 项工具测试和 5 项现有巡检测试，全部通过。
+- [GitHub 回归运行 37891940006](https://github.com/zhangguof1206-wq/sensemeter-website/actions/runs/37891940006) 成功：安装、测试、完整 `build:release`、浏览器检查、报告保存全部完成。
+- 六个中英文露点应用、MDM300、HMP3 页面各检查两次，共 12 份报告。逐份核对 `is-crawlable`、`document-title`、`meta-description`、`http-status-code`，全部得分 1；`assertion-results.json` 为空，没有断言失败或阈值警告。
+- 此检查器分支下俄文页面 SEO 分数为 100，英文页面为 92；这些分数只代表测试构建的诊断，不是 Google 排名、收录率或线上内容更新结果。
+- [下载验收报告](https://github.com/zhangguof1206-wq/sensemeter-website/actions/runs/37891940006/artifacts/11598960560)，保存至 2026-11-08。下载后核对 ZIP SHA256：`cbd9f1f64e06ad6fced17e7554db4469a75f625e1871bd0d274ce64073567dd6`。
+- 未修改 VPS、网站页面、分析配置或询盘邮件，未发送测试询盘。工具配置在 GitHub 运行，无需部署到网站服务器。
 
 ## 线上报告的优先事项
 
