@@ -20,14 +20,15 @@ return <ContactPage locale="ru" model={params.model} application={application} /
 // EN 路由采用 "en"；表单以 defaultValue={application} 预填用途。
 ```
 
-- [x] 新建 `scripts/seo/check-rfq-prefill-browser.mjs`，仅在 GitHub 隔离构建地址运行：桌面/移动中英文用途与型号、未知/重复参数回退、用户改写及提交字段；拦截所有 POST，禁止真实邮件发送，保存截图及 JSON。实际远程运行待验收。
+- [x] 新建 `scripts/seo/check-rfq-prefill-browser.mjs`，仅在 GitHub 隔离构建地址运行：桌面/移动中英文用途与型号、未知/重复参数回退、用户改写及提交字段；拦截所有 POST，禁止真实邮件发送，保存截图及 JSON。最终远程运行 `37899137532` 的 4 个场景全部通过。
 - [x] 添加 `test:rfq-application` / `test:rfq-browser`，在既有回归工作流执行单元测试并在构建后验证实际页面。复用独立工具依赖，无新增包。
-- [ ] 运行 `npm run test:rfq-application`、`npm run check:rfq-email`、`npm run typecheck`、`npm run build:release`，检查差异，中文提交完整修复。
+- [x] 运行场景测试 4/4、邮件字段测试 3/3、`typecheck` 通过；本机 `build:release` 在子进程权限处报 EPERM，未当作通过。GitHub 运行 `37898442526` 的 `build:release` 与实际浏览器预填步骤均成功；修复提交 `25cb14a`。
 
 ## 2. 俄语内容
 
 - [x] 新建 `scripts/check-dew-point-content.test.mjs`：检查压力/常压露点说明、取样/稳定读数说明、询盘压力信息、既有 URL/产品推荐/英文内容保持；观察 3 项失败后实现，4/4 通过。
 - [x] 仅增补俄语选型卡、rfqPoints 和 2 个 FAQ。说明“测量压力必须记录；常压读数与管线压力露点不可直接比较；取样、流量与稳定时间按具体型号手册”。不新增任意数字。
-- [ ] 运行内容测试及 `check:applications`、`check:application-links`、`check:i18n`、`check:seo`、`typecheck`；中文提交。
-- [ ] 推送后核验 GitHub 正式构建、预填浏览器结果与 Lighthouse 结果；更新执行记录。CI 通过不代表 VPS 已上线。
-- [ ] 交付两项结果与现有发布流程所需的准确提交版本，不自动改服务器密钥或发真实测试询盘。
+- [x] 内容测试 4/4 及 `check:applications`、`check:application-links`、`check:i18n`、`check:seo`、`typecheck` 通过；内容提交 `e84db64`。
+- [x] 推送后核验 GitHub 运行 `37899137532`：正式构建、4 个预填浏览器场景、6 页共 12 次 Lighthouse 检查通过。报告附件 SHA256 与 GitHub 元数据一致；独立读取 JSON 确认抓取允许、标题、描述、HTTP 状态四项全部通过。桌面/手机均验证 5 张推荐产品图片完成解码并有有效尺寸，保存 6 张截图；执行记录已更新。CI 通过不代表 VPS 已上线。
+- [x] 记录待发布的准确版本 `57ba2739143818e360790ebf27e9e3fb844c534c`，不自动改服务器密钥或发真实测试询盘。
+- [ ] 用户目前尚未登录服务器。登录后先核对实际运行目录、提交、剩余资源和配置链接，再独立构建、验证并按保留旧版本的流程发布；记录实际上线时间。
