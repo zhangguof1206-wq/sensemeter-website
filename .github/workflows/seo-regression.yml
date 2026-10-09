@@ -40,10 +40,14 @@ jobs:
           npm run test:seo-tools
           npm run test:live-seo
           npm run test:daily-seo
+          npm run test:rfq-application
+          npm run check:rfq-email
       - name: 构建网站
         env:
           NEXT_TELEMETRY_DISABLED: '1'
         run: npm run build:release
+      - name: 验证中英文询盘场景与可编辑提交
+        run: npm run test:rfq-browser
       - name: 检查移动端索引与体验
         env:
           SEO_TOOLS_BASE_URL: http://127.0.0.1:3219

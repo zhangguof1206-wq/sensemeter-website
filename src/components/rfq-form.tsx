@@ -24,12 +24,14 @@ function Field({
   label,
   name,
   type = "text",
-  required = false
+  required = false,
+  defaultValue
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
+  defaultValue?: string;
 }) {
   const id = name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
   return (
@@ -37,12 +39,12 @@ function Field({
       <label className="mb-2 block font-bold" htmlFor={id}>
         {label}
       </label>
-      <input className="w-full rounded border border-line px-3 py-3" id={id} name={name} type={type} required={required} />
+      <input className="w-full rounded border border-line px-3 py-3" id={id} name={name} type={type} required={required} defaultValue={defaultValue} />
     </div>
   );
 }
 
-export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
+export function RfqForm({ locale, model, application }: { locale: Locale; model?: string; application?: string }) {
   const c = t(locale);
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -152,7 +154,7 @@ export function RfqForm({ locale, model }: { locale: Locale; model?: string }) {
           </select>
         </div>
         <Field label={c.formQuantity} name="Quantity" type="number" />
-        <Field label={c.formApplication} name="Application" />
+        <Field label={c.formApplication} name="Application" defaultValue={application} />
       </div>
       <div>
         <label className="mb-2 block font-bold" htmlFor="message">

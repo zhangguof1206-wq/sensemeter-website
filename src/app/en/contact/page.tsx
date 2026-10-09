@@ -1,5 +1,7 @@
 ﻿import { ContactPage } from "@/components/site";
 import { staticPageMetadata } from "@/lib/seo";
+import { applicationPages } from "@/data/applications";
+import { getRfqApplicationTitle } from "@/lib/rfq-application";
 
 export const metadata = staticPageMetadata({
   locale: "en",
@@ -9,10 +11,11 @@ export const metadata = staticPageMetadata({
 });
 
 type Props = {
-  searchParams: Promise<{ model?: string }>;
+  searchParams: Promise<{ model?: string; application?: string | string[] }>;
 };
 
 export default async function Page({ searchParams }: Props) {
   const params = await searchParams;
-  return <ContactPage locale="en" model={params.model} />;
+  const application = getRfqApplicationTitle(params.application, "en", applicationPages);
+  return <ContactPage locale="en" model={params.model} application={application} />;
 }

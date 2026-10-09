@@ -432,7 +432,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
   );
 }
 
-export function ContactPage({ locale, model }: { locale: Locale; model?: string }) {
+export function ContactPage({ locale, model, application }: { locale: Locale; model?: string; application?: string }) {
   const c = t(locale);
   return (
     <PageShell locale={locale} active="contact" languagePath={localizedPath(oppositeLocale(locale), "/contact")}>
@@ -455,7 +455,7 @@ export function ContactPage({ locale, model }: { locale: Locale; model?: string 
             </dl>
           </aside>
 
-          <RfqForm locale={locale} model={model} />
+          <RfqForm locale={locale} model={model} application={application} />
         </div>
       </section>
     </PageShell>
