@@ -68,9 +68,13 @@ try {
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), "Contact page overflows viewport.");
       await page.screenshot({ path: `${output}/${locale}-${viewport.name}.png`, fullPage: true });
       const edited = `${locale}-${viewport.name} customer application`;
-      await page.click("#application", { clickCount: 3 });
+      await page.focus("#application");
+      await page.keyboard.down("Control");
+      await page.keyboard.press("KeyA");
+      await page.keyboard.up("Control");
       await page.keyboard.press("Backspace");
       await page.type("#application", edited);
+      assert.equal(await page.$eval("#application", (el) => el.value), edited, "Customer edit must replace the entire default.");
       await page.type("#email", "customer@example.invalid");
       await page.click('input[name="Personal Data Consent"]');
       await Promise.all([page.waitForNavigation({ waitUntil: "domcontentloaded" }), page.click('main form[name="rfq-main"] button[type="submit"]')]);
