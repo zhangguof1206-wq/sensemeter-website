@@ -2,14 +2,20 @@ name: 线上SEO巡检
 
 on:
   schedule:
+    - cron: "15 1 * * *"
     - cron: "15 2 * * 1"
   workflow_dispatch:
+    inputs:
+      full_audit:
+        description: 同时运行全站和浏览器诊断（默认只运行轻量检查）
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 concurrency:
-  group: weekly-live-seo
+  group: live-seo-monitor
   cancel-in-progress: false
 
 jobs:
@@ -28,14 +34,16 @@ jobs:
           node-version: "20"
 
       - name: 验证巡检器
-        run: npm run test:live-seo
+        run: |
+          npm run test:live-seo
+          npm run test:daily-seo
 
       - name: 运行线上SEO巡检
         id: audit
         continue-on-error: true
         env:
           SEO_AUDIT_BASE_URL: https://sensemeter.ru
-        run: node scripts/check-live-seo.mjs --output artifacts/live-seo-report.md
+        run: node scripts/check-live-seo.mjs --output artifacts/live-seo-report.md --output-json artifacts/live-seo-report.json
 
       - name: 写入任务摘要
         if: always()
@@ -51,7 +59,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: live-seo-report
-          path: artifacts/live-seo-report.md
+          path: |
+            artifacts/live-seo-report.md
+            artifacts/live-seo-report.json
+          if-no-files-found: error
           retention-days: 30
 
       - name: 标记巡检失败
@@ -60,6 +71,7 @@ jobs:
 
   open-source-audits:
     name: 全站与重点页面诊断
+    if: github.event.schedule == '15 2 * * 1' || (github.event_name == 'workflow_dispatch' && inputs.full_audit)
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:

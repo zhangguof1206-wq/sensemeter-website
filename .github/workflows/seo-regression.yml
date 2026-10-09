@@ -39,6 +39,7 @@ jobs:
         run: |
           npm run test:seo-tools
           npm run test:live-seo
+          npm run test:daily-seo
       - name: 构建网站
         env:
           NEXT_TELEMETRY_DISABLED: '1'

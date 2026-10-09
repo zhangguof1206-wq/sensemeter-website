@@ -4,6 +4,7 @@
 
 | 工具 | 用途 | 运行方式 |
 | --- | --- | --- |
+| 现有轻量线上巡检器 | 21 个中英文商业页面、联系入口、robots.txt 与 Sitemap | 每天北京时间 09:15 左右；输出 Markdown 和 JSON |
 | SiteOne 2.5.1 | 全站标题、链接、状态码、索引信号 | 每周一北京时间 10:15 左右，GitHub 执行 |
 | Unlighthouse 0.19.1 | 中英文露点应用、MDM300、HMP3、首页、联系页的移动端诊断 | 同一次每周巡检，单浏览器顺序扫描 |
 | Lighthouse CI 0.15.1 | 六个产品/应用页的收录基础检查及体验评分 | main 相关代码更新、PR 或手动启动 |
@@ -15,12 +16,14 @@ GitHub 排队可能延迟。依赖独立于网站，无需 VPS 安装 Docker 或
 ## 你如何查看
 
 1. 打开 [仓库 Actions](https://github.com/zhangguof1206-wq/sensemeter-website/actions)。
-2. 点击“线上SEO巡检”，再点击最近一次运行。需要立即检查时，点击“Run workflow”，分支选 main，点击绿色按钮。
-3. 页面底部 Artifacts 下载 `live-seo-report` 和 `live-seo-tools`，解压。
+2. 点击“线上SEO巡检”，再点击最近一次运行。需要立即检查时，点击“Run workflow”，分支选 main；默认只做轻量检查，勾选 `full_audit` 才追加全站和浏览器诊断。
+3. 页面底部 Artifacts 下载 `live-seo-report`，解压后查看摘要或 `live-seo-report.json` 的日期、范围、问题与元信息。每周或勾选完整诊断的运行还会提供 `live-seo-tools`。
 4. 打开 `siteone.html` 查看全站问题；Unlighthouse 文件夹中的单页 HTML 报告可直接打开，汇总界面如需浏览器服务，用下方本地方法。
 5. 查看“SEO代码回归检查”的 `seo-code-regression` 可比较新代码的产品页检查报告。
 
 Actions 报错时先看失败步骤，不要因此直接修改生产配置；请求失败、安装失败和网站内容问题是不同原因。若仓库未开启 Actions，进入 Settings → Actions → General，启用工作流。若组织禁止这些 Actions，需管理员按组织规则允许。
+
+09:15 是 GitHub 每日检查的计划时间，不是保证到点开始；周一另有 10:15 的全站诊断。此工作流仅收集证据，不会自动改页面或上线。应用中的每日评估执行任务仍需独立创建成功及权限允许，不能因为 GitHub 每日检查启用就宣称自动决策已经启用。
 
 Lighthouse CI 以移动端 `Chrome-Lighthouse` 标识检查框架的非流式元信息分支：Lighthouse 12 只读取 head 中的描述，而 Next.js 可以将普通浏览器的元信息流式输出到 body。此配置只影响检查请求，不修改线上渲染、不降低缺失描述的失败规则。普通访客体验仍以 Unlighthouse 的线上报告为参考，两个工具的体验分数不应直接混为一谈。
 

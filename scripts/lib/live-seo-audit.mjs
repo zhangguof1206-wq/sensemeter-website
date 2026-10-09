@@ -11,10 +11,15 @@ export const monitoredPaths = [
   "/en/applications/industrial-humidity-monitoring",
   "/applications/glove-box-oxygen-analysis",
   "/en/applications/glove-box-oxygen-analysis",
+  "/applications/climate-chamber-humidity",
+  "/en/applications/climate-chamber-humidity",
   "/products/mdm300",
   "/en/products/mdm300",
+  "/products/hmp3-hmpx",
   "/en/products/hmp3-hmpx",
-  "/en/products/gpr-1500"
+  "/en/products/gpr-1500",
+  "/contact",
+  "/en/contact"
 ];
 
 function parseAttributes(tag) {
@@ -168,6 +173,7 @@ export async function runLiveSeoAudit({
   concurrency = 3,
   retryDelayMs = 400
 } = {}) {
+  if (!Array.isArray(routes) || routes.length === 0) throw new Error("No pages selected for the SEO audit.");
   const normalizedBaseUrl = normalizeBaseUrl(baseUrl);
   const robotsUrl = `${normalizedBaseUrl}/robots.txt`;
   const sitemapUrl = `${normalizedBaseUrl}/sitemap.xml`;

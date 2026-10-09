@@ -14,6 +14,7 @@ informations/
 .worktrees/
 .seo-cache/
 /artifacts/live-seo-report.md
+/artifacts/live-seo-report.json
 /.cache/
 /artifacts/seo-tools/
 /.lighthouseci/
