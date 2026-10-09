@@ -47,9 +47,9 @@ GitHub 每天北京时间 09:15 左右自动检查 `https://sensemeter.ru` 的 2
 
 ## 当前首要增长页面
 
-`/en/applications/compressed-air-dew-point`
+按用户上传的 2026-09-09 至 2026-10-06 报表，先处理俄语 `/applications/compressed-air-dew-point`：74 次曝光、0 点击、平均排名 18.11。已准备压力条件、取样和询盘信息增补，等待 VPS 发布。不是所有页面都要每天重写。
 
-该页面覆盖以下已在 Search Console 出现的真实需求：
+英语 `/en/applications/compressed-air-dew-point` 同期为 78 次曝光、0 点击、平均排名 45.5，暂保留现有版本观察。以下查询确实出现在历史 Search Console 数据中；没有页面过滤证据时，不将属性级查询强行归因给单一页面：
 
 - `compressed air dew point testing`
 - `dew point meter for compressed air`
@@ -57,6 +57,49 @@ GitHub 每天北京时间 09:15 左右自动检查 `https://sensemeter.ru` 的 2
 - `compressed air dew point monitor`
 
 优化时保留当前URL、canonical、hreflang和推荐产品。不要为每个近义词分别建立重复页面。
+
+## 本轮发布计划
+
+目标：先让已验收的俄语内容和中英文询盘场景预填在正式站生效，再从实际发布日期观察曝光与有效询盘。业务版本固定为 `57ba2739143818e360790ebf27e9e3fb844c534c`，后续文档提交不等于新的已验收构建。
+
+- [x] GitHub 隔离构建及 4 个询盘浏览器场景通过；模拟提交未发送真实邮件。6 页共 12 次 Lighthouse 检查通过，报告已下载并校验。
+- [x] 2026-10-09 北京时间 15:37 直接读取正式俄语露点页和两个带应用参数的联系页，均 HTTP 200；新 FAQ 未出现，实际联系表单用途输入没有默认值。GitHub 验收不代表线上已经更新。
+- [ ] 用户登录服务器后执行下方只读检查，确认 PM2 实际目录、仓库状态、资源与配置链接。不要把历史目录当作当前事实。
+- [ ] 确认资源足够后，在新建的独立发布目录检出固定版本、安装依赖、链接现有私密配置并构建。保留旧目录；不在正在运行的目录拉取或构建，不安装 SEO 浏览器工具到 VPS。
+- [ ] 在未占用的本地端口启动新版本；验证 RU/EN 预填、未知/重复参数回退、俄语 FAQ、原 canonical 及 HTTP 状态。临时地址的 canonical 应保持正式域名，不能因端口差异改成 localhost。
+- [ ] 经用户确认后，对临时版本发一封有明确测试标识的询盘，并由用户确认收到且用途字段正确。CI 模拟提交不能替代这个送达检查。
+- [ ] 记录旧 PM2 启动信息后切换正式进程，验证正式域名页面和询盘入口；若验证失败，恢复旧目录和原启动信息。验证后保存 PM2 状态，记录实际目录、提交、上线时间。命令需根据只读检查结果生成，不能照抄历史目录。
+- [ ] 上线后手动运行一次轻量线上巡检；只对本轮有实质变化的主页面检查/请求索引，不反复提交。第 14 天和第 28 天导出同口径数据，保留上线前基线与实际有效询盘记录。
+
+[该版本的 GitHub 验收](https://github.com/zhangguof1206-wq/sensemeter-website/actions/runs/37899137532)。发布步骤尚未在 VPS 执行；不宣称排名或询盘已经增长。
+
+### 登录后的只读检查
+
+以下只检查状态，不更新、重启或输出邮件密码。先在 Ubuntu 登录成功后运行，并发送结果；不在 Windows 本地运行。`PM2_TARGET_NOT_UNIQUE` 表示目标不唯一或不存在，应停止发布并核对。
+
+```bash
+hostname
+node --version
+npm --version
+free -h
+df -h / /var/www
+git -C /var/www/sensemeter-website-new status -sb
+git -C /var/www/sensemeter-website-new worktree list
+pm2 jlist | node -e 'let s="";process.stdin.on("data",d=>s+=d);process.stdin.on("end",()=>{try{const p=JSON.parse(s).filter(x=>x.name==="sensemeter-website");if(p.length!==1)throw Error("PM2_TARGET_NOT_UNIQUE");const e=p[0].pm2_env;console.log(JSON.stringify({name:p[0].name,status:e.status,cwd:e.pm_cwd,script:e.pm_exec_path,nodeVersion:e.node_version},null,2));}catch(e){console.error(e.message);process.exitCode=1;}})'
+if test -s /root/sensemeter-config/website.env; then
+  echo "PRIVATE_CONFIG_EXISTS"
+else
+  echo "PRIVATE_CONFIG_MISSING"
+fi
+```
+
+不要运行 `cat website.env`、`pm2 env` 或输出完整 `pm2 jlist` 后截图。进程环境变量中看不到邮件配置不一定代表缺失，Next.js 可能从私密文件读取；最终以配置链接及真实测试邮件为准。
+
+### 上线后的业务观察
+
+每次有效询盘只记录日期、页面/产品、来源证据、是否为真实采购或选型需求、跟进状态；不将客户姓名、邮箱或询盘正文提交到 GitHub。仅有邮件数量时不推断全部来自 Google，有确认的来源才做归因。
+
+第 14 天先看相关页面曝光、商业查询点击和实际询盘；第 28 天再比较完整同口径周期。新内容上线不能保证立即收录或排名提升，样本很少时保留观察而非每天改标题。技术故障可立即修复，不受内容观察窗口限制。
 
 ## 重要边界
 
