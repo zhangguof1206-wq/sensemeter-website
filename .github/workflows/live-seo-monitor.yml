@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: weekly-live-seo
+  cancel-in-progress: false
+
 jobs:
   live-seo-audit:
     name: 检查线上索引信号
@@ -52,4 +56,49 @@ jobs:
 
       - name: 标记巡检失败
         if: steps.audit.outcome == 'failure'
+        run: exit 1
+
+  open-source-audits:
+    name: 全站与重点页面诊断
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SEO_TOOLS_BASE_URL: https://sensemeter.ru
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: tools/seo/package-lock.json
+      - name: 安装独立工具并校验下载
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+        run: npm run seo:install
+      - name: 验证工具配置
+        run: npm run test:seo-tools
+      - name: SiteOne低负载全站扫描
+        id: siteone
+        continue-on-error: true
+        run: npm run seo:siteone
+      - name: Unlighthouse重点询盘页面检查
+        id: unlighthouse
+        continue-on-error: true
+        run: npm run seo:unlighthouse
+      - name: 保存线上诊断报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-seo-tools
+          path: artifacts/seo-tools/live/
+          include-hidden-files: true
+          retention-days: 30
+      - name: 报告说明
+        if: always()
+        run: |
+          echo '## 开源SEO诊断' >> "$GITHUB_STEP_SUMMARY"
+          echo '下载 live-seo-tools，打开 siteone.html 查看全站问题，查看 unlighthouse 中的重点页面报告。法律页和感谢页的 noindex 属于预期行为；产品和应用页的 noindex 需要优先排查。' >> "$GITHUB_STEP_SUMMARY"
+          echo '扫描聚焦 HTML，最多 500 个 URL，达到上限时仅代表部分覆盖；移动端实验室性能评分不等同于真实用户数据。扫描不会提交询盘，也不会直接提高排名。' >> "$GITHUB_STEP_SUMMARY"
+      - name: 标记工具运行失败
+        if: steps.siteone.outcome == 'failure' || steps.unlighthouse.outcome == 'failure'
         run: exit 1

@@ -23,7 +23,12 @@
     "check:application-links": "node scripts/check-application-backlinks.mjs",
     "check:rfq-email": "node --no-warnings --experimental-strip-types --test scripts/check-rfq-email.test.mjs",
     "check:live-seo": "node scripts/check-live-seo.mjs --output artifacts/live-seo-report.md",
-    "test:live-seo": "node scripts/check-live-seo.test.mjs"
+    "test:live-seo": "node scripts/check-live-seo.test.mjs",
+    "test:seo-tools": "node scripts/seo/seo-tools.test.mjs",
+    "seo:install": "npm ci --prefix tools/seo --cache .cache/npm --registry https://registry.npmjs.org && node scripts/seo/siteone.mjs",
+    "seo:siteone": "node scripts/seo/run-tool.mjs siteone",
+    "seo:unlighthouse": "node scripts/seo/run-tool.mjs unlighthouse",
+    "seo:lighthouse": "node scripts/seo/run-tool.mjs lighthouse"
   },
   "dependencies": {
     "next": "^15.0.0",
