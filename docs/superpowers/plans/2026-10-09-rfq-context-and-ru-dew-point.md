@@ -38,4 +38,5 @@ return <ContactPage locale="ru" model={params.model} application={application} /
 - [x] 用户截图确认旧目录在线、args 为 `start -- -p 3000`、fork_mode、解释器 `/usr/bin/node`、脚本 `/usr/bin/npm`，3000 端口监听。未将 `port: null` 误认为没有监听端口。
 - [x] 用户执行固定版本切换，截图确认 `LIVE_PAGES_OK`、`UPGRADE_OK`、PM2 保存且 online；正式目录为 `/var/www/sensemeter-website-release-20261009-075046-57ba273`，上线时间 `2026-10-09T08:41:10Z`。回滚未实际触发，不宣称实测恢复成功。
 - [x] 助手独立检查正式域名：21 页轻量巡检全部通过、3 项标题长度提醒；另 10 请求确认 RU/EN 内容/用途、完整型号选中及未知/重复参数回退，无真实邮件发送。报告保留在 `artifacts/seo-tools/deployed-57ba273-20261009/`。
-- [ ] 用户本轮人工视觉检查、俄语露点主页面索引请求及 14/28 天效果复盘尚待完成；不将发布通过等同曝光或有效询盘增长。
+- [x] 用户截图确认俄语露点主页面已请求建立索引，背景显示网址在 Google 服务中；不据此断言新版内容已重新抓取/处理。
+- [ ] 用户本轮人工视觉检查及 14/28 天效果复盘尚待完成；不将发布或索引请求通过等同曝光或有效询盘增长。
