@@ -65,7 +65,7 @@ GitHub 每天北京时间 09:15 左右自动检查 `https://sensemeter.ru` 的 2
 - [x] GitHub 隔离构建及 4 个询盘浏览器场景通过；模拟提交未发送真实邮件。6 页共 12 次 Lighthouse 检查通过，报告已下载并校验。
 - [x] 2026-10-09 北京时间 15:37 直接读取正式俄语露点页和两个带应用参数的联系页，均 HTTP 200；新 FAQ 未出现，实际联系表单用途输入没有默认值。GitHub 验收不代表线上已经更新。
 - [x] 用户登录并提供只读检查截图：主仓库干净、main 落后 49 个提交；PM2 运行 `bbfeab7` 独立目录，状态 online；Node 22.22.3、npm 10.9.8；可用内存约 2.0GiB、无 Swap；磁盘可用 5.3GiB；私密配置文件存在。未把历史目录当作当前事实，配置存在不等于本轮实际送达已验证。
-- [ ] 确认资源足够后，在新建的独立发布目录检出固定版本、安装依赖、链接现有私密配置并构建。保留旧目录；不在正在运行的目录拉取或构建，不安装 SEO 浏览器工具到 VPS。
+- [x] 用户截图确认独立目录 `/var/www/sensemeter-website-release-20261009-075046-57ba273` 完成构建并输出 `PREPARE_OK`、`NOT_SWITCHED`。固定版本、依赖、配置链接及测试由前一整段准备命令验证，截图未单独展示所有测试明细；旧 PM2 目录保留，尚未切换。
 - [ ] 在未占用的本地端口启动新版本；验证 RU/EN 预填、未知/重复参数回退、俄语 FAQ、原 canonical 及 HTTP 状态。临时地址的 canonical 应保持正式域名，不能因端口差异改成 localhost。
 - [ ] 经用户确认后，对临时版本发一封有明确测试标识的询盘，并由用户确认收到且用途字段正确。CI 模拟提交不能替代这个送达检查。
 - [ ] 记录旧 PM2 启动信息后切换正式进程，验证正式域名页面和询盘入口；若验证失败，恢复旧目录和原启动信息。验证后保存 PM2 状态，记录实际目录、提交、上线时间。命令需根据只读检查结果生成，不能照抄历史目录。
@@ -131,6 +131,77 @@ printf 'PREPARE_OK\nSTAGING_DIR=%s\nNOT_SWITCHED\n' "$NEW"
 ```
 
 用户发送 `PREPARE_OK` 与 `STAGING_DIR` 后，再分步安排临时端口检查和真实测试邮件。不能把本段准备完成等同于正式上线。
+
+### 临时入口验证
+
+本轮实际新目录为 `/var/www/sensemeter-website-release-20261009-075046-57ba273`。以下启动的是仅绑定 `127.0.0.1:3237` 的临时进程，端口已占用时停止；不打开防火墙、不调用 PM2、不提交表单。读取页面时使用正式域名作为预期 canonical，复用现有巡检解析器。脚本结束或失败后只停止本次创建的临时进程，不按端口批量杀进程。
+
+```bash
+(
+set -eu
+NEW=/var/www/sensemeter-website-release-20261009-075046-57ba273
+TARGET=57ba2739143818e360790ebf27e9e3fb844c534c
+PORT=3237
+LOG=/tmp/sensemeter-57ba273-preview-3237.log
+test "$(git -C "$NEW" rev-parse HEAD)" = "$TARGET"
+cd "$NEW"
+test -s .next/BUILD_ID
+test "$(readlink -f .env.production.local)" = /root/sensemeter-config/website.env
+if test -n "$(ss -H -ltn "sport = :$PORT")"; then
+  echo "PORT_BUSY: $PORT"
+  exit 1
+fi
+node node_modules/next/dist/bin/next start -H 127.0.0.1 -p "$PORT" >"$LOG" 2>&1 &
+SPID=$!
+cleanup() { kill "$SPID" 2>/dev/null || true; wait "$SPID" 2>/dev/null || true; }
+trap cleanup EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+export PREVIEW_PORT="$PORT" PREVIEW_PID="$SPID"
+node --no-warnings --experimental-strip-types --input-type=module <<'NODE'
+import assert from 'node:assert/strict';
+import { setTimeout as delay } from 'node:timers/promises';
+import { compressedAirDewPoint as d } from './src/data/applications/compressed-air-dew-point.ts';
+import { auditHtmlPage } from './scripts/lib/live-seo-audit.mjs';
+const base = `http://127.0.0.1:${process.env.PREVIEW_PORT}`;
+const get = path => fetch(base + path, {signal: AbortSignal.timeout(5000), redirect: 'error'});
+let ready = false;
+for (let n = 0; n < 40; n++) {
+  process.kill(Number(process.env.PREVIEW_PID), 0);
+  try { if ((await get('/contact')).status === 200) { ready = true; break; } } catch {}
+  await delay(500);
+}
+assert.ok(ready, 'PREVIEW_NOT_READY');
+async function html(path) {
+  const r = await get(path), body = await r.text();
+  const a = auditHtmlPage({baseUrl:'https://sensemeter.ru', path:path.split('?')[0], status:r.status, html:body});
+  assert.deepEqual(a.issues, [], path);
+  return body;
+}
+const field = h => { const t = h.match(/<input\b[^>]*id="application"[^>]*>/i)?.[0]; assert.ok(t, 'APPLICATION_FIELD_MISSING'); return t; };
+for (const locale of ['ru', 'en']) {
+  const contact = locale === 'en' ? '/en/contact' : '/contact';
+  const h = await html(contact + '?application=' + d.slug + '&model=MDM300%20%2F%20MDM300%20I.S.');
+  assert.ok(field(h).includes(`value="${d.content[locale].title}"`), locale + ' prefill');
+  assert.doesNotMatch(field(h), /readonly|disabled/i);
+  assert.ok(h.includes('value="MDM300 / MDM300 I.S." selected=""'), locale + ' model');
+  for (const q of ['', '?application=unknown', '?application=' + d.slug + '&application=unknown'])
+    assert.doesNotMatch(field(await html(contact + q)), /value="[^"]+"/);
+  const a = await html((locale === 'en' ? '/en' : '') + d.path);
+  if (locale === 'ru') for (const f of d.content.ru.faqs.slice(-2)) {
+    assert.ok(a.includes(f.question) && a.includes(f.answer), 'RU_FAQ_MISSING');
+  }
+  console.log(locale.toUpperCase() + '_PAGES_OK');
+}
+const api = await get('/api/rfq-email');
+assert.equal(api.status, 405);
+assert.equal((await api.json()).error, 'method_not_allowed');
+console.log('PREVIEW_OK: 10 page checks; no email sent; not switched');
+NODE
+)
+```
+
+只有收到 `RU_PAGES_OK`、`EN_PAGES_OK`、`PREVIEW_OK` 后，才安排发送一封明确标注的真实测试邮件。此处为 HTTP 验证，不替代已完成的 GitHub 浏览器交互测试，也不能证明正式站已部署或邮件送达。
 
 ### 上线后的业务观察
 
