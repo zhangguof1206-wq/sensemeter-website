@@ -33,4 +33,5 @@ return <ContactPage locale="ru" model={params.model} application={application} /
 - [x] 记录待发布的准确版本 `57ba2739143818e360790ebf27e9e3fb844c534c`，不自动改服务器密钥或发真实测试询盘。
 - [x] 用户已登录并提供服务器只读结果：PM2 在线运行 `bbfeab7`；Node 22.22.3/npm 10.9.8，约 2GiB 可用内存、无 Swap、5.3GiB 可用磁盘，配置文件存在。主仓库 main 干净但落后；新发布目录将检出固定提交，不更新正在运行的目录。
 - [x] 用户截图确认独立构建 `57ba273` 完成；目录 `/var/www/sensemeter-website-release-20261009-075046-57ba273`，输出 `PREPARE_OK` 与 `NOT_SWITCHED`。尚未切换 PM2。
-- [ ] 按手册验证临时端口上的 10 个页面请求及邮件接口 GET 拒绝；收到 `PREVIEW_OK` 后再验证真实测试询盘，经确认切换并保留回滚路径，记录实际上线时间。配置存在和构建完成不代表本轮邮件送达。
+- [x] 用户截图确认临时端口 RU/EN 10 个页面请求及邮件接口 GET 拒绝验证完成，输出 `RU_PAGES_OK`、`EN_PAGES_OK`、`PREVIEW_OK`；未发送邮件或切换 PM2。
+- [ ] 用户同意后执行一次带 `TEST-57ba273` 标记的真实测试询盘；发送前写入一次性尝试记录，不重复发送。收到 API 成功及用户收件/用途字段确认后，再切换并保留回滚路径，记录实际上线时间。

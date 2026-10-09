@@ -66,7 +66,7 @@ GitHub 每天北京时间 09:15 左右自动检查 `https://sensemeter.ru` 的 2
 - [x] 2026-10-09 北京时间 15:37 直接读取正式俄语露点页和两个带应用参数的联系页，均 HTTP 200；新 FAQ 未出现，实际联系表单用途输入没有默认值。GitHub 验收不代表线上已经更新。
 - [x] 用户登录并提供只读检查截图：主仓库干净、main 落后 49 个提交；PM2 运行 `bbfeab7` 独立目录，状态 online；Node 22.22.3、npm 10.9.8；可用内存约 2.0GiB、无 Swap；磁盘可用 5.3GiB；私密配置文件存在。未把历史目录当作当前事实，配置存在不等于本轮实际送达已验证。
 - [x] 用户截图确认独立目录 `/var/www/sensemeter-website-release-20261009-075046-57ba273` 完成构建并输出 `PREPARE_OK`、`NOT_SWITCHED`。固定版本、依赖、配置链接及测试由前一整段准备命令验证，截图未单独展示所有测试明细；旧 PM2 目录保留，尚未切换。
-- [ ] 在未占用的本地端口启动新版本；验证 RU/EN 预填、未知/重复参数回退、俄语 FAQ、原 canonical 及 HTTP 状态。临时地址的 canonical 应保持正式域名，不能因端口差异改成 localhost。
+- [x] 用户截图确认 `RU_PAGES_OK`、`EN_PAGES_OK`、`PREVIEW_OK: 10 page checks; no email sent; not switched`。临时入口上的预填、型号、未知/重复参数回退、俄语 FAQ 及正式域名 canonical 检查通过；这是 HTTP 验证，不等同浏览器或邮件送达。
 - [ ] 经用户确认后，对临时版本发一封有明确测试标识的询盘，并由用户确认收到且用途字段正确。CI 模拟提交不能替代这个送达检查。
 - [ ] 记录旧 PM2 启动信息后切换正式进程，验证正式域名页面和询盘入口；若验证失败，恢复旧目录和原启动信息。验证后保存 PM2 状态，记录实际目录、提交、上线时间。命令需根据只读检查结果生成，不能照抄历史目录。
 - [ ] 上线后手动运行一次轻量线上巡检；只对本轮有实质变化的主页面检查/请求索引，不反复提交。第 14 天和第 28 天导出同口径数据，保留上线前基线与实际有效询盘记录。
@@ -202,6 +202,68 @@ NODE
 ```
 
 只有收到 `RU_PAGES_OK`、`EN_PAGES_OK`、`PREVIEW_OK` 后，才安排发送一封明确标注的真实测试邮件。此处为 HTTP 验证，不替代已完成的 GitHub 浏览器交互测试，也不能证明正式站已部署或邮件送达。
+
+### 真实测试邮件
+
+以下会实际发送一封邮件。用户同意后在服务器执行，收件人仍由现有网站私密配置决定，不更改邮箱或密钥。回复地址采用配置中的发件邮箱；用途从临时联系页实际预填输入读取。测试姓名和正文标记 `TEST-57ba273`，不是客户询盘，不计入有效询盘或转化统计。
+
+发送前原子写入 `/tmp/sensemeter-57ba273-mail-attempted.json`，同一版本重复执行会停止，避免重复邮件；记录只有时间和“已尝试”状态，没有邮箱、密码或客户内容。API 成功与用户收到邮件是不同步骤。超时或失败也不要删除记录重试，因为邮件可能已发送；先核对收件情况和错误。
+
+```bash
+(
+set -eu
+NEW=/var/www/sensemeter-website-release-20261009-075046-57ba273
+PORT=3237
+umask 077
+test "$(git -C "$NEW" rev-parse HEAD)" = 57ba2739143818e360790ebf27e9e3fb844c534c
+cd "$NEW"
+test -s .next/BUILD_ID
+test "$(readlink -f .env.production.local)" = /root/sensemeter-config/website.env
+if test -n "$(ss -H -ltn "sport = :$PORT")"; then
+  echo "PORT_BUSY: $PORT"
+  exit 1
+fi
+NODE_ENV=production node node_modules/next/dist/bin/next start -H 127.0.0.1 -p "$PORT" >/tmp/sensemeter-57ba273-mail-3237.log 2>&1 &
+SPID=$!
+cleanup() { kill "$SPID" 2>/dev/null || true; wait "$SPID" 2>/dev/null || true; }
+trap cleanup EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+export PREVIEW_PORT="$PORT" PREVIEW_PID="$SPID"
+NODE_ENV=production node --no-warnings --experimental-strip-types --input-type=module <<'MAIL'
+import assert from 'node:assert/strict';
+import { writeFile } from 'node:fs/promises';
+import { setTimeout as delay } from 'node:timers/promises';
+import nextEnv from '@next/env';
+import { compressedAirDewPoint as d } from './src/data/applications/compressed-air-dew-point.ts';
+nextEnv.loadEnvConfig(process.cwd(), false, {info(){}, error(){}, log(){}});
+const email = (process.env.RFQ_FROM_EMAIL || process.env.RFQ_SMTP_USER || '').trim();
+assert.ok(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email), 'CONFIGURED_SENDER_EMAIL_MISSING');
+const base = `http://127.0.0.1:${process.env.PREVIEW_PORT}`;
+let html;
+for (let n = 0; n < 40; n++) {
+  process.kill(Number(process.env.PREVIEW_PID), 0);
+  try {
+    const r = await fetch(base + '/contact?application=' + d.slug, {signal:AbortSignal.timeout(5000), redirect:'error'});
+    if (r.status === 200) { html = await r.text(); break; }
+  } catch {}
+  await delay(500);
+}
+assert.ok(html, 'PREVIEW_NOT_READY');
+const input = html.match(/<input\b[^>]*id="application"[^>]*>/i)?.[0];
+const application = input?.match(/\bvalue="([^"]*)"/)?.[1];
+assert.equal(application, d.content.ru.title, 'APPLICATION_PREFILL_MISSING');
+const body = new URLSearchParams({Email:email, Name:'TEST-57ba273', Company:'SenseMeter internal deployment test', 'Product Model':'MDM300 / MDM300 I.S.', Application:application, Message:'TEST-57ba273: internal pre-release verification only. Not a customer RFQ; no quote required.', 'Personal Data Consent':'accepted'});
+await writeFile('/tmp/sensemeter-57ba273-mail-attempted.json', JSON.stringify({at:new Date().toISOString(), state:'attempted'}), {flag:'wx', mode:0o600});
+const r = await fetch(base + '/api/rfq-email', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body, signal:AbortSignal.timeout(60000), redirect:'error'});
+const result = await r.json();
+assert.ok(r.ok && result.ok === true, 'TEST_EMAIL_FAILED: ' + (result.error || r.status));
+console.log('TEST_EMAIL_API_OK: wait for inbox confirmation; not switched');
+MAIL
+)
+```
+
+用户需确认收到 `TEST-57ba273` 测试邮件，且 `Application` 为俄语压缩空气露点应用名称、`Product Model` 为 MDM300 / MDM300 I.S.。确认前不切换正式网站。尚未执行本段，不宣称邮件已送达。
 
 ### 上线后的业务观察
 
