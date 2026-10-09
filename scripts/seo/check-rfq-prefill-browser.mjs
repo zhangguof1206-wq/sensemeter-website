@@ -73,7 +73,7 @@ try {
       await page.type("#application", edited);
       await page.type("#email", "customer@example.invalid");
       await page.click('input[name="Personal Data Consent"]');
-      await Promise.all([page.waitForNavigation({ waitUntil: "domcontentloaded" }), page.click('button[type="submit"]')]);
+      await Promise.all([page.waitForNavigation({ waitUntil: "domcontentloaded" }), page.click('main form[name="rfq-main"] button[type="submit"]')]);
       assert.equal(sent.length, 1);
       assert.equal(sent[0].Application, edited);
       assert.equal(sent[0]["Product Model"], model);
