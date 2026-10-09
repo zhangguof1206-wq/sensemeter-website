@@ -36,4 +36,6 @@ return <ContactPage locale="ru" model={params.model} application={application} /
 - [x] 用户截图确认临时端口 RU/EN 10 个页面请求及邮件接口 GET 拒绝验证完成，输出 `RU_PAGES_OK`、`EN_PAGES_OK`、`PREVIEW_OK`；未发送邮件或切换 PM2。
 - [x] 用户确认收到本轮真实测试询盘，并确认 `Application` 的俄语用途正确。没有本轮 API 成功截图或单独的邮件型号字段确认，不混写为独立证据；不要再次发送测试邮件。
 - [x] 用户截图确认旧目录在线、args 为 `start -- -p 3000`、fork_mode、解释器 `/usr/bin/node`、脚本 `/usr/bin/npm`，3000 端口监听。未将 `port: null` 误认为没有监听端口。
-- [ ] 执行手册中的固定版本切换：私密保存新旧配置及快照，仅操作该 PM2 名称，验证本机与正式域名内容/索引信号，失败尝试恢复旧配置，成功后保存状态、记录实际上线时间。当前命令尚未执行，不宣称已上线。
+- [x] 用户执行固定版本切换，截图确认 `LIVE_PAGES_OK`、`UPGRADE_OK`、PM2 保存且 online；正式目录为 `/var/www/sensemeter-website-release-20261009-075046-57ba273`，上线时间 `2026-10-09T08:41:10Z`。回滚未实际触发，不宣称实测恢复成功。
+- [x] 助手独立检查正式域名：21 页轻量巡检全部通过、3 项标题长度提醒；另 10 请求确认 RU/EN 内容/用途、完整型号选中及未知/重复参数回退，无真实邮件发送。报告保留在 `artifacts/seo-tools/deployed-57ba273-20261009/`。
+- [ ] 用户本轮人工视觉检查、俄语露点主页面索引请求及 14/28 天效果复盘尚待完成；不将发布通过等同曝光或有效询盘增长。
