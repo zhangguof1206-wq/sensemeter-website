@@ -1,0 +1,2746 @@
+{
+  "sitemapLastmods": [
+    "2026-07-02",
+    "2026-07-05",
+    "2026-07-13",
+    "2026-08-18"
+  ],
+  "scope": "Sitemap URLs, HTML SEO signals only; not indexation, CWV or traffic",
+  "checkedAt": "2026-10-10T08:46:00.429Z",
+  "baseUrl": "https://sensemeter.ru",
+  "robotsPassed": true,
+  "sitemapPassed": true,
+  "siteIssues": [],
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SenseMeter — промышленные датчики и анализаторы",
+        "description": "Измерители точки росы, анализаторы влажности газа и кислорода, промышленные датчики влажности. Подбор и международная поставка из Китая.",
+        "canonical": "https://sensemeter.ru",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru",
+          "en": "https://sensemeter.ru/en",
+          "x-default": "https://sensemeter.ru"
+        }
+      }
+    },
+    {
+      "path": "/en",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SenseMeter — industrial sensors and analyzers | SenseMeter",
+        "description": "Dew point meters, gas moisture and oxygen analyzers, and industrial humidity sensors selected and supplied internationally from China.",
+        "canonical": "https://sensemeter.ru/en",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru",
+          "en": "https://sensemeter.ru/en",
+          "x-default": "https://sensemeter.ru"
+        }
+      }
+    },
+    {
+      "path": "/catalog",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 67; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "Каталог SenseMeter: промышленные датчики и анализаторы | SenseMeter",
+        "description": "Каталог SenseMeter: промышленные датчики влажности, точки росы и кислородные анализаторы Michell, Rotronic, Vaisala и AII. PDF datasheet и запрос цены.",
+        "canonical": "https://sensemeter.ru/catalog",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/catalog",
+          "en": "https://sensemeter.ru/en/catalog",
+          "x-default": "https://sensemeter.ru/catalog"
+        }
+      }
+    },
+    {
+      "path": "/en/catalog",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Industrial measurement product catalog | SenseMeter",
+        "description": "SenseMeter catalog: Michell, Rotronic, Vaisala and AII instruments and accessories for humidity, dew point, temperature and oxygen monitoring.",
+        "canonical": "https://sensemeter.ru/en/catalog",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/catalog",
+          "en": "https://sensemeter.ru/en/catalog",
+          "x-default": "https://sensemeter.ru/catalog"
+        }
+      }
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "О SenseMeter и SINOETM TECH LTD | SenseMeter",
+        "description": "SenseMeter помогает B2B-клиентам подобрать промышленные датчики влажности, точки росы и кислородные анализаторы.",
+        "canonical": "https://sensemeter.ru/about",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/about",
+          "en": "https://sensemeter.ru/en/about",
+          "x-default": "https://sensemeter.ru/about"
+        }
+      }
+    },
+    {
+      "path": "/en/about",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "About SenseMeter and SINOETM TECH LTD | SenseMeter",
+        "description": "SenseMeter helps B2B customers select industrial humidity, dew-point and oxygen analysis instruments.",
+        "canonical": "https://sensemeter.ru/en/about",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/about",
+          "en": "https://sensemeter.ru/en/about",
+          "x-default": "https://sensemeter.ru/about"
+        }
+      }
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Запрос цены и консультации | SenseMeter",
+        "description": "Отправьте RFQ-запрос SenseMeter: цена, наличие, сроки поставки, PDF datasheet, подбор модели, комплектующие и техническая консультация.",
+        "canonical": "https://sensemeter.ru/contact",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/contact",
+          "en": "https://sensemeter.ru/en/contact",
+          "x-default": "https://sensemeter.ru/contact"
+        }
+      }
+    },
+    {
+      "path": "/en/contact",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Request pricing and technical support | SenseMeter",
+        "description": "Submit an RFQ to SenseMeter for pricing, availability, lead time, PDF datasheets, model selection, accessories and technical consultation.",
+        "canonical": "https://sensemeter.ru/en/contact",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/contact",
+          "en": "https://sensemeter.ru/en/contact",
+          "x-default": "https://sensemeter.ru/contact"
+        }
+      }
+    },
+    {
+      "path": "/applications/industrial-humidity-monitoring",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Промышленные датчики влажности и температуры | SenseMeter",
+        "description": "Промышленные датчики влажности для камер, воздуховодов, помещений и технологических процессов. Подбор и международная поставка из Китая.",
+        "canonical": "https://sensemeter.ru/applications/industrial-humidity-monitoring",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/applications/industrial-humidity-monitoring",
+          "en": "https://sensemeter.ru/en/applications/industrial-humidity-monitoring",
+          "x-default": "https://sensemeter.ru/applications/industrial-humidity-monitoring"
+        }
+      }
+    },
+    {
+      "path": "/en/applications/industrial-humidity-monitoring",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Industrial humidity and temperature monitoring | SenseMeter",
+        "description": "Industrial humidity monitoring with humidity and temperature sensors for production areas, ducts, chambers, BMS and technical systems.",
+        "canonical": "https://sensemeter.ru/en/applications/industrial-humidity-monitoring",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/applications/industrial-humidity-monitoring",
+          "en": "https://sensemeter.ru/en/applications/industrial-humidity-monitoring",
+          "x-default": "https://sensemeter.ru/applications/industrial-humidity-monitoring"
+        }
+      }
+    },
+    {
+      "path": "/applications/compressed-air-dew-point",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Промышленный измеритель и преобразователь точки росы | SenseMeter",
+        "description": "Промышленные измерители и преобразователи точки росы для сжатого воздуха, осушителей и сухих газов. Подбор и международная поставка из Китая.",
+        "canonical": "https://sensemeter.ru/applications/compressed-air-dew-point",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/applications/compressed-air-dew-point",
+          "en": "https://sensemeter.ru/en/applications/compressed-air-dew-point",
+          "x-default": "https://sensemeter.ru/applications/compressed-air-dew-point"
+        }
+      }
+    },
+    {
+      "path": "/en/applications/compressed-air-dew-point",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Compressed air dew point meters for testing | SenseMeter",
+        "description": "Compare portable and online dew point meters for compressed air dryer testing, continuous monitoring and service checks. Select by pressure, range and output.",
+        "canonical": "https://sensemeter.ru/en/applications/compressed-air-dew-point",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/applications/compressed-air-dew-point",
+          "en": "https://sensemeter.ru/en/applications/compressed-air-dew-point",
+          "x-default": "https://sensemeter.ru/applications/compressed-air-dew-point"
+        }
+      }
+    },
+    {
+      "path": "/applications/glove-box-oxygen-analysis",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Промышленный анализатор кислорода для чистых газов | SenseMeter",
+        "description": "Промышленные анализаторы кислорода для контроля чистоты газа, перчаточных боксов, генераторов, печей и линий. Международная поставка из Китая.",
+        "canonical": "https://sensemeter.ru/applications/glove-box-oxygen-analysis",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/applications/glove-box-oxygen-analysis",
+          "en": "https://sensemeter.ru/en/applications/glove-box-oxygen-analysis",
+          "x-default": "https://sensemeter.ru/applications/glove-box-oxygen-analysis"
+        }
+      }
+    },
+    {
+      "path": "/en/applications/glove-box-oxygen-analysis",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Oxygen analyzer for glovebox applications | SenseMeter",
+        "description": "Oxygen analyzers for glove box and glovebox applications, nitrogen generators, gas purity monitoring and low-ppm oxygen control.",
+        "canonical": "https://sensemeter.ru/en/applications/glove-box-oxygen-analysis",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/applications/glove-box-oxygen-analysis",
+          "en": "https://sensemeter.ru/en/applications/glove-box-oxygen-analysis",
+          "x-default": "https://sensemeter.ru/applications/glove-box-oxygen-analysis"
+        }
+      }
+    },
+    {
+      "path": "/applications/natural-gas-moisture-monitoring",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Анализатор влажности газа и точки росы | SenseMeter",
+        "description": "Анализаторы влажности газа для природного и технологического газа, трубопроводов и газоподготовки. Подбор и международная поставка из Китая.",
+        "canonical": "https://sensemeter.ru/applications/natural-gas-moisture-monitoring",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/applications/natural-gas-moisture-monitoring",
+          "en": "https://sensemeter.ru/en/applications/natural-gas-moisture-monitoring",
+          "x-default": "https://sensemeter.ru/applications/natural-gas-moisture-monitoring"
+        }
+      }
+    },
+    {
+      "path": "/en/applications/natural-gas-moisture-monitoring",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Natural gas moisture monitoring | SenseMeter",
+        "description": "Moisture and hydrocarbon dew point instruments for natural gas, process gas, pipelines, gas treatment and hazardous-area monitoring applications.",
+        "canonical": "https://sensemeter.ru/en/applications/natural-gas-moisture-monitoring",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/applications/natural-gas-moisture-monitoring",
+          "en": "https://sensemeter.ru/en/applications/natural-gas-moisture-monitoring",
+          "x-default": "https://sensemeter.ru/applications/natural-gas-moisture-monitoring"
+        }
+      }
+    },
+    {
+      "path": "/applications/climate-chamber-humidity",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 68; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "Датчики влажности для климатических камер и лабораторий | SenseMeter",
+        "description": "Решения для точного измерения влажности и температуры в лабораториях, климатических камерах, испытательных установках и чистых помещениях.",
+        "canonical": "https://sensemeter.ru/applications/climate-chamber-humidity",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/applications/climate-chamber-humidity",
+          "en": "https://sensemeter.ru/en/applications/climate-chamber-humidity",
+          "x-default": "https://sensemeter.ru/applications/climate-chamber-humidity"
+        }
+      }
+    },
+    {
+      "path": "/en/applications/climate-chamber-humidity",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Climate chamber humidity measurement | SenseMeter",
+        "description": "Humidity and temperature sensors for climate chambers, laboratories and environmental testing. Compare probes and transmitters for stable monitoring.",
+        "canonical": "https://sensemeter.ru/en/applications/climate-chamber-humidity",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/applications/climate-chamber-humidity",
+          "en": "https://sensemeter.ru/en/applications/climate-chamber-humidity",
+          "x-default": "https://sensemeter.ru/applications/climate-chamber-humidity"
+        }
+      }
+    },
+    {
+      "path": "/products/easidew-pro-is",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Easidew PRO I.S. - датчик точки росы | SenseMeter",
+        "description": "Искробезопасный датчик точки росы Easidew PRO I.S. для тяжелых технологических условий, газов, неполярных жидкостей и опасных зон. Цена по запросу: уточ...",
+        "canonical": "https://sensemeter.ru/products/easidew-pro-is",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/easidew-pro-is",
+          "en": "https://sensemeter.ru/en/products/easidew-pro-is",
+          "x-default": "https://sensemeter.ru/products/easidew-pro-is"
+        }
+      }
+    },
+    {
+      "path": "/en/products/easidew-pro-is",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Easidew PRO I.S. - dew-point instrument | SenseMeter",
+        "description": "Intrinsically safe Easidew PRO I.S. dew-point transmitter for demanding process environments, gases, non-polar liquids and hazardous areas. Request pric...",
+        "canonical": "https://sensemeter.ru/en/products/easidew-pro-is",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/easidew-pro-is",
+          "en": "https://sensemeter.ru/en/products/easidew-pro-is",
+          "x-default": "https://sensemeter.ru/products/easidew-pro-is"
+        }
+      }
+    },
+    {
+      "path": "/products/easidew-34-m12",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Easidew 34 / Easidew M12 - датчик точки росы | SenseMeter",
+        "description": "Easidew 34 / Easidew M12 для OEM-осушителей, сжатого воздуха, водорода и технических газов: компактный преобразователь точки росы с MiniDIN или M12 для...",
+        "canonical": "https://sensemeter.ru/products/easidew-34-m12",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/easidew-34-m12",
+          "en": "https://sensemeter.ru/en/products/easidew-34-m12",
+          "x-default": "https://sensemeter.ru/products/easidew-34-m12"
+        }
+      }
+    },
+    {
+      "path": "/en/products/easidew-34-m12",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Easidew 34 / Easidew M12 - dew-point instrument | SenseMeter",
+        "description": "Compact Easidew 34 / Easidew M12 dew-point transmitter for OEM dryers, compressed air, hydrogen and process gases, with MiniDIN or M12 connection for sa...",
+        "canonical": "https://sensemeter.ru/en/products/easidew-34-m12",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/easidew-34-m12",
+          "en": "https://sensemeter.ru/en/products/easidew-34-m12",
+          "x-default": "https://sensemeter.ru/products/easidew-34-m12"
+        }
+      }
+    },
+    {
+      "path": "/products/easidew-online",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Easidew Online - датчик точки росы | SenseMeter",
+        "description": "Easidew Online для постоянного контроля точки росы в осушителях, дыхательном воздухе, водороде и glove box: онлайн-гигрометр с дисплеем и сигналами трев...",
+        "canonical": "https://sensemeter.ru/products/easidew-online",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/easidew-online",
+          "en": "https://sensemeter.ru/en/products/easidew-online",
+          "x-default": "https://sensemeter.ru/products/easidew-online"
+        }
+      }
+    },
+    {
+      "path": "/en/products/easidew-online",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Easidew Online - dew-point instrument | SenseMeter",
+        "description": "Easidew Online dew-point hygrometer for continuous monitoring in dryers, breathing air, hydrogen and glove boxes, with local display and alarm functions...",
+        "canonical": "https://sensemeter.ru/en/products/easidew-online",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/easidew-online",
+          "en": "https://sensemeter.ru/en/products/easidew-online",
+          "x-default": "https://sensemeter.ru/products/easidew-online"
+        }
+      }
+    },
+    {
+      "path": "/products/easidew-pro-xp",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Easidew PRO XP - датчик точки росы | SenseMeter",
+        "description": "Easidew PRO XP для природного газа, биометана, LNG/LPG и технологических газов: взрывозащищенный датчик точки росы с высокой точностью и давлением до 45...",
+        "canonical": "https://sensemeter.ru/products/easidew-pro-xp",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/easidew-pro-xp",
+          "en": "https://sensemeter.ru/en/products/easidew-pro-xp",
+          "x-default": "https://sensemeter.ru/products/easidew-pro-xp"
+        }
+      }
+    },
+    {
+      "path": "/en/products/easidew-pro-xp",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Easidew PRO XP - dew-point instrument | SenseMeter",
+        "description": "Explosion-proof Easidew PRO XP dew-point transmitter for natural gas, biomethane, LNG/LPG and process gases with high accuracy and pressure rating up to...",
+        "canonical": "https://sensemeter.ru/en/products/easidew-pro-xp",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/easidew-pro-xp",
+          "en": "https://sensemeter.ru/en/products/easidew-pro-xp",
+          "x-default": "https://sensemeter.ru/products/easidew-pro-xp"
+        }
+      }
+    },
+    {
+      "path": "/products/gpr-1000-1100-2000-3500",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 77; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500 - анализатор кислорода | SenseMeter",
+        "description": "GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500 для кислорода в генераторах O2/N2, морских трюмах, сварочной продувке и полевых проверках: портативные анализа...",
+        "canonical": "https://sensemeter.ru/products/gpr-1000-1100-2000-3500",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/gpr-1000-1100-2000-3500",
+          "en": "https://sensemeter.ru/en/products/gpr-1000-1100-2000-3500",
+          "x-default": "https://sensemeter.ru/products/gpr-1000-1100-2000-3500"
+        }
+      }
+    },
+    {
+      "path": "/en/products/gpr-1000-1100-2000-3500",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 72; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500 - oxygen analyzer | SenseMeter",
+        "description": "Portable GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500 oxygen analyzers for O2/N2 generators, marine holds, welding purge and field checks at ppm or percent...",
+        "canonical": "https://sensemeter.ru/en/products/gpr-1000-1100-2000-3500",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/gpr-1000-1100-2000-3500",
+          "en": "https://sensemeter.ru/en/products/gpr-1000-1100-2000-3500",
+          "x-default": "https://sensemeter.ru/products/gpr-1000-1100-2000-3500"
+        }
+      }
+    },
+    {
+      "path": "/products/gpr-1500",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "GPR-1500 - анализатор кислорода | SenseMeter",
+        "description": "GPR-1500 для следового кислорода в чистых газах, инертных средах и промышленных установках: настенный анализатор O2 для ppm-контроля. Цена по запросу: у...",
+        "canonical": "https://sensemeter.ru/products/gpr-1500",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/gpr-1500",
+          "en": "https://sensemeter.ru/en/products/gpr-1500",
+          "x-default": "https://sensemeter.ru/products/gpr-1500"
+        }
+      }
+    },
+    {
+      "path": "/en/products/gpr-1500",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "GPR-1500 - oxygen analyzer | SenseMeter",
+        "description": "Wall-mounted GPR-1500 trace oxygen analyzer for clean gases, inert atmospheres and industrial installations with ppm-level O2 control. Request price, av...",
+        "canonical": "https://sensemeter.ru/en/products/gpr-1500",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/gpr-1500",
+          "en": "https://sensemeter.ru/en/products/gpr-1500",
+          "x-default": "https://sensemeter.ru/products/gpr-1500"
+        }
+      }
+    },
+    {
+      "path": "/products/gpr-1500gb-2500gb",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "GPR-1500 GB / GPR-2500 GB - анализатор кислорода | SenseMeter",
+        "description": "GPR-1500 GB / GPR-2500 GB для glove box, азотных генераторов и контроля низкого уровня кислорода: анализатор O2 с прямой или удаленной установкой сенсор...",
+        "canonical": "https://sensemeter.ru/products/gpr-1500gb-2500gb",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/gpr-1500gb-2500gb",
+          "en": "https://sensemeter.ru/en/products/gpr-1500gb-2500gb",
+          "x-default": "https://sensemeter.ru/products/gpr-1500gb-2500gb"
+        }
+      }
+    },
+    {
+      "path": "/en/products/gpr-1500gb-2500gb",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "GPR-1500 GB / GPR-2500 GB - oxygen analyzer | SenseMeter",
+        "description": "GPR-1500 GB / GPR-2500 GB glove-box oxygen analyzer for nitrogen generators and low-level O2 monitoring, with direct or remote sensor installation. Requ...",
+        "canonical": "https://sensemeter.ru/en/products/gpr-1500gb-2500gb",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/gpr-1500gb-2500gb",
+          "en": "https://sensemeter.ru/en/products/gpr-1500gb-2500gb",
+          "x-default": "https://sensemeter.ru/products/gpr-1500gb-2500gb"
+        }
+      }
+    },
+    {
+      "path": "/products/gpr-1600-2600-3100",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 66; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "GPR-1600 / GPR-2600 / GPR-3100 - анализатор кислорода | SenseMeter",
+        "description": "Высокоточный анализатор кислорода GPR-1600 / GPR-2600 / GPR-3100 для промышленных газов, контроля чистоты O2 и следовых ppm-измерений. Запросите цену, н...",
+        "canonical": "https://sensemeter.ru/products/gpr-1600-2600-3100",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/gpr-1600-2600-3100",
+          "en": "https://sensemeter.ru/en/products/gpr-1600-2600-3100",
+          "x-default": "https://sensemeter.ru/products/gpr-1600-2600-3100"
+        }
+      }
+    },
+    {
+      "path": "/en/products/gpr-1600-2600-3100",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "GPR-1600 / GPR-2600 / GPR-3100 - oxygen analyzer | SenseMeter",
+        "description": "High-accuracy GPR-1600 / GPR-2600 / GPR-3100 oxygen analyzer for industrial gases, O2 purity control and trace ppm measurement. Request price, availabil...",
+        "canonical": "https://sensemeter.ru/en/products/gpr-1600-2600-3100",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/gpr-1600-2600-3100",
+          "en": "https://sensemeter.ru/en/products/gpr-1600-2600-3100",
+          "x-default": "https://sensemeter.ru/products/gpr-1600-2600-3100"
+        }
+      }
+    },
+    {
+      "path": "/products/gpr-1900-2900",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "GPR-1900 / GPR-2900 - анализатор кислорода | SenseMeter",
+        "description": "GPR-1900 / GPR-2900 для генераторов азота, кислорода, glove box и промышленных газов: панельный анализатор кислорода с удаленным сенсором. Цена по запро...",
+        "canonical": "https://sensemeter.ru/products/gpr-1900-2900",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/gpr-1900-2900",
+          "en": "https://sensemeter.ru/en/products/gpr-1900-2900",
+          "x-default": "https://sensemeter.ru/products/gpr-1900-2900"
+        }
+      }
+    },
+    {
+      "path": "/en/products/gpr-1900-2900",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "GPR-1900 / GPR-2900 - oxygen analyzer | SenseMeter",
+        "description": "Panel GPR-1900 / GPR-2900 oxygen analyzer for nitrogen generators, oxygen generators, glove boxes and industrial gases with remote sensor installation....",
+        "canonical": "https://sensemeter.ru/en/products/gpr-1900-2900",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/gpr-1900-2900",
+          "en": "https://sensemeter.ru/en/products/gpr-1900-2900",
+          "x-default": "https://sensemeter.ru/products/gpr-1900-2900"
+        }
+      }
+    },
+    {
+      "path": "/products/hc2a-industrial",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 73; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "HC2A-IC / HC2A-IM / HC2A-IE - датчик влажности и температуры | SenseMeter",
+        "description": "Промышленный датчик влажности и температуры HC2A для производственных сред, сушильных процессов, климатических камер и систем мониторинга. Запросите цен...",
+        "canonical": "https://sensemeter.ru/products/hc2a-industrial",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hc2a-industrial",
+          "en": "https://sensemeter.ru/en/products/hc2a-industrial",
+          "x-default": "https://sensemeter.ru/products/hc2a-industrial"
+        }
+      }
+    },
+    {
+      "path": "/en/products/hc2a-industrial",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 78; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "HC2A-IC / HC2A-IM / HC2A-IE - humidity and temperature instrument | SenseMeter",
+        "description": "Industrial HC2A humidity and temperature sensor for production environments, drying processes, climate chambers and monitoring systems. Request price, a...",
+        "canonical": "https://sensemeter.ru/en/products/hc2a-industrial",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hc2a-industrial",
+          "en": "https://sensemeter.ru/en/products/hc2a-industrial",
+          "x-default": "https://sensemeter.ru/products/hc2a-industrial"
+        }
+      }
+    },
+    {
+      "path": "/products/hc2a-series",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HC2A Series - датчик влажности и температуры | SenseMeter",
+        "description": "HC2A Series для климатических камер, HVAC, BMS и промышленного мониторинга: сменные датчики влажности и температуры Rotronic для точной интеграции в сис...",
+        "canonical": "https://sensemeter.ru/products/hc2a-series",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hc2a-series",
+          "en": "https://sensemeter.ru/en/products/hc2a-series",
+          "x-default": "https://sensemeter.ru/products/hc2a-series"
+        }
+      }
+    },
+    {
+      "path": "/en/products/hc2a-series",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HC2A Series - humidity and temperature instrument | SenseMeter",
+        "description": "Rotronic HC2A Series humidity and temperature probes for climate chambers, HVAC, BMS and industrial monitoring, designed for precise system integration....",
+        "canonical": "https://sensemeter.ru/en/products/hc2a-series",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hc2a-series",
+          "en": "https://sensemeter.ru/en/products/hc2a-series",
+          "x-default": "https://sensemeter.ru/products/hc2a-series"
+        }
+      }
+    },
+    {
+      "path": "/products/hp31-hp32",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HP31 / HP32 - датчик влажности и температуры | SenseMeter",
+        "description": "HP31 / HP32 для выездной проверки влажности и температуры, HVAC, BMS, складов и фармацевтических зон: ручной прибор с регистрацией данных. Цена по запро...",
+        "canonical": "https://sensemeter.ru/products/hp31-hp32",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hp31-hp32",
+          "en": "https://sensemeter.ru/en/products/hp31-hp32",
+          "x-default": "https://sensemeter.ru/products/hp31-hp32"
+        }
+      }
+    },
+    {
+      "path": "/en/products/hp31-hp32",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HP31 / HP32 - humidity and temperature instrument | SenseMeter",
+        "description": "HP31 / HP32 handheld humidity and temperature meter for field checks, HVAC, BMS, storage rooms and pharmaceutical areas with data logging. Request price...",
+        "canonical": "https://sensemeter.ru/en/products/hp31-hp32",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hp31-hp32",
+          "en": "https://sensemeter.ru/en/products/hp31-hp32",
+          "x-default": "https://sensemeter.ru/products/hp31-hp32"
+        }
+      }
+    },
+    {
+      "path": "/products/mdm300",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 68; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "MDM300 / MDM300 I.S. - портативный гигрометр точки росы | SenseMeter",
+        "description": "Портативный гигрометр точки росы MDM300 / MDM300 I.S. для быстрых выборочных измерений в сжатом воздухе и природном газе. Запросите цену, наличие и комм...",
+        "canonical": "https://sensemeter.ru/products/mdm300",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/mdm300",
+          "en": "https://sensemeter.ru/en/products/mdm300",
+          "x-default": "https://sensemeter.ru/products/mdm300"
+        }
+      }
+    },
+    {
+      "path": "/en/products/mdm300",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "MDM300 / MDM300 I.S. - portable dew-point hygrometer | SenseMeter",
+        "description": "Portable MDM300 / MDM300 I.S. dew-point hygrometer for rapid spot checks in compressed air and natural gas. Request price, availability and a quotation...",
+        "canonical": "https://sensemeter.ru/en/products/mdm300",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/mdm300",
+          "en": "https://sensemeter.ru/en/products/mdm300",
+          "x-default": "https://sensemeter.ru/products/mdm300"
+        }
+      }
+    },
+    {
+      "path": "/products/optidew-hz",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Optidew-HZ - анализатор углеводородной точки росы | SenseMeter",
+        "description": "Optidew-HZ анализатор углеводородной точки росы для природного газа и технологических газов: chilled mirror решение для точных измерений и промышленного...",
+        "canonical": "https://sensemeter.ru/products/optidew-hz",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/optidew-hz",
+          "en": "https://sensemeter.ru/en/products/optidew-hz",
+          "x-default": "https://sensemeter.ru/products/optidew-hz"
+        }
+      }
+    },
+    {
+      "path": "/en/products/optidew-hz",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Optidew-HZ - hydrocarbon dew-point analyzer | SenseMeter",
+        "description": "Optidew-HZ hydrocarbon dew-point chilled mirror analyzer for natural gas and process gases, supporting accurate measurement and industrial monitoring. R...",
+        "canonical": "https://sensemeter.ru/en/products/optidew-hz",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/optidew-hz",
+          "en": "https://sensemeter.ru/en/products/optidew-hz",
+          "x-default": "https://sensemeter.ru/products/optidew-hz"
+        }
+      }
+    },
+    {
+      "path": "/products/sf82-online",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SF82 Online - датчик точки росы | SenseMeter",
+        "description": "SF82 Online для сжатого воздуха, медицинского воздуха, осушителей и additive manufacturing: онлайн-гигрометр точки росы с пробоотборной системой и Modbu...",
+        "canonical": "https://sensemeter.ru/products/sf82-online",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/sf82-online",
+          "en": "https://sensemeter.ru/en/products/sf82-online",
+          "x-default": "https://sensemeter.ru/products/sf82-online"
+        }
+      }
+    },
+    {
+      "path": "/en/products/sf82-online",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SF82 Online - dew-point instrument | SenseMeter",
+        "description": "SF82 Online dew-point hygrometer for compressed air, medical air, dryers and additive manufacturing, with sampling system and Modbus RTU. Request price,...",
+        "canonical": "https://sensemeter.ru/en/products/sf82-online",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/sf82-online",
+          "en": "https://sensemeter.ru/en/products/sf82-online",
+          "x-default": "https://sensemeter.ru/products/sf82-online"
+        }
+      }
+    },
+    {
+      "path": "/products/pura-transmitter",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Pura - датчик точки росы | SenseMeter",
+        "description": "Pura для следовой влажности в сухих газах, сжатом воздухе, полупроводниковых и OEM-системах: компактный преобразователь для низких уровней влаги. Цена п...",
+        "canonical": "https://sensemeter.ru/products/pura-transmitter",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/pura-transmitter",
+          "en": "https://sensemeter.ru/en/products/pura-transmitter",
+          "x-default": "https://sensemeter.ru/products/pura-transmitter"
+        }
+      }
+    },
+    {
+      "path": "/en/products/pura-transmitter",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Pura - dew-point instrument | SenseMeter",
+        "description": "Pura trace moisture transmitter for dry gases, compressed air, semiconductor processes and OEM systems requiring low-level moisture monitoring. Request...",
+        "canonical": "https://sensemeter.ru/en/products/pura-transmitter",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/pura-transmitter",
+          "en": "https://sensemeter.ru/en/products/pura-transmitter",
+          "x-default": "https://sensemeter.ru/products/pura-transmitter"
+        }
+      }
+    },
+    {
+      "path": "/products/hygroflex1",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HygroFlex1 - датчик влажности и температуры | SenseMeter",
+        "description": "HygroFlex1 для мониторинга влажности и температуры в HVAC, BMS, складах и производственных помещениях: компактный преобразователь для стандартных задач...",
+        "canonical": "https://sensemeter.ru/products/hygroflex1",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hygroflex1",
+          "en": "https://sensemeter.ru/en/products/hygroflex1",
+          "x-default": "https://sensemeter.ru/products/hygroflex1"
+        }
+      }
+    },
+    {
+      "path": "/en/products/hygroflex1",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HygroFlex1 - humidity and temperature instrument | SenseMeter",
+        "description": "HygroFlex1 humidity and temperature transmitter for HVAC, BMS, storage rooms and production areas requiring standard air monitoring. Request price, avai...",
+        "canonical": "https://sensemeter.ru/en/products/hygroflex1",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hygroflex1",
+          "en": "https://sensemeter.ru/en/products/hygroflex1",
+          "x-default": "https://sensemeter.ru/products/hygroflex1"
+        }
+      }
+    },
+    {
+      "path": "/products/hmt370ex",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HMT370EX - датчик влажности и точки росы | SenseMeter",
+        "description": "Искробезопасный датчик влажности и температуры HMT370EX для опасных зон, химических процессов и сложных промышленных сред. Запросите цену, наличие и ком...",
+        "canonical": "https://sensemeter.ru/products/hmt370ex",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hmt370ex",
+          "en": "https://sensemeter.ru/en/products/hmt370ex",
+          "x-default": "https://sensemeter.ru/products/hmt370ex"
+        }
+      }
+    },
+    {
+      "path": "/en/products/hmt370ex",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HMT370EX - humidity and dew-point instrument | SenseMeter",
+        "description": "Intrinsically safe HMT370EX humidity and temperature sensor for hazardous areas, chemical processes and demanding industrial environments. Request price...",
+        "canonical": "https://sensemeter.ru/en/products/hmt370ex",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hmt370ex",
+          "en": "https://sensemeter.ru/en/products/hmt370ex",
+          "x-default": "https://sensemeter.ru/products/hmt370ex"
+        }
+      }
+    },
+    {
+      "path": "/products/hmt310",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HMT310 - датчик влажности и точки росы | SenseMeter",
+        "description": "HMT310 для промышленных процессов, климатических камер, воздуховодов и лабораторного мониторинга: преобразователь влажности и температуры с гибкими вари...",
+        "canonical": "https://sensemeter.ru/products/hmt310",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hmt310",
+          "en": "https://sensemeter.ru/en/products/hmt310",
+          "x-default": "https://sensemeter.ru/products/hmt310"
+        }
+      }
+    },
+    {
+      "path": "/en/products/hmt310",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HMT310 - humidity and dew-point instrument | SenseMeter",
+        "description": "HMT310 humidity and temperature transmitter for industrial processes, climate chambers, ducts and laboratory monitoring with flexible installation optio...",
+        "canonical": "https://sensemeter.ru/en/products/hmt310",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hmt310",
+          "en": "https://sensemeter.ru/en/products/hmt310",
+          "x-default": "https://sensemeter.ru/products/hmt310"
+        }
+      }
+    },
+    {
+      "path": "/products/hmp3-hmpx",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HMP3 - промышленный датчик влажности и температуры | SenseMeter",
+        "description": "Vaisala HMP3 - промышленный датчик влажности и температуры для HVAC, чистых помещений, окрасочных камер и климатических камер. Поддерживает Modbus RTU п...",
+        "canonical": "https://sensemeter.ru/products/hmp3-hmpx",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hmp3-hmpx",
+          "en": "https://sensemeter.ru/en/products/hmp3-hmpx",
+          "x-default": "https://sensemeter.ru/products/hmp3-hmpx"
+        }
+      }
+    },
+    {
+      "path": "/en/products/hmp3-hmpx",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "HMP3 - industrial humidity and temperature probe | SenseMeter",
+        "description": "Vaisala HMP3 industrial humidity and temperature probe for HVAC, cleanrooms, paint booths and environmental chambers. Supports Modbus RTU over RS-485 an...",
+        "canonical": "https://sensemeter.ru/en/products/hmp3-hmpx",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/hmp3-hmpx",
+          "en": "https://sensemeter.ru/en/products/hmp3-hmpx",
+          "x-default": "https://sensemeter.ru/products/hmp3-hmpx"
+        }
+      }
+    },
+    {
+      "path": "/products/dmt153",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "DMT153 - датчик влажности и точки росы | SenseMeter",
+        "description": "DMT153 для OEM-систем осушки, сухого воздуха и компактного контроля точки росы: промышленный датчик для осушителей и встроенного оборудования. Цена по з...",
+        "canonical": "https://sensemeter.ru/products/dmt153",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/dmt153",
+          "en": "https://sensemeter.ru/en/products/dmt153",
+          "x-default": "https://sensemeter.ru/products/dmt153"
+        }
+      }
+    },
+    {
+      "path": "/en/products/dmt153",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "DMT153 - humidity and dew-point instrument | SenseMeter",
+        "description": "Compact DMT153 dew-point transmitter for OEM drying systems, dry air monitoring and integrated equipment. Request price, availability and a quotation fo...",
+        "canonical": "https://sensemeter.ru/en/products/dmt153",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/dmt153",
+          "en": "https://sensemeter.ru/en/products/dmt153",
+          "x-default": "https://sensemeter.ru/products/dmt153"
+        }
+      }
+    },
+    {
+      "path": "/products/dmt143-dmt143l",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "DMT143 / DMT143L - датчик точки росы | SenseMeter",
+        "description": "DMT143 / DMT143L преобразователь точки росы для промышленных осушителей, сжатого воздуха, OEM-оборудования и сухих технологических газов. Цена по запрос...",
+        "canonical": "https://sensemeter.ru/products/dmt143-dmt143l",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/dmt143-dmt143l",
+          "en": "https://sensemeter.ru/en/products/dmt143-dmt143l",
+          "x-default": "https://sensemeter.ru/products/dmt143-dmt143l"
+        }
+      }
+    },
+    {
+      "path": "/en/products/dmt143-dmt143l",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "DMT143 / DMT143L - dew-point transmitter | SenseMeter",
+        "description": "DMT143 / DMT143L miniature dew-point transmitters for industrial dryers, compressed air dew point testing, OEM equipment and dry process gases. Request...",
+        "canonical": "https://sensemeter.ru/en/products/dmt143-dmt143l",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/products/dmt143-dmt143l",
+          "en": "https://sensemeter.ru/en/products/dmt143-dmt143l",
+          "x-default": "https://sensemeter.ru/products/dmt143-dmt143l"
+        }
+      }
+    },
+    {
+      "path": "/accessories",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Комплектующие для датчиков и газоанализаторов | SenseMeter",
+        "description": "Защита зондов, спечённые фильтры, фильтры пробоотборного газа и ограничители расхода. Подбор, изготовление и поддержка SenseMeter.",
+        "canonical": "https://sensemeter.ru/accessories",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories",
+          "en": "https://sensemeter.ru/en/accessories",
+          "x-default": "https://sensemeter.ru/accessories"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Accessories for sensors and gas analyzers | SenseMeter",
+        "description": "Probe protection, sintered filters, sample-gas filters and flow restrictors with selection, custom supply and support from SenseMeter.",
+        "canonical": "https://sensemeter.ru/en/accessories",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories",
+          "en": "https://sensemeter.ru/en/accessories",
+          "x-default": "https://sensemeter.ru/accessories"
+        }
+      }
+    },
+    {
+      "path": "/accessories/custom-sintered-filter-elements",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Спечённые фильтроэлементы под заказ | SenseMeter",
+        "description": "Фильтроэлементы из пористой нержавеющей стали по чертежу, образцу, требуемой пористости и монтажным размерам.",
+        "canonical": "https://sensemeter.ru/accessories/custom-sintered-filter-elements",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/custom-sintered-filter-elements",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Custom Sintered Filter Elements | SenseMeter",
+        "description": "Porous stainless-steel filter elements made to drawing, sample, pore structure and mounting dimensions.",
+        "canonical": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-microporous-accessories",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Металлические микропористые комплектующие | SenseMeter",
+        "description": "Компактные микропористые вставки, диски, трубки и пробки для защиты датчиков, газовых линий и приборных корпусов.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-microporous-accessories",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-microporous-accessories",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Sintered Microporous Metal Accessories | SenseMeter",
+        "description": "Compact microporous inserts, discs, tubes and plugs for sensor protection, gas lines and instrument housings.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-filter-cups",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Спечённые фильтрующие стаканы | SenseMeter",
+        "description": "Фильтрующие стаканы, чашки и патроны из нержавеющей стали для защиты, предварительной очистки и распределения потока.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-filter-cups",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-filter-cups",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Sintered Stainless Filter Cups | SenseMeter",
+        "description": "Stainless-steel filter cups, caps and cartridges for protection, prefiltration and flow distribution.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-filter-cups",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups"
+        }
+      }
+    },
+    {
+      "path": "/accessories/gas-diffusers",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Газовые диффузоры и аэрационные элементы | SenseMeter",
+        "description": "Пористые диффузоры, аэрационные головки и газораспределительные элементы для равномерной подачи газа и снижения пульсаций.",
+        "canonical": "https://sensemeter.ru/accessories/gas-diffusers",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/gas-diffusers",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Gas Diffusers and Aeration Elements | SenseMeter",
+        "description": "Porous diffusers, aeration heads and gas-distribution elements for uniform gas delivery and pulsation reduction.",
+        "canonical": "https://sensemeter.ru/en/accessories/gas-diffusers",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sensor-protection",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Защита зондов и корпуса датчиков | SenseMeter",
+        "description": "Проницаемые защитные колпачки и корпуса для промышленных зондов влажности, температуры и точки росы.",
+        "canonical": "https://sensemeter.ru/accessories/sensor-protection",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sensor-protection",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Probe Protection and Sensor Housings | SenseMeter",
+        "description": "Permeable protective caps and housings for industrial humidity, temperature and dew-point probes.",
+        "canonical": "https://sensemeter.ru/en/accessories/sensor-protection",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection"
+        }
+      }
+    },
+    {
+      "path": "/accessories/flow-control-accessories",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Ограничители расхода и газовые аксессуары | SenseMeter",
+        "description": "Пористые ограничители, газовые сопротивления и компактные фитинги для стабильного пробоотбора, подачи газа и защиты приборных линий.",
+        "canonical": "https://sensemeter.ru/accessories/flow-control-accessories",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/flow-control-accessories",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "Flow Restrictors and Gas-Line Accessories | SenseMeter",
+        "description": "Porous restrictors, gas resistances and compact fittings for stable sampling, gas delivery and instrument-line protection.",
+        "canonical": "https://sensemeter.ru/en/accessories/flow-control-accessories",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories"
+        }
+      }
+    },
+    {
+      "path": "/accessories/custom-sintered-filter-elements/custom-sintered-filter-cartridge",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-CAR - Заказной спечённый фильтрующий патрон | SenseMeter",
+        "description": "SM-CS-CAR. Цилиндрический фильтроэлемент по длине, диаметру, материалу и требуемой тонкости фильтрации.",
+        "canonical": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/custom-sintered-filter-cartridge",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/custom-sintered-filter-cartridge",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/custom-sintered-filter-cartridge",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/custom-sintered-filter-cartridge"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/custom-sintered-filter-elements/custom-sintered-filter-cartridge",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-CAR - Custom Sintered Filter Cartridge | SenseMeter",
+        "description": "SM-CS-CAR. Cylindrical filter element specified by length, diameter, material and filtration grade.",
+        "canonical": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/custom-sintered-filter-cartridge",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/custom-sintered-filter-cartridge",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/custom-sintered-filter-cartridge",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/custom-sintered-filter-cartridge"
+        }
+      }
+    },
+    {
+      "path": "/accessories/custom-sintered-filter-elements/sintered-mesh-disc",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-DSC - Спечённый сетчатый фильтрующий диск | SenseMeter",
+        "description": "SM-CS-DSC. Плоский фильтрующий диск для газовых соединений, клапанных узлов и компактных корпусов.",
+        "canonical": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-disc",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-disc",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/sintered-mesh-disc",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-disc"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/custom-sintered-filter-elements/sintered-mesh-disc",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-DSC - Sintered Mesh Filter Disc | SenseMeter",
+        "description": "SM-CS-DSC. Flat filter disc for gas connections, valve blocks and compact housings.",
+        "canonical": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/sintered-mesh-disc",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-disc",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/sintered-mesh-disc",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-disc"
+        }
+      }
+    },
+    {
+      "path": "/accessories/custom-sintered-filter-elements/sintered-mesh-plate",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-PLT - Спечённая фильтрующая пластина | SenseMeter",
+        "description": "SM-CS-PLT. Пористая пластина для распределения потока, защиты поверхности или установки в плоский корпус.",
+        "canonical": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-plate",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-plate",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/sintered-mesh-plate",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-plate"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/custom-sintered-filter-elements/sintered-mesh-plate",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-PLT - Sintered Filter Plate | SenseMeter",
+        "description": "SM-CS-PLT. Porous plate for flow distribution, surface protection or installation in a flat housing.",
+        "canonical": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/sintered-mesh-plate",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-plate",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/sintered-mesh-plate",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-plate"
+        }
+      }
+    },
+    {
+      "path": "/accessories/custom-sintered-filter-elements/sintered-mesh-tube",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-TUB - Спечённая фильтрующая трубка | SenseMeter",
+        "description": "SM-CS-TUB. Трубчатый пористый элемент для фильтрации, защиты зонда или распределения газа по длине.",
+        "canonical": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-tube",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-tube",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/sintered-mesh-tube",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-tube"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/custom-sintered-filter-elements/sintered-mesh-tube",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-TUB - Sintered Filter Tube | SenseMeter",
+        "description": "SM-CS-TUB. Tubular porous element for filtration, probe protection or gas distribution along its length.",
+        "canonical": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/sintered-mesh-tube",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-tube",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/sintered-mesh-tube",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/sintered-mesh-tube"
+        }
+      }
+    },
+    {
+      "path": "/accessories/custom-sintered-filter-elements/drawing-defined-porous-element",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-DRW - Пористый элемент по чертежу | SenseMeter",
+        "description": "SM-CS-DRW. Нестандартная пористая деталь по 2D/3D-чертежу или образцу заказчика.",
+        "canonical": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/drawing-defined-porous-element",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/drawing-defined-porous-element",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/drawing-defined-porous-element",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/drawing-defined-porous-element"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/custom-sintered-filter-elements/drawing-defined-porous-element",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-DRW - Drawing-Defined Porous Element | SenseMeter",
+        "description": "SM-CS-DRW. Non-standard porous part made from a 2D/3D drawing or customer sample.",
+        "canonical": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/drawing-defined-porous-element",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/drawing-defined-porous-element",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/drawing-defined-porous-element",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/drawing-defined-porous-element"
+        }
+      }
+    },
+    {
+      "path": "/accessories/custom-sintered-filter-elements/backwashable-sintered-element",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-BW - Промываемый спечённый элемент | SenseMeter",
+        "description": "SM-CS-BW. Пористый элемент для узлов, где важны повторная очистка, продувка и длительный срок службы.",
+        "canonical": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/backwashable-sintered-element",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/backwashable-sintered-element",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/backwashable-sintered-element",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/backwashable-sintered-element"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/custom-sintered-filter-elements/backwashable-sintered-element",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-CS-BW - Backwashable Sintered Element | SenseMeter",
+        "description": "SM-CS-BW. Porous element for assemblies requiring repeat cleaning, purge and long service life.",
+        "canonical": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/backwashable-sintered-element",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/backwashable-sintered-element",
+          "en": "https://sensemeter.ru/en/accessories/custom-sintered-filter-elements/backwashable-sintered-element",
+          "x-default": "https://sensemeter.ru/accessories/custom-sintered-filter-elements/backwashable-sintered-element"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-microporous-accessories/micro-porous-filter-disc",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-DSC - Микропористый фильтрующий диск | SenseMeter",
+        "description": "SM-MP-DSC. Миниатюрный пористый диск для защиты датчиков, клапанов и небольших газовых каналов.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-microporous-accessories/micro-porous-filter-disc",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/micro-porous-filter-disc",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/micro-porous-filter-disc",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/micro-porous-filter-disc"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-microporous-accessories/micro-porous-filter-disc",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-DSC - Microporous Filter Disc | SenseMeter",
+        "description": "SM-MP-DSC. Mini porous disc for protecting sensors, valves and small gas passages.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/micro-porous-filter-disc",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/micro-porous-filter-disc",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/micro-porous-filter-disc",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/micro-porous-filter-disc"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-microporous-accessories/micro-porous-filter-tube",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-TUB - Микропористая фильтрующая трубка | SenseMeter",
+        "description": "SM-MP-TUB. Трубчатый микропористый элемент для защиты зонда, распределения газа или компактной фильтрации.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-microporous-accessories/micro-porous-filter-tube",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/micro-porous-filter-tube",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/micro-porous-filter-tube",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/micro-porous-filter-tube"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-microporous-accessories/micro-porous-filter-tube",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-TUB - Microporous Filter Tube | SenseMeter",
+        "description": "SM-MP-TUB. Tubular microporous element for probe protection, gas distribution or compact filtration.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/micro-porous-filter-tube",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/micro-porous-filter-tube",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/micro-porous-filter-tube",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/micro-porous-filter-tube"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-microporous-accessories/threaded-porous-insert",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-THD - Резьбовая пористая вставка | SenseMeter",
+        "description": "SM-MP-THD. Компактная вставка с резьбой для установки в корпус, пробоотборный блок или газовый фитинг.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-microporous-accessories/threaded-porous-insert",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/threaded-porous-insert",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/threaded-porous-insert",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/threaded-porous-insert"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-microporous-accessories/threaded-porous-insert",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-THD - Threaded Porous Insert | SenseMeter",
+        "description": "SM-MP-THD. Compact threaded insert for a housing, sampling block or gas fitting.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/threaded-porous-insert",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/threaded-porous-insert",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/threaded-porous-insert",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/threaded-porous-insert"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-microporous-accessories/sintered-muffler-core",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-MUF - Спечённый сердечник глушителя | SenseMeter",
+        "description": "SM-MP-MUF. Пористый сердечник для снижения шума и выравнивания выхода воздуха или газа.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-microporous-accessories/sintered-muffler-core",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/sintered-muffler-core",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/sintered-muffler-core",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/sintered-muffler-core"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-microporous-accessories/sintered-muffler-core",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-MUF - Sintered Muffler Core | SenseMeter",
+        "description": "SM-MP-MUF. Porous core for reducing noise and smoothing air or gas exhaust.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/sintered-muffler-core",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/sintered-muffler-core",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/sintered-muffler-core",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/sintered-muffler-core"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-microporous-accessories/porous-plug-element",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-PLG - Пористая пробка-вставка | SenseMeter",
+        "description": "SM-MP-PLG. Малая пористая вставка для защиты отверстия, ограничения потока или распределения газа.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-microporous-accessories/porous-plug-element",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/porous-plug-element",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/porous-plug-element",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/porous-plug-element"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-microporous-accessories/porous-plug-element",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-PLG - Porous Plug Element | SenseMeter",
+        "description": "SM-MP-PLG. Small porous insert for opening protection, flow restriction or gas distribution.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/porous-plug-element",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/porous-plug-element",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/porous-plug-element",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/porous-plug-element"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-microporous-accessories/miniature-porous-filter",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-MIN - Миниатюрный пористый фильтр | SenseMeter",
+        "description": "SM-MP-MIN. Небольшой фильтрующий элемент для приборов, где важны малый объём и стабильный поток.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-microporous-accessories/miniature-porous-filter",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/miniature-porous-filter",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/miniature-porous-filter",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/miniature-porous-filter"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-microporous-accessories/miniature-porous-filter",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-MP-MIN - Miniature Porous Filter | SenseMeter",
+        "description": "SM-MP-MIN. Small filter element for instruments requiring low volume and stable flow.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/miniature-porous-filter",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-microporous-accessories/miniature-porous-filter",
+          "en": "https://sensemeter.ru/en/accessories/sintered-microporous-accessories/miniature-porous-filter",
+          "x-default": "https://sensemeter.ru/accessories/sintered-microporous-accessories/miniature-porous-filter"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-filter-cups/standard-sintered-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-STD - Стандартный спечённый фильтрующий стакан | SenseMeter",
+        "description": "SM-FC-STD. Пористый стакан для предварительной фильтрации, защиты датчика и удержания частиц в корпусе.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-filter-cups/standard-sintered-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/standard-sintered-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/standard-sintered-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/standard-sintered-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-filter-cups/standard-sintered-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-STD - Standard Sintered Filter Cup | SenseMeter",
+        "description": "SM-FC-STD. Porous cup for prefiltration, sensor protection and particle retention inside a housing.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-filter-cups/standard-sintered-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/standard-sintered-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/standard-sintered-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/standard-sintered-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-filter-cups/threaded-sintered-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-THD - Резьбовой фильтрующий стакан | SenseMeter",
+        "description": "SM-FC-THD. Фильтрующий стакан с резьбой для быстрой установки в газовый, пневматический или приборный узел.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-filter-cups/threaded-sintered-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/threaded-sintered-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/threaded-sintered-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/threaded-sintered-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-filter-cups/threaded-sintered-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-THD - Threaded Sintered Filter Cup | SenseMeter",
+        "description": "SM-FC-THD. Filter cup with thread for fast installation in a gas, pneumatic or instrument assembly.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-filter-cups/threaded-sintered-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/threaded-sintered-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/threaded-sintered-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/threaded-sintered-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-filter-cups/flanged-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-FLG - Фланцевый фильтрующий стакан | SenseMeter",
+        "description": "SM-FC-FLG. Стакан с фланцем для посадки в корпус, где важны уплотнение и сервисный доступ.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-filter-cups/flanged-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/flanged-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/flanged-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/flanged-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-filter-cups/flanged-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-FLG - Flanged Filter Cup | SenseMeter",
+        "description": "SM-FC-FLG. Cup with flange for housing installation where sealing and service access matter.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-filter-cups/flanged-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/flanged-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/flanged-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/flanged-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-filter-cups/deep-cylindrical-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 67; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "SM-FC-DCP - Глубокий цилиндрический фильтрующий стакан | SenseMeter",
+        "description": "SM-FC-DCP. Удлинённый пористый стакан для увеличенной фильтрующей площади и стабильной работы при загрязнённой среде.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-filter-cups/deep-cylindrical-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/deep-cylindrical-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/deep-cylindrical-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/deep-cylindrical-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-filter-cups/deep-cylindrical-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-DCP - Deep Cylindrical Filter Cup | SenseMeter",
+        "description": "SM-FC-DCP. Extended porous cup for larger filtration area and stable operation in contaminated media.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-filter-cups/deep-cylindrical-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/deep-cylindrical-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/deep-cylindrical-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/deep-cylindrical-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-filter-cups/welded-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-WLD - Приварной фильтрующий стакан | SenseMeter",
+        "description": "SM-FC-WLD. Фильтрующий стакан для узлов, где требуется постоянное соединение и герметичность корпуса.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-filter-cups/welded-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/welded-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/welded-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/welded-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-filter-cups/welded-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-WLD - Welded Filter Cup | SenseMeter",
+        "description": "SM-FC-WLD. Filter cup for assemblies requiring permanent connection and housing leak tightness.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-filter-cups/welded-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/welded-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/welded-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/welded-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sintered-filter-cups/high-temperature-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-HT - Высокотемпературный фильтрующий стакан | SenseMeter",
+        "description": "SM-FC-HT. Спечённый стакан для горячего газа, сушильных процессов и узлов, где нужна термостойкость.",
+        "canonical": "https://sensemeter.ru/accessories/sintered-filter-cups/high-temperature-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/high-temperature-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/high-temperature-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/high-temperature-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sintered-filter-cups/high-temperature-filter-cup",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FC-HT - High-Temperature Filter Cup | SenseMeter",
+        "description": "SM-FC-HT. Sintered cup for hot gas, drying processes and assemblies requiring temperature resistance.",
+        "canonical": "https://sensemeter.ru/en/accessories/sintered-filter-cups/high-temperature-filter-cup",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sintered-filter-cups/high-temperature-filter-cup",
+          "en": "https://sensemeter.ru/en/accessories/sintered-filter-cups/high-temperature-filter-cup",
+          "x-default": "https://sensemeter.ru/accessories/sintered-filter-cups/high-temperature-filter-cup"
+        }
+      }
+    },
+    {
+      "path": "/accessories/gas-diffusers/stainless-gas-diffuser-head",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-HEAD - Резьбовая газовая диффузионная головка | SenseMeter",
+        "description": "SM-GD-HEAD. Пористая головка для равномерной подачи технологического газа, кислорода, азота или воздуха в линию или емкость.",
+        "canonical": "https://sensemeter.ru/accessories/gas-diffusers/stainless-gas-diffuser-head",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/stainless-gas-diffuser-head",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/stainless-gas-diffuser-head",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/stainless-gas-diffuser-head"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/gas-diffusers/stainless-gas-diffuser-head",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-HEAD - Threaded Gas Diffuser Head | SenseMeter",
+        "description": "SM-GD-HEAD. Porous diffuser head for uniform delivery of process gas, oxygen, nitrogen or air into a line or vessel.",
+        "canonical": "https://sensemeter.ru/en/accessories/gas-diffusers/stainless-gas-diffuser-head",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/stainless-gas-diffuser-head",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/stainless-gas-diffuser-head",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/stainless-gas-diffuser-head"
+        }
+      }
+    },
+    {
+      "path": "/accessories/gas-diffusers/aeration-stone-diffuser",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-AIR - Пористый аэрационный элемент | SenseMeter",
+        "description": "SM-GD-AIR. Сменный пористый элемент для создания мелких пузырьков, увеличения площади контакта газа и жидкости и стабильной аэрации.",
+        "canonical": "https://sensemeter.ru/accessories/gas-diffusers/aeration-stone-diffuser",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/aeration-stone-diffuser",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/aeration-stone-diffuser",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/aeration-stone-diffuser"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/gas-diffusers/aeration-stone-diffuser",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-AIR - Porous Aeration Element | SenseMeter",
+        "description": "SM-GD-AIR. Replaceable porous element for fine bubbles, larger gas-liquid contact area and stable aeration.",
+        "canonical": "https://sensemeter.ru/en/accessories/gas-diffusers/aeration-stone-diffuser",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/aeration-stone-diffuser",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/aeration-stone-diffuser",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/aeration-stone-diffuser"
+        }
+      }
+    },
+    {
+      "path": "/accessories/gas-diffusers/gas-sparger-tube",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-TUBE - Пористая трубка-барботер | SenseMeter",
+        "description": "SM-GD-TUBE. Трубчатый диффузор для распределения газа по длине и работы в емкостях, камерах или технологических каналах.",
+        "canonical": "https://sensemeter.ru/accessories/gas-diffusers/gas-sparger-tube",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/gas-sparger-tube",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/gas-sparger-tube",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/gas-sparger-tube"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/gas-diffusers/gas-sparger-tube",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-TUBE - Porous Gas Sparger Tube | SenseMeter",
+        "description": "SM-GD-TUBE. Tubular diffuser for distributing gas along its length in vessels, chambers or process channels.",
+        "canonical": "https://sensemeter.ru/en/accessories/gas-diffusers/gas-sparger-tube",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/gas-sparger-tube",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/gas-sparger-tube",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/gas-sparger-tube"
+        }
+      }
+    },
+    {
+      "path": "/accessories/gas-diffusers/threaded-diffuser-nozzle",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-THD - Резьбовая диффузионная форсунка | SenseMeter",
+        "description": "SM-GD-THD. Компактная резьбовая форсунка с пористым участком для дозированной подачи газа или защиты выходного канала.",
+        "canonical": "https://sensemeter.ru/accessories/gas-diffusers/threaded-diffuser-nozzle",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/threaded-diffuser-nozzle",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/threaded-diffuser-nozzle",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/threaded-diffuser-nozzle"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/gas-diffusers/threaded-diffuser-nozzle",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-THD - Threaded Diffuser Nozzle | SenseMeter",
+        "description": "SM-GD-THD. Compact threaded nozzle with porous section for metered gas delivery or outlet protection.",
+        "canonical": "https://sensemeter.ru/en/accessories/gas-diffusers/threaded-diffuser-nozzle",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/threaded-diffuser-nozzle",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/threaded-diffuser-nozzle",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/threaded-diffuser-nozzle"
+        }
+      }
+    },
+    {
+      "path": "/accessories/gas-diffusers/porous-exhaust-silencer",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-MUF - Пористый выпускной глушитель | SenseMeter",
+        "description": "SM-GD-MUF. Пористый выпускной элемент для снижения шума, сглаживания выброса воздуха или газа и защиты от частиц.",
+        "canonical": "https://sensemeter.ru/accessories/gas-diffusers/porous-exhaust-silencer",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/porous-exhaust-silencer",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/porous-exhaust-silencer",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/porous-exhaust-silencer"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/gas-diffusers/porous-exhaust-silencer",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-MUF - Porous Exhaust Silencer | SenseMeter",
+        "description": "SM-GD-MUF. Porous exhaust element for reducing noise, smoothing air or gas release and protecting from particles.",
+        "canonical": "https://sensemeter.ru/en/accessories/gas-diffusers/porous-exhaust-silencer",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/porous-exhaust-silencer",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/porous-exhaust-silencer",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/porous-exhaust-silencer"
+        }
+      }
+    },
+    {
+      "path": "/accessories/gas-diffusers/laboratory-gas-dispersion-tip",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 73; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "SM-GD-LAB - Лабораторный наконечник для диспергирования газа | SenseMeter",
+        "description": "SM-GD-LAB. Небольшой пористый наконечник для лабораторной подачи газа, испытаний и подбора параметров перед проектной закупкой.",
+        "canonical": "https://sensemeter.ru/accessories/gas-diffusers/laboratory-gas-dispersion-tip",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/laboratory-gas-dispersion-tip",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/laboratory-gas-dispersion-tip",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/laboratory-gas-dispersion-tip"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/gas-diffusers/laboratory-gas-dispersion-tip",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-GD-LAB - Laboratory Gas Dispersion Tip | SenseMeter",
+        "description": "SM-GD-LAB. Small porous tip for laboratory gas delivery, testing and parameter confirmation before project procurement.",
+        "canonical": "https://sensemeter.ru/en/accessories/gas-diffusers/laboratory-gas-dispersion-tip",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/gas-diffusers/laboratory-gas-dispersion-tip",
+          "en": "https://sensemeter.ru/en/accessories/gas-diffusers/laboratory-gas-dispersion-tip",
+          "x-default": "https://sensemeter.ru/accessories/gas-diffusers/laboratory-gas-dispersion-tip"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sensor-protection/g14-threaded-probe-guard",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-014 - Защитный колпачок зонда G1/4 | SenseMeter",
+        "description": "SM-PG-014. Проницаемый корпус с контролируемой структурой пор для защиты чувствительного элемента от пыли, брызг и механического контакта.",
+        "canonical": "https://sensemeter.ru/accessories/sensor-protection/g14-threaded-probe-guard",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/g14-threaded-probe-guard",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/g14-threaded-probe-guard",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/g14-threaded-probe-guard"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sensor-protection/g14-threaded-probe-guard",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-014 - G1/4 Threaded Probe Guard | SenseMeter",
+        "description": "SM-PG-014. Permeable housing with controlled pore structure for protecting a sensing element from dust, splashes and mechanical contact.",
+        "canonical": "https://sensemeter.ru/en/accessories/sensor-protection/g14-threaded-probe-guard",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/g14-threaded-probe-guard",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/g14-threaded-probe-guard",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/g14-threaded-probe-guard"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sensor-protection/m30-conical-probe-guard",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-030 - Конический защитный колпачок M30 | SenseMeter",
+        "description": "SM-PG-030. Коническая защита для зондов, которым требуется быстрый обмен с измеряемой средой и стабильная проницаемость.",
+        "canonical": "https://sensemeter.ru/accessories/sensor-protection/m30-conical-probe-guard",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/m30-conical-probe-guard",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/m30-conical-probe-guard",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/m30-conical-probe-guard"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sensor-protection/m30-conical-probe-guard",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-030 - M30 Conical Probe Guard | SenseMeter",
+        "description": "SM-PG-030. Conical protection for probes requiring fast exchange with the measured environment and stable permeability.",
+        "canonical": "https://sensemeter.ru/en/accessories/sensor-protection/m30-conical-probe-guard",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/m30-conical-probe-guard",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/m30-conical-probe-guard",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/m30-conical-probe-guard"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sensor-protection/flat-tip-probe-guard",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-FLT - Плоский защитный колпачок | SenseMeter",
+        "description": "SM-PG-FLT. Компактный плоский корпус для ограниченного пространства, коротких зондов и защиты при сохранении отклика.",
+        "canonical": "https://sensemeter.ru/accessories/sensor-protection/flat-tip-probe-guard",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/flat-tip-probe-guard",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/flat-tip-probe-guard",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/flat-tip-probe-guard"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sensor-protection/flat-tip-probe-guard",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-FLT - Flat-Tip Probe Guard | SenseMeter",
+        "description": "SM-PG-FLT. Compact flat housing for restricted spaces, short probes and protection while preserving response.",
+        "canonical": "https://sensemeter.ru/en/accessories/sensor-protection/flat-tip-probe-guard",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/flat-tip-probe-guard",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/flat-tip-probe-guard",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/flat-tip-probe-guard"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sensor-protection/pointed-probe-guard",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-PNT - Остроконечный защитный колпачок | SenseMeter",
+        "description": "SM-PG-PNT. Защитный элемент для сыпучих материалов, локального измерения влажности и защиты пористой зоны от забивания.",
+        "canonical": "https://sensemeter.ru/accessories/sensor-protection/pointed-probe-guard",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/pointed-probe-guard",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/pointed-probe-guard",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/pointed-probe-guard"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sensor-protection/pointed-probe-guard",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-PNT - Pointed Probe Guard | SenseMeter",
+        "description": "SM-PG-PNT. Protective element for bulk materials, localized humidity measurement and protection against pore clogging.",
+        "canonical": "https://sensemeter.ru/en/accessories/sensor-protection/pointed-probe-guard",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/pointed-probe-guard",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/pointed-probe-guard",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/pointed-probe-guard"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sensor-protection/outdoor-vented-probe-housing",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-ODV - Вентилируемый корпус для наружных зондов | SenseMeter",
+        "description": "SM-PG-ODV. Пористая защита для датчиков в пыльных, влажных и коррозионных промышленных зонах с возможностью очистки.",
+        "canonical": "https://sensemeter.ru/accessories/sensor-protection/outdoor-vented-probe-housing",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/outdoor-vented-probe-housing",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/outdoor-vented-probe-housing",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/outdoor-vented-probe-housing"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sensor-protection/outdoor-vented-probe-housing",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-ODV - Outdoor Vented Probe Housing | SenseMeter",
+        "description": "SM-PG-ODV. Porous protection for sensors in dusty, wet and corrosive industrial areas, with cleanable construction.",
+        "canonical": "https://sensemeter.ru/en/accessories/sensor-protection/outdoor-vented-probe-housing",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/outdoor-vented-probe-housing",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/outdoor-vented-probe-housing",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/outdoor-vented-probe-housing"
+        }
+      }
+    },
+    {
+      "path": "/accessories/sensor-protection/high-temperature-probe-guard",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-HTG - Высокотемпературный защитный колпачок | SenseMeter",
+        "description": "SM-PG-HTG. Металлическая защита зонда для сушильных камер, печей и горячих технологических линий, где важны температура и скорость отклика.",
+        "canonical": "https://sensemeter.ru/accessories/sensor-protection/high-temperature-probe-guard",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/high-temperature-probe-guard",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/high-temperature-probe-guard",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/high-temperature-probe-guard"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/sensor-protection/high-temperature-probe-guard",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-PG-HTG - High-Temperature Probe Guard | SenseMeter",
+        "description": "SM-PG-HTG. Metal probe protection for dryers, ovens and hot process lines where temperature and response speed matter.",
+        "canonical": "https://sensemeter.ru/en/accessories/sensor-protection/high-temperature-probe-guard",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/sensor-protection/high-temperature-probe-guard",
+          "en": "https://sensemeter.ru/en/accessories/sensor-protection/high-temperature-probe-guard",
+          "x-default": "https://sensemeter.ru/accessories/sensor-protection/high-temperature-probe-guard"
+        }
+      }
+    },
+    {
+      "path": "/accessories/flow-control-accessories/porous-metal-flow-restrictor",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 68; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "SM-FR-PMR - Пористый металлический ограничитель расхода | SenseMeter",
+        "description": "SM-FR-PMR. Пассивный пористый ограничитель для стабилизации расхода газа в пробоотборной или распределительной линии.",
+        "canonical": "https://sensemeter.ru/accessories/flow-control-accessories/porous-metal-flow-restrictor",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/porous-metal-flow-restrictor",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/porous-metal-flow-restrictor",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/porous-metal-flow-restrictor"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/flow-control-accessories/porous-metal-flow-restrictor",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FR-PMR - Porous-Metal Flow Restrictor | SenseMeter",
+        "description": "SM-FR-PMR. Passive porous restrictor for stabilizing gas flow in a sampling or distribution line.",
+        "canonical": "https://sensemeter.ru/en/accessories/flow-control-accessories/porous-metal-flow-restrictor",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/porous-metal-flow-restrictor",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/porous-metal-flow-restrictor",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/porous-metal-flow-restrictor"
+        }
+      }
+    },
+    {
+      "path": "/accessories/flow-control-accessories/fitting-flow-limiter",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FR-FIT - Ограничитель расхода в корпусе фитинга | SenseMeter",
+        "description": "SM-FR-FIT. Компактный ограничитель, совмещённый с соединительным фитингом для экономии места и защиты линии.",
+        "canonical": "https://sensemeter.ru/accessories/flow-control-accessories/fitting-flow-limiter",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/fitting-flow-limiter",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/fitting-flow-limiter",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/fitting-flow-limiter"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/flow-control-accessories/fitting-flow-limiter",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FR-FIT - Fitting-Body Flow Limiter | SenseMeter",
+        "description": "SM-FR-FIT. Compact restrictor integrated into a connection fitting to save space and protect the line.",
+        "canonical": "https://sensemeter.ru/en/accessories/flow-control-accessories/fitting-flow-limiter",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/fitting-flow-limiter",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/fitting-flow-limiter",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/fitting-flow-limiter"
+        }
+      }
+    },
+    {
+      "path": "/accessories/flow-control-accessories/high-purity-flow-restrictor",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 68; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "SM-FR-UHP - Ограничитель расхода для высокочистого газа | SenseMeter",
+        "description": "SM-FR-UHP. Исполнение 316L для контролируемой подачи высокочистого или специального газа с малым мертвым объемом и без выделения частиц.",
+        "canonical": "https://sensemeter.ru/accessories/flow-control-accessories/high-purity-flow-restrictor",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/high-purity-flow-restrictor",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/high-purity-flow-restrictor",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/high-purity-flow-restrictor"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/flow-control-accessories/high-purity-flow-restrictor",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FR-UHP - High-Purity Gas Flow Restrictor | SenseMeter",
+        "description": "SM-FR-UHP. 316L construction for controlled delivery of high-purity or specialty gas with low dead volume and no particle shedding.",
+        "canonical": "https://sensemeter.ru/en/accessories/flow-control-accessories/high-purity-flow-restrictor",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/high-purity-flow-restrictor",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/high-purity-flow-restrictor",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/high-purity-flow-restrictor"
+        }
+      }
+    },
+    {
+      "path": "/accessories/flow-control-accessories/integrated-damping-fitting",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FR-DMP - Интегрированный демпфирующий фитинг | SenseMeter",
+        "description": "SM-FR-DMP. Фитинг с внутренним дросселем для снижения пульсаций, турбулентности и ограничения потока.",
+        "canonical": "https://sensemeter.ru/accessories/flow-control-accessories/integrated-damping-fitting",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/integrated-damping-fitting",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/integrated-damping-fitting",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/integrated-damping-fitting"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/flow-control-accessories/integrated-damping-fitting",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FR-DMP - Integrated Damping Fitting | SenseMeter",
+        "description": "SM-FR-DMP. Fitting with an internal restriction for damping pulsation, turbulence and limiting flow.",
+        "canonical": "https://sensemeter.ru/en/accessories/flow-control-accessories/integrated-damping-fitting",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/integrated-damping-fitting",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/integrated-damping-fitting",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/integrated-damping-fitting"
+        }
+      }
+    },
+    {
+      "path": "/accessories/flow-control-accessories/chromatography-threaded-restrictor",
+      "status": 200,
+      "issues": [],
+      "warnings": [
+        {
+          "code": "TITLE_LENGTH",
+          "message": "Title length is 71; review the search snippet."
+        }
+      ],
+      "signals": {
+        "title": "SM-FR-ANA - Резьбовой ограничитель для аналитической линии | SenseMeter",
+        "description": "SM-FR-ANA. Наружный резьбовой элемент для стабильного малого расхода в аналитических и калибровочных системах.",
+        "canonical": "https://sensemeter.ru/accessories/flow-control-accessories/chromatography-threaded-restrictor",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/chromatography-threaded-restrictor",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/chromatography-threaded-restrictor",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/chromatography-threaded-restrictor"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/flow-control-accessories/chromatography-threaded-restrictor",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FR-ANA - Threaded Restrictor for Analytical Lines | SenseMeter",
+        "description": "SM-FR-ANA. Male-threaded element for stable low flow in analytical and calibration systems.",
+        "canonical": "https://sensemeter.ru/en/accessories/flow-control-accessories/chromatography-threaded-restrictor",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/chromatography-threaded-restrictor",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/chromatography-threaded-restrictor",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/chromatography-threaded-restrictor"
+        }
+      }
+    },
+    {
+      "path": "/accessories/flow-control-accessories/precision-orifice-restrictor",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FR-ORI - Прецизионный дроссельный ограничитель | SenseMeter",
+        "description": "SM-FR-ORI. Металлический ограничитель с малым проходным отверстием для дозированной подачи газа и повторяемого расхода.",
+        "canonical": "https://sensemeter.ru/accessories/flow-control-accessories/precision-orifice-restrictor",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/precision-orifice-restrictor",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/precision-orifice-restrictor",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/precision-orifice-restrictor"
+        }
+      }
+    },
+    {
+      "path": "/en/accessories/flow-control-accessories/precision-orifice-restrictor",
+      "status": 200,
+      "issues": [],
+      "warnings": [],
+      "signals": {
+        "title": "SM-FR-ORI - Precision-Orifice Flow Restrictor | SenseMeter",
+        "description": "SM-FR-ORI. Metal restrictor with a small calibrated orifice for metered gas delivery and repeatable flow.",
+        "canonical": "https://sensemeter.ru/en/accessories/flow-control-accessories/precision-orifice-restrictor",
+        "robots": "",
+        "h1Count": 1,
+        "alternates": {
+          "ru-ru": "https://sensemeter.ru/accessories/flow-control-accessories/precision-orifice-restrictor",
+          "en": "https://sensemeter.ru/en/accessories/flow-control-accessories/precision-orifice-restrictor",
+          "x-default": "https://sensemeter.ru/accessories/flow-control-accessories/precision-orifice-restrictor"
+        }
+      }
+    }
+  ],
+  "passed": true
+}
