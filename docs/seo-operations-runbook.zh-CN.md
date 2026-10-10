@@ -62,6 +62,8 @@ GitHub 每天北京时间 09:15 左右自动检查 `https://sensemeter.ru` 的 2
 
 2026-10-10 索引排除核查：用户报告仅列出 `/cookie-policy` 与 `/privacy` 两页；代码及线上 GET 均确认有意设置 `noindex, follow`、HTTP 200。保留此设置，不点“验证修复”，不请求这两页收录。此结论只针对该类排除，不代表所有未收录原因已核查。下一步请用户选择 sensemeter.ru 的 Metrica 统计项（代码 ID 为 `110136437`），提供“目标”（Goals/Цели）列表，核对 `rfq_submit_success`。按[官方说明](https://yandex.ru/support/metrica/en/general/goal-js-event)，当前可从左侧菜单进入 Goals；不要求必须找到旧的“设置 → 目标”路径。不要将代码里已有事件等同后台统计验收，也不要重复发送测试邮件。
 
+用户随后已提供目标列表：统计 ID `110136437`，`RFQ Submit Success` 的规则为 `ID contains: rfq_submit_success`，与代码相符，无需重复新建。当前截图 `Statistics · Hidden` 未展示次数/转化率；下一步先点击该已观察到的菜单查看选项，再指导显示统计。配置核对通过不等同事件接收、实际询盘或来源归因已验收。不要修改/删除已有目标或人为发送 reachGoal 制造业务转化。
+
 目标：先让已验收的俄语内容和中英文询盘场景预填在正式站生效，再从实际发布日期观察曝光与有效询盘。业务版本固定为 `57ba2739143818e360790ebf27e9e3fb844c534c`，后续文档提交不等于新的已验收构建。
 
 - [x] GitHub 隔离构建及 4 个询盘浏览器场景通过；模拟提交未发送真实邮件。6 页共 12 次 Lighthouse 检查通过，报告已下载并校验。
