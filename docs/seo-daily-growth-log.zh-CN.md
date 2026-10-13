@@ -185,6 +185,18 @@
 - 今日下一步查看 Metrica Reports → Sources → Sources, summary，日期保持 2026-09-11 至 2026-10-10，先获取来源汇总表，再核对 RFQ 目标来源；来源报表不能单独认定线索是否有效。沿用 10 月 23 日/11 月 6 日效果复盘计划。
 - 本轮只更正运营记录和操作手册，不修改业务代码、线上配置或统计目标，不发送测试邮件；无需服务器发布。尚无新版曝光或有效采购询盘增长证据。
 
+## 2026-10-13：整站复查与今日优化优先级
+
+- 用户明确本轮查看今天需要优化的 SEO，按整站范围只读分析，不实施尚未审核的页面修改。
+- 北京时间 11:25:46 完成正式 sitemap 中全部 148 个 HTML 网址检查：148/148 HTTP 200，现有规则无页面错误，robots/sitemap 通过；13 个标题长度提醒。报告保存在 `artifacts/seo-tools/status-20261013/live-seo-report.md` 与同目录 JSON。范围是列入 sitemap 的 HTML 信号，不是实际收录、浏览器体验、邮件或排名验收。
+- 与 10 月 10 日全量结果对照：本轮没有新增 sitemap 路由，逐页采集的标题、摘要、canonical、H1 数量、meta robots 和语言关联信号无变化；不外推为全部页面正文都未变化。
+- 所有 44 个语言版本的仪表产品摘要仍以省略号结尾，源码仍按 155 字符截取。应按页面编写完整、准确的短摘要，并处理生成机制；不是已证明的排名惩罚，不能以字符数替代文案质量。
+- 标题按品牌套用类别仍存在：HMT310 RU 标题为 `HMT310 - датчик влажности и точки росы | SenseMeter`，EN 为 `HMT310 - humidity and dew-point instrument | SenseMeter`。厂商主要定位是温湿度变送器，当前标题未突出温度。HMT370EX 也应突出本安温湿度用途；厂商明确其能输出露点等其他湿度参数，不能因改标题声称其没有露点功能。[HMT310 官方定位](https://www.vaisala.com/en/products/instruments-sensors-and-other-measurement-devices/instruments-industrial-measurements/hmt310)、[HMT370EX 官方定位](https://www.vaisala.com/en/products/instruments-sensors-and-other-measurement-devices/instruments-industrial-measurements/humidity-normal-or-wet-conditions/hmt370ex)。
+- 路由和目录源码仍未出现独立仪表测量类别、知识中心或集中资料入口。建议沿用整站研究结论，优先设计露点仪表、工业温湿度、氧分析三类采购入口，以及相关知识和资料关联；保留现有 5 类应用、配件分类和产品 URL，不建近义词重复页面。
+- Sitemap 的 lastmod 仍仅使用 7 月及 8 月的页面类型固定常量。建议维护逐页重要更新日期，不改成每天的当前时间；这是更新记录改进，不是紧急索引故障。[Google lastmod 说明](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)。
+- 露点内容 10 月 9 日已上线，目前仅四天，保留现有 10 月 23 日/11 月 6 日评估窗口，不重复发布或每日申请索引。今天没有最新的 Search Console/Yandex 搜索表现数据，不能认定曝光上升、下降或排名提高。
+- 今日决定：技术访问无需紧急处理；整站分类与内容结构优先，产品标题摘要和真实更新时间并行准备。没有改业务代码、统计目标、广告或 VPS，没有发送询盘；只保存检查报告与分析记录，文档提交不需要服务器发布。
+
 ## 后续记录格式
 
 每次增加一个日期条目：数据覆盖期、最新线上证据、待处理机会、执行/观察/等待决定、实际改动、测试与报告、代码提交、实际上线状态、下一次评估时间。没有证据变化时不凑修改；没有用户操作事项时不重复催促。
