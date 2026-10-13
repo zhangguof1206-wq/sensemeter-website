@@ -7,7 +7,7 @@
     "Titles below exclude the site suffix, which is appended exactly once at rendering.",
     "No product URL, model heading, specification, stock, price or delivery promise is changed by this proposal.",
     "Existing product copy is a starting point, not an independent verification of every specification.",
-    "Optidew-HZ remains on hold pending supplier identity and application confirmation; its neutral draft must not be applied automatically."
+    "Official Optidew family documents have now been located. The Optidew entry contains source-based chilled-mirror copy, but the existing -HZ naming and conflicting page body must be reviewed before application."
   ],
   "products": [
     {
@@ -117,11 +117,16 @@
     {
       "slug": "optidew-hz",
       "group": "dew-point-instruments",
-      "reviewStatus": "needs-supplier-confirmation",
-      "purposeZh": "暂用中性露点仪表草案；型号后缀和烃露点用途待供应商确认",
-      "title": { "ru": "Optidew-HZ - прибор для измерения точки росы", "en": "Optidew-HZ - Dew-Point Measurement Instrument" },
-      "description": { "ru": "Optidew-HZ: уточните модель и назначение по документации поставщика. Подбор конфигурации и запрос цены у SenseMeter.", "en": "Optidew-HZ: confirm the model and intended measurement with supplier documentation. Request configuration details and pricing from SenseMeter." },
-      "reviewNote": "The current linked PDF and public Optidew page describe chilled-mirror humidity measurement. They do not establish an Optidew-HZ hydrocarbon dew-point variant. Do not publish this entry or include it on new category cards until reviewed."
+      "reviewStatus": "needs-page-identity-review",
+      "purposeZh": "基于已找到的官方资料准备冷镜湿度仪文案；现有 -HZ 命名及正文需一并审核",
+      "title": { "ru": "Optidew - гигрометр с охлаждаемым зеркалом", "en": "Optidew - Chilled-Mirror Hygrometer" },
+      "description": { "ru": "Michell Optidew для измерения точки росы и влажности в промышленных условиях и лабораториях. Подбор исполнения, документы и запрос цены.", "en": "Michell Optidew chilled-mirror hygrometer for industrial humidity control and laboratory measurements. Review documents and request a quotation." },
+      "reviewNote": "Official Optidew family sources verify chilled-mirror humidity and water dew-point measurement and describe 401/501 configurations. They do not verify the existing -HZ suffix or hydrocarbon claim. Keep the URL, review the proposed family name and align the page body before applying this copy. Supply of a particular configuration is not verified.",
+      "sourceUrls": [
+        "https://www.processsensing.com/en-us/products/optidew-chilled-mirror-hygrometer.htm",
+        "https://assets.dwyeromega.com/manuals-do/MI_Optidew_97551-v4-3.pdf",
+        "https://www.processsensing.com/docs/datasheet/Michell_Instruments_Optidew_US_Datasheet_v3-1.pdf"
+      ]
     },
     {
       "slug": "sf82-online",

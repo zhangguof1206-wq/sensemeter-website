@@ -66,7 +66,7 @@ Provide gas type, pressure, expected dew-point range, installation location and 
 
 相关应用：`/applications/compressed-air-dew-point`、`/applications/natural-gas-moisture-monitoring`。
 
-Optidew-HZ 待供应商资料确认，暂不推荐到新分类页。
+Optidew 官方冷镜湿度用途已核实；现有 -HZ 命名和正文修正需先审核，暂不推荐到新分类页。
 
 ## Humidity and Temperature
 

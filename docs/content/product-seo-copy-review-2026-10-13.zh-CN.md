@@ -2,7 +2,7 @@
 
 日期：2026-10-13。状态：草案，未批准、未发布。
 
-俄英双语共 44 组，覆盖现有 22 个仪表产品。21 个产品可审核，Optidew-HZ 需先核实供应商资料。以下是搜索标题与摘要，不改变原产品网址、H1、参数、价格或交期。本文从同目录 JSON 权威草案生成。
+俄英双语共 44 组，覆盖现有 22 个仪表产品。21 个按元数据范围审核；Optidew 官方家族资料已补齐，该项需批准原有命名和正文的一致性修正。本文从同目录 JSON 权威草案生成，不代表任何页面已经修改。
 
 ## Easidew PRO I.S.
 
@@ -188,19 +188,21 @@
 
 ## Optidew-HZ
 
-用途：暂用中性露点仪表草案；型号后缀和烃露点用途待供应商确认。
+用途：基于已找到的官方资料准备冷镜湿度仪文案；现有 -HZ 命名及正文需一并审核。
 
-状态：供应商资料待确认，暂不应用。原网址：`/products/optidew-hz`。
+状态：官方用途已核实，现有命名与正文修正待审核。原网址：`/products/optidew-hz`。
 
-**俄语搜索标题：** Optidew-HZ - прибор для измерения точки росы | SenseMeter
+**俄语搜索标题：** Optidew - гигрометр с охлаждаемым зеркалом | SenseMeter
 
-**俄语摘要：** Optidew-HZ: уточните модель и назначение по документации поставщика. Подбор конфигурации и запрос цены у SenseMeter.
+**俄语摘要：** Michell Optidew для измерения точки росы и влажности в промышленных условиях и лабораториях. Подбор исполнения, документы и запрос цены.
 
-**英语搜索标题：** Optidew-HZ - Dew-Point Measurement Instrument | SenseMeter
+**英语搜索标题：** Optidew - Chilled-Mirror Hygrometer | SenseMeter
 
-**英语摘要：** Optidew-HZ: confirm the model and intended measurement with supplier documentation. Request configuration details and pricing from SenseMeter.
+**英语摘要：** Michell Optidew chilled-mirror hygrometer for industrial humidity control and laboratory measurements. Review documents and request a quotation.
 
-注意：型号后缀及烃露点用途需供应商确认；这份中性文案不是可直接发布的替代品。
+注意：官方 Optidew 冷镜湿度用途已有资料依据，但未证实原有 -HZ 后缀。仅改搜索文案、保留烃露点正文会产生矛盾，需先审核一致性修正。
+
+官方资料：[官方产品页](https://www.processsensing.com/en-us/products/optidew-chilled-mirror-hygrometer.htm)、[DwyerOmega 手册](https://assets.dwyeromega.com/manuals-do/MI_Optidew_97551-v4-3.pdf)、[官方数据表](https://www.processsensing.com/docs/datasheet/Michell_Instruments_Optidew_US_Datasheet_v3-1.pdf)。
 
 ## SF82 Online
 
