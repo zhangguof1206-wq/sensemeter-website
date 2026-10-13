@@ -1,0 +1,124 @@
+{
+  "status": "draft-not-approved-not-published",
+  "date": "2026-10-13",
+  "siteSuffix": " | SenseMeter",
+  "categories": [
+    {
+      "slug": "dew-point-instruments",
+      "path": "/catalog/dew-point-instruments",
+      "navLabel": { "ru": "Точка росы и влага в газе", "en": "Dew Point and Gas Moisture" },
+      "ru": {
+        "title": "Измерители точки росы и влажности газа",
+        "h1": "Приборы для измерения точки росы и влажности газа",
+        "description": "Датчики, онлайн-гигрометры и переносные приборы для измерения точки росы и влаги в газе. Michell и Vaisala: подбор и запрос цены.",
+        "intro": "Приборы для контроля сухости сжатого воздуха и технологических газов. Выберите преобразователь для постоянного измерения, систему с индикацией или переносной гигрометр для проверки нескольких точек. Диапазон, давление и условия отбора пробы согласуются для конкретной модели.",
+        "selectionHeading": "Что учесть при выборе прибора",
+        "selectionItems": ["Тип газа и ожидаемая точка росы", "Рабочее давление и условия отбора пробы", "Постоянный контроль или переносные проверки", "Требуемые сигналы и условия установки"],
+        "faq": [
+          { "question": "Как выбрать онлайн-прибор или переносной гигрометр?", "answer": "Онлайн-прибор нужен для постоянного контроля одной линии, переносной гигрометр удобен для проверок нескольких точек. Окончательный выбор зависит от газа, давления и требований к измерению." },
+          { "question": "Какие данные нужны для запроса цены?", "answer": "Укажите газ, давление, ожидаемый диапазон точки росы, место установки и количество. Если модель уже известна, добавьте ее обозначение и требуемое исполнение." }
+        ],
+        "ctaLabel": "Запросить подбор и цену"
+      },
+      "en": {
+        "title": "Dew-Point and Gas Moisture Instruments",
+        "h1": "Dew-Point and Gas Moisture Instruments",
+        "description": "Dew-point transmitters, online hygrometers and portable instruments from Michell and Vaisala. Explore product types and request a quotation.",
+        "intro": "Instruments for monitoring dryness in compressed air and process gases. Choose a transmitter for continuous measurement, a monitoring system with a display, or a portable hygrometer for checks at multiple points. Range, pressure and sampling conditions must match the selected model.",
+        "selectionHeading": "What to consider when selecting an instrument",
+        "selectionItems": ["Gas type and expected dew point", "Operating pressure and sampling conditions", "Continuous monitoring or portable checks", "Required signals and installation conditions"],
+        "faq": [
+          { "question": "Should I choose an online instrument or a portable hygrometer?", "answer": "An online instrument provides continuous monitoring at one line, while a portable hygrometer supports checks at multiple points. The final choice depends on gas, pressure and measurement requirements." },
+          { "question": "What information is needed for a quotation?", "answer": "Provide gas type, pressure, expected dew-point range, installation location and quantity. If the model is known, include its designation and required configuration." }
+        ],
+        "ctaLabel": "Request Selection and Pricing"
+      },
+      "productGroups": [
+        { "label": { "ru": "Преобразователи и датчики", "en": "Transmitters and Sensors" }, "slugs": ["easidew-34-m12", "dmt143-dmt143l", "dmt153", "pura-transmitter", "easidew-pro-is", "easidew-pro-xp"] },
+        { "label": { "ru": "Системы постоянного контроля", "en": "Continuous Monitoring Systems" }, "slugs": ["easidew-online", "sf82-online"] },
+        { "label": { "ru": "Переносные измерения", "en": "Portable Measurements" }, "slugs": ["mdm300"] }
+      ],
+      "pendingProductSlugs": ["optidew-hz"],
+      "relatedApplicationPaths": ["/applications/compressed-air-dew-point", "/applications/natural-gas-moisture-monitoring"],
+      "contactPath": "/contact"
+    },
+    {
+      "slug": "humidity-temperature-instruments",
+      "path": "/catalog/humidity-temperature-instruments",
+      "navLabel": { "ru": "Влажность и температура", "en": "Humidity and Temperature" },
+      "ru": {
+        "title": "Промышленные приборы влажности и температуры",
+        "h1": "Промышленные датчики и приборы влажности и температуры",
+        "description": "Зонды, преобразователи и ручные приборы влажности и температуры Rotronic и Vaisala. Подбор для промышленных задач и запрос цены.",
+        "intro": "Зонды, преобразователи и ручные приборы для измерения относительной влажности и температуры. Выберите тип прибора для интеграции в систему мониторинга, установки в процессе или переносной проверки. Условия среды, монтаж и совместимость подключения проверяются для конкретного исполнения.",
+        "selectionHeading": "Что учесть при выборе прибора",
+        "selectionItems": ["Температура, влажность и риск конденсации", "Тип зонда и место установки", "Выходной сигнал и подключение к системе", "Требования к калибровке и документации"],
+        "faq": [
+          { "question": "Чем отличается зонд от преобразователя?", "answer": "Зонд выполняет измерение и обычно подключается к совместимому прибору или системе. Преобразователь предоставляет интерфейс передачи результата. Конкретное подключение зависит от модели." },
+          { "question": "Какие данные нужны для подбора?", "answer": "Укажите температуру, диапазон влажности, условия среды, место установки и нужный сигнал. Для замены существующего прибора добавьте модель и данные подключения." }
+        ],
+        "ctaLabel": "Запросить подбор и цену"
+      },
+      "en": {
+        "title": "Industrial Humidity and Temperature Instruments",
+        "h1": "Industrial Humidity and Temperature Instruments",
+        "description": "Humidity and temperature probes, transmitters and handheld meters from Rotronic and Vaisala. Explore product types and request a quotation.",
+        "intro": "Probes, transmitters and handheld instruments for measuring relative humidity and temperature. Select a product type for monitoring-system integration, process installation or portable checks. Environmental conditions, mounting and connection compatibility must match the chosen configuration.",
+        "selectionHeading": "What to consider when selecting an instrument",
+        "selectionItems": ["Temperature, humidity and condensation risk", "Probe type and installation location", "Output signals and system connections", "Calibration and documentation requirements"],
+        "faq": [
+          { "question": "What is the difference between a probe and a transmitter?", "answer": "A probe performs measurement and typically connects to a compatible instrument or system. A transmitter provides an interface for sending results. The exact connection depends on the model." },
+          { "question": "What information is needed for selection?", "answer": "Provide temperature, humidity range, environmental conditions, mounting location and required signals. For a replacement, include the existing model and connection details." }
+        ],
+        "ctaLabel": "Request Selection and Pricing"
+      },
+      "productGroups": [
+        { "label": { "ru": "Зонды влажности и температуры", "en": "Humidity and Temperature Probes" }, "slugs": ["hc2a-series", "hc2a-industrial", "hmp3-hmpx"] },
+        { "label": { "ru": "Преобразователи для систем контроля", "en": "Monitoring Transmitters" }, "slugs": ["hygroflex1", "hmt310", "hmt370ex"] },
+        { "label": { "ru": "Ручные приборы", "en": "Handheld Instruments" }, "slugs": ["hp31-hp32"] }
+      ],
+      "pendingProductSlugs": [],
+      "relatedApplicationPaths": ["/applications/industrial-humidity-monitoring", "/applications/climate-chamber-humidity"],
+      "contactPath": "/contact"
+    },
+    {
+      "slug": "oxygen-analyzers",
+      "path": "/catalog/oxygen-analyzers",
+      "navLabel": { "ru": "Анализаторы кислорода", "en": "Oxygen Analyzers" },
+      "ru": {
+        "title": "Промышленные и переносные анализаторы кислорода",
+        "h1": "Анализаторы кислорода для промышленных газов",
+        "description": "Анализаторы кислорода AII для промышленных газов, переносных проверок и перчаточных боксов. Выбор ppm или процентного диапазона и запрос цены.",
+        "intro": "Анализаторы для контроля кислорода в промышленных газах и инертных средах. Выберите переносной прибор, анализатор для постоянного контроля или решение для перчаточного бокса. Требуемый диапазон, состав газа и условия отбора пробы проверяются для выбранной модели.",
+        "selectionHeading": "Что учесть при выборе анализатора",
+        "selectionItems": ["Следовой кислород в ppm или процентный диапазон", "Состав фонового газа и условия пробы", "Переносной прибор или постоянная установка", "Подключение сенсора и требуемые сигналы"],
+        "faq": [
+          { "question": "Как выбрать ppm или процентный диапазон?", "answer": "Диапазон определяется допустимым уровнем кислорода в процессе. Для низких концентраций рассматривают ppm, для более высоких уровней используют проценты. Требуемые единицы и точность нужно указать в запросе." },
+          { "question": "Можно ли выбрать анализатор только по диапазону?", "answer": "Нет. Также необходимо учитывать состав газа, условия пробы, монтаж сенсора и совместимость выходных сигналов. Эти данные помогают подобрать подходящее исполнение." }
+        ],
+        "ctaLabel": "Запросить подбор и цену"
+      },
+      "en": {
+        "title": "Industrial and Portable Oxygen Analyzers",
+        "h1": "Oxygen Analyzers for Industrial Gases",
+        "description": "AII oxygen analyzers for industrial gases, portable checks and glove boxes. Explore ppm or percent measurement needs and request a quotation.",
+        "intro": "Analyzers for oxygen monitoring in industrial gases and inert atmospheres. Choose a portable instrument, a continuous process analyzer or a glove-box solution. Measurement range, background gas and sampling conditions must be reviewed for the selected model.",
+        "selectionHeading": "What to consider when selecting an analyzer",
+        "selectionItems": ["Trace oxygen in ppm or a percent range", "Background gas composition and sample conditions", "Portable checks or permanent installation", "Sensor connections and required signals"],
+        "faq": [
+          { "question": "How do I choose a ppm or percent range?", "answer": "The range depends on the oxygen level permitted by the process. Low concentrations are commonly expressed in ppm and higher levels in percent. Include required units and accuracy in your request." },
+          { "question": "Can I select an analyzer based only on its range?", "answer": "No. Gas composition, sample conditions, sensor installation and output compatibility also matter. Provide these details to help select a suitable configuration." }
+        ],
+        "ctaLabel": "Request Selection and Pricing"
+      },
+      "productGroups": [
+        { "label": { "ru": "Переносные анализаторы", "en": "Portable Analyzers" }, "slugs": ["gpr-1000-1100-2000-3500"] },
+        { "label": { "ru": "Промышленный контроль газов", "en": "Industrial Gas Monitoring" }, "slugs": ["gpr-1500", "gpr-1900-2900", "gpr-1600-2600-3100"] },
+        { "label": { "ru": "Перчаточные боксы", "en": "Glove Boxes" }, "slugs": ["gpr-1500gb-2500gb"] }
+      ],
+      "pendingProductSlugs": [],
+      "relatedApplicationPaths": ["/applications/glove-box-oxygen-analysis"],
+      "contactPath": "/contact"
+    }
+  ]
+}

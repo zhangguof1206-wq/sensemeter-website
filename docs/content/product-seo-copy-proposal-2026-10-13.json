@@ -1,0 +1,191 @@
+{
+  "status": "draft-not-approved-not-published",
+  "date": "2026-10-13",
+  "siteSuffix": " | SenseMeter",
+  "scope": "Existing 22 instrument product URLs, RU/EN titles and descriptions only",
+  "notes": [
+    "Titles below exclude the site suffix, which is appended exactly once at rendering.",
+    "No product URL, model heading, specification, stock, price or delivery promise is changed by this proposal.",
+    "Existing product copy is a starting point, not an independent verification of every specification.",
+    "Optidew-HZ remains on hold pending supplier identity and application confirmation; its neutral draft must not be applied automatically."
+  ],
+  "products": [
+    {
+      "slug": "easidew-pro-is",
+      "group": "dew-point-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "本安型露点变送器",
+      "title": { "ru": "Easidew PRO I.S. - искробезопасный датчик точки росы", "en": "Easidew PRO I.S. - Intrinsically Safe Dew-Point Transmitter" },
+      "description": { "ru": "Easidew PRO I.S. для измерения точки росы в газах и технологических средах. Подбор исполнения, документация и запрос цены у SenseMeter.", "en": "Easidew PRO I.S. dew-point transmitter for process gases. Review the required configuration, documentation and request a quotation." }
+    },
+    {
+      "slug": "easidew-34-m12",
+      "group": "dew-point-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "用于干燥机和工艺气体的紧凑型露点变送器",
+      "title": { "ru": "Easidew 34 / M12 - преобразователи точки росы", "en": "Easidew 34 / M12 - Dew-Point Transmitters" },
+      "description": { "ru": "Easidew 34 и Easidew M12 для контроля точки росы в осушителях и технических газах. Подбор подключения, документы и запрос цены.", "en": "Easidew 34 and Easidew M12 dew-point transmitters for dryers and process gases. Review connections, documentation and request pricing." }
+    },
+    {
+      "slug": "easidew-online",
+      "group": "dew-point-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "连续露点监测系统",
+      "title": { "ru": "Easidew Online - система контроля точки росы", "en": "Easidew Online - Dew-Point Monitoring System" },
+      "description": { "ru": "Easidew Online для постоянного контроля точки росы в сухих газах и сжатом воздухе. Дисплей, сигналы, документация и запрос цены.", "en": "Easidew Online for continuous dew-point monitoring in dry gases and compressed air. Explore display, signals, documents and request pricing." }
+    },
+    {
+      "slug": "easidew-pro-xp",
+      "group": "dew-point-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "防爆型工艺露点变送器",
+      "title": { "ru": "Easidew PRO XP - взрывозащищенный датчик точки росы", "en": "Easidew PRO XP - Explosion-Proof Dew-Point Transmitter" },
+      "description": { "ru": "Easidew PRO XP для измерения точки росы в природном и технологическом газе. Подбор исполнения и условий отбора пробы, документы и цена по запросу.", "en": "Easidew PRO XP dew-point transmitter for natural and process gases. Review configuration, sampling requirements, documents and request a quote." }
+    },
+    {
+      "slug": "gpr-1000-1100-2000-3500",
+      "group": "oxygen-analyzers",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "便携式氧分析仪系列",
+      "title": { "ru": "GPR-1000/1100/2000/3500 - переносные анализаторы O2", "en": "GPR-1000/1100/2000/3500 - Portable Oxygen Analyzers" },
+      "description": { "ru": "GPR-1000, GPR-1100, GPR-2000 и GPR-3500 для переносных проверок кислорода. Выбор ppm или процентного диапазона, документы и запрос цены.", "en": "GPR-1000, GPR-1100, GPR-2000 and GPR-3500 portable oxygen analyzers. Review ppm or percent measurement needs, documents and request pricing." }
+    },
+    {
+      "slug": "gpr-1500",
+      "group": "oxygen-analyzers",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "工业微量氧分析仪",
+      "title": { "ru": "GPR-1500 - анализатор следового кислорода", "en": "GPR-1500 - Trace Oxygen Analyzer" },
+      "description": { "ru": "GPR-1500 для анализа следового кислорода в чистых газах и инертных средах. Применение, документация и запрос цены у SenseMeter.", "en": "GPR-1500 trace oxygen analyzer for clean gases and inert atmospheres. Explore applications, documentation and request a quotation." }
+    },
+    {
+      "slug": "gpr-1500gb-2500gb",
+      "group": "oxygen-analyzers",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "手套箱氧分析仪系列",
+      "title": { "ru": "GPR-1500 GB / 2500 GB - анализаторы O2 для боксов", "en": "GPR-1500 GB / 2500 GB - Glove Box Oxygen Analyzers" },
+      "description": { "ru": "GPR-1500 GB и GPR-2500 GB для контроля кислорода в перчаточных боксах. Подбор сенсора и подключения, документация и цена по запросу.", "en": "GPR-1500 GB and GPR-2500 GB for oxygen monitoring in glove boxes. Review sensor installation, documentation and request a quotation." }
+    },
+    {
+      "slug": "gpr-1600-2600-3100",
+      "group": "oxygen-analyzers",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "工业气体氧分析仪系列",
+      "title": { "ru": "GPR-1600/2600/3100 - анализаторы кислорода", "en": "GPR-1600/2600/3100 - Industrial Oxygen Analyzers" },
+      "description": { "ru": "GPR-1600, GPR-2600 и GPR-3100 для анализа кислорода в промышленных газах. Выбор диапазона и конфигурации, документы и запрос цены.", "en": "GPR-1600, GPR-2600 and GPR-3100 oxygen analyzers for industrial gases. Review measurement range, configuration, documents and request pricing." }
+    },
+    {
+      "slug": "gpr-1900-2900",
+      "group": "oxygen-analyzers",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "面板式氧分析仪系列",
+      "title": { "ru": "GPR-1900 / 2900 - панельные анализаторы кислорода", "en": "GPR-1900 / 2900 - Panel Oxygen Analyzers" },
+      "description": { "ru": "GPR-1900 и GPR-2900 для контроля кислорода в газовых системах. Панельная установка, удаленный сенсор, документация и запрос цены.", "en": "GPR-1900 and GPR-2900 oxygen analyzers for gas monitoring systems. Review panel installation, remote sensors, documents and request pricing." }
+    },
+    {
+      "slug": "hc2a-industrial",
+      "group": "humidity-temperature-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "工业温湿度探头系列",
+      "title": { "ru": "HC2A-IC/IM/IE - промышленные зонды влажности", "en": "HC2A-IC/IM/IE - Industrial Humidity Probes" },
+      "description": { "ru": "HC2A-IC, HC2A-IM и HC2A-IE для измерения влажности и температуры в промышленных условиях. Подбор зонда, документация и запрос цены.", "en": "HC2A-IC, HC2A-IM and HC2A-IE probes for industrial humidity and temperature measurement. Review probe selection, documents and request pricing." }
+    },
+    {
+      "slug": "hc2a-series",
+      "group": "humidity-temperature-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "温湿度探头系列",
+      "title": { "ru": "HC2A Series - зонды влажности и температуры", "en": "HC2A Series - Humidity and Temperature Probes" },
+      "description": { "ru": "Rotronic HC2A Series для измерения влажности и температуры в системах мониторинга и климатических камерах. Документация и запрос цены.", "en": "Rotronic HC2A Series humidity and temperature probes for monitoring systems and climate chambers. Explore documentation and request a quote." }
+    },
+    {
+      "slug": "hp31-hp32",
+      "group": "humidity-temperature-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "手持温湿度仪",
+      "title": { "ru": "HP31 / HP32 - ручные приборы влажности и температуры", "en": "HP31 / HP32 - Handheld Humidity and Temperature Meters" },
+      "description": { "ru": "HP31 и HP32 для переносных проверок влажности и температуры в HVAC и рабочих помещениях. Регистрация данных, документы и запрос цены.", "en": "HP31 and HP32 handheld humidity and temperature meters for HVAC and facility checks. Explore data logging, documents and request pricing." }
+    },
+    {
+      "slug": "mdm300",
+      "group": "dew-point-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "便携露点湿度计，保留近期页面内容",
+      "title": { "ru": "MDM300 - портативный гигрометр точки росы", "en": "MDM300 - Portable Dew-Point Hygrometer" },
+      "description": { "ru": "MDM300 и MDM300 I.S. для переносных измерений точки росы в сжатом воздухе и газах. Подбор версии и отбора пробы, документы и запрос цены.", "en": "MDM300 and MDM300 I.S. for portable dew-point checks in compressed air and gases. Review version, sampling needs, documents and request pricing." }
+    },
+    {
+      "slug": "optidew-hz",
+      "group": "dew-point-instruments",
+      "reviewStatus": "needs-supplier-confirmation",
+      "purposeZh": "暂用中性露点仪表草案；型号后缀和烃露点用途待供应商确认",
+      "title": { "ru": "Optidew-HZ - прибор для измерения точки росы", "en": "Optidew-HZ - Dew-Point Measurement Instrument" },
+      "description": { "ru": "Optidew-HZ: уточните модель и назначение по документации поставщика. Подбор конфигурации и запрос цены у SenseMeter.", "en": "Optidew-HZ: confirm the model and intended measurement with supplier documentation. Request configuration details and pricing from SenseMeter." },
+      "reviewNote": "The current linked PDF and public Optidew page describe chilled-mirror humidity measurement. They do not establish an Optidew-HZ hydrocarbon dew-point variant. Do not publish this entry or include it on new category cards until reviewed."
+    },
+    {
+      "slug": "sf82-online",
+      "group": "dew-point-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "在线露点监测仪",
+      "title": { "ru": "SF82 Online - гигрометр для контроля точки росы", "en": "SF82 Online - Online Dew-Point Hygrometer" },
+      "description": { "ru": "SF82 Online для контроля точки росы в сжатом воздухе и осушителях. Пробоотборная система, сигналы, документация и запрос цены.", "en": "SF82 Online dew-point hygrometer for compressed air and dryers. Review the sampling system, output signals, documents and request pricing." }
+    },
+    {
+      "slug": "pura-transmitter",
+      "group": "dew-point-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "高纯气体微量水分变送器",
+      "title": { "ru": "Pura - преобразователь следовой влажности газа", "en": "Pura - Trace Moisture Transmitter" },
+      "description": { "ru": "Michell Pura для измерения следовой влажности в высокочистых газах. Подбор подключения и выходного сигнала, документы и запрос цены.", "en": "Michell Pura trace moisture transmitter for ultra-high-purity gases. Review process connections, output signals, documents and request pricing." }
+    },
+    {
+      "slug": "hygroflex1",
+      "group": "humidity-temperature-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "HVAC 温湿度变送器",
+      "title": { "ru": "HygroFlex1 - преобразователь влажности и температуры", "en": "HygroFlex1 - Humidity and Temperature Transmitter" },
+      "description": { "ru": "HygroFlex1 для измерения влажности и температуры в HVAC и системах контроля воздуха. Подбор исполнения, документация и запрос цены.", "en": "HygroFlex1 humidity and temperature transmitter for HVAC and air monitoring systems. Review configuration, documentation and request pricing." }
+    },
+    {
+      "slug": "hmt370ex",
+      "group": "humidity-temperature-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "本安型温湿度变送器，突出主用途而非仅写露点",
+      "title": { "ru": "HMT370EX - искробезопасный датчик влажности", "en": "HMT370EX - Intrinsically Safe Humidity Transmitter" },
+      "description": { "ru": "Vaisala HMT370EX для измерения влажности и температуры в опасных зонах. Подбор зонда и исполнения, документация и запрос цены.", "en": "Vaisala HMT370EX humidity and temperature transmitter for hazardous areas. Review probe and configuration requirements, documents and request pricing." }
+    },
+    {
+      "slug": "hmt310",
+      "group": "humidity-temperature-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "工业温湿度变送器，修正按品牌套用的用途标题",
+      "title": { "ru": "HMT310 - преобразователь влажности и температуры", "en": "HMT310 - Humidity and Temperature Transmitter" },
+      "description": { "ru": "Vaisala HMT310 для измерения влажности и температуры в промышленных процессах. Подбор зонда и монтажа, документация и запрос цены.", "en": "Vaisala HMT310 humidity and temperature transmitter for industrial processes. Review probe and mounting options, documents and request a quotation." }
+    },
+    {
+      "slug": "hmp3-hmpx",
+      "group": "humidity-temperature-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "工业温湿度探头，保留近期页面及原网址",
+      "title": { "ru": "HMP3 - промышленный зонд влажности и температуры", "en": "HMP3 - Industrial Humidity and Temperature Probe" },
+      "description": { "ru": "Vaisala HMP3 для измерения влажности и температуры в HVAC и климатических камерах. Подключение к системе, документация и запрос цены.", "en": "Vaisala HMP3 humidity and temperature probe for HVAC and climate chambers. Review system connections, documentation and request pricing." }
+    },
+    {
+      "slug": "dmt153",
+      "group": "dew-point-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "OEM 露点变送器",
+      "title": { "ru": "DMT153 - преобразователь точки росы", "en": "DMT153 - Dew-Point Transmitter" },
+      "description": { "ru": "Vaisala DMT153 для контроля точки росы в сухом воздухе, осушителях и OEM-системах. Подбор подключения, документы и запрос цены.", "en": "Vaisala DMT153 dew-point transmitter for dry air, dryers and OEM systems. Review connection requirements, documentation and request pricing." }
+    },
+    {
+      "slug": "dmt143-dmt143l",
+      "group": "dew-point-instruments",
+      "reviewStatus": "draft-for-review",
+      "purposeZh": "紧凑型露点变送器系列",
+      "title": { "ru": "DMT143 / DMT143L - датчики точки росы", "en": "DMT143 / DMT143L - Dew-Point Transmitters" },
+      "description": { "ru": "DMT143 и DMT143L для контроля точки росы в осушителях и сухих газах. Подбор места установки и исполнения, документы и запрос цены.", "en": "DMT143 and DMT143L dew-point transmitters for dryers and dry gases. Review installation and configuration requirements, documents and request pricing." }
+    }
+  ]
+}
