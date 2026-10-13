@@ -4,6 +4,8 @@
 
 俄英双语共 44 组，覆盖现有 22 个仪表产品。21 个按元数据范围审核；Optidew 官方家族资料已补齐，该项需批准原有命名和正文的一致性修正。本文从同目录 JSON 权威草案生成，不代表任何页面已经修改。
 
+专业性复核及发布门槛见同目录 `seo-copy-professional-review-2026-10-13.zh-CN.md`。
+
 ## Easidew PRO I.S.
 
 用途：本安型露点变送器。
@@ -68,11 +70,15 @@
 
 **俄语搜索标题：** GPR-1000/1100/2000/3500 - переносные анализаторы O2 | SenseMeter
 
-**俄语摘要：** GPR-1000, GPR-1100, GPR-2000 и GPR-3500 для переносных проверок кислорода. Выбор ppm или процентного диапазона, документы и запрос цены.
+**俄语摘要：** Переносные анализаторы GPR-1000/1100/2000/3500. Модель выбирается для следового кислорода, процентных концентраций или чистоты O2. Цена по запросу.
 
 **英语搜索标题：** GPR-1000/1100/2000/3500 - Portable Oxygen Analyzers | SenseMeter
 
-**英语摘要：** GPR-1000, GPR-1100, GPR-2000 and GPR-3500 portable oxygen analyzers. Review ppm or percent measurement needs, documents and request pricing.
+**英语摘要：** GPR-1000/1100/2000/3500 portable oxygen analyzers. Model choice depends on trace, percent or oxygen-purity measurement needs. Request a quote.
+
+注意：系列覆盖范围不等于每个型号的共同量程；测量量程与校准范围需分清，供货版本按订货代码核对。
+
+官方资料：[资料 1](https://www.processsensing.com/docs/datasheet/Portable-Oxygen-Analyzers-99963-UK-datasheet-v3-1.pdf)。
 
 ## GPR-1500
 
@@ -94,7 +100,7 @@
 
 状态：待用户审核。原网址：`/products/gpr-1500gb-2500gb`。
 
-**俄语搜索标题：** GPR-1500 GB / 2500 GB - анализаторы O2 для боксов | SenseMeter
+**俄语搜索标题：** GPR-1500 GB / 2500 GB - анализаторы O2 для перчаточных боксов | SenseMeter
 
 **俄语摘要：** GPR-1500 GB и GPR-2500 GB для контроля кислорода в перчаточных боксах. Подбор сенсора и подключения, документация и цена по запросу.
 
@@ -166,11 +172,13 @@
 
 **俄语搜索标题：** HP31 / HP32 - ручные приборы влажности и температуры | SenseMeter
 
-**俄语摘要：** HP31 и HP32 для переносных проверок влажности и температуры в HVAC и рабочих помещениях. Регистрация данных, документы и запрос цены.
+**俄语摘要：** HP31 и HP32 для проверок влажности и температуры с записью данных. HP31 со встроенным зондом, HP32 со сменными зондами. Подбор и запрос цены.
 
 **英语搜索标题：** HP31 / HP32 - Handheld Humidity and Temperature Meters | SenseMeter
 
-**英语摘要：** HP31 and HP32 handheld humidity and temperature meters for HVAC and facility checks. Explore data logging, documents and request pricing.
+**英语摘要：** HP31 and HP32 handheld humidity and temperature meters with data logging. HP31 has a fixed probe; HP32 uses interchangeable probes. Request a quote.
+
+官方资料：[资料 1](https://www.processsensing.com/docs/datasheet/59073E_HP31-HP32.pdf)。
 
 ## MDM300 / MDM300 I.S.
 
@@ -202,7 +210,7 @@
 
 注意：官方 Optidew 冷镜湿度用途已有资料依据，但未证实原有 -HZ 后缀。仅改搜索文案、保留烃露点正文会产生矛盾，需先审核一致性修正。
 
-官方资料：[官方产品页](https://www.processsensing.com/en-us/products/optidew-chilled-mirror-hygrometer.htm)、[DwyerOmega 手册](https://assets.dwyeromega.com/manuals-do/MI_Optidew_97551-v4-3.pdf)、[官方数据表](https://www.processsensing.com/docs/datasheet/Michell_Instruments_Optidew_US_Datasheet_v3-1.pdf)。
+官方资料：[资料 1](https://www.processsensing.com/en-us/products/optidew-chilled-mirror-hygrometer.htm)、[资料 2](https://assets.dwyeromega.com/manuals-do/MI_Optidew_97551-v4-3.pdf)、[资料 3](https://www.processsensing.com/docs/datasheet/Michell_Instruments_Optidew_US_Datasheet_v3-1.pdf)。
 
 ## SF82 Online
 
@@ -254,11 +262,15 @@
 
 **俄语搜索标题：** HMT370EX - искробезопасный датчик влажности | SenseMeter
 
-**俄语摘要：** Vaisala HMT370EX для измерения влажности и температуры в опасных зонах. Подбор зонда и исполнения, документация и запрос цены.
+**俄语摘要：** Vaisala HMT370EX для влажности и температуры в опасных зонах. Подбор зонда и исполнения по требованиям объекта. Документы и цена по запросу.
 
 **英语搜索标题：** HMT370EX - Intrinsically Safe Humidity Transmitter | SenseMeter
 
-**英语摘要：** Vaisala HMT370EX humidity and temperature transmitter for hazardous areas. Review probe and configuration requirements, documents and request pricing.
+**英语摘要：** Vaisala HMT370EX humidity and temperature transmitter for hazardous areas. Probe and configuration selection for site requirements. Request a quote.
+
+注意：本安是产品家族定位，不代表已确认具体供货或安装符合性；报价前核对具体证书、探头及安装要求。
+
+官方资料：[资料 1](https://www.vaisala.com/en/products/instruments-sensors-and-other-measurement-devices/instruments-industrial-measurements/humidity-normal-or-wet-conditions/hmt370ex)。
 
 ## HMT310
 
@@ -282,11 +294,13 @@
 
 **俄语搜索标题：** HMP3 - промышленный зонд влажности и температуры | SenseMeter
 
-**俄语摘要：** Vaisala HMP3 для измерения влажности и температуры в HVAC и климатических камерах. Подключение к системе, документация и запрос цены.
+**俄语摘要：** Vaisala HMP3: зонд влажности и температуры с Modbus RTU по RS-485. Прямое подключение к совместимой системе или через Indigo. Цена по запросу.
 
 **英语搜索标题：** HMP3 - Industrial Humidity and Temperature Probe | SenseMeter
 
-**英语摘要：** Vaisala HMP3 humidity and temperature probe for HVAC and climate chambers. Review system connections, documentation and request pricing.
+**英语摘要：** Vaisala HMP3 humidity and temperature probe with Modbus RTU over RS-485. Connect to a compatible system directly or via Indigo. Request a quote.
+
+官方资料：[资料 1](https://www.vaisala.com/en/products/instruments-sensors-and-other-measurement-devices/instruments-industrial-measurements/hmp3)。
 
 ## DMT153
 
