@@ -1,5 +1,7 @@
 # 露点分类与英文摘要本地预览实施计划
 
+**历史记录，已被替代：** 用户在本地查看后要求恢复原来的仪器与配件目录，不添加露点与气体水分类。本分类功能及预览路径已按 `2026-10-19-restore-instrument-accessory-catalog.md` 撤销；下文是原实施过程，不代表当前页面或发布批准。两款英文摘要保留。
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** 为用户制作可审核的俄英露点分类预览，补全英文 HMP3、MDM300 摘要；不发布、不修改 Optidew。

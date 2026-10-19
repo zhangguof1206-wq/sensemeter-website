@@ -19,7 +19,6 @@ import { RfqForm } from "@/components/rfq-form";
 import { AccessoriesHomeSection } from "@/components/accessories/accessories-home-section";
 import { AboutPageContent } from "@/components/about/about-page-content";
 import { CatalogNavDropdown } from "@/components/catalog/catalog-nav-dropdown";
-import { MeasurementCategoryLinks } from "@/components/catalog/measurement-category-links";
 import { HomeApplicationsSection } from "@/components/home/home-applications-section";
 import { HomeBrandCategoriesSection } from "@/components/home/home-brand-categories-section";
 import { HomeRevealObserver } from "@/components/home/home-reveal-observer";
@@ -295,7 +294,6 @@ export function CatalogPage({
       <PageHeading title={c.catalogTitle} lead={c.catalogLead} image="/assets/application-gas-processing.png" />
       <section className="section">
         <div className="section-narrow">
-          <MeasurementCategoryLinks locale={locale} />
           <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap gap-2">
               <Link className={`btn ${!activeCategory ? "btn-primary" : "btn-outline"}`} href={localizedPath(locale, "/catalog")}>

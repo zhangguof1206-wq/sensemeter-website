@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Locale } from "@/data/catalog";
 import { localizedPath } from "@/lib/i18n";
-import { measurementCategories } from "@/data/measurement-categories";
 
 type CatalogNavDropdownProps = {
   locale: Locale;
@@ -28,10 +27,6 @@ export function CatalogNavDropdown({ locale, active }: CatalogNavDropdownProps) 
       title: labels.instruments,
       href: localizedPath(locale, "/catalog")
     },
-    ...measurementCategories.map(category => ({
-      title: category.navLabel[locale],
-      href: localizedPath(locale, category.path)
-    })),
     {
       title: labels.accessories,
       href: localizedPath(locale, "/accessories")
@@ -53,7 +48,7 @@ export function CatalogNavDropdown({ locale, active }: CatalogNavDropdownProps) 
         </span>
       </Link>
 
-      <div className="catalog-dropdown-panel invisible absolute left-0 top-full z-50 w-44 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 sm:w-72">
+      <div className="catalog-dropdown-panel invisible absolute left-0 top-full z-50 w-44 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100">
         <div className="border border-line bg-white p-2 text-slate-900 shadow-2xl">
           {items.map((item) => (
             <Link
