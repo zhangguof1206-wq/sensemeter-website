@@ -3,6 +3,7 @@ import { assetPath, type Locale, type Product } from "@/data/catalog";
 import { localizedPath } from "@/lib/i18n";
 import type { AccessoryCategory, AccessoryProduct } from "@/data/accessories";
 import { legalCopy, type LegalPageKey } from "@/lib/legal";
+import { getProductSeoDescription } from "@/data/product-seo-descriptions";
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sensemeter.ru";
 export const siteName = "SenseMeter";
@@ -85,7 +86,7 @@ export function productMetadata(locale: Locale, product: Product): Metadata {
   const path = `/products/${product.slug}`;
   const category = productSeoNames[product.slug]?.[locale] || categoryNames[product.category][locale];
   const title = locale === "ru" ? `${product.model} - ${category}` : `${product.model} - ${category}`;
-  const description = trimDescription(
+  const description = getProductSeoDescription(locale, product.slug) ?? trimDescription(
     locale === "ru"
       ? `${product.overview.ru} Запросите цену, наличие и PDF datasheet у SenseMeter.`
       : `${product.overview.en} Request pricing, availability and PDF datasheet from SenseMeter.`

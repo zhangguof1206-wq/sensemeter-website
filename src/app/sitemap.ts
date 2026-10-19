@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/catalog";
+import { measurementCategories } from "@/data/measurement-categories";
 import { accessoryCategories, accessoryProducts } from "@/data/accessories";
 import { localizedPath } from "@/lib/i18n";
 import { absoluteUrl, accessoryPageLastModified, applicationPageLastModified, corePageLastModified, languageAlternates, productPageLastModified } from "@/lib/seo";
@@ -24,9 +25,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const corePages = corePaths.flatMap((path) => withLanguageAlternates(path, corePageLastModified));
   const applicationPages = applicationPaths.flatMap((path) => withLanguageAlternates(path, applicationPageLastModified));
   const productPages = products.flatMap((product) => withLanguageAlternates(`/products/${product.slug}`, productPageLastModified));
+  const measurementCategoryPages = measurementCategories.flatMap(category => withLanguageAlternates(category.path, category.lastModified));
   const accessoryOverviewPages = withLanguageAlternates("/accessories", accessoryPageLastModified);
   const accessoryCategoryPages = accessoryCategories.flatMap((category) => withLanguageAlternates(`/accessories/${category.slug}`, accessoryPageLastModified));
   const accessoryProductPages = accessoryProducts.flatMap((product) => withLanguageAlternates(`/accessories/${product.categorySlug}/${product.slug}`, accessoryPageLastModified));
 
-  return [...corePages, ...applicationPages, ...productPages, ...accessoryOverviewPages, ...accessoryCategoryPages, ...accessoryProductPages];
+  return [...corePages, ...applicationPages, ...measurementCategoryPages, ...productPages, ...accessoryOverviewPages, ...accessoryCategoryPages, ...accessoryProductPages];
 }
