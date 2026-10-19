@@ -6,14 +6,19 @@ import { products } from "../src/data/catalog.ts";
 
 const read = path => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 
-test("only the two approved English descriptions override the existing fallback", async () => {
+test("only the seven approved English descriptions override the existing fallback", async () => {
   const { getProductSeoDescription } = await import("../src/data/product-seo-descriptions.ts");
   const proposal = JSON.parse(read("docs/content/product-seo-copy-proposal-2026-10-13.json"));
+  const batch = JSON.parse(read("docs/content/seo-unified-copy-2026-10-19.json"));
+  const approved = new Map(batch.englishProducts.map(row => [row.slug, row.description]));
+  for (const slug of ["hmp3-hmpx", "mdm300"]) {
+    approved.set(slug, proposal.products.find(row => row.slug === slug).description.en);
+  }
   for (const product of products) {
     assert.equal(getProductSeoDescription("ru", product.slug), undefined);
     const value = getProductSeoDescription("en", product.slug);
-    if (["hmp3-hmpx", "mdm300"].includes(product.slug)) {
-      assert.equal(value, proposal.products.find(row => row.slug === product.slug).description.en);
+    if (approved.has(product.slug)) {
+      assert.equal(value, approved.get(product.slug));
       assert.ok(value.length <= 155 && value.endsWith("."));
       assert.ok(!value.includes("..."));
     } else assert.equal(value, undefined, product.slug);

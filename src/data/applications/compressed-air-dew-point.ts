@@ -81,7 +81,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
         { title: "Online dryer monitoring", text: "Continuous measurement after the dryer" }
       ],
       overviewTitle: "How to test compressed air dew point",
-      overviewText: "Compressed air dryer testing compares the measured pressure dew point with the required dryness at the dryer outlet or a critical user point. Stable pressure, controlled sample flow and a suitable measuring range help make readings repeatable.",
+      overviewText: "Start with a representative point after the dryer or at a critical user. Select a meter for the expected dry range and confirm the pressure allowed at its sensor. Compare the stabilized reading with the dryer or process requirement on the same pressure basis, recording the measurement point and sample conditions.",
       scenariosTitle: "Portable testing and online monitoring points",
       scenariosLead: "Choose the measurement point and instrument format according to pressure, expected dryness, sampling method and alarm requirements.",
       photoScenarios: [
@@ -110,10 +110,12 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
       productLinkLabel: "Learn more",
       faqsTitle: "Frequently asked questions",
       faqs: [
-        { question: "How do I test dew point in compressed air?", answer: "Measure at a representative point after the dryer or near a critical user. Confirm whether the reading must be pressure dew point, keep the sample conditions stable and use an instrument suited to the expected dry range." },
+        { question: "How do I test dew point in compressed air?", answer: "Confirm the target dew point and pressure basis, then connect a suitable meter at the selected point using its approved sampling arrangement. Check for leaks and purge the sample line as the instrument manual specifies. After pressure, flow and readings stabilize, record the dew point, pressure at the sensor, measurement point and time before comparing with the process requirement." },
         { question: "When should I use a portable dew point meter?", answer: "A portable meter is suitable for service checks, commissioning and comparing several dryer outlets or distribution points without installing a permanent instrument at each location." },
         { question: "When should I use an online dew point transmitter?", answer: "An online transmitter is suitable for continuous monitoring, alarm thresholds and connection to a control or data-logging system at a fixed measurement point." },
-        { question: "What data is needed for model selection?", answer: "Specify gas, pressure, expected dew point range, installation method, output requirements, display or alarm needs and operating conditions." }
+        { question: "What data is needed for model selection?", answer: "Specify gas, pressure, expected dew point range, installation method, output requirements, display or alarm needs and operating conditions." },
+        { question: "What is the difference between pressure dew point and atmospheric dew point?", answer: "Dew point changes with gas pressure. A reading taken after releasing a sample to atmospheric pressure is not directly comparable with a reading at line pressure. Record the pressure at the sensor and use the same pressure basis for comparison; any conversion must follow the instrument manufacturer's method." },
+        { question: "How do I obtain a stable compressed air dew point reading?", answer: "Use a clean, leak-tight sample path and avoid condensation or dead-end sampling. Purge the line and keep pressure and sample flow stable as specified in the model's manual. Wait for the reading to settle before recording it; there is no single flow rate or waiting time suitable for every instrument and installation." }
       ],
       advisorTitle: "Select an instrument by parameters",
       advisorText: "Send gas, pressure, dew point range and installation details. We will match the parameters with suitable models.",

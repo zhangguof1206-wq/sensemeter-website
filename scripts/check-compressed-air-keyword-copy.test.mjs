@@ -26,13 +26,16 @@ test("the existing installation FAQ distinguishes process air from room humidity
   assert.equal(page.content.ru.faqs.filter(item => item.question === approved.question).length, 1);
 });
 
-test("every field outside the three approved copy locations remains unchanged", () => {
+test("all fields outside the approved Russian copy and English testing guidance remain unchanged", () => {
   const snapshot = structuredClone(page);
   delete snapshot.content.ru.lead;
   delete snapshot.content.ru.selectionTitle;
   snapshot.content.ru.faqs[1] = null;
+  delete snapshot.content.en.overviewText;
+  delete snapshot.content.en.faqs[0].answer;
+  snapshot.content.en.faqs = snapshot.content.en.faqs.slice(0, 4);
   const hash = createHash("sha256").update(JSON.stringify(snapshot)).digest("hex");
-  assert.equal(hash, "527f4804d05b6f915e892bc0d1e84d9723498634e198240ec268a3415e9115b9");
+  assert.equal(hash, "1b8b551c7e1f1973b2a45610dc3ee874223d3ed0dda1e5540ce2b4344c7342eb");
 });
 
 const require = createRequire(import.meta.url);
@@ -63,19 +66,24 @@ for (const name of ["application-hero", "application-selection", "application-fa
 }
 const { ApplicationPage } = loadComponent("application-page");
 
-test("real SSR renders the approved text and a matching FAQ structured-data answer", () => {
-  const resolved = { ...page, locale: "ru", copy: page.content.ru };
+const escapeHtml = text => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;");
+
+for (const locale of ["ru", "en"]) test(`real ${locale} SSR renders content and matching FAQ structured-data answers`, () => {
+  const copy = page.content[locale];
+  const resolved = { ...page, locale, copy };
   const html = renderToStaticMarkup(React.createElement(ApplicationPage, {
-    page: resolved, languagePath: "/en/applications/compressed-air-dew-point"
+    page: resolved, languagePath: `${locale === "ru" ? "/en" : ""}/applications/compressed-air-dew-point`
   }));
-  assert.ok(html.includes(approved.lead));
+  assert.ok(html.includes(escapeHtml(copy.lead)));
   const headings = tag => [...html.matchAll(new RegExp(`<${tag}\\b[^>]*>(.*?)</${tag}>`, "g"))].map(match => match[1]);
-  assert.ok(headings("h2").includes(approved.selectionTitle));
-  assert.ok(headings("h3").includes(approved.question));
-  assert.ok(html.includes(`>${approved.answer}</p>`));
+  assert.ok(headings("h2").includes(escapeHtml(copy.selectionTitle)));
   const jsonLd = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
   const faq = jsonLd.find(item => item["@type"] === "FAQPage");
   assert.equal(faq.mainEntity.length, 6);
-  assert.equal(faq.mainEntity[1].name, approved.question);
-  assert.equal(faq.mainEntity[1].acceptedAnswer.text, approved.answer);
+  for (const [index, item] of copy.faqs.entries()) {
+    assert.ok(headings("h3").includes(escapeHtml(item.question)));
+    assert.ok(html.includes(`>${escapeHtml(item.answer)}</p>`));
+    assert.equal(faq.mainEntity[index].name, item.question);
+    assert.equal(faq.mainEntity[index].acceptedAnswer.text, item.answer);
+  }
 });

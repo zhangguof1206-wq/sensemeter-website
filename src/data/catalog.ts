@@ -639,11 +639,11 @@ export const products: Product[] = [
     },
     params: {
       ru: ["Измерение точки росы", "Компактный формат для установки в оборудование", "Промышленный выходной сигнал", "PDF datasheet содержит диапазоны измерения и варианты подключения"],
-      en: ["Dew-point measurement", "Compact format for equipment installation", "Industrial output signal", "PDF datasheet includes measurement ranges and connection options"]
+      en: ["Calibrated dew/frost-point range: -80 to -20 deg C Td/f", "Accuracy: +/-2 deg C at -80 to -40 deg C Td/f; +/-3 deg C at -40 to -20 deg C Td/f; see datasheet for gas-temperature limits", "Operating process pressure: 0-50 bar absolute", "Outputs: RS-485 Modbus RTU; 0-5/0-10 V and 0/4-20 mA"]
     },
     highlights: {
       ru: ["Хорошо подходит для сухих сред", "Удобен для OEM-интеграции", "Практичное решение для контроля осушителей"],
-      en: ["Well suited for dry environments", "Convenient for OEM integration", "Practical solution for dryer monitoring"]
+      en: ["Sensor purge and autocalibration; compatible with Indigo products and Insight software", "Not Ex-certified; other chemicals require manufacturer review", "Not suitable for measurements in pure carbon dioxide or sulfur hexafluoride"]
     },
     applications: {
       ru: ["Осушители сжатого воздуха и контроль сухого воздуха", "Пластиковые сушилки и производственные линии", "Сухой воздух, OEM-системы и подбор датчика точки росы"],
