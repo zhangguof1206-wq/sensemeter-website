@@ -28,6 +28,7 @@
     "test:rfq-application": "node --no-warnings --experimental-strip-types scripts/check-rfq-application.test.mjs",
     "test:rfq-browser": "node --no-warnings --experimental-strip-types scripts/seo/check-rfq-prefill-browser.mjs",
     "test:dew-point-content": "node --no-warnings --experimental-strip-types scripts/check-dew-point-content.test.mjs",
+    "test:compressed-air-keywords": "node --no-warnings --experimental-strip-types --test scripts/check-compressed-air-keyword-copy.test.mjs",
     "test:catalog-navigation": "node --no-warnings --experimental-strip-types --test scripts/check-catalog-navigation.test.mjs",
     "test:product-seo": "node --no-warnings --experimental-strip-types --test scripts/check-product-seo-descriptions.test.mjs",
     "test:seo-tools": "node scripts/seo/seo-tools.test.mjs",
