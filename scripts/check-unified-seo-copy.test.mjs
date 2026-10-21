@@ -81,3 +81,10 @@ test("all gas-page fields outside the two approved Russian text locations stay u
   delete snapshot.content.ru.faqs[1].answer;
   assert.equal(hash(snapshot), "06b602c0088f87a9cb6b9c6f6b1e892d8910bd50ab8bb9b474f9200f86aa3fde");
 });
+
+test("GitHub regression includes all approved catalog and copy checks before release", () => {
+  const workflow = readFileSync(new URL("../.github/workflows/seo-regression.yml", import.meta.url), "utf8");
+  for (const script of ["test:catalog-navigation", "test:product-seo", "test:compressed-air-keywords", "test:unified-seo-copy"]) {
+    assert.ok(workflow.includes(`npm run ${script}`), `Missing GitHub check: ${script}`);
+  }
+});
