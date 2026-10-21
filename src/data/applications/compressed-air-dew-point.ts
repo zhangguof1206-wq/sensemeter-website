@@ -15,7 +15,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
       metaDescription: "Промышленные измерители и преобразователи точки росы для сжатого воздуха, осушителей и сухих газов. Подбор и международная поставка из Китая.",
       heroEyebrow: "Контроль влажности в технологических газах",
       title: "Промышленные измерители точки росы для сжатого воздуха",
-      lead: "Промышленный измеритель точки росы подходит для переносных проверок, а преобразователь точки росы — для постоянного контроля осушителей, пневмолиний и сухих технологических газов.",
+      lead: "Датчик точки росы для сжатого воздуха контролирует сухость воздуха после осушителя и в пневмолинии. Для непрерывного контроля применяют преобразователи, для проверки нескольких точек подходят переносные гигрометры.",
       primaryButton: "Запросить предложение",
       secondaryButton: "Смотреть приборы",
       breadcrumbs: { home: "Главная", applications: "Применения" },
@@ -37,7 +37,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
         { title: "Контроль качества", text: "Документирование параметров для ответственных производственных процессов.", criterion: "Выходной сигнал, журналирование и калибровка" }
       ],
       criterionLabel: "Критерии подбора",
-      selectionTitle: "Как выбрать измеритель или преобразователь точки росы",
+      selectionTitle: "Как выбрать датчик точки росы для осушителя",
       selectionLead: "Для корректного подбора достаточно четырех групп исходных данных.",
       selectionCards: [
         { title: "Среда и давление", text: "Укажите газ, рабочее давление линии и давление у сенсора. Отметьте, является ли указанное давление избыточным или абсолютным." },
@@ -54,7 +54,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
       faqsTitle: "Частые вопросы",
       faqs: [
         { question: "Зачем измерять точку росы в сжатом воздухе?", answer: "Точка росы показывает, насколько сухой воздух поступает в систему. Контроль помогает защитить пневмооборудование, осушители, клапаны, трубопроводы и технологические процессы от влаги и конденсата." },
-        { question: "Где лучше устанавливать датчик точки росы?", answer: "Часто датчик устанавливают после осушителя, в байпасной пробоотборной линии или в контрольной точке распределительной сети. Важно обеспечить стабильный поток, фильтрацию и подходящее давление." },
+        { question: "Где устанавливают датчик точки росы в компрессорной?", answer: "При контроле сжатого воздуха датчик устанавливают в линии после осушителя или перед критическим потребителем. Измеряют точку росы сжатого воздуха, а не влажность воздуха помещения. Монтаж, давление у сенсора и расход пробы выбирают по руководству конкретной модели." },
         { question: "Чем отличается онлайн-гигрометр от портативного анализатора?", answer: "Онлайн-гигрометр подходит для постоянного мониторинга и сигнализации, а портативный анализатор удобен для проверки нескольких точек, сервиса и периодического контроля." },
         { question: "Какие данные нужны для подбора модели?", answer: "Нужно указать газ, давление, ожидаемый диапазон точки росы, способ установки, требования к выходному сигналу, наличие дисплея или сигнализации и условия эксплуатации." },
         { question: "Чем отличается точка росы под давлением от точки росы при атмосферном давлении?", answer: "Точка росы зависит от давления газа. Показание после снижения давления до атмосферного нельзя напрямую сравнивать с точкой росы в рабочей линии. При сравнении измерений укажите давление у сенсора и используйте одну и ту же базу давления; пересчет выполняйте по методике производителя прибора." },
@@ -81,7 +81,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
         { title: "Online dryer monitoring", text: "Continuous measurement after the dryer" }
       ],
       overviewTitle: "How to test compressed air dew point",
-      overviewText: "Compressed air dryer testing compares the measured pressure dew point with the required dryness at the dryer outlet or a critical user point. Stable pressure, controlled sample flow and a suitable measuring range help make readings repeatable.",
+      overviewText: "Start with a representative point after the dryer or at a critical user. Select a meter for the expected dry range and confirm the pressure allowed at its sensor. Compare the stabilized reading with the dryer or process requirement on the same pressure basis, recording the measurement point and sample conditions.",
       scenariosTitle: "Portable testing and online monitoring points",
       scenariosLead: "Choose the measurement point and instrument format according to pressure, expected dryness, sampling method and alarm requirements.",
       photoScenarios: [
@@ -110,10 +110,12 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
       productLinkLabel: "Learn more",
       faqsTitle: "Frequently asked questions",
       faqs: [
-        { question: "How do I test dew point in compressed air?", answer: "Measure at a representative point after the dryer or near a critical user. Confirm whether the reading must be pressure dew point, keep the sample conditions stable and use an instrument suited to the expected dry range." },
+        { question: "How do I test dew point in compressed air?", answer: "Confirm the target dew point and pressure basis, then connect a suitable meter at the selected point using its approved sampling arrangement. Check for leaks and purge the sample line as the instrument manual specifies. After pressure, flow and readings stabilize, record the dew point, pressure at the sensor, measurement point and time before comparing with the process requirement." },
         { question: "When should I use a portable dew point meter?", answer: "A portable meter is suitable for service checks, commissioning and comparing several dryer outlets or distribution points without installing a permanent instrument at each location." },
         { question: "When should I use an online dew point transmitter?", answer: "An online transmitter is suitable for continuous monitoring, alarm thresholds and connection to a control or data-logging system at a fixed measurement point." },
-        { question: "What data is needed for model selection?", answer: "Specify gas, pressure, expected dew point range, installation method, output requirements, display or alarm needs and operating conditions." }
+        { question: "What data is needed for model selection?", answer: "Specify gas, pressure, expected dew point range, installation method, output requirements, display or alarm needs and operating conditions." },
+        { question: "What is the difference between pressure dew point and atmospheric dew point?", answer: "Dew point changes with gas pressure. A reading taken after releasing a sample to atmospheric pressure is not directly comparable with a reading at line pressure. Record the pressure at the sensor and use the same pressure basis for comparison; any conversion must follow the instrument manufacturer's method." },
+        { question: "How do I obtain a stable compressed air dew point reading?", answer: "Use a clean, leak-tight sample path and avoid condensation or dead-end sampling. Purge the line and keep pressure and sample flow stable as specified in the model's manual. Wait for the reading to settle before recording it; there is no single flow rate or waiting time suitable for every instrument and installation." }
       ],
       advisorTitle: "Select an instrument by parameters",
       advisorText: "Send gas, pressure, dew point range and installation details. We will match the parameters with suitable models.",

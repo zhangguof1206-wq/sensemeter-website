@@ -43,6 +43,10 @@ jobs:
           npm run test:rfq-application
           npm run check:rfq-email
           npm run test:dew-point-content
+          npm run test:catalog-navigation
+          npm run test:product-seo
+          npm run test:compressed-air-keywords
+          npm run test:unified-seo-copy
       - name: 构建网站
         env:
           NEXT_TELEMETRY_DISABLED: '1'

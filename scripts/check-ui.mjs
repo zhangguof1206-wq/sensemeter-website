@@ -235,6 +235,7 @@ const checks = [
         catalogNavDropdown.includes("top-full") &&
         catalogNavDropdown.includes("pt-2") &&
         catalogNavDropdown.includes("w-44") &&
+        !catalogNavDropdown.includes("measurementCategories") &&
         catalogNavDropdown.includes("text-sm font-black") &&
         !catalogNavDropdown.includes("hint:") &&
         !catalogNavDropdown.includes("item.hint") &&

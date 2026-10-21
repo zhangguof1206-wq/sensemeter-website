@@ -3,6 +3,7 @@ import { assetPath, type Locale, type Product } from "@/data/catalog";
 import { localizedPath } from "@/lib/i18n";
 import type { AccessoryCategory, AccessoryProduct } from "@/data/accessories";
 import { legalCopy, type LegalPageKey } from "@/lib/legal";
+import { getProductSeoDescription } from "@/data/product-seo-descriptions";
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sensemeter.ru";
 export const siteName = "SenseMeter";
@@ -18,11 +19,16 @@ const categoryNames: Record<Product["category"], Record<Locale, string>> = {
   AII: { ru: "анализатор кислорода", en: "oxygen analyzer" }
 };
 
-const productSeoNames: Partial<Record<Product["slug"], Record<Locale, string>>> = {
+const productSeoNames: Partial<Record<Product["slug"], Partial<Record<Locale, string>>>> = {
   "optidew-hz": { ru: "анализатор углеводородной точки росы", en: "hydrocarbon dew-point analyzer" },
   "hmp3-hmpx": { ru: "промышленный датчик влажности и температуры", en: "industrial humidity and temperature probe" },
   "dmt143-dmt143l": { ru: "датчик точки росы", en: "dew-point transmitter" },
-  "mdm300": { ru: "портативный гигрометр точки росы", en: "portable dew-point hygrometer" }
+  "mdm300": { ru: "портативный гигрометр точки росы", en: "portable dew-point hygrometer" },
+  "dmt153": { en: "low dew-point transmitter" },
+  "easidew-34-m12": { en: "dew-point transmitter" },
+  "easidew-pro-is": { en: "intrinsically safe transmitter" },
+  "easidew-pro-xp": { en: "explosion-proof transmitter" },
+  "hp31-hp32": { en: "handheld humidity meter" }
 };
 
 export function absoluteUrl(path: string) {
@@ -85,7 +91,7 @@ export function productMetadata(locale: Locale, product: Product): Metadata {
   const path = `/products/${product.slug}`;
   const category = productSeoNames[product.slug]?.[locale] || categoryNames[product.category][locale];
   const title = locale === "ru" ? `${product.model} - ${category}` : `${product.model} - ${category}`;
-  const description = trimDescription(
+  const description = getProductSeoDescription(locale, product.slug) ?? trimDescription(
     locale === "ru"
       ? `${product.overview.ru} Запросите цену, наличие и PDF datasheet у SenseMeter.`
       : `${product.overview.en} Request pricing, availability and PDF datasheet from SenseMeter.`

@@ -1,0 +1,60 @@
+{
+  "englishProducts": [
+    {
+      "slug": "dmt153",
+      "type": "low dew-point transmitter",
+      "description": "Vaisala DMT153 low dew-point transmitter for dry gases, with RS-485 Modbus RTU and analog outputs. Specify pressure and connection for a quote."
+    },
+    {
+      "slug": "easidew-34-m12",
+      "type": "dew-point transmitter",
+      "description": "Michell Easidew 34 and M12 dew-point transmitters for compressed air dryers and dry gases. Specify connector, pressure and output for a quote."
+    },
+    {
+      "slug": "easidew-pro-is",
+      "type": "intrinsically safe transmitter",
+      "description": "Michell Easidew PRO I.S. intrinsically safe dew-point transmitter for gas moisture measurement. Specify gas, pressure and approval needs for a quote."
+    },
+    {
+      "slug": "easidew-pro-xp",
+      "type": "explosion-proof transmitter",
+      "description": "Michell Easidew PRO XP explosion-proof dew-point transmitter for process gases. Specify gas, pressure and hazardous-area requirements for a quote."
+    },
+    {
+      "slug": "hp31-hp32",
+      "type": "handheld humidity meter",
+      "description": "Rotronic HygroPalm HP31 and HP32 handheld humidity and temperature meters. Specify fixed or interchangeable probe requirements for a quote."
+    }
+  ],
+  "compressedAirEn": {
+    "overviewText": "Start with a representative point after the dryer or at a critical user. Select a meter for the expected dry range and confirm the pressure allowed at its sensor. Compare the stabilized reading with the dryer or process requirement on the same pressure basis, recording the measurement point and sample conditions.",
+    "testingAnswer": "Confirm the target dew point and pressure basis, then connect a suitable meter at the selected point using its approved sampling arrangement. Check for leaks and purge the sample line as the instrument manual specifies. After pressure, flow and readings stabilize, record the dew point, pressure at the sensor, measurement point and time before comparing with the process requirement.",
+    "additionalFaqs": [
+      {
+        "question": "What is the difference between pressure dew point and atmospheric dew point?",
+        "answer": "Dew point changes with gas pressure. A reading taken after releasing a sample to atmospheric pressure is not directly comparable with a reading at line pressure. Record the pressure at the sensor and use the same pressure basis for comparison; any conversion must follow the instrument manufacturer's method."
+      },
+      {
+        "question": "How do I obtain a stable compressed air dew point reading?",
+        "answer": "Use a clean, leak-tight sample path and avoid condensation or dead-end sampling. Purge the line and keep pressure and sample flow stable as specified in the model's manual. Wait for the reading to settle before recording it; there is no single flow rate or waiting time suitable for every instrument and installation."
+      }
+    ]
+  },
+  "gasRu": {
+    "selectionText": "Укажите состав газа, концентрации агрессивных компонентов, примеси, давление и температуру. Совместимость сенсора, уплотнений и пробоотборной системы с конкретной средой подтверждают по документации производителя.",
+    "installationAnswer": "Способ установки зависит от давления, температуры, состава газа и требований безопасности. Для газов с агрессивными компонентами сначала проверяют совместимость сенсора, уплотнений и материалов пробоотбора по документации производителя. Взрывозащита не означает химическую стойкость к любой среде; необходимость фильтрации и подготовки пробы определяют отдельно."
+  },
+  "dmt153": {
+    "params": [
+      "Calibrated dew/frost-point range: -80 to -20 deg C Td/f",
+      "Accuracy: +/-2 deg C at -80 to -40 deg C Td/f; +/-3 deg C at -40 to -20 deg C Td/f; see datasheet for gas-temperature limits",
+      "Operating process pressure: 0-50 bar absolute",
+      "Outputs: RS-485 Modbus RTU; 0-5/0-10 V and 0/4-20 mA"
+    ],
+    "highlights": [
+      "Sensor purge and autocalibration; compatible with Indigo products and Insight software",
+      "Not Ex-certified; other chemicals require manufacturer review",
+      "Not suitable for measurements in pure carbon dioxide or sulfur hexafluoride"
+    ]
+  }
+}

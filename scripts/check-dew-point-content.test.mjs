@@ -26,10 +26,14 @@ test("RFQ inputs distinguish line and sensor pressure and pressure basis", () =>
   assert.match(points, /давление, к которому относится/);
 });
 
-test("URL, recommended models, titles and the complete English copy remain unchanged", () => {
+test("URL, recommended models, titles and English sections outside the approved testing guidance remain unchanged", () => {
   assert.equal(page.slug, "compressed-air-dew-point");
   assert.equal(page.path, "/applications/compressed-air-dew-point");
   assert.deepEqual(page.recommendedSlugs, ["easidew-34-m12", "easidew-online", "sf82-online", "dmt143-dmt143l", "mdm300"]);
   assert.equal(page.content.ru.metaTitle, "Промышленный измеритель и преобразователь точки росы");
-  assert.equal(createHash("sha256").update(JSON.stringify(page.content.en)).digest("hex"), "b65e2fc320482d7579afd4e0d6969d1d042e7c4046f6b905d108e7b48e48572b");
+  const english = structuredClone(page.content.en);
+  delete english.overviewText;
+  delete english.faqs[0].answer;
+  english.faqs = english.faqs.slice(0, 4);
+  assert.equal(createHash("sha256").update(JSON.stringify(english)).digest("hex"), "e75c225c2cc45d51fdfe37d5b96d4b57a205d8fa0957d0ca5f5b21d80febc32b");
 });
