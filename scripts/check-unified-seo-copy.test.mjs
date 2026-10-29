@@ -9,6 +9,7 @@ import { compressedAirDewPoint as air } from "../src/data/applications/compresse
 import { naturalGasMoistureMonitoring as gas } from "../src/data/applications/natural-gas-moisture-monitoring.ts";
 
 const copy = JSON.parse(readFileSync(new URL("../docs/content/seo-unified-copy-2026-10-19.json", import.meta.url), "utf8"));
+const samplingCopy = JSON.parse(readFileSync(new URL("../docs/content/english-sampling-copy-2026-10-29.json", import.meta.url), "utf8"));
 const hash = value => createHash("sha256").update(JSON.stringify(value)).digest("hex");
 
 test("the five approved English product types and complete descriptions reach real metadata", async () => {
@@ -45,10 +46,18 @@ test("the five approved English product types and complete descriptions reach re
 test("English compressed-air guidance records pressure basis and model-specific sampling conditions", () => {
   assert.equal(air.content.en.overviewText, copy.compressedAirEn.overviewText);
   assert.equal(air.content.en.faqs[0].answer, copy.compressedAirEn.testingAnswer);
-  assert.equal(air.content.en.faqs.length, 6);
-  assert.deepEqual(air.content.en.faqs.slice(4), copy.compressedAirEn.additionalFaqs);
+  assert.ok(air.content.en.faqs.length >= 6);
+  assert.deepEqual(air.content.en.faqs.slice(4, 6), copy.compressedAirEn.additionalFaqs);
   assert.match(air.content.en.faqs[4].answer, /not directly comparable/);
   assert.match(air.content.en.faqs[5].answer, /no single flow rate or waiting time/);
+});
+
+test("MDM300 selection distinguishes safe areas from conditional intrinsically safe use", () => {
+  const product = products.find(item => item.slug === "mdm300");
+  assert.equal(product.selectionInputs.en.length, 4);
+  assert.equal(product.selectionInputs.en[2], samplingCopy.mdm300Safety);
+  assert.match(product.selectionInputs.en[2], /standard MDM300 is for safe-area use/);
+  assert.match(product.selectionInputs.en[2], /specific unit's approval conditions/);
 });
 
 test("DMT153 describes calibrated range, accuracy bands, absolute pressure and compatibility limits", () => {
@@ -67,11 +76,12 @@ test("gas guidance requires chemical compatibility review independently from exp
   assert.match(gas.content.ru.faqs[1].answer, /Взрывозащита не означает химическую стойкость/);
 });
 
-test("all other product data including Optidew and every Russian field stays unchanged", () => {
+test("all product data outside the approved DMT153 fields and MDM300 selection item stays unchanged", () => {
   const snapshot = structuredClone(products);
   const product = snapshot.find(item => item.slug === "dmt153");
   delete product.params.en;
   delete product.highlights.en;
+  snapshot.find(item => item.slug === "mdm300").selectionInputs.en[2] = "Ordinary or intrinsically safe version";
   assert.equal(hash(snapshot), "a854aeb11ad22ff9168127a1ba579da6e463d1ae7314798a15a49233aa9ec61b");
 });
 

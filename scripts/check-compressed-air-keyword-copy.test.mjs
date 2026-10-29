@@ -8,6 +8,8 @@ import { renderToStaticMarkup } from "react-dom/server";
 import ts from "typescript";
 import { compressedAirDewPoint as page } from "../src/data/applications/compressed-air-dew-point.ts";
 
+const samplingCopy = JSON.parse(readFileSync(new URL("../docs/content/english-sampling-copy-2026-10-29.json", import.meta.url), "utf8"));
+
 const approved = {
   lead: "Датчик точки росы для сжатого воздуха контролирует сухость воздуха после осушителя и в пневмолинии. Для непрерывного контроля применяют преобразователи, для проверки нескольких точек подходят переносные гигрометры.",
   selectionTitle: "Как выбрать датчик точки росы для осушителя",
@@ -24,6 +26,13 @@ test("the existing installation FAQ distinguishes process air from room humidity
   assert.equal(page.content.ru.faqs.length, 6);
   assert.deepEqual(page.content.ru.faqs[1], { question: approved.question, answer: approved.answer });
   assert.equal(page.content.ru.faqs.filter(item => item.question === approved.question).length, 1);
+});
+
+test("the English sampling FAQ is unique and does not promise included accessories", () => {
+  assert.equal(page.content.en.faqs.length, 7);
+  assert.deepEqual(page.content.en.faqs[6], samplingCopy.samplingFaq);
+  assert.equal(page.content.en.faqs.filter(item => item.question === samplingCopy.samplingFaq.question).length, 1);
+  assert.match(page.content.en.faqs[6].answer, /should not be assumed to be included unless it is listed in the quotation/);
 });
 
 test("all fields outside the approved Russian copy and English testing guidance remain unchanged", () => {
@@ -79,7 +88,7 @@ for (const locale of ["ru", "en"]) test(`real ${locale} SSR renders content and 
   assert.ok(headings("h2").includes(escapeHtml(copy.selectionTitle)));
   const jsonLd = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
   const faq = jsonLd.find(item => item["@type"] === "FAQPage");
-  assert.equal(faq.mainEntity.length, 6);
+  assert.equal(faq.mainEntity.length, copy.faqs.length);
   for (const [index, item] of copy.faqs.entries()) {
     assert.ok(headings("h3").includes(escapeHtml(item.question)));
     assert.ok(html.includes(`>${escapeHtml(item.answer)}</p>`));

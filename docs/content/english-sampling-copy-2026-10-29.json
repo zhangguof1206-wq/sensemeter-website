@@ -1,0 +1,7 @@
+{
+  "samplingFaq": {
+    "question": "Does a portable dew point meter include the sampling setup?",
+    "answer": "A portable meter and its sampling accessories should be specified together. Confirm the process connection, pressure at the sensor, sample-flow control and protection from liquids or particles against the selected instrument's manual. For an MDM300-series quotation, identify the required sampling arrangement; a regulator, filter, pressure gauge, tubing or case should not be assumed to be included unless it is listed in the quotation."
+  },
+  "mdm300Safety": "The standard MDM300 is for safe-area use. For a hazardous area, consider MDM300 I.S. only after checking the site's area classification and the specific unit's approval conditions. Confirm gas compatibility and sampling requirements for the intended application."
+}

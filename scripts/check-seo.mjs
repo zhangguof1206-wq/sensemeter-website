@@ -293,7 +293,8 @@ const checks = [
         "MDM300: up to 48 hours of typical use",
         "MDM300 I.S.: up to 24 hours of typical use",
         "Gas type and measurement units",
-        "Ordinary or intrinsically safe version"
+        "The standard MDM300 is for safe-area use.",
+        "the specific unit's approval conditions"
       ];
 
       return requiredCatalogCopy.every((phrase) => catalog.includes(phrase)) &&

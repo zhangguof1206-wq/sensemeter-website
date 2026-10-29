@@ -451,7 +451,7 @@ export const products: Product[] = [
     },
     selectionInputs: {
       ru: ["Тип газа и требуемые единицы измерения", "Рабочее давление и ожидаемый диапазон точки росы", "Обычная или искробезопасная версия", "Подключение к пробе, принадлежности для отбора и количество"],
-      en: ["Gas type and measurement units", "Working pressure and expected dew-point range", "Ordinary or intrinsically safe version", "Sample connection, sampling accessories and quantity"]
+      en: ["Gas type and measurement units", "Working pressure and expected dew-point range", "The standard MDM300 is for safe-area use. For a hazardous area, consider MDM300 I.S. only after checking the site's area classification and the specific unit's approval conditions. Confirm gas compatibility and sampling requirements for the intended application.", "Sample connection, sampling accessories and quantity"]
     }
   },
   {
