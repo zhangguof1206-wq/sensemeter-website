@@ -443,10 +443,14 @@ const checks = [
     }
   },
   {
-    name: "Yandex Metrica counter is installed",
+    name: "Yandex Metrica counter uses the official alternative domain",
     pass: () => {
       const layout = read("src/app/layout.tsx");
-      return layout.includes("110136437") && layout.includes("mc.yandex.ru/metrika/tag.js") && layout.includes("ym(${yandexMetricaId}");
+      return layout.includes("110136437") &&
+        layout.includes("https://mc.yandex.com/metrika/tag.js?id=${yandexMetricaId}") &&
+        layout.includes("https://mc.yandex.com/watch/${yandexMetricaId}") &&
+        layout.includes("ym(${yandexMetricaId}") &&
+        !layout.includes("mc.yandex.ru");
     }
   },
   {
