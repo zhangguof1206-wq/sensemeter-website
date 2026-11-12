@@ -55,7 +55,7 @@ test("the sample keeps the real RU and EN product content and one model heading"
     }
     assert.match(html, /width="1536"/);
     assert.match(html, /height="1024"/);
-    assert.match(html, /AI-assisted illustrations|Иллюстрации подготовлены с помощью ИИ/);
+    assert.doesNotMatch(body, /AI-assisted illustrations|Иллюстрации подготовлены с помощью ИИ/);
     assert.doesNotMatch(body, /Add to Cart|Buy Now|В корзину/);
   }
 });
@@ -87,6 +87,18 @@ test("the document PDF action uses the brand fill without changing the summary P
     assert.match(links[0], /\bbtn-outline\b/);
     assert.match(links[1], /\bbtn-primary\b/);
     assert.doesNotMatch(links[1], /\bbtn-outline\b/);
+  }
+});
+
+test("the image caption is removed and configuration guidance stays in selection", () => {
+  const { mdm300ProductSampleCopy } = require("../src/data/mdm300-product-sample.ts");
+  for (const locale of ["ru", "en"]) {
+    const html = render(locale);
+    const figure = html.match(/<figure\b[^>]*>[\s\S]*?<\/figure>/)?.[0];
+    assert.ok(figure);
+    assert.doesNotMatch(figure, /<figcaption\b/);
+    const selection = html.slice(html.indexOf('id="mdm300-selection"')).split("</section>")[0];
+    assert.ok(text(selection).includes(mdm300ProductSampleCopy[locale].samplingNote));
   }
 });
 

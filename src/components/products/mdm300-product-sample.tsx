@@ -74,7 +74,6 @@ export function Mdm300ProductSample({ locale, product }: { locale: Locale; produ
 
             <figure className="min-w-0 lg:col-start-1 lg:row-start-1">
               <ProductImageGallery slides={getMdm300GallerySlides(locale)} locale={locale} />
-              <figcaption className="mx-auto mt-4 max-w-lg space-y-2 text-xs leading-5 text-muted"><p>{copy.galleryNotice}</p><p>{copy.samplingNote}</p></figcaption>
             </figure>
           </div>
         </div>
@@ -152,6 +151,7 @@ export function Mdm300ProductSample({ locale, product }: { locale: Locale; produ
               <ul className="mt-4 list-disc space-y-4 pl-5 text-sm leading-6 text-muted">
                 {product.selectionInputs?.[locale].map(item => <li key={item}>{item}</li>)}
               </ul>
+              <p className="mt-4 text-sm leading-6 text-muted">{copy.samplingNote}</p>
             </section>
           </aside>
         </div>

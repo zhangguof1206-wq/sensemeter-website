@@ -68,6 +68,20 @@ async function setup(t, { reducedMotion = false, count = 3 } = {}) {
       assert.ok(button, label);
       button.click();
     }),
+    pointerClick: async (label, { lateFocus = false, pointerType = "mouse" } = {}) => act(async () => {
+      const button = dom.window.document.querySelector(`button[aria-label="${label}"]`);
+      assert.ok(button, label);
+      const down = new dom.window.MouseEvent("pointerdown", { bubbles: true });
+      Object.defineProperty(down, "pointerType", { value: pointerType });
+      button.dispatchEvent(down);
+      if (!lateFocus) button.focus();
+      button.dispatchEvent(new dom.window.MouseEvent("pointerup", { bubbles: true }));
+      if (lateFocus) button.focus();
+      button.click();
+    }),
+    blur: async () => act(async () => dom.window.document.activeElement.blur()),
+    keyDown: async key => act(async () => dom.window.document.dispatchEvent(new dom.window.KeyboardEvent("keydown", { key, bubbles: true }))),
+    focus: async label => act(async () => dom.window.document.querySelector(`button[aria-label="${label}"]`).focus()),
     hover: async entered => act(async () => hoverEvent(entered, "mouse")),
     touchHover: async () => act(async () => hoverEvent(true, "touch")),
     setHidden: async value => act(async () => { hidden = value; dom.window.document.dispatchEvent(new dom.window.Event("visibilitychange")); }),
@@ -98,25 +112,21 @@ test("pause and resume control automatic advancement", async t => {
   assert.equal(fixture.current(), "Product 1");
 });
 
-test("previous, next and thumbnails select an image and stop autoplay", async t => {
+test("thumbnail selection starts a full new 3000 ms viewing period", async t => {
   const fixture = await setup(t);
-  await fixture.click("Previous image");
-  assert.equal(fixture.current(), "Product 2");
-  await fixture.tick(6000);
-  assert.equal(fixture.current(), "Product 2");
-  await fixture.click("Next image");
-  assert.equal(fixture.current(), "Product 0");
+  await fixture.tick(2000);
   await fixture.click("Show image 2: Product 1");
   assert.equal(fixture.current(), "Product 1");
   assert.equal(fixture.document.querySelector('button[aria-pressed="true"]')?.getAttribute("aria-label"), "Show image 2: Product 1");
+  await fixture.tick(2999);
+  assert.equal(fixture.current(), "Product 1");
+  await fixture.tick(1);
+  assert.equal(fixture.current(), "Product 2");
 });
 
-test("hover and hidden pages suspend playback without accumulating elapsed slides", async t => {
+test("hover does not stop autoplay but a hidden page still suspends it", async t => {
   const fixture = await setup(t);
   await fixture.hover(true);
-  await fixture.tick(9000);
-  assert.equal(fixture.current(), "Product 0");
-  await fixture.hover(false);
   await fixture.tick(3000);
   assert.equal(fixture.current(), "Product 1");
   await fixture.setHidden(true);
@@ -131,20 +141,18 @@ test("reduced motion disables autoplay while manual selection remains available"
   const fixture = await setup(t, { reducedMotion: true });
   await fixture.tick(6000);
   assert.equal(fixture.current(), "Product 0");
-  await fixture.click("Next image");
+  await fixture.click("Show image 2: Product 1");
   assert.equal(fixture.current(), "Product 1");
   await fixture.setReducedMotion(false);
-  await fixture.click("Play slideshow");
   await fixture.tick(3000);
   assert.equal(fixture.current(), "Product 2");
 });
 
-test("touch-generated compatibility mouse events do not prevent resuming autoplay", async t => {
+test("touch-generated compatibility mouse events do not stop automatic playback", async t => {
   const fixture = await setup(t);
   await fixture.touchHover();
-  await fixture.click("Next image");
+  await fixture.click("Show image 2: Product 1");
   assert.equal(fixture.current(), "Product 1");
-  await fixture.click("Play slideshow");
   await fixture.tick(3000);
   assert.equal(fixture.current(), "Product 2");
 });
@@ -164,11 +172,50 @@ test("an empty gallery renders no controls or slide", async t => {
   assert.equal(fixture.document.querySelectorAll("button").length, 0);
 });
 
-test("keyboard focus on a thumbnail stops automatic advancement", async t => {
+test("keyboard focus pauses playback only until focus leaves the gallery", async t => {
   const fixture = await setup(t);
   await act(async () => fixture.document.querySelector('button[aria-pressed="true"]').focus());
   await fixture.tick(6000);
   assert.equal(fixture.current(), "Product 0");
+  await fixture.blur();
+  await fixture.tick(3000);
+  assert.equal(fixture.current(), "Product 1");
+});
+
+test("pointer clicks that focus thumbnails do not leave autoplay paused", async t => {
+  const fixture = await setup(t);
+  await fixture.pointerClick("Show image 2: Product 1");
+  await fixture.tick(3000);
+  assert.equal(fixture.current(), "Product 2");
+});
+
+test("touch focus arriving after pointerup does not leave autoplay paused", async t => {
+  const fixture = await setup(t);
+  await fixture.pointerClick("Show image 2: Product 1", { lateFocus: true, pointerType: "touch" });
+  await fixture.tick(3000);
+  assert.equal(fixture.current(), "Product 2");
+});
+
+test("keyboard focus still pauses playback after an earlier pointer interaction", async t => {
+  const fixture = await setup(t);
+  await fixture.pointerClick("Show image 2: Product 1");
+  await fixture.tick(3000);
+  await fixture.keyDown("Tab");
+  await fixture.focus("Show image 3: Product 2");
+  await fixture.tick(3000);
+  assert.equal(fixture.current(), "Product 2");
+  await fixture.blur();
+  await fixture.tick(3000);
+  assert.equal(fixture.current(), "Product 0");
+});
+
+test("the toolbar and visible counter are removed and thumbnails are centered", async t => {
+  const fixture = await setup(t);
+  assert.ok(!fixture.document.querySelector('button[aria-label="Previous image"]'));
+  assert.ok(!fixture.document.querySelector('button[aria-label="Next image"]'));
+  assert.doesNotMatch(fixture.region().textContent, /\d+\s*\/\s*\d+/);
+  assert.ok(fixture.document.querySelector('button[aria-pressed="true"]').parentElement.classList.contains("justify-center"));
+  assert.ok(fixture.document.querySelector('button[aria-label="Pause slideshow"]').classList.contains("sr-only"));
 });
 
 test("three distinct local MDM300 images have matching dimensions and translated descriptions", () => {

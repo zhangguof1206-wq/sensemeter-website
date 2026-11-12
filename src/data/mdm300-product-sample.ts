@@ -13,7 +13,6 @@ type DetailCopy = {
   versionRows: { label: string; standard: string; intrinsicallySafe: string }[];
   safetyNote: string;
   samplingNote: string;
-  galleryNotice: string;
   conditionsNote: string;
   documentTitle: string;
   documentMeta: string;
@@ -46,8 +45,7 @@ export const mdm300ProductSampleCopy = {
       { label: "Условия установки", standard: "Для безопасных зон", intrinsicallySafe: "Для опасных зон после проверки условий сертификации конкретного прибора" }
     ],
     safetyNote: "Обычный MDM300 предназначен для безопасных зон. Применение MDM300 I.S. в опасной зоне требует проверки классификации зоны и условий сертификации конкретного прибора, совместимости газа и схемы отбора проб.",
-    samplingNote: "Принадлежности и схема отбора проб подтверждаются в коммерческом предложении. Наличие принадлежности на фотографии не означает ее включение в поставку.",
-    galleryNotice: "Иллюстрации подготовлены с помощью ИИ на основе фотографии изделия. Конструкция и характеристики определяются технической документацией.",
+    samplingNote: "Схема отбора проб и состав принадлежностей подтверждаются в коммерческом предложении.",
     conditionsNote: "Время отклика и результаты зависят от условий измерения и отбора проб. Полные условия и ограничения приведены в технической документации.",
     documentTitle: "MDM300 / MDM300 I.S. — технические данные",
     documentMeta: "Английский · PDF"
@@ -78,8 +76,7 @@ export const mdm300ProductSampleCopy = {
       { label: "Installation environment", standard: "Safe areas", intrinsicallySafe: "Hazardous areas subject to the specific unit's approval conditions" }
     ],
     safetyNote: "The standard MDM300 is for safe-area use. For hazardous-area use, check the area classification and the specific MDM300 I.S. unit's approval conditions, gas compatibility and sampling arrangement.",
-    samplingNote: "Sampling accessories and the sampling arrangement are confirmed in the quotation. An accessory shown in the photograph should not be assumed to be included.",
-    galleryNotice: "AI-assisted illustrations based on a product photograph. Refer to the technical documentation for construction and specifications.",
+    samplingNote: "Sampling arrangements and supplied accessories are confirmed in the quotation.",
     conditionsNote: "Response time and readings depend on measurement and sampling conditions. Refer to the technical documentation for the full conditions and limitations.",
     documentTitle: "MDM300 / MDM300 I.S. — technical data",
     documentMeta: "English · PDF"
