@@ -24,6 +24,7 @@ import { HomeBrandCategoriesSection } from "@/components/home/home-brand-categor
 import { HomeRevealObserver } from "@/components/home/home-reveal-observer";
 import { METRICA_GOALS, MetricaTrackedLink, ProductDwellGoal } from "@/components/metrica-goals";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { Mdm300ProductSample } from "@/components/products/mdm300-product-sample";
 
 const TELEGRAM_URL = "https://t.me/Sensemeter";
 
@@ -339,6 +340,10 @@ export function ProductPage({ locale, product }: { locale: Locale; product: Prod
     <PageShell locale={locale} active="catalog" languagePath={languagePath}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <ProductDwellGoal slug={product.slug} model={product.model} />
+      {product.slug === "mdm300" ? (
+        <Mdm300ProductSample locale={locale} product={product} />
+      ) : (
+        <>
       <PageHeading title={product.model} lead={product.category} image={assetPath(product.image)} />
       <section className="section">
         <div className="section-narrow grid gap-8 lg:grid-cols-[1fr_360px]">
@@ -380,6 +385,8 @@ export function ProductPage({ locale, product }: { locale: Locale; product: Prod
           </aside>
         </div>
       </section>
+        </>
+      )}
     </PageShell>
   );
 }

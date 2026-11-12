@@ -1,0 +1,139 @@
+import assert from "node:assert/strict";
+import { existsSync, readFileSync } from "node:fs";
+import { createRequire } from "node:module";
+import test from "node:test";
+import React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import ts from "typescript";
+import { products, pdfPath } from "../src/data/catalog.ts";
+import { getProductApplicationLinks } from "../src/data/application-links.ts";
+
+const require = createRequire(import.meta.url);
+const read = path => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
+const componentPath = "src/components/products/mdm300-product-sample.tsx";
+const product = products.find(item => item.slug === "mdm300");
+
+function loadTsx(path) {
+  assert.ok(existsSync(new URL(`../${path}`, import.meta.url)), `Missing MDM300 sample: ${path}`);
+  const { outputText } = ts.transpileModule(read(path), {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true }
+  });
+  const module = { exports: {} };
+  const componentRequire = id => {
+    if (id === "next/link") return ({ children, ...props }) => React.createElement("a", props, children);
+    if (id === "next/image") return ({ priority, fill, ...props }) => React.createElement("img", props);
+    if (id === "@/components/metrica-goals") return loadTsx("src/components/metrica-goals.tsx");
+    if (id === "@/components/products/mdm300-product-sample") return loadTsx(componentPath);
+    if (id === "@/lib/seo") return { breadcrumbJsonLd: () => ({ "@type": "BreadcrumbList" }) };
+    if (id.startsWith("@/components/")) return new Proxy({}, { get: () => () => null });
+    if (id.startsWith("@/")) return require(`../src/${id.slice(2)}.ts`);
+    return require(id);
+  };
+  new Function("require", "module", "exports", outputText)(componentRequire, module, module.exports);
+  return module.exports;
+}
+
+function render(locale) {
+  const { Mdm300ProductSample } = loadTsx(componentPath);
+  return renderToStaticMarkup(React.createElement(Mdm300ProductSample, { locale, product }));
+}
+
+function text(html) {
+  return html.replace(/<[^>]+>/g, " ").replace(/&#x27;/g, "'").replace(/&amp;/g, "&").replace(/\s+/g, " ");
+}
+
+test("the sample keeps the real RU and EN product content and one model heading", () => {
+  for (const locale of ["ru", "en"]) {
+    const html = render(locale);
+    const body = text(html);
+    assert.equal((html.match(/<h1\b/g) || []).length, 1);
+    assert.ok(body.includes(product.model));
+    assert.ok(body.includes(product.overview[locale]));
+    for (const content of [...product.highlights[locale], ...product.applications[locale], ...product.selectionInputs[locale]]) {
+      assert.ok(body.includes(content), `Missing original ${locale} content: ${content}`);
+    }
+    assert.match(html, /width="1086"/);
+    assert.match(html, /height="1448"/);
+    assert.doesNotMatch(body, /Add to Cart|Buy Now|В корзину/);
+  }
+});
+
+test("quote and PDF actions precede long content and preserve the existing destinations", () => {
+  assert.ok(existsSync(new URL(`../public/datasheets/${product.pdf}`, import.meta.url)));
+  for (const locale of ["ru", "en"]) {
+    const html = render(locale);
+    const prefix = locale === "en" ? "/en" : "";
+    const quote = `${prefix}/contact?model=${encodeURIComponent(product.model)}`;
+    assert.ok(html.includes(`href="${quote}"`));
+    assert.ok(html.indexOf(`href="${quote}"`) < html.indexOf('id="mdm300-overview"'));
+    assert.ok(html.includes(`href="${pdfPath(product.pdf)}"`));
+    assert.match(read(componentPath), /METRICA_GOALS\.pdfDownload/);
+    assert.match(read(componentPath), /goalParams=\{\{ slug: product\.slug, model: product\.model \}\}/);
+    for (const link of getProductApplicationLinks("mdm300")) {
+      assert.ok(html.includes(`href="${prefix}${link.path}"`));
+    }
+  }
+});
+
+test("technical and version tables retain qualified values without equating the two models", () => {
+  for (const locale of ["ru", "en"]) {
+    const html = render(locale);
+    const body = text(html);
+    assert.ok((html.match(/<table\b/g) || []).length >= 2);
+    assert.match(html, /scope="col"/);
+    assert.match(html, /scope="row"/);
+    for (const value of ["350 barg", "IP66", "NEMA 4", "48", "24", "15", "30", "T95"]) assert.ok(body.includes(value));
+    assert.match(body, /±1 °C.*-60.*\+20 °Cdp/);
+    if (locale === "en") {
+      assert.match(body, /standard MDM300 is for safe-area use/);
+      assert.match(body, /specific unit's approval conditions/);
+      assert.match(body, /sampling.*quotation/i);
+    } else {
+      assert.match(body, /безопасных зон/);
+      assert.match(body, /условий.*сертификац/);
+    }
+  }
+});
+
+test("every in-page navigation target is present in both languages", () => {
+  for (const locale of ["ru", "en"]) {
+    const html = render(locale);
+    for (const id of ["overview", "specifications", "versions", "selection", "documents"]) {
+      assert.ok(html.includes(`href="#mdm300-${id}"`));
+      assert.ok(html.includes(`id="mdm300-${id}"`));
+    }
+    assert.match(html, /aria-label="[^"]+"/);
+  }
+});
+
+test("only the exact MDM300 slug opts into the sample and the other product template remains", () => {
+  const source = read("src/components/site.tsx");
+  assert.match(source, /product\.slug === "mdm300"/);
+  assert.match(source, /<Mdm300ProductSample locale=\{locale\} product=\{product\}/);
+  assert.match(source, /<PageHeading title=\{product\.model\} lead=\{product\.category\}/);
+  assert.match(source, /<ProductDwellGoal slug=\{product\.slug\} model=\{product\.model\}/);
+});
+
+test("the real ProductPage selects the sample only for MDM300 in both languages", () => {
+  const { ProductPage } = loadTsx("src/components/site.tsx");
+  for (const locale of ["ru", "en"]) {
+    for (const item of products) {
+      const html = renderToStaticMarkup(React.createElement(ProductPage, { locale, product: item }));
+      assert.equal(html.includes('id="mdm300-specifications"'), item.slug === "mdm300", `${locale}/${item.slug}`);
+      if (item.slug !== "mdm300") assert.match(html, /class="page-heading page-heading-image"/);
+      assert.ok(text(html).includes(item.overview[locale]), `${locale}/${item.slug}`);
+      assert.equal((html.match(/<h1\b/g) || []).length, 1);
+    }
+  }
+});
+
+test("the version data does not swap response time or battery endurance", () => {
+  const { mdm300ProductSampleCopy } = require("../src/data/mdm300-product-sample.ts");
+  for (const locale of ["ru", "en"]) {
+    const rows = mdm300ProductSampleCopy[locale].versionRows;
+    assert.match(rows[0].standard, /15/);
+    assert.match(rows[0].intrinsicallySafe, /30/);
+    assert.match(rows[1].standard, /48/);
+    assert.match(rows[1].intrinsicallySafe, /24/);
+  }
+});
