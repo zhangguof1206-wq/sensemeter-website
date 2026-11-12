@@ -45,6 +45,7 @@ jobs:
           npm run test:dew-point-content
           npm run test:catalog-navigation
           npm run test:product-seo
+          npm run test:product-gallery
           npm run test:compressed-air-keywords
           npm run test:unified-seo-copy
       - name: 构建网站

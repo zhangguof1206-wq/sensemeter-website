@@ -1,10 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
-import { assetPath, pdfPath, type Locale, type Product } from "@/data/catalog";
+import { pdfPath, type Locale, type Product } from "@/data/catalog";
 import { getProductApplicationLinks } from "@/data/application-links";
 import { mdm300ProductSampleCopy } from "@/data/mdm300-product-sample";
+import { getMdm300GallerySlides } from "@/data/mdm300-gallery";
 import { localizedPath, t } from "@/lib/i18n";
 import { METRICA_GOALS, MetricaTrackedLink } from "@/components/metrica-goals";
+import { ProductImageGallery } from "@/components/products/product-image-gallery";
 
 const sectionSpacing = "scroll-mt-64 border-t border-line pt-8 xl:scroll-mt-28";
 const headingStyle = "text-2xl font-bold leading-tight text-ink";
@@ -72,18 +73,8 @@ export function Mdm300ProductSample({ locale, product }: { locale: Locale; produ
             </div>
 
             <figure className="min-w-0 lg:col-start-1 lg:row-start-1">
-              <div className="flex h-[320px] items-center justify-center sm:h-[420px] lg:h-[470px]">
-                <Image
-                  className="h-full w-full object-contain"
-                  src={assetPath(product.image)}
-                  alt={product.model}
-                  width={1086}
-                  height={1448}
-                  sizes="(min-width: 1280px) 520px, (min-width: 1024px) 45vw, 90vw"
-                  priority
-                />
-              </div>
-              <figcaption className="mx-auto mt-4 max-w-lg text-xs leading-5 text-muted">{copy.samplingNote}</figcaption>
+              <ProductImageGallery slides={getMdm300GallerySlides(locale)} locale={locale} />
+              <figcaption className="mx-auto mt-4 max-w-lg space-y-2 text-xs leading-5 text-muted"><p>{copy.galleryNotice}</p><p>{copy.samplingNote}</p></figcaption>
             </figure>
           </div>
         </div>
@@ -169,7 +160,7 @@ export function Mdm300ProductSample({ locale, product }: { locale: Locale; produ
           <h2 className={headingStyle}>{copy.sections.documents}</h2>
           <div className="mt-5 flex flex-wrap items-center justify-between gap-5 border-b border-line pb-6">
             <div className="min-w-0"><p className="font-semibold">{copy.documentTitle}</p><p className="mt-1 text-sm text-muted">{copy.documentMeta}</p></div>
-            <PdfLink className="btn btn-outline w-full sm:w-auto">{c.downloadPdf}</PdfLink>
+            <PdfLink className="btn btn-primary w-full sm:w-auto">{c.downloadPdf}</PdfLink>
           </div>
         </section>
 

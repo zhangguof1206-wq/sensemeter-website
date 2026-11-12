@@ -24,6 +24,7 @@ function loadTsx(path) {
     if (id === "next/image") return ({ priority, fill, ...props }) => React.createElement("img", props);
     if (id === "@/components/metrica-goals") return loadTsx("src/components/metrica-goals.tsx");
     if (id === "@/components/products/mdm300-product-sample") return loadTsx(componentPath);
+    if (id === "@/components/products/product-image-gallery") return loadTsx("src/components/products/product-image-gallery.tsx");
     if (id === "@/lib/seo") return { breadcrumbJsonLd: () => ({ "@type": "BreadcrumbList" }) };
     if (id.startsWith("@/components/")) return new Proxy({}, { get: () => () => null });
     if (id.startsWith("@/")) return require(`../src/${id.slice(2)}.ts`);
@@ -52,8 +53,9 @@ test("the sample keeps the real RU and EN product content and one model heading"
     for (const content of [...product.highlights[locale], ...product.applications[locale], ...product.selectionInputs[locale]]) {
       assert.ok(body.includes(content), `Missing original ${locale} content: ${content}`);
     }
-    assert.match(html, /width="1086"/);
-    assert.match(html, /height="1448"/);
+    assert.match(html, /width="1536"/);
+    assert.match(html, /height="1024"/);
+    assert.match(html, /AI-assisted illustrations|Иллюстрации подготовлены с помощью ИИ/);
     assert.doesNotMatch(body, /Add to Cart|Buy Now|В корзину/);
   }
 });
@@ -72,6 +74,19 @@ test("quote and PDF actions precede long content and preserve the existing desti
     for (const link of getProductApplicationLinks("mdm300")) {
       assert.ok(html.includes(`href="${prefix}${link.path}"`));
     }
+  }
+});
+
+test("the document PDF action uses the brand fill without changing the summary PDF action", () => {
+  for (const locale of ["ru", "en"]) {
+    const html = render(locale);
+    const links = [...html.matchAll(/<a\b[^>]*>/g)]
+      .map(match => match[0])
+      .filter(tag => tag.includes(`href="${pdfPath(product.pdf)}"`));
+    assert.equal(links.length, 2);
+    assert.match(links[0], /\bbtn-outline\b/);
+    assert.match(links[1], /\bbtn-primary\b/);
+    assert.doesNotMatch(links[1], /\bbtn-outline\b/);
   }
 });
 
