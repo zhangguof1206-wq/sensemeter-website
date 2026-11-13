@@ -16,6 +16,7 @@ import {
   detailHeading
 } from "@/components/products/detail-layout";
 import { ProductVisual } from "@/components/products/product-visual";
+import { getAccessoryProductImage } from "@/data/accessory-images";
 import { AccessoryProductCard } from "./accessory-cards";
 
 export function AccessoryDetailPage({ category, product, locale }: { category: AccessoryCategory; product: AccessoryProduct; locale: Locale }) {
@@ -65,7 +66,7 @@ export function AccessoryDetailPage({ category, product, locale }: { category: A
               <Link className={`btn btn-outline w-full text-center ${detailFocus}`} href={categoryHref}>{c.backCategory}</Link>
             </>
           )}
-          media={<ProductVisual src={product.image} alt={product.title[locale]} locale={locale} background="bg-[#e9eef4]" />}
+          media={<ProductVisual src={getAccessoryProductImage(product.image)} alt={product.title[locale]} locale={locale} background="bg-white" />}
         />
         <DetailNavigation locale={locale} sections={sections} />
 

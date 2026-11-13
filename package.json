@@ -33,6 +33,7 @@
     "test:catalog-navigation": "node --no-warnings --experimental-strip-types --test scripts/check-catalog-navigation.test.mjs",
     "test:footer-contacts": "node --no-warnings --experimental-strip-types --test scripts/check-footer-contacts.test.mjs",
     "test:home-accessories": "node --no-warnings --experimental-strip-types --test scripts/check-home-accessories.test.mjs",
+    "test:accessory-presentation": "node --no-warnings --experimental-strip-types --test scripts/check-accessory-presentation.test.mjs",
     "test:product-seo": "node --no-warnings --experimental-strip-types --test scripts/check-product-seo-descriptions.test.mjs",
     "test:product-gallery": "node --no-warnings --experimental-strip-types --test scripts/check-mdm300-product-sample.test.mjs scripts/check-product-image-gallery.test.mjs scripts/check-instrument-details.test.mjs scripts/check-accessory-details.test.mjs scripts/check-rfq-accessory.test.mjs",
     "test:seo-tools": "node scripts/seo/seo-tools.test.mjs",

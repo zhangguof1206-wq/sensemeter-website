@@ -5,7 +5,7 @@ Date: 2026-11-13. Approved scope: redesign the homepage accessory section and it
 ## Use and Limits
 
 - These are AI-assisted category illustrations derived from the repository's existing accessory photographs, not new manufacturer photographs, drawings, or evidence of specifications.
-- Use only in `AccessoriesHomeSection`. Existing catalog/detail images are not replaced.
+- Initial approval covered `AccessoriesHomeSection` only. In the 2026-11-13 follow-up, the user approved reusing these six images on accessory overview/category pages. Three full-source edits are also reused for matching product presentation, as documented in `accessory-products.md`. Raw source images remain unchanged.
 - Geometry references are limited to visible source forms. No new dimensions, connections, certifications, materials or performance claims are inferred from the images.
 - The probe protection illustration retains the complete source assembly. It does not establish that the assembly is supplied with an individual guard.
 - Six outputs were individually inspected for complete subjects, white backgrounds, no text/marks, coherent light and useful composition. Original photographs remain available for product inspection.

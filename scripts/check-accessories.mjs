@@ -15,7 +15,6 @@ const categoryFiles = [
 
 const checks = [];
 const productSlugs = [];
-const uniformAccessoryBackground = "bg-[#e9eef4]";
 const usesUniformImageAsset = (image) => image.endsWith("-uniform.webp");
 const usesHomepageImageAsset = (image) => image.endsWith("-home.webp");
 
@@ -216,18 +215,20 @@ const accessoryCopySource = [
 ].map((path) => read(path)).join("\n");
 
 checks.push({
-  name: "accessory overview hero uses a catalog-style industrial background",
-  pass: accessoriesIndex.includes('const accessoriesHeroImage = "/assets/application-gas-processing.png"') &&
-    accessoriesIndex.includes("image={accessoriesHeroImage}") &&
-    !accessoriesIndex.includes("image={accessoryCategories[0].image}") &&
-    !accessoriesIndex.includes("accessories-hero-background.webp") &&
-    existsSync(join(root, "public", "assets", "application-gas-processing.png"))
+  name: "accessory overview uses a compact heading without a decorative photo backdrop",
+  pass: accessoriesIndex.includes("<AccessoryPageHeading title={c.overviewTitle} lead={c.overviewLead} />") &&
+    !accessoriesIndex.includes("accessoriesHeroImage") &&
+    accessoriesIndex.includes("data-accessory-categories")
 });
 checks.push({
-  name: "accessory overview hero uses a clean dark overlay without duplicate product panels",
-  pass: accessoryHeading.includes("opacity-60") &&
-    accessoryHeading.includes("rgba(20, 31, 42, 0.5)") &&
-    !accessoryHeading.includes("rgba(20, 31, 42, 0.18)")
+  name: "accessory headings use bounded typography and full-subject optional category art",
+  pass: accessoryHeading.includes("text-[30px]") &&
+    accessoryHeading.includes("md:text-4xl") &&
+    accessoryHeading.includes("object-contain") &&
+    accessoryHeading.includes("width={1536}") &&
+    accessoryHeading.includes("height={1024}") &&
+    !accessoryHeading.includes("object-cover") &&
+    !accessoryHeading.includes("linear-gradient")
 });
 checks.push({
   name: "accessory overview omits the duplicate service band before the footer",
@@ -242,7 +243,8 @@ checks.push({
   name: "accessory category pages include technical notes and quotation inputs",
   pass: accessoryCategoryPage.includes("category.technicalNotes.items.map") &&
     accessoryCategoryPage.includes("category.requestItems[locale].map") &&
-    accessoryCategoryPage.includes("c.selectionTitle")
+    accessoryCategoryPage.includes("c.selectionTitle") &&
+    accessoryCategoryPage.indexOf("data-accessory-products") < accessoryCategoryPage.indexOf('id="accessory-technical-information"')
 });
 checks.push({
   name: "accessory category cards use a view-more call to action",
@@ -254,24 +256,29 @@ checks.push({
 });
 checks.push({
   name: "accessory overview uses compact category cards with contained images",
-  pass: accessoriesIndex.includes("lg:grid-cols-3") &&
+  pass: accessoriesIndex.includes("xl:grid-cols-3") &&
+    accessoriesIndex.includes("md:grid-cols-2") &&
     !accessoriesIndex.includes("ProductCatalogSwitch") &&
     accessoryCards.includes("category.summary[locale]") &&
-    accessoryCards.includes("aspect-[4/3]") &&
+    accessoryCards.includes("aspect-[3/2]") &&
     accessoryCards.includes("accessory-product-image") &&
-    accessoryCards.includes("accessory-category-image max-h-[94%] max-w-[94%] object-contain") &&
-    accessoryCards.includes("accessory-product-image max-h-[94%] max-w-[94%] object-contain") &&
-    accessoryCards.includes(`${uniformAccessoryBackground} p-4`) &&
+    accessoryCards.includes("accessory-category-image h-full w-full object-contain") &&
+    accessoryCards.includes("accessory-product-image h-full w-full object-contain") &&
+    accessoryCards.includes("getAccessoryCategoryImage(category)") &&
+    accessoryCards.includes("getAccessoryProductImage(product.image)") &&
+    accessoryCards.includes('import Image from "next/image"') &&
+    accessoryCards.includes("bg-white") &&
     !accessoryCards.includes("mix-blend-multiply") &&
-    !accessoryCards.includes("h-full w-full object-contain") &&
+    !accessoryCards.includes("hover:shadow") &&
+    !accessoryCards.includes("hover:scale") &&
     !accessoryCards.includes("bg-[#eef2f5]") &&
     !accessoryCards.includes("category.specs.slice(0, 3)")
 });
 checks.push({
   name: "accessory detail image panel uses the same neutral product treatment",
-  pass: accessoryDetailVisual.includes("src={product.image}") &&
+  pass: accessoryDetailVisual.includes("src={getAccessoryProductImage(product.image)}") &&
     accessoryDetailVisual.includes("alt={product.title[locale]}") &&
-    accessoryDetailVisual.includes(`background="${uniformAccessoryBackground}"`) &&
+    accessoryDetailVisual.includes('background="bg-white"') &&
     productVisual.includes("relative h-[320px] overflow-hidden") &&
     productVisual.includes("${background}") &&
     productVisual.includes('className="object-contain p-4"') &&

@@ -15,6 +15,7 @@ async function getFixture() {
     return {
       ...load("src/data/accessories/index.ts"),
       ...load("src/data/accessories/copy.ts"),
+      ...load("src/data/accessory-images.ts"),
       ...load("src/lib/i18n.ts"),
       ...load("src/lib/seo.ts"),
       ...load(componentPath)
@@ -58,11 +59,11 @@ test("accessory details delegate presentation to the shared professional layout"
     assert.match(source, new RegExp(`<${component}\\b`), `Missing shared ${component}`);
   }
   assert.doesNotMatch(source, /AccessoryPageHeading|AccessorySpecTable|function DetailList/);
-  assert.match(source, /background="bg-\[#e9eef4\]"/);
+  assert.match(source, /background="bg-white"/);
 });
 
 test("every live accessory retains its exact localized identity, overview and complete specification table", async () => {
-  await forEveryDetail(({ document, product, locale }) => {
+  await forEveryDetail(({ document, product, locale, getAccessoryProductImage }) => {
     const headings = document.querySelectorAll("h1");
     assert.equal(headings.length, 1);
     assert.equal(text(headings[0]), product.model);
@@ -84,8 +85,8 @@ test("every live accessory retains its exact localized identity, overview and co
     assert.ok(hero.textContent.includes(product.title[locale]));
     const facts = [...hero.querySelectorAll("dl > div")].map(fact => ({ label: text(fact.querySelector("dt")), value: text(fact.querySelector("dd")) }));
     assert.deepEqual(facts, product.specs.slice(0, 2).map(spec => ({ label: spec.label[locale], value: spec.value[locale] })));
-    const image = [...hero.querySelectorAll("img")].find(image => image.getAttribute("src") === product.image);
-    assert.ok(image, "The hero must retain the existing accessory image");
+    const image = [...hero.querySelectorAll("img")].find(image => image.getAttribute("src") === getAccessoryProductImage(product.image));
+    assert.ok(image, "The hero must use the presentation image matched to the original source");
     assert.equal(image.getAttribute("alt"), product.title[locale]);
     assert.equal(hero.querySelectorAll("img").length, 1, "Do not duplicate the single accessory image");
     assert.equal(hero.querySelectorAll("figcaption").length, 0);
@@ -184,18 +185,18 @@ test("localized RFQ, category destinations, language path and breadcrumb SEO rem
 });
 
 test("related accessory cards and service information remain intact in both locales", async () => {
-  await forEveryDetail(({ document, category, product, locale, getAccessoryProduct, localizedPath, accessoryCopy }) => {
+  await forEveryDetail(({ document, category, product, locale, getAccessoryProduct, getAccessoryProductImage, localizedPath, accessoryCopy }) => {
     const related = product.relatedSlugs.map(slug => getAccessoryProduct(category.slug, slug)).filter(Boolean).slice(0, 3);
     const relatedHeading = [...document.querySelectorAll("h2")].find(heading => text(heading) === accessoryCopy[locale].relatedTitle);
     assert.equal(Boolean(relatedHeading), related.length > 0);
     if (relatedHeading) {
-      const cards = [...relatedHeading.closest("section").querySelectorAll("a.card")];
+      const cards = [...relatedHeading.closest("section").querySelectorAll("a[data-accessory-product]")];
       assert.equal(cards.length, related.length);
       cards.forEach((card, index) => {
         const item = related[index];
         assert.equal(card.getAttribute("href"), localizedPath(locale, `/accessories/${category.slug}/${item.slug}`));
         assert.equal(text(card.querySelector("h3")), item.title[locale]);
-        assert.equal(card.querySelector("img").getAttribute("src"), item.image);
+        assert.equal(card.querySelector("img").getAttribute("src"), getAccessoryProductImage(item.image));
         assert.ok(card.textContent.includes(item.model));
         for (const spec of item.specs.slice(0, 3)) {
           assert.ok(card.textContent.includes(spec.label[locale]));
