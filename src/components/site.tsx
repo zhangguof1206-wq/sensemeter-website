@@ -309,9 +309,6 @@ export function CatalogPage({
                 </Link>
               ))}
             </div>
-            <strong>
-              {filtered.length} {c.products}
-            </strong>
           </div>
 
           {filtered.length ? (

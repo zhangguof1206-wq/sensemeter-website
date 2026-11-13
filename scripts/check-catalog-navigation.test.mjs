@@ -5,6 +5,8 @@ import test from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import ts from "typescript";
+import { JSDOM } from "jsdom";
+import { createComponentLoader } from "./lib/component-test-loader.mjs";
 
 const read = path => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 const exists = path => existsSync(new URL(`../${path}`, import.meta.url));
@@ -42,4 +44,26 @@ test("the rejected measurement category has no catalog entry, sitemap entry or r
     "src/components/catalog/measurement-category-links.tsx",
     "src/components/catalog/measurement-category-page.tsx"
   ]) assert.equal(exists(path), false, path);
+});
+
+test("catalogs omit the product count while brand and model filters preserve their results", () => {
+  const load = createComponentLoader();
+  const { CatalogPage } = load("src/components/site.tsx");
+  const { products, categories } = load("src/data/catalog.ts");
+  for (const locale of ["ru", "en"]) {
+    const prefix = locale === "en" ? "/en" : "";
+    for (const filters of [{}, ...categories.map(category => ({ category: category.id })), { query: "MDM300" }, { query: "no-such-model" }]) {
+      const dom = new JSDOM(renderToStaticMarkup(React.createElement(CatalogPage, { locale, ...filters })));
+      try {
+        const main = dom.window.document.querySelector("main");
+        assert.ok(!/\d+\s+(?:products|продуктов)/iu.test(main.textContent), "The catalog product-count label must be absent");
+        const expected = products.filter(product => (!filters.category || product.category === filters.category) && (!filters.query || product.model.toLowerCase().includes(filters.query.toLowerCase())));
+        assert.deepEqual([...main.querySelectorAll("article.card h3")].map(heading => heading.textContent), expected.map(product => product.model));
+        for (const category of categories) assert.ok(main.querySelector(`a[href="${prefix}/catalog?category=${category.id}"]`));
+        assert.ok(main.querySelector(`a[href="${prefix}/catalog"]`));
+      } finally {
+        dom.window.close();
+      }
+    }
+  }
 });
