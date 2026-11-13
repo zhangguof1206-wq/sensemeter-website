@@ -535,14 +535,15 @@ const checks = [
       const component = read("src/components/site.tsx");
       const tracker = read("src/components/metrica-goals.tsx");
       const productDetail = read("src/components/products/instrument-product-detail.tsx");
+      const footerContacts = read("src/components/footer-contact-links.tsx");
       return tracker.includes("reachMetricaGoal") &&
         tracker.includes("pdf_download") &&
         tracker.includes("telegram_click") &&
         tracker.includes("product_page_60s") &&
-        component.includes("MetricaTrackedLink") &&
+        footerContacts.includes("MetricaTrackedLink") && component.includes("FooterContactLinks") &&
         component.includes("ProductDwellGoal") &&
         productDetail.includes("goal={METRICA_GOALS.pdfDownload}") &&
-        component.includes("goal={METRICA_GOALS.telegramClick}");
+        footerContacts.includes("goal={METRICA_GOALS.telegramClick}");
     }
   },
   {

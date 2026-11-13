@@ -44,6 +44,7 @@ jobs:
           npm run check:rfq-email
           npm run test:dew-point-content
           npm run test:catalog-navigation
+          npm run test:footer-contacts
           npm run test:product-seo
           npm run test:product-gallery
           npm run test:compressed-air-keywords

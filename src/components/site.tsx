@@ -20,11 +20,10 @@ import { CatalogNavDropdown } from "@/components/catalog/catalog-nav-dropdown";
 import { HomeApplicationsSection } from "@/components/home/home-applications-section";
 import { HomeBrandCategoriesSection } from "@/components/home/home-brand-categories-section";
 import { HomeRevealObserver } from "@/components/home/home-reveal-observer";
-import { METRICA_GOALS, MetricaTrackedLink, ProductDwellGoal } from "@/components/metrica-goals";
+import { ProductDwellGoal } from "@/components/metrica-goals";
+import { FooterContactLinks } from "@/components/footer-contact-links";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { InstrumentProductDetail } from "@/components/products/instrument-product-detail";
-
-const TELEGRAM_URL = "https://t.me/Sensemeter";
 
 type ShellProps = {
   locale: Locale;
@@ -146,26 +145,9 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
               </Link>
             </div>
           </div>
-          <Link className="font-bold" href={localizedPath(locale, "/contact")}>
-            {c.requestQuote}
-          </Link>
+          <FooterContactLinks locale={locale} />
         </div>
       </footer>
-      <MetricaTrackedLink
-        className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-accent p-0 text-sm font-black text-white shadow-2xl transition hover:bg-accent-dark focus:outline-none focus:ring-4 focus:ring-accent/30 md:bottom-7 md:right-7 lg:h-auto lg:w-auto lg:min-h-12 lg:gap-2 lg:px-4 lg:py-3"
-        href={TELEGRAM_URL}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat with us on Telegram"
-        goal={METRICA_GOALS.telegramClick}
-        goalParams={{ location: "floating_chat" }}
-      >
-        <svg className="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
-          <path d="M21 4 3 11l7 3 3 7 8-17Z" />
-          <path d="m10 14 4-4" />
-        </svg>
-        <span className="hidden lg:inline">Chat with us</span>
-      </MetricaTrackedLink>
       <CookieBanner locale={locale} />
     </div>
   );
