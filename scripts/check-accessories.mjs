@@ -206,6 +206,8 @@ const accessoryCards = read("src/components/accessories/accessory-cards.tsx");
 const accessoryHeading = read("src/components/accessories/accessory-page-heading.tsx");
 const accessoryCategoryPage = read("src/components/accessories/accessory-category-page.tsx");
 const accessoryDetailPage = read("src/components/accessories/accessory-detail-page.tsx");
+const accessoryDetailVisual = accessoryDetailPage.match(/<ProductVisual\b[^>]*>/)?.[0] ?? "";
+const productVisual = read("src/components/products/product-visual.tsx");
 const accessoryCopySource = [
   "src/data/accessories/copy.ts",
   "src/data/accessories/categories.ts",
@@ -266,11 +268,16 @@ checks.push({
 });
 checks.push({
   name: "accessory detail image panel uses the same neutral product treatment",
-  pass: accessoryDetailPage.includes(`${uniformAccessoryBackground} p-4`) &&
-    accessoryDetailPage.includes("accessory-detail-image max-h-[94%] max-w-[94%] object-contain") &&
+  pass: accessoryDetailVisual.includes("src={product.image}") &&
+    accessoryDetailVisual.includes("alt={product.title[locale]}") &&
+    accessoryDetailVisual.includes(`background="${uniformAccessoryBackground}"`) &&
+    productVisual.includes("relative h-[320px] overflow-hidden") &&
+    productVisual.includes("${background}") &&
+    productVisual.includes('className="object-contain p-4"') &&
+    productVisual.includes("fill sizes=") &&
     !accessoryDetailPage.includes("mix-blend-multiply") &&
-    !accessoryDetailPage.includes("grid aspect-square place-items-center bg-[#eef2f5]") &&
-    !accessoryDetailPage.includes('className="h-full w-full object-contain"')
+    !productVisual.includes("mix-blend-multiply") &&
+    !accessoryDetailPage.includes("grid aspect-square place-items-center bg-[#eef2f5]")
 });
 
 checks.push({

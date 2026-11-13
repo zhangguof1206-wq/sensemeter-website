@@ -3,33 +3,40 @@ import type { Locale } from "@/data/catalog";
 import type { AccessoryCategory, AccessoryProduct } from "@/data/accessories";
 import { getAccessoryProduct } from "@/data/accessories";
 import { accessoryCopy } from "@/data/accessories/copy";
-import { localizedPath, oppositeLocale } from "@/lib/i18n";
+import { localizedPath, oppositeLocale, t } from "@/lib/i18n";
 import { PageShell } from "@/components/site";
 import { accessoryBreadcrumbJsonLd } from "@/lib/seo";
-import { AccessoryPageHeading } from "./accessory-page-heading";
+import {
+  DetailHero,
+  DetailList,
+  DetailNavigation,
+  DetailSection,
+  DetailSpecTable,
+  detailFocus,
+  detailHeading
+} from "@/components/products/detail-layout";
+import { ProductVisual } from "@/components/products/product-visual";
 import { AccessoryProductCard } from "./accessory-cards";
-import { AccessorySpecTable } from "./accessory-specs";
-
-function DetailList({ title, items }: { title: string; items: string[] }) {
-  return (
-    <section>
-      <h2 className="text-2xl font-black">{title}</h2>
-      <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-        {items.map((item, index) => (
-          <li className="border-l-2 border-accent bg-[#f7fafc] px-4 py-3 leading-6" key={item}>
-            <span className="mr-2 text-sm font-black text-accent">{String(index + 1).padStart(2, "0")}</span>{item}
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
 
 export function AccessoryDetailPage({ category, product, locale }: { category: AccessoryCategory; product: AccessoryProduct; locale: Locale }) {
   const c = accessoryCopy[locale];
+  const siteCopy = t(locale);
   const path = `/accessories/${category.slug}/${product.slug}`;
+  const categoryHref = localizedPath(locale, `/accessories/${category.slug}`);
   const rfqHref = localizedPath(locale, "/contact") + `?accessory=${encodeURIComponent(`${product.model} ${product.title[locale]}`)}`;
   const structuredData = accessoryBreadcrumbJsonLd(locale, category, product);
+  const specifications = product.specs.map(spec => ({ label: spec.label[locale], value: spec.value[locale] }));
+  const hasApplications = product.applications[locale].length > 0;
+  const hasCompatibility = product.compatibleWith[locale].length > 0;
+  const hasCustomization = Boolean(product.customization[locale]);
+  const sections = [
+    { id: "accessory-overview", label: siteCopy.overview },
+    { id: "accessory-specifications", label: c.specificationsTitle },
+    ...(hasApplications ? [{ id: "accessory-applications", label: c.applicationsTitle }] : []),
+    { id: "accessory-selection", label: c.informationTitle },
+    ...(hasCompatibility ? [{ id: "accessory-compatibility", label: c.compatibleTitle }] : []),
+    ...(hasCustomization ? [{ id: "accessory-customization", label: c.customizationTitle }] : [])
+  ];
   const relatedProducts = product.relatedSlugs
     .map((slug) => getAccessoryProduct(category.slug, slug))
     .filter((item): item is AccessoryProduct => Boolean(item))
@@ -38,51 +45,70 @@ export function AccessoryDetailPage({ category, product, locale }: { category: A
   return (
     <PageShell locale={locale} active="catalog" languagePath={localizedPath(oppositeLocale(locale), path)}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
-      <AccessoryPageHeading
-        eyebrow={product.model}
-        title={product.title[locale]}
-        lead={product.summary[locale]}
-        image={product.image}
-        actionHref={rfqHref}
-        actionLabel={c.requestAccessory}
-      />
-      <section className="section">
-        <div className="section-narrow grid gap-8 lg:grid-cols-[380px_1fr]">
-          <aside className="card h-fit overflow-hidden lg:sticky lg:top-32">
-            <div className="grid aspect-square place-items-center bg-[#e9eef4] p-4">
-              <img className="accessory-detail-image max-h-[94%] max-w-[94%] object-contain" src={product.image} alt={product.title[locale]} />
-            </div>
-            <div className="p-6">
-              <p className="text-xs font-black uppercase text-accent">{product.model}</p>
-              <p className="mt-3 text-sm leading-6 text-muted">{c.imageDisclaimer}</p>
-              <div className="mt-5 grid gap-3">
-                <Link className="btn btn-primary" href={rfqHref}>{c.requestAccessory}</Link>
-                <Link className="btn btn-outline" href={localizedPath(locale, `/accessories/${category.slug}`)}>{c.backCategory}</Link>
-              </div>
-            </div>
-          </aside>
+      <div className="bg-white">
+        <DetailHero
+          locale={locale}
+          breadcrumbs={[
+            { label: siteCopy.navHome, href: localizedPath(locale, "/") },
+            { label: c.nav, href: localizedPath(locale, "/accessories") },
+            { label: category.title[locale], href: categoryHref },
+            { label: product.model }
+          ]}
+          eyebrow={{ label: category.title[locale], href: categoryHref }}
+          title={product.model}
+          subtitle={product.title[locale]}
+          summary={product.summary[locale]}
+          facts={specifications.slice(0, 2)}
+          actions={(
+            <>
+              <Link className={`btn btn-primary w-full text-center ${detailFocus}`} href={rfqHref}>{c.requestAccessory}</Link>
+              <Link className={`btn btn-outline w-full text-center ${detailFocus}`} href={categoryHref}>{c.backCategory}</Link>
+            </>
+          )}
+          media={<ProductVisual src={product.image} alt={product.title[locale]} locale={locale} background="bg-[#e9eef4]" />}
+        />
+        <DetailNavigation locale={locale} sections={sections} />
 
-          <article className="grid gap-10">
-            <section className="card p-6 md:p-8">
-              <h2 className="text-2xl font-black">{c.specificationsTitle}</h2>
-              <div className="mt-5">
-                <AccessorySpecTable specs={product.specs} locale={locale} />
-              </div>
-            </section>
-            <DetailList title={c.informationTitle} items={product.selection[locale]} />
-            <DetailList title={c.applicationsTitle} items={product.applications[locale]} />
-            <section className="border-y border-line py-7">
-              <h2 className="text-2xl font-black">{c.customizationTitle}</h2>
-              <p className="mt-4 text-lg leading-8 text-muted">{product.customization[locale]}</p>
-            </section>
-          </article>
+        <div className="px-5 py-10 md:px-10 md:py-14">
+          <div className="section-narrow grid gap-12 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-14">
+            <article className="min-w-0 space-y-10">
+              <DetailSection id="accessory-overview" title={siteCopy.overview}>
+                <p className="mt-4 text-base leading-7 text-muted">{product.summary[locale]}</p>
+              </DetailSection>
+              <DetailSection id="accessory-specifications" title={c.specificationsTitle}>
+                <DetailSpecTable locale={locale} rows={specifications} />
+              </DetailSection>
+              {hasApplications ? (
+                <DetailSection id="accessory-applications" title={c.applicationsTitle}>
+                  <DetailList items={product.applications[locale]} />
+                </DetailSection>
+              ) : null}
+            </article>
+
+            <aside className="min-w-0 space-y-10 lg:border-l lg:border-line lg:pl-8">
+              <DetailSection id="accessory-selection" title={c.informationTitle}>
+                <DetailList items={product.selection[locale]} />
+                <p className="mt-4 text-sm leading-6 text-muted">{c.imageDisclaimer}</p>
+              </DetailSection>
+              {hasCompatibility ? (
+                <DetailSection id="accessory-compatibility" title={c.compatibleTitle}>
+                  <DetailList items={product.compatibleWith[locale]} />
+                </DetailSection>
+              ) : null}
+              {hasCustomization ? (
+                <DetailSection id="accessory-customization" title={c.customizationTitle}>
+                  <p className="mt-4 text-sm leading-6 text-muted">{product.customization[locale]}</p>
+                </DetailSection>
+              ) : null}
+            </aside>
+          </div>
         </div>
-      </section>
+      </div>
 
       {relatedProducts.length ? (
         <section className="border-t border-line bg-[#eef2f5] px-5 py-12 md:px-10">
           <div className="mx-auto max-w-7xl">
-            <h2 className="text-3xl font-black">{c.relatedTitle}</h2>
+            <h2 className={detailHeading}>{c.relatedTitle}</h2>
             <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedProducts.map((item) => <AccessoryProductCard product={item} locale={locale} key={item.slug} />)}
             </div>
@@ -92,7 +118,7 @@ export function AccessoryDetailPage({ category, product, locale }: { category: A
 
       <section className="bg-steel px-5 py-10 text-white md:px-10">
         <div className="mx-auto max-w-7xl">
-          <h2 className="text-2xl font-black">{c.serviceTitle}</h2>
+          <h2 className="text-2xl font-bold leading-tight">{c.serviceTitle}</h2>
           <p className="mt-3 max-w-3xl leading-7 text-slate-200">{c.serviceText}</p>
         </div>
       </section>

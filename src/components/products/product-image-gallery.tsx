@@ -6,7 +6,7 @@ import { Pause, Play } from "lucide-react";
 import type { Locale } from "@/data/catalog";
 
 type GallerySlide = { src: string; alt: string; width: number; height: number };
-type Props = { slides: GallerySlide[]; locale: Locale };
+type Props = { slides: GallerySlide[]; locale: Locale; label?: string };
 
 const INTERVAL_MS = 3000;
 const controls = {
@@ -14,7 +14,7 @@ const controls = {
   en: { gallery: "MDM300 product images", carousel: "carousel", slide: "slide", pause: "Pause slideshow", play: "Play slideshow", show: "Show image" }
 };
 
-export function ProductImageGallery({ slides, locale }: Props) {
+export function ProductImageGallery({ slides, locale, label }: Props) {
   const c = controls[locale];
   const id = useId();
   const pointerFocus = useRef(false);
@@ -60,7 +60,7 @@ export function ProductImageGallery({ slides, locale }: Props) {
       className="relative min-w-0"
       role="region"
       aria-roledescription={c.carousel}
-      aria-label={c.gallery}
+      aria-label={label ?? c.gallery}
       // Touch focus can arrive after pointerup; retain pointer mode until a key is used.
       onPointerDownCapture={() => { pointerFocus.current = true; setKeyboardFocused(false); }}
       onKeyDownCapture={() => setKeyboardFocused(true)}

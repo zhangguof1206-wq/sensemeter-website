@@ -32,7 +32,7 @@
     "test:unified-seo-copy": "node --no-warnings --experimental-strip-types --test scripts/check-unified-seo-copy.test.mjs",
     "test:catalog-navigation": "node --no-warnings --experimental-strip-types --test scripts/check-catalog-navigation.test.mjs",
     "test:product-seo": "node --no-warnings --experimental-strip-types --test scripts/check-product-seo-descriptions.test.mjs",
-    "test:product-gallery": "node --no-warnings --experimental-strip-types --test scripts/check-mdm300-product-sample.test.mjs scripts/check-product-image-gallery.test.mjs",
+    "test:product-gallery": "node --no-warnings --experimental-strip-types --test scripts/check-mdm300-product-sample.test.mjs scripts/check-product-image-gallery.test.mjs scripts/check-instrument-details.test.mjs scripts/check-accessory-details.test.mjs scripts/check-rfq-accessory.test.mjs",
     "test:seo-tools": "node scripts/seo/seo-tools.test.mjs",
     "seo:install": "npm ci --prefix tools/seo --cache .cache/npm --registry https://registry.npmjs.org && node scripts/seo/siteone.mjs",
     "seo:siteone": "node scripts/seo/run-tool.mjs siteone",

@@ -4,7 +4,7 @@ import { createRequire } from "node:module";
 import test from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import ts from "typescript";
+import { createComponentLoader } from "./lib/component-test-loader.mjs";
 import { products, pdfPath } from "../src/data/catalog.ts";
 import { getProductApplicationLinks } from "../src/data/application-links.ts";
 
@@ -13,26 +13,7 @@ const read = path => readFileSync(new URL(`../${path}`, import.meta.url), "utf8"
 const componentPath = "src/components/products/mdm300-product-sample.tsx";
 const product = products.find(item => item.slug === "mdm300");
 
-function loadTsx(path) {
-  assert.ok(existsSync(new URL(`../${path}`, import.meta.url)), `Missing MDM300 sample: ${path}`);
-  const { outputText } = ts.transpileModule(read(path), {
-    compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true }
-  });
-  const module = { exports: {} };
-  const componentRequire = id => {
-    if (id === "next/link") return ({ children, ...props }) => React.createElement("a", props, children);
-    if (id === "next/image") return ({ priority, fill, ...props }) => React.createElement("img", props);
-    if (id === "@/components/metrica-goals") return loadTsx("src/components/metrica-goals.tsx");
-    if (id === "@/components/products/mdm300-product-sample") return loadTsx(componentPath);
-    if (id === "@/components/products/product-image-gallery") return loadTsx("src/components/products/product-image-gallery.tsx");
-    if (id === "@/lib/seo") return { breadcrumbJsonLd: () => ({ "@type": "BreadcrumbList" }) };
-    if (id.startsWith("@/components/")) return new Proxy({}, { get: () => () => null });
-    if (id.startsWith("@/")) return require(`../src/${id.slice(2)}.ts`);
-    return require(id);
-  };
-  new Function("require", "module", "exports", outputText)(componentRequire, module, module.exports);
-  return module.exports;
-}
+const loadTsx = createComponentLoader();
 
 function render(locale) {
   const { Mdm300ProductSample } = loadTsx(componentPath);
@@ -69,8 +50,8 @@ test("quote and PDF actions precede long content and preserve the existing desti
     assert.ok(html.includes(`href="${quote}"`));
     assert.ok(html.indexOf(`href="${quote}"`) < html.indexOf('id="mdm300-overview"'));
     assert.ok(html.includes(`href="${pdfPath(product.pdf)}"`));
-    assert.match(read(componentPath), /METRICA_GOALS\.pdfDownload/);
-    assert.match(read(componentPath), /goalParams=\{\{ slug: product\.slug, model: product\.model \}\}/);
+    assert.match(read("src/components/products/instrument-product-detail.tsx"), /METRICA_GOALS\.pdfDownload/);
+    assert.match(read("src/components/products/instrument-product-detail.tsx"), /goalParams=\{\{ slug: product\.slug, model: product\.model \}\}/);
     for (const link of getProductApplicationLinks("mdm300")) {
       assert.ok(html.includes(`href="${prefix}${link.path}"`));
     }
@@ -133,21 +114,20 @@ test("every in-page navigation target is present in both languages", () => {
   }
 });
 
-test("only the exact MDM300 slug opts into the sample and the other product template remains", () => {
+test("all instruments use the approved template while retaining dwell tracking", () => {
   const source = read("src/components/site.tsx");
-  assert.match(source, /product\.slug === "mdm300"/);
-  assert.match(source, /<Mdm300ProductSample locale=\{locale\} product=\{product\}/);
-  assert.match(source, /<PageHeading title=\{product\.model\} lead=\{product\.category\}/);
+  assert.doesNotMatch(source, /product\.slug === "mdm300"/);
+  assert.match(source, /<InstrumentProductDetail locale=\{locale\} product=\{product\}/);
   assert.match(source, /<ProductDwellGoal slug=\{product\.slug\} model=\{product\.model\}/);
 });
 
-test("the real ProductPage selects the sample only for MDM300 in both languages", () => {
+test("the real ProductPage keeps MDM300-only versions while unifying all instruments", () => {
   const { ProductPage } = loadTsx("src/components/site.tsx");
   for (const locale of ["ru", "en"]) {
     for (const item of products) {
       const html = renderToStaticMarkup(React.createElement(ProductPage, { locale, product: item }));
       assert.equal(html.includes('id="mdm300-specifications"'), item.slug === "mdm300", `${locale}/${item.slug}`);
-      if (item.slug !== "mdm300") assert.match(html, /class="page-heading page-heading-image"/);
+      assert.match(html, /data-product-detail/);
       assert.ok(text(html).includes(item.overview[locale]), `${locale}/${item.slug}`);
       assert.equal((html.match(/<h1\b/g) || []).length, 1);
     }

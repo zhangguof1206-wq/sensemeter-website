@@ -11,6 +11,7 @@ const applicationSlugs = [
 ];
 const mappingPath = join(root, "src", "data", "application-links.ts");
 const productPagePath = join(root, "src", "components", "site.tsx");
+const productDetailPath = join(root, "src", "components", "products", "instrument-product-detail.tsx");
 const homeApplicationsPath = join(root, "src", "components", "home", "home-applications-section.tsx");
 let failures = 0;
 
@@ -52,8 +53,10 @@ if (!existsSync(mappingPath)) {
 }
 
 const productPageSource = readFileSync(productPagePath, "utf8");
-if (!productPageSource.includes("getProductApplicationLinks")) fail("product page renders application backlinks");
-if (!productPageSource.includes("relatedApplications")) fail("product page has localized related application heading");
+const productDetailSource = readFileSync(productDetailPath, "utf8");
+if (!productPageSource.includes("<InstrumentProductDetail")) fail("product page uses the shared instrument detail template");
+if (!productDetailSource.includes("getProductApplicationLinks")) fail("product page renders application backlinks");
+if (!productDetailSource.includes("relatedApplications")) fail("product page has localized related application heading");
 if (!existsSync(homeApplicationsPath)) {
   fail("home applications component exists");
 } else {
