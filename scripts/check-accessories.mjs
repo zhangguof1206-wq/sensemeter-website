@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { createComponentLoader } from "./lib/component-test-loader.mjs";
 
 const root = process.cwd();
 const read = (path) => readFileSync(join(root, path), "utf8");
@@ -100,40 +101,32 @@ checks.push({ name: "RU and EN accessory routes exist", pass: requiredRoutes.eve
 
 const homeSection = read("src/components/accessories/accessories-home-section.tsx");
 const homeAccessoryData = read("src/data/home-accessories.ts");
-const getProductImage = (category, slug) => {
-  const source = read(`src/data/accessories/${category}.ts`);
-  const marker = `slug: "${slug}"`;
-  const start = source.indexOf(marker);
-  if (start === -1) return null;
-  const nextProduct = source.indexOf("\n  {", start + marker.length);
-  const block = source.slice(start, nextProduct === -1 ? source.length : nextProduct);
-  const image = block.match(/image:\s*"([^"]+)"/);
-  return image ? image[1] : null;
-};
-const homeRefs = [...homeAccessoryData.matchAll(/\["([^"]+)",\s*"([^"]+)"(?:,\s*"([^"]+)")?\]/g)].map((match) => ({
-  category: match[1],
-  slug: match[2],
-  homeImage: match[3] ?? null
-}));
-const homeImages = homeRefs.map(({ category, slug, homeImage }) => homeImage ?? getProductImage(category, slug)).filter(Boolean);
-const probeGuardHomeRef = homeRefs.find(({ category, slug }) =>
-  category === "sensor-protection" && slug === "g14-threaded-probe-guard"
-);
+const { homeAccessoryCategories } = createComponentLoader()("src/data/home-accessories.ts");
+const homeImages = homeAccessoryCategories.map((category) => category.image);
+const approvedHomeImages = [
+  "custom-sintered", "microporous-metal", "filter-cups", "gas-diffusers", "probe-protection", "flow-restrictors"
+].map((name) => `/assets/home-accessories/${name}-v1.webp`);
 checks.push({
-  name: "homepage accessory data contains exactly 6 representative products",
-  pass: homeRefs.length === 6 &&
-    categoryFiles.every((category) => homeAccessoryData.includes(`"${category}"`)) &&
-    homeAccessoryData.includes("getAccessoryProduct")
+  name: "homepage accessory data contains exactly 6 compact validated categories",
+  pass: homeAccessoryCategories.length === 6 &&
+    new Set(homeAccessoryCategories.map((category) => category.slug)).size === 6 &&
+    categoryFiles.every((slug) => homeAccessoryCategories.some((category) => category.slug === slug)) &&
+    homeAccessoryCategories.every((category) => Object.keys(category).sort().join(",") === "image,slug,title") &&
+    homeAccessoryCategories.every((category) => ["ru", "en"].every((locale) =>
+      category.title[locale].length > 0 && category.title[locale].length <= 32 && !/SM-|\d/.test(category.title[locale])
+    )) &&
+    homeAccessoryData.includes("getAccessoryCategory") &&
+    !homeAccessoryData.includes("getAccessoryProduct")
 });
 checks.push({
-  name: "homepage representative accessories use 6 distinct images",
-  pass: homeImages.length === 6 && new Set(homeImages).size === 6
+  name: "homepage categories use 6 distinct dedicated versioned images",
+  pass: homeImages.length === 6 && new Set(homeImages).size === 6 &&
+    approvedHomeImages.every((image) => homeImages.includes(image))
 });
 checks.push({
-  name: "homepage probe guard uses its dedicated landscape image",
-  pass: probeGuardHomeRef?.homeImage === "/assets/accessories/sensor-g14-home.webp" &&
-    existsSync(join(root, "public", probeGuardHomeRef.homeImage.slice(1))) &&
-    homeAccessoryData.includes("homeImage ?? product.image")
+  name: "homepage category images exist and the previous probe image remains available",
+  pass: homeImages.every((image) => existsSync(join(root, "public", image.slice(1)))) &&
+    existsSync(join(root, "public", "assets", "accessories", "sensor-g14-home.webp"))
 });
 checks.push({
   name: "homepage accessory section has no all accessories button",
@@ -141,21 +134,25 @@ checks.push({
 });
 checks.push({
   name: "homepage accessory section is image-first with concise linked items",
-  pass: homeSection.includes("homeAccessoryProducts") &&
-    homeSection.includes("grid-cols-2") &&
+  pass: homeSection.includes("homeAccessoryCategories") &&
+    homeSection.includes("grid-cols-1") &&
+    homeSection.includes("sm:grid-cols-2") &&
     homeSection.includes("lg:grid-cols-3") &&
     homeSection.includes("home-accessory-image") &&
-    homeSection.includes("object-cover") &&
-    homeSection.includes("localizedPath(locale, `/accessories/${product.categorySlug}/${product.slug}`)")
+    homeSection.includes("object-contain") &&
+    homeSection.includes("localizedPath(locale, `/accessories/${category.slug}`)")
 });
 checks.push({
-  name: "homepage accessory images use stable sizing and uniform cover fitting",
-  pass: homeSection.includes("home-accessory-image") &&
-    homeSection.includes("home-accessory-image relative h-40 overflow-hidden bg-[#e9eef3]") &&
-    homeSection.includes("absolute inset-0 block h-full w-full object-cover mix-blend-multiply") &&
-    !homeSection.includes('product.categorySlug === "sensor-protection"') &&
-    !homeSection.includes("object-contain") &&
-    homeSection.includes("home-accessory-copy relative z-10") &&
+  name: "homepage accessory images use stable 3:2 Next images without cropping or blending",
+  pass: homeSection.includes('import Image from "next/image"') &&
+    homeSection.includes("home-accessory-image aspect-[3/2]") &&
+    homeSection.includes("h-full w-full object-contain") &&
+    homeSection.includes("width={1536}") &&
+    homeSection.includes("height={1024}") &&
+    homeSection.includes('sizes="(min-width: 1280px) 372px, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"') &&
+    !homeSection.includes("object-cover") &&
+    !homeSection.includes("mix-blend-") &&
+    !homeSection.includes("h-40") &&
     !homeSection.includes("h-28") &&
     !homeSection.includes("drop-shadow") &&
     !homeSection.includes("hover:scale") &&
@@ -164,11 +161,15 @@ checks.push({
 checks.push({
   name: "homepage accessories use an open technical matrix",
   pass: homeSection.includes("home-accessory-matrix") &&
-    homeSection.includes("border-l border-t border-line") &&
     homeSection.includes("home-accessory-entry") &&
     homeSection.includes("home-accessory-copy") &&
-    homeSection.includes("border-t border-line bg-white") &&
     homeSection.includes("btn btn-primary") &&
+    homeSection.indexOf("{c.homeTitle}") < homeSection.indexOf('className="home-accessory-matrix') &&
+    homeSection.indexOf("{c.homeLead}") < homeSection.indexOf('className="home-accessory-matrix') &&
+    homeSection.indexOf("{c.overviewTitle}") < homeSection.indexOf('className="home-accessory-matrix') &&
+    !homeSection.includes("sticky") &&
+    !homeSection.includes("360px") &&
+    !homeSection.includes("border-l border-t") &&
     !homeSection.includes('className="mt-5 text-sm font-bold') &&
     !homeSection.includes("rounded-") &&
     !homeSection.includes("shadow")

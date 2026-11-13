@@ -246,13 +246,24 @@ const checks = [
         !source.includes("catalogDropdownItems") &&
         !source.includes("ProductCatalogSwitch") &&
         !indexPage.includes("ProductCatalogSwitch") &&
-        section.includes("homeAccessoryProducts") &&
+        section.includes("homeAccessoryCategories") &&
         section.includes("home-accessory-matrix") &&
         section.includes("home-accessory-entry") &&
-        section.includes("grid-cols-2") &&
+        section.includes("grid-cols-1") &&
+        section.includes("sm:grid-cols-2") &&
         section.includes("lg:grid-cols-3") &&
         section.includes("border-line") &&
-        section.includes("mix-blend-multiply") &&
+        section.includes('import Image from "next/image"') &&
+        section.includes("aspect-[3/2]") &&
+        section.includes("width={1536}") &&
+        section.includes("height={1024}") &&
+        section.includes("sizes=") &&
+        section.includes("object-contain") &&
+        section.includes("localizedPath(locale, `/accessories/${category.slug}`)") &&
+        !section.includes("mix-blend-") &&
+        !section.includes("object-cover") &&
+        !section.includes("sticky") &&
+        !section.includes("360px") &&
         section.includes("btn btn-primary") &&
         section.includes("home-accessory-image") &&
         section.includes("home-accessory-copy") &&
