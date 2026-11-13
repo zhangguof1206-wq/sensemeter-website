@@ -144,7 +144,7 @@ checks.push({
 checks.push({
   name: "homepage accessory images use stable 3:2 Next images without cropping or blending",
   pass: homeSection.includes('import Image from "next/image"') &&
-    homeSection.includes("home-accessory-image aspect-[3/2]") &&
+    homeSection.includes("home-accessory-image relative aspect-[3/2]") &&
     homeSection.includes("h-full w-full object-contain") &&
     homeSection.includes("width={1536}") &&
     homeSection.includes("height={1024}") &&
@@ -216,7 +216,11 @@ const accessoryCopySource = [
 
 checks.push({
   name: "accessory overview uses a compact heading without a decorative photo backdrop",
-  pass: accessoriesIndex.includes("<AccessoryPageHeading title={c.overviewTitle} lead={c.overviewLead} />") &&
+  pass: accessoriesIndex.includes("data-accessory-overview-heading") &&
+    accessoriesIndex.includes("{c.overviewTitle}") &&
+    accessoriesIndex.includes("{overview.intro}") &&
+    accessoriesIndex.includes("{overview.selectionLead}") &&
+    !accessoriesIndex.includes("c.overviewLead") &&
     !accessoriesIndex.includes("accessoriesHeroImage") &&
     accessoriesIndex.includes("data-accessory-categories")
 });
@@ -259,11 +263,13 @@ checks.push({
   pass: accessoriesIndex.includes("xl:grid-cols-3") &&
     accessoriesIndex.includes("md:grid-cols-2") &&
     !accessoriesIndex.includes("ProductCatalogSwitch") &&
-    accessoryCards.includes("category.summary[locale]") &&
+    accessoryCards.includes("getAccessoryCategoryDisplay(category, locale)") &&
+    accessoryCards.includes("display.summary") &&
     accessoryCards.includes("aspect-[3/2]") &&
     accessoryCards.includes("accessory-product-image") &&
-    accessoryCards.includes("accessory-category-image h-full w-full object-contain") &&
-    accessoryCards.includes("accessory-product-image h-full w-full object-contain") &&
+    accessoryCards.includes("accessory-category-image absolute inset-0 block h-full w-full object-contain") &&
+    accessoryCards.includes("accessory-product-image absolute inset-0 block h-full w-full object-contain") &&
+    accessoryCards.includes("grid-rows-subgrid") &&
     accessoryCards.includes("getAccessoryCategoryImage(category)") &&
     accessoryCards.includes("getAccessoryProductImage(product.image)") &&
     accessoryCards.includes('import Image from "next/image"') &&

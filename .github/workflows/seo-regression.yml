@@ -47,6 +47,7 @@ jobs:
           npm run test:footer-contacts
           npm run test:home-accessories
           npm run test:accessory-presentation
+          npm run test:accessory-layout
           npm run test:product-seo
           npm run test:product-gallery
           npm run test:compressed-air-keywords

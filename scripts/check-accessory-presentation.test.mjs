@@ -9,6 +9,7 @@ import { createComponentLoader } from "./lib/component-test-loader.mjs";
 const load = createComponentLoader();
 const data = load("src/data/accessories/index.ts");
 const { localizedPath } = load("src/lib/i18n.ts");
+const { getAccessoryCategoryDisplay } = load("src/data/accessory-overview.ts");
 const { AccessoriesIndexPage } = load("src/components/accessories/accessories-index-page.tsx");
 const { AccessoryCategoryPage } = load("src/components/accessories/accessory-category-page.tsx");
 const { AccessoryDetailPage } = load("src/components/accessories/accessory-detail-page.tsx");
@@ -60,9 +61,10 @@ for (const locale of ["ru", "en"]) {
       cards.forEach((card, index) => {
         const category = data.accessoryCategories[index];
         assert.equal(card.getAttribute("href"), localizedPath(locale, `/accessories/${category.slug}`));
-        assert.equal(text(card.querySelector("h2, h3")), category.title[locale]);
+        const display = getAccessoryCategoryDisplay(category, locale);
+        assert.equal(text(card.querySelector("h2, h3")), display.title);
         assert.equal(card.querySelector("h2, h3").tagName, "H2", "Overview categories follow the page H1 without skipping a heading level");
-        assert.ok(card.textContent.includes(category.summary[locale]));
+        assert.ok(card.textContent.includes(display.summary));
         const image = card.querySelector("img");
         assert.equal(image.getAttribute("src"), `/assets/home-accessories/${categoryNames[index]}-v1.webp`);
         assert.equal(image.getAttribute("width"), "1536");

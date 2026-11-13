@@ -18,11 +18,12 @@ type HeroProps = {
   actions: ReactNode;
   media: ReactNode;
   note?: string;
+  surface?: "plain" | "accessory";
 };
 
-export function DetailHero({ locale, breadcrumbs, eyebrow, title, subtitle, summary, facts, actions, media, note }: HeroProps) {
+export function DetailHero({ locale, breadcrumbs, eyebrow, title, subtitle, summary, facts, actions, media, note, surface = "plain" }: HeroProps) {
   return (
-    <section className="bg-white px-5 pb-10 pt-6 md:px-10 md:pb-12" data-product-detail>
+    <section className={`${surface === "accessory" ? "border-b border-line bg-[#eef2f6] [&_.text-muted]:text-slate-600" : "bg-white"} px-5 pb-10 pt-6 md:px-10 md:pb-12`} data-product-detail>
       <div className="section-narrow">
         <nav className="mb-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted" aria-label={locale === "ru" ? "Навигационная цепочка" : "Breadcrumb"}>
           {breadcrumbs.map((item, index) => (

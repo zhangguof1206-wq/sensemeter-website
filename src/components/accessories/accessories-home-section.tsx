@@ -31,9 +31,9 @@ export function AccessoriesHomeSection({ locale }: { locale: Locale }) {
               href={localizedPath(locale, `/accessories/${category.slug}`)}
               key={category.slug}
             >
-              <div className="home-accessory-image aspect-[3/2] w-full bg-white">
+              <div className="home-accessory-image relative aspect-[3/2] w-full bg-white">
                 <Image
-                  className="block h-full w-full object-contain"
+                  className="absolute inset-0 block h-full w-full object-contain"
                   src={category.image}
                   alt={category.title[locale]}
                   width={1536}

@@ -17,7 +17,7 @@ export function AccessoryCategoryPage({ category, products, locale }: { category
       <section className="section">
         <div className="section-narrow">
           <h2 className="mb-7 text-2xl font-bold text-steel">{c.availableTitle}</h2>
-          <div className="grid grid-cols-1 gap-x-7 gap-y-10 md:grid-cols-2 xl:grid-cols-3" data-accessory-products>
+          <div className="grid grid-cols-1 gap-x-7 gap-y-0 md:grid-cols-2 xl:grid-cols-3" data-accessory-products>
             {products.map((product) => <AccessoryProductCard product={product} locale={locale} key={product.slug} />)}
           </div>
         </div>
