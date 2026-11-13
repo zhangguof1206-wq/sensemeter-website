@@ -52,6 +52,28 @@ test("VK uses a local static brand asset with no embedded remote code", () => {
   assert.doesNotMatch(svg, /<script|<foreignObject|onload=|href=/i);
 });
 
+test("a localized Connect heading and short red rule sit above the lowered icon row", () => {
+  const { FooterContactLinks } = load("src/components/footer-contact-links.tsx");
+  for (const locale of ["ru", "en"]) {
+    const dom = new JSDOM(renderToStaticMarkup(React.createElement(FooterContactLinks, { locale })));
+    try {
+      const contacts = dom.window.document.querySelector("[data-footer-contacts]");
+      const heading = contacts.querySelector("h2");
+      assert.ok(heading, "The contact group needs the requested heading");
+      assert.equal(heading.textContent, locale === "ru" ? "Связаться" : "Connect");
+      const rule = contacts.querySelector("[data-footer-contact-rule]");
+      assert.ok(rule, "The heading needs a short red underline");
+      assert.equal(rule.getAttribute("aria-hidden"), "true");
+      for (const name of ["bg-accent", "w-8", "h-0.5"]) assert.ok(rule.classList.contains(name));
+      const navigation = contacts.querySelector("nav");
+      assert.ok(navigation.classList.contains("mt-5"), "The icons need spacing below the heading and rule");
+      assert.ok(heading.compareDocumentPosition(rule) & 4);
+      assert.ok(rule.compareDocumentPosition(navigation) & 4);
+      assert.equal(navigation.querySelectorAll("a").length, 3);
+    } finally { dom.window.close(); }
+  }
+});
+
 test("Telegram icon keeps the existing click goal without making external requests", async t => {
   const { FooterContactLinks } = load("src/components/footer-contact-links.tsx");
   const dom = new JSDOM('<!doctype html><html><body><div id="root"></div></body></html>', { pretendToBeVisual: true });
