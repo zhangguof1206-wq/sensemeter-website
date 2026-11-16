@@ -15,9 +15,9 @@ The user approved updating the live website on 2026-11-16 after reopening the lo
 
 - [x] Refresh repository state and run all 121 regression tests, eight static checks and TypeScript checking.
 - [x] Confirm release scope and absence of an existing open PR for this branch.
-- [ ] Push the candidate and create a Chinese release PR; wait for the existing GitHub production-build, RFQ browser and mobile index checks.
-- [ ] Merge only the verified PR head, then record the exact main commit.
-- [ ] Obtain fresh server resource, PM2 working-directory/revision/start arguments and private-config-existence evidence. Never assume the historical running directory is current.
+- [x] Push the candidate and create the release PR; wait for the existing GitHub production-build, RFQ browser and mobile index checks. The integration could not create PRs; the user created PR #4 with the default title.
+- [x] Merge only the verified PR head, then record the exact main commit.
+- [x] Obtain fresh server resource, PM2 working-directory/revision/start arguments and private-config-existence evidence. Never assume the historical running directory is current.
 - [ ] Build the fixed main revision in an independent server worktree. Keep the existing process and configuration unchanged.
 - [ ] Verify all instrument/accessory pages, metadata, media, footer destinations and RFQ GET behavior on a temporary loopback port. No real form/email submission.
 - [ ] Save root-only old/new PM2 configuration and a failure recovery path, preserving the existing environment and start arguments.
@@ -27,4 +27,7 @@ The user approved updating the live website on 2026-11-16 after reopening the lo
 ## Evidence
 
 - 2026-11-16: local regression 121 passed, zero failures; all eight static groups passed; TypeScript checking passed.
+- PR #4 at `04c346d8c2f66c6f586973bccd7264b645de8254` passed GitHub run 43783980112, including build, mocked RU/EN desktop/mobile inquiries and mobile indexing checks. The user merged it into `ad66f19420906289acba4919920bb3faa7b7d9c6`; fetched runtime files match the tested candidate. A separate unauthenticated post-merge Actions lookup was rate-limited; do not claim a new main-branch workflow result.
+- Server screenshots confirm Node 22.22.3, npm 10.9.8, approximately 2.0 GiB available memory and 2.8 GiB free disk. One PM2 fork process is online at `/var/www/sensemeter-website-release-20261102-085730-a4c5644`, revision `a4c5644b280f15ea5cf54e32c6478dc90e44f624`, `/usr/bin/npm start -- -p 3000` with `/usr/bin/node`; port 3000 listens and the private config exists.
+- Ten obsolete release directories account for approximately 7 GiB; npm cache is 562 MiB. The user requested pruning rather than retaining every historical release. A separate guarded, default-check-only cleanup helper is being prepared before the new build; no remote cleanup has yet been performed.
 - No release, server switch, email delivery, visual acceptance or rollback success is claimed by this plan.
