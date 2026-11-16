@@ -283,7 +283,8 @@ const checks = [
     name: "MDM300 page separates product variants and collects RFQ inputs",
     pass: () => {
       const catalog = read("src/data/catalog.ts");
-      const component = read("src/components/site.tsx");
+      const detailData = read("src/data/product-details.ts");
+      const component = read("src/components/products/instrument-product-detail.tsx");
       const i18n = read("src/lib/i18n.ts");
       const seo = read("src/lib/seo.ts");
       const requiredCatalogCopy = [
@@ -298,7 +299,7 @@ const checks = [
       ];
 
       return requiredCatalogCopy.every((phrase) => catalog.includes(phrase)) &&
-        component.includes("product.selectionInputs") &&
+        detailData.includes("product.selectionInputs") && component.includes("copy.selectionInputs") &&
         i18n.includes('selectionInputs: "What to specify for selection"') &&
         i18n.includes('selectionInputs: "Что указать для подбора"') &&
         seo.includes('"mdm300": { ru: "портативный гигрометр точки росы", en: "portable dew-point hygrometer" }');
@@ -533,14 +534,16 @@ const checks = [
     pass: () => {
       const component = read("src/components/site.tsx");
       const tracker = read("src/components/metrica-goals.tsx");
+      const productDetail = read("src/components/products/instrument-product-detail.tsx");
+      const footerContacts = read("src/components/footer-contact-links.tsx");
       return tracker.includes("reachMetricaGoal") &&
         tracker.includes("pdf_download") &&
         tracker.includes("telegram_click") &&
         tracker.includes("product_page_60s") &&
-        component.includes("MetricaTrackedLink") &&
+        footerContacts.includes("MetricaTrackedLink") && component.includes("FooterContactLinks") &&
         component.includes("ProductDwellGoal") &&
-        component.includes("goal={METRICA_GOALS.pdfDownload}") &&
-        component.includes("goal={METRICA_GOALS.telegramClick}");
+        productDetail.includes("goal={METRICA_GOALS.pdfDownload}") &&
+        footerContacts.includes("goal={METRICA_GOALS.telegramClick}");
     }
   },
   {

@@ -31,7 +31,12 @@
     "test:compressed-air-keywords": "node --no-warnings --experimental-strip-types --test scripts/check-compressed-air-keyword-copy.test.mjs",
     "test:unified-seo-copy": "node --no-warnings --experimental-strip-types --test scripts/check-unified-seo-copy.test.mjs",
     "test:catalog-navigation": "node --no-warnings --experimental-strip-types --test scripts/check-catalog-navigation.test.mjs",
+    "test:footer-contacts": "node --no-warnings --experimental-strip-types --test scripts/check-footer-contacts.test.mjs",
+    "test:home-accessories": "node --no-warnings --experimental-strip-types --test scripts/check-home-accessories.test.mjs",
+    "test:accessory-presentation": "node --no-warnings --experimental-strip-types --test scripts/check-accessory-presentation.test.mjs",
+    "test:accessory-layout": "node --no-warnings --experimental-strip-types --test scripts/check-accessory-layout.test.mjs",
     "test:product-seo": "node --no-warnings --experimental-strip-types --test scripts/check-product-seo-descriptions.test.mjs",
+    "test:product-gallery": "node --no-warnings --experimental-strip-types --test scripts/check-mdm300-product-sample.test.mjs scripts/check-product-image-gallery.test.mjs scripts/check-instrument-details.test.mjs scripts/check-accessory-details.test.mjs scripts/check-rfq-accessory.test.mjs",
     "test:seo-tools": "node scripts/seo/seo-tools.test.mjs",
     "seo:install": "npm ci --prefix tools/seo --cache .cache/npm --registry https://registry.npmjs.org && node scripts/seo/siteone.mjs",
     "seo:siteone": "node scripts/seo/run-tool.mjs siteone",
@@ -39,6 +44,7 @@
     "seo:lighthouse": "node scripts/seo/run-tool.mjs lighthouse"
   },
   "dependencies": {
+    "lucide-react": "1.72.0",
     "next": "^15.0.0",
     "nodemailer": "^8.0.11",
     "react": "^19.0.0",
@@ -53,6 +59,7 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9.0.0",
     "eslint-config-next": "^15.0.0",
+    "jsdom": "26.1.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.0"

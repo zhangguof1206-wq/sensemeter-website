@@ -5,14 +5,12 @@ import {
   assetPath,
   categories,
   findProduct,
-  pdfPath,
   products,
   type CategoryId,
   type Locale,
   type Product
 } from "@/data/catalog";
 import { localizedPath, oppositeLocale, t } from "@/lib/i18n";
-import { getProductApplicationLinks } from "@/data/application-links";
 import { legalCopy, type LegalPageKey } from "@/lib/legal";
 import { CookieBanner } from "@/components/cookie-banner";
 import { RfqForm } from "@/components/rfq-form";
@@ -22,10 +20,10 @@ import { CatalogNavDropdown } from "@/components/catalog/catalog-nav-dropdown";
 import { HomeApplicationsSection } from "@/components/home/home-applications-section";
 import { HomeBrandCategoriesSection } from "@/components/home/home-brand-categories-section";
 import { HomeRevealObserver } from "@/components/home/home-reveal-observer";
-import { METRICA_GOALS, MetricaTrackedLink, ProductDwellGoal } from "@/components/metrica-goals";
+import { ProductDwellGoal } from "@/components/metrica-goals";
+import { FooterContactLinks } from "@/components/footer-contact-links";
 import { breadcrumbJsonLd } from "@/lib/seo";
-
-const TELEGRAM_URL = "https://t.me/Sensemeter";
+import { InstrumentProductDetail } from "@/components/products/instrument-product-detail";
 
 type ShellProps = {
   locale: Locale;
@@ -147,26 +145,9 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
               </Link>
             </div>
           </div>
-          <Link className="font-bold" href={localizedPath(locale, "/contact")}>
-            {c.requestQuote}
-          </Link>
+          <FooterContactLinks locale={locale} />
         </div>
       </footer>
-      <MetricaTrackedLink
-        className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-accent p-0 text-sm font-black text-white shadow-2xl transition hover:bg-accent-dark focus:outline-none focus:ring-4 focus:ring-accent/30 md:bottom-7 md:right-7 lg:h-auto lg:w-auto lg:min-h-12 lg:gap-2 lg:px-4 lg:py-3"
-        href={TELEGRAM_URL}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat with us on Telegram"
-        goal={METRICA_GOALS.telegramClick}
-        goalParams={{ location: "floating_chat" }}
-      >
-        <svg className="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
-          <path d="M21 4 3 11l7 3 3 7 8-17Z" />
-          <path d="m10 14 4-4" />
-        </svg>
-        <span className="hidden lg:inline">Chat with us</span>
-      </MetricaTrackedLink>
       <CookieBanner locale={locale} />
     </div>
   );
@@ -310,9 +291,6 @@ export function CatalogPage({
                 </Link>
               ))}
             </div>
-            <strong>
-              {filtered.length} {c.products}
-            </strong>
           </div>
 
           {filtered.length ? (
@@ -331,98 +309,17 @@ export function CatalogPage({
 }
 
 export function ProductPage({ locale, product }: { locale: Locale; product: Product }) {
-  const c = t(locale);
   const languagePath = localizedPath(oppositeLocale(locale), `/products/${product.slug}`);
   const structuredData = [breadcrumbJsonLd(locale, product)];
-  const applicationLinks = getProductApplicationLinks(product.slug);
   return (
     <PageShell locale={locale} active="catalog" languagePath={languagePath}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <ProductDwellGoal slug={product.slug} model={product.model} />
-      <PageHeading title={product.model} lead={product.category} image={assetPath(product.image)} />
-      <section className="section">
-        <div className="section-narrow grid gap-8 lg:grid-cols-[1fr_360px]">
-          <article className="card p-7">
-            <section className="mb-8">
-              <h2 className="text-2xl font-black">{c.overview}</h2>
-              <p className="mt-3 text-lg text-muted">{product.overview[locale]}</p>
-            </section>
-            <InfoList title={c.keyParams} items={product.params[locale]} />
-            <InfoList title={c.highlights} items={product.highlights[locale]} />
-            <InfoList title={c.applications} items={product.applications[locale]} />
-            {product.selectionInputs ? <InfoList title={c.selectionInputs} items={product.selectionInputs[locale]} /> : null}
-            <RelatedApplicationLinks title={c.relatedApplications} locale={locale} links={applicationLinks} />
-          </article>
-
-          <aside className="card h-fit p-6">
-            <div className="grid min-h-64 place-items-center bg-white p-4">
-              <img className="max-h-72 max-w-full object-contain" src={assetPath(product.image)} alt={product.model} />
-            </div>
-            <h2 className="mt-5 text-2xl font-black">{product.model}</h2>
-            <div className="mt-5 grid gap-3">
-              <MetricaTrackedLink
-                className="btn btn-primary"
-                href={pdfPath(product.pdf)}
-                target="_blank"
-                rel="noreferrer"
-                goal={METRICA_GOALS.pdfDownload}
-                goalParams={{ slug: product.slug, model: product.model }}
-              >
-                {c.downloadPdf}
-              </MetricaTrackedLink>
-              <Link className="btn btn-outline" href={`${localizedPath(locale, "/contact")}?model=${encodeURIComponent(product.model)}`}>
-                {c.requestQuote}
-              </Link>
-              <Link className="btn btn-outline" href={localizedPath(locale, "/catalog")}>
-                {c.backCatalog}
-              </Link>
-            </div>
-          </aside>
-        </div>
-      </section>
+      <InstrumentProductDetail locale={locale} product={product} />
     </PageShell>
   );
 }
 
-
-function RelatedApplicationLinks({
-  title,
-  locale,
-  links
-}: {
-  title: string;
-  locale: Locale;
-  links: ReturnType<typeof getProductApplicationLinks>;
-}) {
-  if (!links.length) return null;
-
-  return (
-    <section className="mb-8">
-      <h2 className="text-2xl font-black">{title}</h2>
-      <div className="mt-3 grid gap-3 sm:grid-cols-2">
-        {links.map((item) => (
-          <Link className="rounded border border-line bg-[#f7fafc] p-4 transition hover:border-accent" href={localizedPath(locale, item.path)} key={item.path}>
-            <span className="block font-black text-ink">{item.title[locale]}</span>
-            <span className="mt-2 block text-sm leading-6 text-muted">{item.description[locale]}</span>
-          </Link>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function InfoList({ title, items }: { title: string; items: string[] }) {
-  return (
-    <section className="mb-8">
-      <h2 className="text-2xl font-black">{title}</h2>
-      <ul className="mt-3 list-disc space-y-2 pl-5">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    </section>
-  );
-}
 
 export function AboutPage({ locale }: { locale: Locale }) {
   return (
@@ -432,7 +329,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
   );
 }
 
-export function ContactPage({ locale, model, application }: { locale: Locale; model?: string; application?: string }) {
+export function ContactPage({ locale, model, application, accessory }: { locale: Locale; model?: string; application?: string; accessory?: string }) {
   const c = t(locale);
   return (
     <PageShell locale={locale} active="contact" languagePath={localizedPath(oppositeLocale(locale), "/contact")}>
@@ -455,7 +352,7 @@ export function ContactPage({ locale, model, application }: { locale: Locale; mo
             </dl>
           </aside>
 
-          <RfqForm locale={locale} model={model} application={application} />
+          <RfqForm locale={locale} model={model} application={application} accessory={accessory} />
         </div>
       </section>
     </PageShell>

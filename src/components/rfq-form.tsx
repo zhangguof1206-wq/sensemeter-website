@@ -44,7 +44,7 @@ function Field({
   );
 }
 
-export function RfqForm({ locale, model, application }: { locale: Locale; model?: string; application?: string }) {
+export function RfqForm({ locale, model, application, accessory }: { locale: Locale; model?: string; application?: string; accessory?: string }) {
   const c = t(locale);
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -143,7 +143,7 @@ export function RfqForm({ locale, model, application }: { locale: Locale; model?
           <label className="mb-2 block font-bold" htmlFor="productModel">
             {c.formProductModel}
           </label>
-          <select className="w-full rounded border border-line px-3 py-3" id="productModel" name="Product Model" defaultValue={model || ""}>
+          <select className="w-full rounded border border-line px-3 py-3" id="productModel" name="Product Model" defaultValue={accessory ? "Other" : model || ""}>
             <option value="">{c.formSelectProduct}</option>
             {products.map((product) => (
               <option value={product.model} key={product.slug}>
@@ -160,7 +160,7 @@ export function RfqForm({ locale, model, application }: { locale: Locale; model?
         <label className="mb-2 block font-bold" htmlFor="message">
           {c.formMessage}
         </label>
-        <textarea className="min-h-36 w-full rounded border border-line px-3 py-3" id="message" name="Message" />
+        <textarea className="min-h-36 w-full rounded border border-line px-3 py-3" id="message" name="Message" defaultValue={accessory ? `${locale === "ru" ? "Комплектующее" : "Accessory"}: ${accessory}` : undefined} />
       </div>
       <label className="flex gap-3 rounded border border-line bg-[#f8fafc] p-4 text-sm text-muted">
         <input className="mt-1 h-4 w-4 shrink-0 accent-red-700" type="checkbox" name="Personal Data Consent" value="Accepted" required />

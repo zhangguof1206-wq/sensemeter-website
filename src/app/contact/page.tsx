@@ -2,6 +2,8 @@
 import { staticPageMetadata } from "@/lib/seo";
 import { applicationPages } from "@/data/applications";
 import { getRfqApplicationTitle } from "@/lib/rfq-application";
+import { accessoryProducts } from "@/data/accessories";
+import { getRfqAccessoryLabel } from "@/lib/rfq-accessory";
 
 export const metadata = staticPageMetadata({
   locale: "ru",
@@ -11,11 +13,12 @@ export const metadata = staticPageMetadata({
 });
 
 type Props = {
-  searchParams: Promise<{ model?: string; application?: string | string[] }>;
+  searchParams: Promise<{ model?: string; application?: string | string[]; accessory?: string | string[] }>;
 };
 
 export default async function Page({ searchParams }: Props) {
   const params = await searchParams;
   const application = getRfqApplicationTitle(params.application, "ru", applicationPages);
-  return <ContactPage locale="ru" model={params.model} application={application} />;
+  const accessory = getRfqAccessoryLabel(params.accessory, "ru", accessoryProducts);
+  return <ContactPage locale="ru" model={params.model} application={application} accessory={accessory} />;
 }
