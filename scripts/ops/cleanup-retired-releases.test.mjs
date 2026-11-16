@@ -132,3 +132,102 @@ test("malformed private process JSON never leaks environment contents into the e
   assert.throws(()=>cli.parsePrivateJson('{"token":"PRIVATE_VALUE",','saved PM2'),error=>error.message === "CHECK_FAILED: invalid JSON in saved PM2" && !error.message.includes("PRIVATE_VALUE"));
   assert.deepEqual(cli.parsePrivateJson('[{"name":"website"}]','PM2'),[{name:"website"}]);
 });
+
+test("only the exact untracked environment entry may proceed with verified private backup", () => {
+  const e=evidence();
+  Object.assign(e.directories[0],{dirty:true,gitStatus:"?? .env.production.local\0",environment:{exists:true,safe:true}});
+  const item=makePlan(e).releases[0];
+  assert.equal(item.untrackedEnvironment,true);
+  for(const status of [" M .env.production.local\0","?? .env.production.local\0?? notes.txt\0"," M src/page.tsx\0"]) {
+    e.directories[0].gitStatus=status;
+    assert.throws(()=>makePlan(e),/CLEANUP_REFUSED/);
+  }
+  e.directories[0].gitStatus="?? .env.production.local\0";
+  e.directories[0].environment.safe=false;
+  assert.throws(()=>makePlan(e),/CLEANUP_REFUSED/);
+});
+
+const previewUrl=new URL("./retired-preview-processes.mjs",import.meta.url);
+const preview=existsSync(previewUrl)?await import(previewUrl):{};
+const expectedPreviews=[
+  [509725,retired[0],3100],[515150,retired[1],3101],[584722,retired[2],3102],
+  [792307,retired[3],3103],[881579,retired[5],3199],[882673,retired[6],3201]
+];
+function previewEvidence() {
+  const e=evidence();e.apps[0].pid=1222792;e.nginxPorts=[3000];
+  e.previewProcesses=expectedPreviews.map(([pid,cwd,port])=>({pid,cwd,ports:[port],ppid:1,exe:"/usr/bin/node",name:"next-server (v15)",startTicks:String(pid*100),exclusive:true,unixListener:false}));
+  e.references=expectedPreviews.map(([pid,path])=>({path,source:`process ${pid}`}));
+  return e;
+}
+const previewPlan=e=>{
+  assert.equal(typeof preview.prepareRetiredCleanup,"function","Missing verified preview-stop policy");
+  return preview.prepareRetiredCleanup(e);
+};
+
+test("preflight selects exactly the six observed orphan previews without weakening deletion guards", () => {
+  const e=previewEvidence();
+  const plan=previewPlan(e);
+  assert.deepEqual(plan.previews.map(p=>[p.pid,p.cwd,p.ports[0]]),expectedPreviews);
+  assert.equal(plan.cleanup.releases.length,10);
+  assert.throws(()=>makePlan(e),/CLEANUP_REFUSED/);
+});
+for(const [name,mutate] of [
+  ["changed cwd",e=>{e.previewProcesses[0].cwd=current;}],
+  ["non-orphan parent",e=>{e.previewProcesses[0].ppid=20;}],
+  ["unknown executable",e=>{e.previewProcesses[0].exe="/bin/bash";}],
+  ["non-Next process",e=>{e.previewProcesses[0].name="PM2 daemon";}],
+  ["wrong or extra port",e=>{e.previewProcesses[0].ports.push(3000);}],
+  ["shared listening socket",e=>{e.previewProcesses[0].exclusive=false;}],
+  ["unix listening socket",e=>{e.previewProcesses[0].unixListener=true;}],
+  ["Nginx backend reference",e=>{e.nginxPorts.push(3100);}],
+  ["PM2 managed PID",e=>{e.apps[0].pid=509725;}],
+  ["unknown process reference",e=>{e.references.push({path:retired[0],source:"process 999"});}],
+  ["symlink reference",e=>{e.references.push({path:retired[0],source:"/var/www symlink"});}],
+  ["unknown PID",e=>{e.previewProcesses[0].pid=999;}]
+])test(`preview preflight refuses ${name}`,()=>{
+  const e=previewEvidence();mutate(e);
+  assert.throws(()=>previewPlan(e),/CLEANUP_REFUSED|PREVIEW_REFUSED/);
+});
+
+test("preview check mode sends no signals",async()=>{
+  assert.equal(typeof preview.stopRetiredPreviews,"function");
+  const calls=[];
+  await preview.stopRetiredPreviews({collect:()=>previewEvidence(),health:()=>calls.push("health"),sendTerm:()=>calls.push("TERM"),waitForExit:()=>{},report:()=>{}});
+  assert.deepEqual(calls,[]);
+});
+test("PID reuse is refused immediately before a signal",async()=>{
+  assert.equal(typeof preview.stopRetiredPreviews,"function");
+  let scans=0,signals=0;
+  await assert.rejects(()=>preview.stopRetiredPreviews({apply:true,collect:()=>{const e=previewEvidence();if(++scans>1)e.previewProcesses[0].startTicks="999999999";return e;},health:()=>{},sendTerm:()=>signals++,waitForExit:()=>{},report:()=>{}}));
+  assert.equal(signals,0);
+});
+test("all previews must exit gracefully; no later signal follows an exit failure",async()=>{
+  assert.equal(typeof preview.stopRetiredPreviews,"function");
+  const signals=[];
+  await assert.rejects(()=>preview.stopRetiredPreviews({apply:true,collect:()=>previewEvidence(),health:()=>{},sendTerm:p=>signals.push(p.pid),waitForExit:()=>{throw Error("not exited");},report:()=>{}}));
+  assert.deepEqual(signals,[509725]);
+});
+
+test("successful preview cleanup sends only six verified TERM callbacks and waits for each",async()=>{
+  assert.equal(typeof preview.stopRetiredPreviews,"function");
+  const exited=new Set(),events=[];
+  const collect=()=>{const e=previewEvidence();e.previewProcesses=e.previewProcesses.filter(p=>!exited.has(p.pid));e.references=e.references.filter(r=>!exited.has(Number(r.source.split(" ")[1])));return e;};
+  await preview.stopRetiredPreviews({apply:true,collect,health:()=>events.push("health"),sendTerm:p=>events.push("TERM "+p.pid),waitForExit:p=>{events.push("EXIT "+p.pid);exited.add(p.pid);},report:()=>{}});
+  assert.deepEqual(events,["health",...expectedPreviews.flatMap(([pid])=>["TERM "+pid,"EXIT "+pid]),"health"]);
+});
+test("unhealthy production entry prevents any preview termination",async()=>{
+  assert.equal(typeof preview.stopRetiredPreviews,"function");
+  await assert.rejects(()=>preview.stopRetiredPreviews({apply:true,collect:()=>previewEvidence(),health:()=>{throw Error("unhealthy");},sendTerm:()=>assert.fail("No process may be stopped"),waitForExit:()=>{},report:()=>{}}));
+});
+
+test("listener parsing handles whitespace and IPv6 without attributing the production socket to a preview",()=>{
+  assert.equal(typeof preview.inspectListeners,"function");
+  const tcp=[
+    '  LISTEN 0 511 [::]:3100 [::]:* users:(("next-server",pid=509725,fd=21))',
+    'LISTEN 0 511 *:3000 *:* users:(("next-server",pid=1222792,fd=21))'
+  ];
+  assert.deepEqual(preview.inspectListeners(509725,tcp,[]),{ports:[3100],exclusive:true,unixListener:false});
+  const shared=['LISTEN 0 511 *:3100 *:* users:(("next-server",pid=509725,fd=21),("other",pid=20,fd=21))'];
+  assert.equal(preview.inspectListeners(509725,shared,[]).exclusive,false);
+  assert.equal(preview.inspectListeners(509725,tcp,['u_str LISTEN /tmp/example users:(("next-server",pid=509725,fd=2))']).unixListener,true);
+});

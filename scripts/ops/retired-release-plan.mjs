@@ -14,8 +14,7 @@ export const RETIRED = Object.freeze([
 export const within = (path, directory) => typeof path === "string" && (path === directory || path.startsWith(directory + "/"));
 const requireSafe = (condition, reason) => { if (!condition) throw new Error(`CLEANUP_REFUSED: ${reason}`); };
 
-export function createCleanupPlan(evidence) {
-  const e = evidence;
+export function validateRetained(e) {
   requireSafe(e.repository.path === SOURCE && e.repository.realPath === SOURCE, "source repository path changed");
   requireSafe(e.repository.origin === "https://github.com/zhangguof1206-wq/sensemeter-website.git", "unexpected source repository");
   for (const [info, path, revision] of [
@@ -27,6 +26,10 @@ export function createCleanupPlan(evidence) {
   const saved = e.savedApps.filter(app => app.name === "sensemeter-website");
   requireSafe(app.length === 1 && app[0].status === "online" && app[0].cwd === CURRENT, "running website changed");
   requireSafe(saved.length === 1 && saved[0].cwd === CURRENT, "saved startup configuration differs");
+}
+
+export function createCleanupPlan(e) {
+  validateRetained(e);
   requireSafe(e.cacheSafe, "npm cache location is not the expected ordinary directory");
   requireSafe(new Set(e.directories.map(item => item.path)).size === e.directories.length, "duplicate cleanup target");
   const references = [...e.references, ...e.apps.flatMap(app => [{path:app.cwd,source:"PM2"},{path:app.script,source:"PM2"}]), ...e.savedApps.flatMap(app => [{path:app.cwd,source:"PM2 startup"},{path:app.script,source:"PM2 startup"}])];
@@ -34,13 +37,16 @@ export function createCleanupPlan(evidence) {
     requireSafe(RETIRED.includes(item.path), `unknown cleanup target: ${item.path}`);
     requireSafe(item.directory && !item.symlink && item.realPath === item.path, `unsafe directory: ${item.path}`);
     requireSafe(item.packageName === "sensemeter-ru-website", `unknown project: ${item.path}`);
-    requireSafe(!item.dirty && (!item.gitRoot || item.gitRoot === item.path), `repository has local changes or unexpected root: ${item.path}`);
+    const untrackedEnvironment = item.gitStatus === "?? .env.production.local\0";
+    const allowedEnvironment = untrackedEnvironment && item.environment?.exists && item.environment.safe;
+    requireSafe((!(item.dirty || item.gitStatus) || allowedEnvironment) && (!item.gitRoot || item.gitRoot === item.path), `repository has local changes or unexpected root: ${item.path}`);
+    requireSafe(item.environment?.safe !== false, `unsafe environment entry: ${item.path}`);
     requireSafe(!e.mounts.some(path => within(path, item.path)), `mounted filesystem: ${item.path}`);
     requireSafe(!references.some(ref => within(ref.path, item.path)), `directory still referenced: ${item.path}`);
   }
   return {
     keep: [SOURCE, CURRENT, ROLLBACK],
-    releases: e.directories.map(item => ({path:item.path,registered:item.registered,sizeKiB:item.sizeKiB})),
+    releases: e.directories.map(item => ({path:item.path,registered:item.registered,sizeKiB:item.sizeKiB,untrackedEnvironment:item.gitStatus === "?? .env.production.local\0"})),
     estimatedKiB: e.cacheKiB + e.directories.reduce((sum,item) => sum + item.sizeKiB, 0)
   };
 }
