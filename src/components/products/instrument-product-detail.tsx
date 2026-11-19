@@ -2,23 +2,22 @@ import Link from "next/link";
 import { assetPath, pdfPath, type Locale, type Product } from "@/data/catalog";
 import { getProductApplicationLinks } from "@/data/application-links";
 import { getInstrumentDetails } from "@/data/product-details";
+import { getInstrumentSpecifications } from "@/data/instrument-specifications";
 import { getMdm300GallerySlides } from "@/data/mdm300-gallery";
 import { localizedPath, t } from "@/lib/i18n";
 import { METRICA_GOALS, MetricaTrackedLink } from "@/components/metrica-goals";
 import { DetailHero, DetailNavigation, DetailSection, DetailSpecTable, DetailList, detailFocus, detailHeading } from "./detail-layout";
 import { ProductVisual } from "./product-visual";
+import { InstrumentSpecifications } from "./instrument-specifications";
 
 export function InstrumentProductDetail({ locale, product }: { locale: Locale; product: Product }) {
   const c = t(locale);
   const copy = getInstrumentDetails(locale, product);
+  const specifications = getInstrumentSpecifications(product.slug, locale);
   const id = (section: string) => `${product.slug}-${section}`;
   const sections = Object.entries(copy.sections).filter(([key]) => key !== "versions" || copy.versionRows).map(([key, label]) => ({ id: id(key), label }));
   const applicationLinks = getProductApplicationLinks(product.slug);
   const quoteHref = `${localizedPath(locale, "/contact")}?model=${encodeURIComponent(product.model)}`;
-
-  function PdfLink({ className }: { className: string }) {
-    return <MetricaTrackedLink className={`${className} ${detailFocus}`} href={pdfPath(product.pdf)} target="_blank" rel="noreferrer" goal={METRICA_GOALS.pdfDownload} goalParams={{ slug: product.slug, model: product.model }}>{c.downloadPdf}</MetricaTrackedLink>;
-  }
 
   return (
     <div className="bg-white">
@@ -30,7 +29,7 @@ export function InstrumentProductDetail({ locale, product }: { locale: Locale; p
         subtitle={copy.productType}
         summary={copy.summary}
         facts={copy.facts}
-        actions={<><Link className={`btn btn-primary w-full text-center ${detailFocus}`} href={quoteHref}>{c.requestQuote}</Link><PdfLink className="btn btn-outline w-full text-center" /></>}
+        actions={<><Link className={`btn btn-primary w-full text-center ${detailFocus}`} href={quoteHref}>{c.requestQuote}</Link><a className={`btn btn-outline w-full text-center ${detailFocus}`} href={`#${id("specifications")}`}>{copy.sections.specifications}</a></>}
         media={<ProductVisual src={assetPath(product.image)} alt={product.model} locale={locale} slides={product.slug === "mdm300" ? getMdm300GallerySlides(locale) : undefined} />}
         note={copy.safetyNote}
       />
@@ -41,12 +40,14 @@ export function InstrumentProductDetail({ locale, product }: { locale: Locale; p
             <DetailSection id={id("overview")} title={c.overview} className="border-t-0 pt-0">
               <p className="mt-4 text-base leading-7 text-muted">{product.overview[locale]}</p>
             </DetailSection>
-            <DetailSection id={id("specifications")} title={copy.sections.specifications}><DetailSpecTable locale={locale} rows={copy.specifications} /></DetailSection>
+            <DetailSection id={id("specifications")} title={copy.sections.specifications}>
+              {specifications ? <InstrumentSpecifications locale={locale} specifications={specifications} /> : <DetailSpecTable locale={locale} rows={copy.specifications} />}
+            </DetailSection>
             {copy.versionRows ? (
               <DetailSection id={id("versions")} title={copy.sections.versions}>
                 <table className="mt-5 w-full table-fixed border-collapse text-left text-sm leading-6">
                   <thead className="bg-[#f4f7fa] text-steel"><tr><th className="w-[34%] break-words p-3 font-semibold" scope="col">{locale === "ru" ? "Параметр" : "Parameter"}</th><th className="p-3 font-semibold" scope="col">MDM300</th><th className="p-3 font-semibold" scope="col">MDM300 I.S.</th></tr></thead>
-                  <tbody>{copy.versionRows.map(row => <tr className="border-b border-line" key={row.label}><th className="break-words p-3 align-top font-semibold" scope="row">{row.label}</th><td className="break-words p-3 align-top text-muted">{row.standard}</td><td className="break-words p-3 align-top text-muted">{row.intrinsicallySafe}</td></tr>)}</tbody>
+                  <tbody>{copy.versionRows.map(row => <tr className="border-b border-line [&>*]:[overflow-wrap:anywhere]" key={row.label}><th className="break-words p-3 align-top font-semibold" scope="row">{row.label}</th><td className="break-words p-3 align-top text-muted">{row.standard}</td><td className="break-words p-3 align-top text-muted">{row.intrinsicallySafe}</td></tr>)}</tbody>
                 </table>
                 <p className="mt-4 text-sm leading-6 text-muted">{copy.conditionsNote}</p>
               </DetailSection>
@@ -65,7 +66,7 @@ export function InstrumentProductDetail({ locale, product }: { locale: Locale; p
           <DetailSection id={id("documents")} title={copy.sections.documents}>
             <div className="mt-5 flex flex-wrap items-center justify-between gap-5 border-b border-line pb-6">
               <div className="min-w-0"><p className="font-semibold">{copy.documentTitle}</p><p className="mt-1 text-sm text-muted">{copy.documentMeta}</p></div>
-              <PdfLink className="btn btn-primary w-full sm:w-auto" />
+              <MetricaTrackedLink className={`btn btn-primary w-full sm:w-auto ${detailFocus}`} href={pdfPath(product.pdf)} target="_blank" rel="noreferrer" goal={METRICA_GOALS.pdfDownload} goalParams={{ slug: product.slug, model: product.model }}>{copy.downloadLabel ?? c.downloadPdf}</MetricaTrackedLink>
             </div>
           </DetailSection>
         </div>

@@ -77,7 +77,6 @@ export const productApplicationLinks: Record<string, ProductApplicationLink[]> =
   "gpr-1000-1100-2000-3500": [applicationPages.gloveBoxOxygen],
   "easidew-pro-is": [applicationPages.naturalGasMoisture],
   "easidew-pro-xp": [applicationPages.naturalGasMoisture],
-  "optidew-hz": [applicationPages.naturalGasMoisture],
   "hc2a-series": [applicationPages.industrialHumidity, applicationPages.climateChamberHumidity],
   "hc2a-industrial": [applicationPages.industrialHumidity],
   "hygroflex1": [applicationPages.industrialHumidity, applicationPages.climateChamberHumidity],

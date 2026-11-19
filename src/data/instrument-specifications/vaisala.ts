@@ -1,0 +1,197 @@
+import { r, type SpecificationSheet } from "./types";
+
+export const vaisalaSpecifications: Record<string, SpecificationSheet> = {
+  hmt370ex: {
+    source: { revision: "B211825EN-K", pages: "1–7" },
+    groups: {
+      measurement: [
+        r("Relative humidity range", "Диапазон относительной влажности", "0–100 %RH at dew point ≤ +95 °C", "0–100 %RH при точке росы ≤ +95 °C"),
+        r("Relative humidity accuracy", "Точность измерения влажности", "±0.8 %RH at +23 °C and 0–90 %RH; see the datasheet curve for other conditions.", "±0,8 %RH при +23 °C и 0–90 %RH; для других условий см. график в паспорте."),
+        r("Factory calibration uncertainty (±2σ)", "Неопределённость заводской калибровки (±2σ)", "RH: ±0.5 %RH at 0–40 %RH, ±0.8 %RH at 40–95 %RH; temperature: ±0.1 °C at +23 °C.", "Влажность: ±0,5 %RH при 0–40 %RH, ±0,8 %RH при 40–95 %RH; температура: ±0,1 °C при +23 °C."),
+        r("Humidity response time (T63)", "Время отклика по влажности (T63)", "15 s", "15 с"),
+        r("Temperature accuracy", "Точность измерения температуры", "±0.1 °C at +23 °C; see the datasheet curve for other temperatures.", "±0,1 °C при +23 °C; для других температур см. график в паспорте."),
+        r("Measurement sensors", "Измерительные сенсоры", "HUMICAP R2; Pt1000 RTD, IEC 60751 class F0.1.", "HUMICAP R2; термосопротивление Pt1000 класса F0.1 по IEC 60751."),
+        r("Calculated quantities", "Расчётные величины", "Probe-dependent: dew point, dew/frost point, absolute humidity (including at NTP), mixing ratio, wet-bulb temperature, water concentration and mass fraction, vapor and saturation pressures, enthalpy, and dew-point difference.", "Зависят от зонда: точка росы, точка росы/инея, абсолютная влажность (в том числе при нормальных условиях), отношение смеси, температура влажного термометра, концентрация и массовая доля воды, давление водяного пара и давление насыщения, энтальпия и разность температур до точки росы."),
+      ],
+      electrical: [
+        r("Operating voltage", "Напряжение питания", "12–28 V DC", "12–28 В пост. тока"),
+        r("Analog outputs", "Аналоговые выходы", "Two 2-wire 4–20 mA outputs via safety barriers.", "Два двухпроводных выхода 4–20 мА с подключением через барьеры искрозащиты."),
+        r("Analog output accuracy and drift", "Точность и температурный коэффициент аналоговых выходов", "Typical: ±0.0625 % of full scale at +20 °C; 0.005 % of full scale per °C.", "Типовые значения: ±0,0625 % полной шкалы при +20 °C; 0,005 % полной шкалы на 1 °C."),
+        r("Display and service connections", "Дисплей и сервисное подключение", "Graphical LCD or no display; service cables: 219690 (transmitter), USB2 (probe).", "Графический ЖК-дисплей или исполнение без дисплея; сервисные кабели: 219690 (преобразователь), USB2 (зонд)."),
+      ],
+      operating: [
+        r("Probe temperature ranges", "Диапазоны температуры зондов", "HMP371: −40 to +60 °C; HMP373: −40 to +120 °C (Teflon cable) or −40 to +80 °C (rubber cable); HMP374/HMP375/HMP377/HMP378: −70 to +180 °C.", "HMP371: −40…+60 °C; HMP373: −40…+120 °C (тефлоновый кабель) или −40…+80 °C (резиновый кабель); HMP374/HMP375/HMP377/HMP378: −70…+180 °C."),
+        r("Probe process pressure", "Давление процесса по моделям зондов", "HMP374: 0–10 MPa; HMP377: 0–1 MPa; HMP378: 0–4 MPa. The linked sheet gives no pressure range for HMP371/HMP373/HMP375.", "HMP374: 0–10 МПа; HMP377: 0–1 МПа; HMP378: 0–4 МПа. Для HMP371/HMP373/HMP375 диапазон давления в паспорте не указан."),
+        r("Electronics and storage temperatures", "Температуры электроники и хранения", "Electronics: −40 to +60 °C; with display: −20 to +60 °C, out of direct sunlight; storage: −40 to +70 °C.", "Электроника: −40…+60 °C; с дисплеем: −20…+60 °C, без прямого солнечного света; хранение: −40…+70 °C."),
+        r("Maximum dew point at probe head", "Максимальная точка росы для головки зонда", "+100 °C (operating humidity limit, not the measurement range).", "+100 °C (предел по условиям эксплуатации, не диапазон измерения)."),
+        r("Hazardous-area ratings", "Взрывозащита", "ATEX: II 1 G Ex ia IIC T4 Ga / II 1 D Ex ia IIIC T200 85 °C Da; IECEx: Ex ia IIC T4 Ga / II 1 D Ex ia IIIC T200 85 °C Da. Ambient: −40 to +60 °C, 0.8–1.1 bar. See regional classifications on p. 6.", "ATEX: II 1 G Ex ia IIC T4 Ga / II 1 D Ex ia IIIC T200 85 °C Da; IECEx: Ex ia IIC T4 Ga / II 1 D Ex ia IIIC T200 85 °C Da. Окружающая среда: −40…+60 °C, 0,8–1,1 бар. Региональные классификации см. на стр. 6."),
+        r("ATEX / IECEx input safety parameters", "Параметры искробезопасного входа ATEX / IECEx", "Ui = 28 V DC, Ii = 100 mA, Pi = 700 mW, Ci = 12.1 nF, Li = 16 µH.", "Ui = 28 В пост. тока, Ii = 100 мА, Pi = 700 мВт, Ci = 12,1 нФ, Li = 16 мкГн."),
+      ],
+      mechanical: [
+        r("Housing and protection", "Корпус и степень защиты", "EN AW-6082; IP66 with probe attached, IP54 with probe detached.", "EN AW-6082; IP66 при подключённом зонде, IP54 при снятом зонде."),
+        r("Electrical connections", "Подключение проводов", "Screw terminals for 0.33–2.0 mm² wire (AWG 14–22); M20×1.5 glands; 1/2-inch NPT or M16 conduit fittings.", "Винтовые клеммы для проводов 0,33–2,0 мм² (AWG 14–22); вводы M20×1,5; фитинги для кабельной трубы NPT 1/2″ или M16."),
+        r("Probe cables and lengths", "Кабели и длина зондов", "2, 5 or 10 m cables for HMP373/HMP374/HMP375/HMP377/HMP378; HMP378 probe lengths: 262 or 448 mm.", "Кабели 2, 5 или 10 м для HMP373/HMP374/HMP375/HMP377/HMP378; длина зонда HMP378: 262 или 448 мм."),
+        r("EMC and conformity marks", "ЭМС и маркировка соответствия", "EN 61326-1 (industrial); CE, China RoHS, RCM.", "EN 61326-1 (промышленная среда); CE, China RoHS, RCM."),
+      ],
+    },
+    note: {
+      en: "Probe ranges are not Ex temperature-class limits. Consult the applicable certificate and installation instructions. HMP371 and HMP373 can also be ordered for temperature only. HMP378F/HMP378H for oil and JET A-1 are covered by a separate datasheet and are not specified here.",
+      ru: "Диапазоны зондов не заменяют температурные ограничения по классу взрывозащиты. См. применимый сертификат и руководство по монтажу. HMP371 и HMP373 также доступны в исполнении только для измерения температуры. Зонды HMP378F/HMP378H для масла и топлива JET A-1 описаны в отдельном паспорте и здесь не рассматриваются.",
+    },
+  },
+  hmt310: {
+    source: { revision: "B210769EN-J", pages: "1–3" },
+    groups: {
+      measurement: [
+        r("Relative humidity range", "Диапазон относительной влажности", "0–100 %RH"),
+        r("RH accuracy at +15 to +25 °C", "Точность измерения влажности при +15…+25 °C", "±1 %RH at 0–90 %RH; ±1.7 %RH at 90–100 %RH.", "±1 %RH при 0–90 %RH; ±1,7 %RH при 90–100 %RH."),
+        r("RH accuracy over wider temperature ranges", "Точность измерения влажности в расширенных диапазонах температуры", "−20 to +40 °C: ±(1.0 + 0.008 × reading) %RH; −40 to +180 °C: ±(1.5 + 0.015 × reading) %RH.", "−20…+40 °C: ±(1,0 + 0,008 × показание) %RH; −40…+180 °C: ±(1,5 + 0,015 × показание) %RH."),
+        r("RH factory calibration uncertainty at +20 °C (±2σ)", "Неопределённость заводской калибровки влажности при +20 °C (±2σ)", "±0.6 %RH at 0–40 %RH; ±1.0 %RH at 40–97 %RH.", "±0,6 %RH при 0–40 %RH; ±1,0 %RH при 40–97 %RH."),
+        r("RH response (90 % at +20 °C, air speed 0.1 m/s)", "Время отклика по влажности (90 % при +20 °C и 0,1 м/с)", "17 s with grid; 50 s with grid and stainless steel mesh; 60 s with sintered filter.", "17 с с решёткой; 50 с с решёткой и сеткой из нержавеющей стали; 60 с со спечённым фильтром."),
+        r("HUMICAP sensor options", "Варианты сенсора HUMICAP", "180R: general use; 180RC: chemical purge or warmed probe; 180V: catalytic sensor for H₂O₂; 180VC: catalytic sensor for H₂O₂ with chemical purge.", "180R: общего назначения; 180RC: химическая очистка или подогреваемый зонд; 180V: каталитический сенсор для H₂O₂; 180VC: каталитический сенсор для H₂O₂ с химической очисткой."),
+        r("Temperature ranges by model", "Диапазоны измерения температуры по моделям", "HMT311: −40 to +60 °C; HMT313: −40 to +80 °C or −40 to +120 °C; HMT314/HMT315/HMT317/HMT318: −70 to +180 °C.", "HMT311: −40…+60 °C; HMT313: −40…+80 °C или −40…+120 °C; HMT314/HMT315/HMT317/HMT318: −70…+180 °C."),
+        r("Temperature sensor and typical accuracy", "Сенсор температуры и типовая точность", "Pt100 RTD, IEC 60751 class F0.1; ±0.2 °C at +20 °C.", "Термосопротивление Pt100 класса F0.1 по IEC 60751; ±0,2 °C при +20 °C."),
+      ],
+      electrical: [
+        r("Supply voltage and minimums", "Напряжение питания и минимальные значения", "10–35 V DC; minimum 10 V for RS-232C, 15 V for analog output, probe heating or chemical purge, and 24 V above 10 bar absolute.", "10–35 В пост. тока; минимум 10 В для RS-232C, 15 В для аналогового выхода, подогрева зонда или химической очистки и 24 В при абсолютном давлении выше 10 бар."),
+        r("Analog outputs", "Аналоговые выходы", "Two selectable, scalable outputs: 0–20 or 4–20 mA; 0–5 or 0–10 V (1–5 V by scaling).", "Два настраиваемых выхода с масштабированием: 0–20 или 4–20 мА; 0–5 или 0–10 В (1–5 В при масштабировании)."),
+        r("Analog output accuracy and drift", "Точность и температурный коэффициент аналогового выхода", "Typical: ±0.05 % of full scale at +20 °C; 0.005 % of full scale per °C.", "Типовые значения: ±0,05 % полной шкалы при +20 °C; 0,005 % полной шкалы на 1 °C."),
+        r("Serial output", "Последовательный выход", "RS-232C (ASCII)"),
+        r("External load and startup", "Внешняя нагрузка и время запуска", "Rₗ < 500 Ω; startup 3 s after power-up.", "Rₗ < 500 Ом; запуск через 3 с после подачи питания."),
+        r("Electrical connector", "Электрический разъём", "M12, 8-pin male; power, two analog channels and RS-232C.", "M12, 8 контактов, вилка; питание, два аналоговых канала и RS-232C."),
+      ],
+      operating: [
+        r("Process pressure by model", "Давление процесса по моделям", "HMT314: 0–100 bar; HMT318: 0–40 bar; HMT317: 0–10 bar. No pressure rating is given for other variants in the linked sheet.", "HMT314: 0–100 бар; HMT318: 0–40 бар; HMT317: 0–10 бар. Для остальных исполнений допустимое давление в паспорте не указано."),
+        r("Electronics and storage temperatures", "Температуры электроники и хранения", "Electronics: −40 to +60 °C; storage: −55 to +80 °C.", "Электроника: −40…+60 °C; хранение: −55…+80 °C."),
+        r("EMC", "Электромагнитная совместимость", "EN 61326-1, industrial environment.", "EN 61326-1, промышленная среда."),
+      ],
+      mechanical: [
+        r("Housing and dimensions", "Корпус и габариты", "G-AlSi10Mg housing, PPS base; IP66; body 115 × 72.5 × 43 mm.", "Корпус G-AlSi10Mg, основание из PPS; IP66; габариты корпуса 115 × 72,5 × 43 мм."),
+        r("Probe cable lengths", "Длины кабеля зонда", "2, 5 or 10 m.", "2, 5 или 10 м."),
+        r("Sensor protection", "Защита сенсора", "PPS grid with or without stainless steel mesh, sintered filter, stainless steel membrane filter or H₂O₂ filter.", "Решётка из PPS с сеткой из нержавеющей стали или без неё, спечённый фильтр, мембранный фильтр из нержавеющей стали или фильтр для H₂O₂."),
+      ],
+    },
+    note: {
+      en: "HMT310 is the series designation. The RH accuracy figures include non-linearity, hysteresis and repeatability. Humidity accuracy below −20 °C is not specified for the HUMICAP 180V or 180VC.",
+      ru: "HMT310 — обозначение серии. Точность измерения влажности приведена с учётом нелинейности, гистерезиса и повторяемости. Для HUMICAP 180V и 180VC точность измерения влажности ниже −20 °C не нормируется.",
+    },
+  },
+  "hmp3-hmpx": {
+    source: { revision: "B211826EN-E", pages: "1–3" },
+    groups: {
+      measurement: [
+        r("Relative humidity range", "Диапазон относительной влажности", "0–100 %RH at dew point ≤ +95 °C.", "0–100 %RH при точке росы ≤ +95 °C."),
+        r("Relative humidity accuracy", "Точность измерения влажности", "±0.8 %RH at +23 °C and 0–90 %RH; see the datasheet curve for other conditions.", "±0,8 %RH при +23 °C и 0–90 %RH; для других условий см. график в паспорте."),
+        r("RH factory calibration uncertainty (±2σ)", "Неопределённость заводской калибровки влажности (±2σ)", "±0.5 %RH at 0–40 %RH; ±0.8 %RH at 40–95 %RH.", "±0,5 %RH при 0–40 %RH; ±0,8 %RH при 40–95 %RH."),
+        r("Humidity response time (T63)", "Время отклика по влажности (T63)", "15 s", "15 с"),
+        r("HUMICAP sensor options", "Варианты сенсора HUMICAP", "R2 is field replaceable. R2C and 180VC support sensor purge; 180VC resists H₂O₂ and has no specified RH accuracy below −20 °C.", "R2 заменяется на месте эксплуатации. R2C и 180VC поддерживают очистку сенсора; 180VC устойчив к H₂O₂, точность измерения влажности ниже −20 °C не нормируется."),
+        r("Temperature range and sensor", "Диапазон измерения температуры и сенсор", "−40 to +120 °C; Pt100 RTD, IEC 60751 class F0.1.", "−40…+120 °C; термосопротивление Pt100 класса F0.1 по IEC 60751."),
+        r("Temperature accuracy and calibration uncertainty", "Точность измерения температуры и неопределённость калибровки", "Best accuracy ±0.1 °C (see temperature curve); factory calibration uncertainty ±0.1 °C at +23 °C (±2σ).", "Наилучшая точность ±0,1 °C (см. температурный график); неопределённость заводской калибровки ±0,1 °C при +23 °C (±2σ)."),
+        r("Output quantities", "Выходные величины", "Temperature, RH (including dew/frost), absolute humidity (including NTP), dew point and dew/frost point (also at 1 atm), dew-point difference, wet-bulb temperature, mixing ratio, enthalpy, water concentration and mass fraction, water-vapor pressure and saturation pressure.", "Температура, относительная влажность (включая расчёт по воде/льду), абсолютная влажность (в том числе при нормальных условиях), точка росы и точка росы/инея (также при 1 атм), разность температур до точки росы, температура влажного термометра, отношение смеси, энтальпия, концентрация и массовая доля воды, давление водяного пара и давление насыщения."),
+      ],
+      electrical: [
+        r("Operating voltage", "Напряжение питания", "15–30 V DC", "15–30 В пост. тока"),
+        r("Current consumption", "Потребляемый ток", "10 mA typical, 500 mA maximum.", "10 мА тип., 500 мА макс."),
+        r("Digital output", "Цифровой выход", "Non-isolated RS-485, Modbus RTU.", "RS-485 без гальванической развязки, Modbus RTU."),
+        r("Compatibility", "Совместимость", "Standalone Modbus RTU; Vaisala Indigo transmitters, Indigo80 handheld indicator and Insight PC software.", "Автономное подключение по Modbus RTU; преобразователи Vaisala Indigo, портативный индикатор Indigo80 и программа Insight для ПК."),
+      ],
+      operating: [
+        r("Operating and storage temperatures", "Температуры эксплуатации и хранения", "Probe body: −40 to +80 °C; probe head: −40 to +120 °C; storage: −40 to +80 °C.", "Корпус зонда: −40…+80 °C; головка зонда: −40…+120 °C; хранение: −40…+80 °C."),
+        r("Maximum dew point at probe head", "Максимальная точка росы для головки зонда", "+100 °C (operating humidity limit, not the measurement range).", "+100 °C (предел по условиям эксплуатации, не диапазон измерения)."),
+        r("Measurement environments", "Измеряемые среды", "Air, nitrogen, hydrogen, argon, helium and oxygen. Consult Vaisala for other chemicals; follow safety rules for flammable gases.", "Воздух, азот, водород, аргон, гелий и кислород. При наличии других веществ проконсультируйтесь с Vaisala; соблюдайте правила безопасности для горючих газов."),
+        r("Ingress protection and approvals", "Степень защиты и допуски", "Probe body IP66; suitable for outdoor use. EN 61326-1 (industrial); DNV GL TAA00002YT.", "Корпус зонда IP66; допускается эксплуатация на открытом воздухе. EN 61326-1 (промышленная среда); DNV GL TAA00002YT."),
+      ],
+      mechanical: [
+        r("Connector", "Разъём", "M12 5-pin male, A-coded.", "M12, 5 контактов, вилка, кодировка A."),
+        r("Materials and weight", "Материалы и масса", "AISI 316L probe head and body; FEP cable jacket; 302 g with 2 m cable.", "Головка и корпус зонда из AISI 316L; оболочка кабеля FEP; 302 г с кабелем 2 м."),
+        r("Probe cable lengths", "Длины кабеля зонда", "0.15, 2, 5 or 10 m.", "0,15; 2; 5 или 10 м."),
+        r("Probe dimensions", "Размеры зонда", "Body: Ø25 × 136 mm; head: Ø12 × 98.5 mm.", "Корпус: Ø25 × 136 мм; головка: Ø12 × 98,5 мм."),
+        r("Filter alternatives", "Варианты фильтра", "12 µm stainless steel mesh, sintered stainless steel or PPS grid. Recalibrate after replacing the R2 sensor.", "Сетка 12 мкм из нержавеющей стали, спечённая нержавеющая сталь или решётка PPS. После замены сенсора R2 нужна повторная калибровка."),
+      ],
+    },
+    note: {
+      en: "These values apply only to HMP3. HMPX in the file name does not make the specifications applicable to other HMP-series probes.",
+      ru: "Характеристики относятся только к HMP3. Обозначение HMPX в имени файла не означает, что они применимы к другим зондам серии HMP.",
+    },
+  },
+  dmt153: {
+    source: { revision: "B212905EN-B", pages: "1–3" },
+    groups: {
+      measurement: [
+        r("Sensor", "Сенсор", "DRYCAP 180U with sensor purge and autocalibration.", "DRYCAP 180U с очисткой сенсора и автокалибровкой."),
+        r("Dew/frost-point range (Td/f)", "Диапазон точки росы/инея (Td/f)", "−80 to −20 °C calibrated; −100 to +20 °C uncalibrated. For Td/f, reports frost point below 0 °C.", "−80…−20 °C с калибровкой; −100…+20 °C без калибровки. При выводе Td/f ниже 0 °C отображается точка инея."),
+        r("Dew/frost-point accuracy", "Точность измерения точки росы/инея", "±2 °C at −80 to −40 °C Td/f; ±3 °C at −40 to −20 °C Td/f, within the measured-gas temperature limits on the p. 2 accuracy chart.", "±2 °C при Td/f −80…−40 °C; ±3 °C при Td/f −40…−20 °C в пределах температуры измеряемого газа по графику точности на стр. 2."),
+        r("Typical response (63 % [90 %], gas at +20 °C and 1 bar)", "Типовое время отклика (63 % [90 %], газ при +20 °C и 1 бар)", "−20 → −80 °C Td/f: 30 s [7.5 min]; −80 → −20 °C Td/f: 2 s [5 s].", "−20 → −80 °C Td/f: 30 с [7,5 мин]; −80 → −20 °C Td/f: 2 с [5 с]."),
+        r("Long-term stability", "Долговременная стабильность", "Typically better than ±2 °C Td/f per year.", "Типовое значение: лучше ±2 °C Td/f в год."),
+        r("Measurement cycle and resolution", "Цикл измерения и разрешение", "1 s cycle; 0.01 °C Td/f on the digital output.", "Цикл 1 с; 0,01 °C Td/f на цифровом выходе."),
+        r("Startup and warm-up", "Запуск и прогрев", "Starts in 1 min; warm-up 10 min, 15 min to full specification.", "Запуск за 1 мин; прогрев 10 мин, выход на нормируемые характеристики за 15 мин."),
+        r("Output quantities and calibration", "Выходные величины и калибровка", "Dew/frost point or dew point; water concentration (ppmv or ppbv) and mass fraction (ppmw), both on a wet basis. SI-traceable calibration certificate for −80 to −20 °C Td/f.", "Точка росы/инея или точка росы; объёмная концентрация (ppmv или ppbv) и массовая доля воды (ppmw), обе с учётом влаги в газе. Сертификат калибровки с прослеживаемостью к СИ для −80…−20 °C Td/f."),
+      ],
+      electrical: [
+        r("Power supply", "Электропитание", "RS-485: 11–28 V DC; analog: 15–28 V DC; low temperature or high pressure: 21–28 V DC. Nominal: 24 V.", "RS-485: 11–28 В пост. тока; аналоговый выход: 15–28 В; при низкой температуре или высоком давлении: 21–28 В. Номинальное напряжение: 24 В."),
+        r("Current draw and supply ripple", "Потребляемый ток и пульсации питания", "20 mA plus load in normal operation; up to 220 mA pulsed during self-diagnostics. Ripple ≤ 0.3 V RMS at 50/60 Hz.", "20 мА плюс ток нагрузки в штатном режиме; до 220 мА импульсно при самодиагностике. Пульсации ≤ 0,3 В (действующее значение) при 50/60 Гц."),
+        r("Analog outputs", "Аналоговые выходы", "One voltage channel (0–5 or 0–10 V) and one current channel (4–20 or 0–20 mA), scalable.", "По одному масштабируемому каналу: напряжение 0–5 или 0–10 В; ток 4–20 или 0–20 мА."),
+        r("Analog output performance", "Характеристики аналоговых выходов", "At +20 °C: ±0.01 V or ±0.01 mA; temperature dependence ±0.005 %/°C. Loads: < 500 Ω (current), > 10 kΩ (voltage).", "При +20 °C: ±0,01 В или ±0,01 мА; температурный коэффициент ±0,005 %/°C. Нагрузка: < 500 Ом (ток), > 10 кОм (напряжение)."),
+        r("Digital interface and connector", "Цифровой интерфейс и разъём", "RS-485 with Modbus RTU; M12 5-pin male, A-coded.", "RS-485 с Modbus RTU; M12, 5 контактов, вилка, кодировка A."),
+      ],
+      operating: [
+        r("Operating and storage temperatures", "Температуры эксплуатации и хранения", "Operation: −40 to +70 °C; storage: −40 to +60 °C.", "Эксплуатация: −40…+70 °C; хранение: −40…+60 °C."),
+        r("Process pressure and sample flow", "Давление процесса и расход пробы", "0–50 bar absolute. Sample flow rate does not affect accuracy.", "0–50 бар (абс.). Расход пробы не влияет на точность."),
+        r("Installation and humidity", "Условия установки и влажность", "Indoors, not for wet locations. Transmitter body (not sensor) with cable correctly fitted: 0–100 %RH up to +20 °C. Storage: 0–90 %RH.", "В помещении, не для мокрых зон. Корпус преобразователя (без сенсора) при правильно подключённом кабеле: 0–100 %RH при температуре до +20 °C. Хранение: 0–90 %RH."),
+        r("Measurement media", "Измеряемые среды", "Air, nitrogen, argon, helium, oxygen and vacuum. Not for pure CO₂ or SF₆. Consult Vaisala for other chemicals. Not Ex-certified.", "Воздух, азот, аргон, гелий, кислород и вакуум. Не предназначен для чистых CO₂ или SF₆. По другим веществам проконсультируйтесь с Vaisala. Сертификации Ex нет."),
+      ],
+      mechanical: [
+        r("Process connections", "Подключение к процессу", "ISO G1/2″, 1/2″ NPT or 3/4″-16 UNF."),
+        r("Materials and filter", "Материалы и фильтр", "AISI 316L transmitter body; filter body AISI 303; AISI 316L mesh, 18 µm.", "Корпус преобразователя: AISI 316L; корпус фильтра: AISI 303; сетка AISI 316L, 18 мкм."),
+        r("Ingress protection and weight", "Степень защиты и масса", "IP66 for transmitter body with cable properly connected (excludes sensor); 190 g for the ISO G1/2″ model.", "IP66 для корпуса с правильно подключённым кабелем (не распространяется на сенсор); 190 г для исполнения ISO G1/2″."),
+        r("EMC and conformity marks", "ЭМС и маркировка соответствия", "IEC/EN 61326-1 (industrial, shielded cable installation), CISPR 11 / EN 55011 Class B Group 1; CE, China RoHS, RCM, KC.", "IEC/EN 61326-1 (промышленная среда, монтаж с экранированными кабелями), CISPR 11 / EN 55011, класс B, группа 1; CE, China RoHS, RCM, KC."),
+      ],
+    },
+  },
+  "dmt143-dmt143l": {
+    source: { revision: "B211207EN-L", pages: "1–3" },
+    references: [{ label: "DMT143L", revision: "M211435EN-L", pages: "", url: "https://docs.vaisala.com/r/M211435EN-L/en-US/GUID-E8105BF7-8C04-4F34-80FD-F86C8AB11D3D" }],
+    groups: {
+      measurement: [
+        r("Sensor and filter", "Сенсор и фильтр", "DRYCAP 180D with a sintered stainless steel filter.", "DRYCAP 180D со спечённым фильтром из нержавеющей стали."),
+        r("Typical dew/frost-point range", "Типовой диапазон точки росы/инея", "−70 to +60 °C Td/f. Reports frost point below 0 °C.", "−70…+60 °C Td/f. Ниже 0 °C выдаёт точку инея."),
+        r("Dew/frost-point accuracy in air or nitrogen", "Точность измерения точки росы/инея в воздухе или азоте", "Up to ±2 °C Td/f. The p. 2 chart shows the ±2 °C and ±3 °C regions by gas temperature and dew point; in the region marked ±3 °C, accuracy is ±4 °C above 12 bar.", "Наилучшая точность ±2 °C Td/f. График на стр. 2 показывает области ±2 °C и ±3 °C в зависимости от температуры газа и точки росы; в области ±3 °C при давлении выше 12 бар точность составляет ±4 °C."),
+        r("Typical response (63 % [90 %])", "Типовое время отклика (63 % [90 %])", "−70 → −20 °C Td/f: 5 s [15 s]; −20 → −70 °C Td/f: 45 s [10 min]. Gas: +20 °C, 1 bar, 1 L/min.", "−70 → −20 °C Td/f: 5 с [15 с]; −20 → −70 °C Td/f: 45 с [10 мин]. Газ: +20 °C, 1 бар, 1 л/мин."),
+        r("Water concentration by volume", "Объёмная концентрация воды", "10–40 000 ppm typical; accuracy 1 ppm + 20 % of reading at +20 °C and 1 bar.", "Типовой диапазон 10–40 000 ppm; точность 1 ppm + 20 % показания при +20 °C и 1 бар."),
+        r("Typical calibration interval", "Типовой интервал калибровки", "2 years", "2 года"),
+        r("DMT143L: sensor and range", "DMT143L: сенсор и диапазон", "DRYCAP 180M or 180S (for refrigeration dryers); the specifications table lists −60 to +60 °C as typical. Check the selected sensor's range and accuracy curve.", "DRYCAP 180M или 180S (для холодильных осушителей); по таблице типовой диапазон −60…+60 °C. Уточните диапазон и график точности выбранного сенсора."),
+        r("DMT143L: accuracy and calibration", "DMT143L: точность и калибровка", "±2 °C within the sensor-specific conditions in the guide; typical calibration interval: 2 years. Below 0 °C the output is frost point.", "±2 °C при указанных для сенсора условиях; типовой интервал калибровки: 2 года. Ниже 0 °C выдаётся точка инея."),
+        r("DMT143L: response (63 % [90 %])", "DMT143L: время отклика (63 % [90 %])", "−60 → −20 °C: 5 s [10 s]; −20 → −60 °C: 45 s [10 min], typical at +20 °C, 1 bar and 1 L/min.", "−60 → −20 °C: 5 с [10 с]; −20 → −60 °C: 45 с [10 мин], типовые значения при +20 °C, 1 бар и 1 л/мин."),
+      ],
+      electrical: [
+        r("Supply voltage", "Напряжение питания", "Digital or voltage output: 12–28 V DC; current output: 18–28 V DC. Extended operation below 0 °C or pressure above 20 bar absolute requires 24–28 V DC.", "Цифровой выход или выход напряжения: 12–28 В пост. тока; токовый выход: 18–28 В. Работа в расширенном диапазоне ниже 0 °C или при абсолютном давлении выше 20 бар требует 24–28 В."),
+        r("Scalable analog output options", "Варианты масштабируемого аналогового выхода", "4–20 mA (3-wire), 0–1 V, 0–5 V or 1–5 V.", "4–20 мА (трёхпроводный), 0–1 В, 0–5 В или 1–5 В."),
+        r("Analog output performance", "Характеристики аналогового выхода", "Resolution: 0.002 mA or 0.3 mV. Accuracy at +20 °C: ±0.05 mA or ±0.01 V. Typical drift: 0.005 % of span per °C.", "Разрешение: 0,002 мА или 0,3 мВ. Точность при +20 °C: ±0,05 мА или ±0,01 В. Типовой температурный коэффициент: 0,005 % диапазона на 1 °C."),
+        r("Analog output loading", "Нагрузка аналогового выхода", "Current output: ≤ 500 Ω; voltage output: ≥ 10 kΩ.", "Токовый выход: ≤ 500 Ом; выход напряжения: ≥ 10 кОм."),
+        r("Digital output and protocols", "Цифровой выход и протоколы", "Non-isolated RS-485; Vaisala Industrial Protocol and Modbus RTU.", "RS-485 без гальванической развязки; Vaisala Industrial Protocol и Modbus RTU."),
+        r("Typical supply current at +20 °C and 24 V DC", "Типовой ток питания при +20 °C и 24 В пост. тока", "10 mA plus load current normally; 220 mA pulsed during self-diagnostics.", "10 мА плюс ток нагрузки в штатном режиме; 220 мА импульсно при самодиагностике."),
+        r("DMT143L: supply and signals", "DMT143L: питание и сигналы", "18–28 V DC for 3-wire 4–20 mA; 12–28 V DC for non-isolated RS-485 (Modbus RTU or Vaisala protocol).", "18–28 В пост. тока для трёхпроводного выхода 4–20 мА; 12–28 В пост. тока для неизолированного RS-485 (Modbus RTU или протокол Vaisala)."),
+        r("DMT143L: current output", "DMT143L: токовый выход", "0.002 mA resolution, ±0.05 mA at +20 °C, up to 500 Ω load; supply current max. 220 mA at 24 V DC.", "Разрешение 0,002 мА, точность ±0,05 мА при +20 °C, нагрузка до 500 Ом; ток питания не более 220 мА при 24 В пост. тока."),
+      ],
+      operating: [
+        r("Operating and storage temperatures", "Температуры эксплуатации и хранения", "Operation: −40 to +60 °C (see supply requirements below 0 °C); storage: −40 to +60 °C.", "Эксплуатация: −40…+60 °C (ниже 0 °C см. требования к питанию); хранение: −40…+60 °C."),
+        r("Operating pressure", "Рабочее давление", "0–50 bar absolute (see supply requirements above 20 bar absolute).", "0–50 бар (абс.; при давлении выше 20 бар абс. см. требования к питанию)."),
+        r("Operating humidity and sample flow", "Рабочая влажность и расход пробы", "0–100 %RH; sample flow rate does not affect measurement accuracy.", "0–100 %RH; расход пробы не влияет на точность измерения."),
+        r("Measurement media", "Измеряемые среды", "Air, nitrogen, hydrogen, argon, helium and oxygen. Not Ex-certified or leak-tested; leakage can occur, especially with hydrogen and helium. Consult Vaisala for other chemicals.", "Воздух, азот, водород, аргон, гелий и кислород. Нет сертификации Ex и испытаний на герметичность; возможны утечки, особенно водорода и гелия. По другим веществам проконсультируйтесь с Vaisala."),
+        r("DMT143L: operating pressure", "DMT143L: рабочее давление", "0–20 bar absolute. Mechanical durability is up to 50 bar; this is not an operating rating.", "0–20 бар (абс.). Механическая прочность до 50 бар не является пределом рабочего давления."),
+        r("DMT143L: operating and storage limits", "DMT143L: условия работы и хранения", "Operation: 0 to +60 °C and 0–100 %RH. Storage: −40 to +60 °C. No Ex approval.", "Эксплуатация: 0…+60 °C и 0–100 %RH. Хранение: −40…+60 °C. Сертификации Ex нет."),
+      ],
+      mechanical: [
+        r("Process threads", "Присоединительная резьба", "ISO 228-1 G1/2″, 1/2″ NPT, 3/4″-16 UNF or 5/8″-18 UNF.", "ISO 228-1 G1/2″, 1/2″ NPT, 3/4″-16 UNF или 5/8″-18 UNF."),
+        r("Electrical connector", "Электрический разъём", "4-pin M8 (IEC 60947-5-2).", "M8, 4 контакта (IEC 60947-5-2)."),
+        r("Housing and weight", "Корпус и масса", "AISI 316L stainless steel, IP66; 90 g with G or UNF thread, 100 g with NPT thread.", "Нержавеющая сталь AISI 316L, IP66; 90 г с резьбой G или UNF, 100 г с резьбой NPT."),
+        r("EMC and conformity marks", "ЭМС и маркировка соответствия", "IEC/EN 61326-1 (industrial), CISPR 32 / EN 55032 Class B; CE, China RoHS, RCM, UKCA.", "IEC/EN 61326-1 (промышленная среда), CISPR 32 / EN 55032, класс B; CE, China RoHS, RCM, UKCA."),
+        r("DMT143L: housing and mounting", "DMT143L: корпус и монтаж", "316L stainless steel, IP66. The technical table lists G1/2 with bonded seal (90 g) and 1/2 NPT (100 g); verify the exact order code.", "Нержавеющая сталь 316L, IP66. В таблице указаны G1/2 с комбинированным уплотнением (90 г) и 1/2 NPT (100 г); уточните код заказа."),
+      ],
+    },
+    note: {
+      en: "Unmarked rows apply to DMT143. Rows marked DMT143L come from the separate section of the Vaisala user guide. The downloadable datasheet covers DMT143 only.",
+      ru: "Строки без пометки относятся к DMT143. Параметры с пометкой DMT143L взяты из отдельного раздела руководства Vaisala. Скачиваемый паспорт описывает только DMT143.",
+    },
+  },
+};

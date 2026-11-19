@@ -76,10 +76,10 @@ export function DetailSection({ id, title, children, className = "" }: { id?: st
   return <section className={`scroll-mt-64 border-t border-line pt-8 xl:scroll-mt-28 ${className}`} id={id}><h2 className={detailHeading}>{title}</h2>{children}</section>;
 }
 
-export function DetailSpecTable({ locale, rows }: { locale: Locale; rows: DetailSpec[] }) {
+export function DetailSpecTable({ locale, rows, label }: { locale: Locale; rows: DetailSpec[]; label?: string }) {
   return (
-    <table className="mt-5 w-full table-fixed border-collapse text-left text-sm leading-6">
-      <thead className="bg-[#f4f7fa] text-steel"><tr><th className="w-2/5 p-3 font-semibold" scope="col">{locale === "ru" ? "Параметр" : "Parameter"}</th><th className="p-3 font-semibold" scope="col">{locale === "ru" ? "Значение и условия" : "Value and conditions"}</th></tr></thead>
+    <table aria-label={label} className={`${label ? "mt-2" : "mt-5"} w-full table-fixed border-collapse text-left text-sm leading-6`}>
+      <thead className="bg-[#f4f7fa] text-steel"><tr><th className="w-2/5 break-words p-3 font-semibold" scope="col">{locale === "ru" ? "Параметр" : "Parameter"}</th><th className="break-words p-3 font-semibold" scope="col">{locale === "ru" ? "Значение и условия" : "Value and conditions"}</th></tr></thead>
       <tbody>{rows.map((row, index) => (
         <tr className="border-b border-line" key={`${index}-${row.value}`}>
           {row.label ? <th className="break-words p-3 align-top font-semibold [overflow-wrap:anywhere]" scope="row">{row.label}</th> : null}

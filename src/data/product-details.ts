@@ -7,7 +7,7 @@ const types: Record<string, { ru: string; en: string }> = {
   "easidew-online": { ru: "Система непрерывного контроля точки росы", en: "Online dew-point measurement system" },
   "easidew-pro-xp": { ru: "Взрывозащищенный датчик точки росы", en: "Explosion-proof dew-point transmitter" },
   "gpr-1000-1100-2000-3500": { ru: "Портативные анализаторы кислорода", en: "Portable oxygen analyzers" },
-  "gpr-1500": { ru: "Анализатор следового кислорода", en: "Trace oxygen analyzer" },
+  "gpr-1500": { ru: "Преобразователь следового кислорода", en: "Trace oxygen transmitter" },
   "gpr-1500gb-2500gb": { ru: "Анализаторы кислорода для перчаточных боксов", en: "Glove-box oxygen analyzers" },
   "gpr-1600-2600-3100": { ru: "Промышленные анализаторы кислорода", en: "Industrial oxygen analyzers" },
   "gpr-1900-2900": { ru: "Промышленные анализаторы кислорода", en: "Industrial oxygen analyzers" },
@@ -43,6 +43,9 @@ export const productDetailCopy = {
 export function getInstrumentDetails(locale: Locale, product: Product) {
   const copy = productDetailCopy[locale];
   const sample = product.slug === "mdm300" ? mdm300ProductSampleCopy[locale] : undefined;
+  const referenceOnly = product.slug === "optidew-hz";
+  const orderCodes = product.slug === "gpr-1500" || product.slug === "gpr-1000-1100-2000-3500";
+  const documentType = orderCodes ? (locale === "ru" ? "коды заказа" : "order codes") : copy.documentType;
   const specifications = product.params[locale].map(text => {
     const separator = text.indexOf(": ");
     return separator > 0 ? { label: text.slice(0, separator), value: text.slice(separator + 2) } : { value: text };
@@ -52,12 +55,15 @@ export function getInstrumentDetails(locale: Locale, product: Product) {
     productType: sample?.productType ?? types[product.slug]?.[locale] ?? product.category,
     summary: sample?.summary,
     facts: sample?.facts ?? specifications.slice(0, 2),
-    specifications: sample?.specifications ?? specifications,
+    specifications,
     versionRows: sample?.versionRows,
     safetyNote: sample?.safetyNote,
     samplingNote: sample?.samplingNote,
     conditionsNote: sample?.conditionsNote,
-    documentTitle: sample?.documentTitle ?? `${product.model} — ${copy.documentType}`,
+    documentTitle: referenceOnly
+      ? (locale === "ru" ? "Optidew 401/501 — справочная спецификация серии" : "Optidew 401/501 — reference series datasheet")
+      : (sample?.documentTitle ?? `${product.model} — ${documentType}`),
+    downloadLabel: referenceOnly ? (locale === "ru" ? "PDF серии 401/501" : "401/501 series PDF") : undefined,
     documentMeta: sample?.documentMeta ?? copy.documentMeta,
     selectionInputs: product.selectionInputs?.[locale] ?? copy.selection
   };

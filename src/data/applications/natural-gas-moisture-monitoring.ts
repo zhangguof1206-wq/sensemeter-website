@@ -8,7 +8,7 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
     "/assets/applications/natural-gas-moisture-monitoring/sample-conditioning.webp",
     "/assets/applications/natural-gas-moisture-monitoring/field-verification.webp"
   ],
-  recommendedSlugs: ["easidew-pro-is", "easidew-pro-xp", "optidew-hz", "mdm300", "easidew-online"],
+  recommendedSlugs: ["easidew-pro-is", "easidew-pro-xp", "mdm300", "easidew-online"],
   content: {
     ru: {
       metaTitle: "Анализатор влажности газа и точки росы",

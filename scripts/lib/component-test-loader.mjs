@@ -22,7 +22,7 @@ export function createComponentLoader() {
       if (id === "next/image") return ({ priority, fill, ...props }) => React.createElement("img", props);
       const target = id.startsWith("@/") ? resolve(root, "src", id.slice(2)) : id.startsWith(".") ? resolve(dirname(file), id) : null;
       if (!target) return require(id);
-      if (target.includes(`${resolve(root, "src/components")}`) && !/[\\/](products|accessories)[\\/](detail-layout|product-visual|product-image-gallery|instrument-product-detail|mdm300-product-sample|accessory-detail-page|accessory-cards|accessory-specs|accessories-home-section|accessory-page-heading|accessory-category-page|accessories-index-page)$/.test(target) && !/[\\/](site|metrica-goals|rfq-form|footer-contact-links)$/.test(target)) {
+      if (target.includes(`${resolve(root, "src/components")}`) && !/[\\/](products|accessories)[\\/](detail-layout|product-visual|product-image-gallery|instrument-product-detail|instrument-specifications|mdm300-product-sample|accessory-detail-page|accessory-cards|accessory-specs|accessories-home-section|accessory-page-heading|accessory-category-page|accessories-index-page)$/.test(target) && !/[\\/](site|metrica-goals|rfq-form|footer-contact-links)$/.test(target)) {
         return new Proxy({}, { get: () => () => null });
       }
       return load(target);

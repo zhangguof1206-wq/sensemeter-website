@@ -338,7 +338,7 @@ const checks = [
         "Request price, availability and a quotation for Easidew Online",
         "Request price, availability and a quotation for GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500",
         "Request price, availability and a quotation for GPR-1500 GB / GPR-2500 GB",
-        "Request price, availability and a quotation for Optidew-HZ",
+        "The exact manufacturer configuration for Optidew-HZ requires confirmation",
         "Request price, availability and a quotation for SF82 Online"
       ];
       return requiredPhrases.every((phrase) => catalog.includes(phrase));
@@ -404,7 +404,7 @@ const checks = [
       const seo = read("src/lib/seo.ts");
       return seo.includes("productSeoNames") &&
         seo.includes('"optidew-hz"') &&
-        seo.includes("hydrocarbon dew-point analyzer") &&
+        seo.includes("configuration and model verification") &&
         seo.includes('"hmp3-hmpx"') &&
         seo.includes("humidity and temperature probe") &&
         seo.includes('"dmt143-dmt143l"') &&
@@ -415,7 +415,7 @@ const checks = [
     name: "priority model pages link back to matching application pages",
     pass: () => {
       const links = read("src/data/application-links.ts");
-      return /"optidew-hz":\s*\[[^\]]*naturalGasMoisture[^\]]*\]/s.test(links) &&
+      return !/"optidew-hz":\s*\[/s.test(links) &&
         /"dmt143-dmt143l":\s*\[[^\]]*compressedAirDewPoint[^\]]*\]/s.test(links) &&
         /"hmp3-hmpx":\s*\[[^\]]*industrialHumidity[^\]]*climateChamberHumidity[^\]]*\]/s.test(links);
     }
@@ -601,7 +601,7 @@ const checks = [
         "промышленные датчики влажности, точки росы и кислородные анализаторы",
         "PDF datasheet",
         "Vaisala HMP3 - промышленный датчик влажности и температуры",
-        "Optidew-HZ анализатор углеводородной точки росы",
+        "Для Optidew-HZ требуется подтверждение точного заводского исполнения",
         "DMT143 / DMT143L преобразователь точки росы"
       ];
 

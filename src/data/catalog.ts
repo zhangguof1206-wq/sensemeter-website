@@ -146,12 +146,12 @@ export const products: Product[] = [
     image: "assets/products/MI_EasidewPRO-IS.png",
     pdf: "MI_EasidewPRO-IS.pdf",
     overview: {
-      ru: "Искробезопасный датчик точки росы Easidew PRO I.S. для тяжелых технологических условий, газов, неполярных жидкостей и опасных зон. Цена по запросу: уточните наличие и получите коммерческое предложение.",
-      en: "Intrinsically safe Easidew PRO I.S. dew-point transmitter for demanding process environments, gases, non-polar liquids and hazardous areas. Request price, availability and a quotation."
+      ru: "Искробезопасный датчик Easidew PRO I.S. для контроля точки росы и содержания влаги в технологических газах. Для измерения влаги в жидкостях подбирается отдельное исполнение PRO LQ I.S. Цена и наличие по запросу.",
+      en: "Intrinsically safe Easidew PRO I.S. measures dew point and moisture in process gases. For moisture in liquids, specify the separate PRO LQ I.S. version. Request price and availability."
     },
     params: {
-      ru: ["Диапазон: -110 до +20 deg Cdp", "Точность: +/-1 deg Cdp", "Выход: 2-проводный 4-20 mA", "Рабочее давление до 450 barg"],
-      en: ["Range: -110 to +20 deg Cdp", "Accuracy: +/-1 deg Cdp", "Output: 2-wire 4-20 mA", "Pressure rating up to 450 barg"]
+      ru: ["Диапазон: −110…+20 °Cdp или −100…+20 °Cdp", "Выход: 2-проводный 4–20 mA", "Точность: ±1 °C (−60…+20 °Cdp); ±2 °C (−110…−60 °Cdp)", "Рабочее давление зависит от исполнения и монтажа"],
+      en: ["Range: −110…+20 °Cdp or −100…+20 °Cdp", "Output: 2-wire 4–20 mA", "Accuracy: ±1 °C (−60…+20 °Cdp); ±2 °C (−110…−60 °Cdp)", "Working pressure depends on the unit and installation"]
     },
     highlights: {
       ru: ["Сертификация ATEX, IECEx, UKCA и cQPSus", "Корпус из нержавеющей стали 316", "Прослеживаемый 13-точечный сертификат калибровки"],
@@ -170,8 +170,8 @@ export const products: Product[] = [
     image: "assets/products/MI_EasidewTransmitters.png",
     pdf: "MI_EasidewTransmitters_EN.pdf",
     overview: {
-      ru: "Easidew 34 / Easidew M12 для OEM-осушителей, сжатого воздуха, водорода и технических газов: компактный преобразователь точки росы с MiniDIN или M12 для безопасных и опасных зон. Цена по запросу: уточните наличие и получите коммерческое предложение.",
-      en: "Compact Easidew 34 / Easidew M12 dew-point transmitter for OEM dryers, compressed air, hydrogen and process gases, with MiniDIN or M12 connection for safe and hazardous areas. Request price, availability and a quotation for Easidew 34 / Easidew M12."
+      ru: "Компактные преобразователи точки росы Easidew 34 и M12 для осушителей, сжатого воздуха и технологических газов. Разъём и допустимое давление зависят от модели; для опасной зоны предусмотрено отдельное исполнение Easidew I.S. Цена и наличие по запросу.",
+      en: "Compact Easidew 34 and M12 dew-point transmitters for dryers, compressed air and process gases. Connector and pressure limits depend on the model; Easidew I.S. is a separate version for hazardous areas. Request price, availability and a quotation for Easidew 34 / Easidew M12."
     },
     params: {
       ru: ["Диапазон: -110 до +20 deg Cdp", "Точность: +/-2 deg Cdp", "Выход по точке росы или ppmV", "2-проводное питание от токовой петли"],
@@ -198,8 +198,8 @@ export const products: Product[] = [
       en: "Easidew Online dew-point hygrometer for continuous monitoring in dryers, breathing air, hydrogen and glove boxes, with local display and alarm functions. Request price, availability and a quotation for Easidew Online."
     },
     params: {
-      ru: ["Диапазон: -100 до +20 deg Cdp", "Опция 0-3000 ppmV", "Выход 4-20 mA или 0-20 mA", "Два настраиваемых реле тревоги"],
-      en: ["Range: -100 to +20 deg Cdp", "0-3000 ppmV option", "4-20 mA or 0-20 mA output", "Dual configurable alarms"]
+      ru: ["Диапазон: −100…+20 или −110…+20 °Cdp по исполнению", "Содержание влаги: опция 0–3000 ppmv", "Выход: 4–20 или 0–20 мА", "Сигнализация: два настраиваемых реле"],
+      en: ["Range: −100 to +20 or −110 to +20 °Cdp, by version", "Moisture content: 0–3000 ppmv option", "Output: 4–20 or 0–20 mA", "Alarms: two configurable relays"]
     },
     highlights: {
       ru: ["Панельный или настольный формат", "Аналоговый и цифровой выходы", "Защищенный датчик IP66 / NEMA 4"],
@@ -218,12 +218,12 @@ export const products: Product[] = [
     image: "assets/products/MI_EasidewPRO-XP.png",
     pdf: "MI_EasidewPRO-XP_EN.pdf",
     overview: {
-      ru: "Easidew PRO XP для природного газа, биометана, LNG/LPG и технологических газов: взрывозащищенный датчик точки росы с высокой точностью и давлением до 450 bar. Цена по запросу: уточните наличие и получите коммерческое предложение.",
-      en: "Explosion-proof Easidew PRO XP dew-point transmitter for natural gas, biomethane, LNG/LPG and process gases with high accuracy and pressure rating up to 450 bar. Request price, availability and a quotation for Easidew PRO XP."
+      ru: "Взрывозащищённый датчик Easidew PRO XP для измерения точки росы и содержания влаги в природном и технологическом газе. Допустимое рабочее давление зависит от монтажа и применимых требований сертификации. Цена и наличие по запросу.",
+      en: "Explosion-proof Easidew PRO XP transmitter for dew point and moisture in natural and process gases. The applicable pressure limit depends on installation and certification requirements. Request price, availability and a quotation for Easidew PRO XP."
     },
     params: {
-      ru: ["Диапазон: -110 до +20 deg Cdp", "Точность: +/-1 deg Cdp", "2-проводный выход 4-20 mA", "Глобальные explosion/flameproof approvals"],
-      en: ["Range: -110 to +20 deg Cdp", "Accuracy: +/-1 deg Cdp", "2-wire 4-20 mA output", "Global explosion/flameproof approvals"]
+      ru: ["Диапазон: −110…+20 °Cdp или −100…+20 °Cdp", "Выход: 2-проводный 4–20 mA", "Точность: ±1 °C (−60…+20 °Cdp); ±2 °C (−110…−60 °Cdp)", "Сертификаты: по исполнению корпуса и региону"],
+      en: ["Range: −110…+20 °Cdp or −100…+20 °Cdp", "Output: 2-wire 4–20 mA", "Accuracy: ±1 °C (−60…+20 °Cdp); ±2 °C (−110…−60 °Cdp)", "Approvals: depend on housing and destination"]
     },
     highlights: {
       ru: ["Опция встроенного дисплея", "Сменный сенсор снижает простой", "Прослеживаемая 13-точечная калибровка"],
@@ -246,12 +246,12 @@ export const products: Product[] = [
       en: "Portable GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500 oxygen analyzers for O2/N2 generators, marine holds, welding purge and field checks at ppm or percent ranges. Request price, availability and a quotation for GPR-1000 / GPR-1100 / GPR-2000 / GPR-3500."
     },
     params: {
-      ru: ["Диапазоны O2: 0-10 ppm до 0-100%", "Разрешение до 0.1 ppm по модели", "Батарея до 30 дней", "Опция внутреннего насоса"],
-      en: ["O2 ranges: 0-10 ppm to 0-100%", "0.1 ppm capability depending on model", "Battery life up to 30 days", "Optional internal pump"]
+      ru: ["Диапазоны O₂: ppm или % по модели", "Разрешение GPR-1100: 0,01 ppmv", "Аккумулятор: до 30 дней в зависимости от режима", "Встроенный насос: опция GPR-2000"],
+      en: ["O₂ ranges: ppm or percent, by model", "GPR-1100 resolution: 0.01 ppmv", "Battery: up to 30 days, depending on use", "Integral pump: GPR-2000 option"]
     },
     highlights: {
-      ru: ["Прочный переносной формат", "Единый HMI для переносных и онлайн приборов", "Срок службы сенсора 24-32 месяца"],
-      en: ["Rugged portable format", "Common HMI across portable and online analyzers", "24-32 month sensor life"]
+      ru: ["Прочный переносной формат", "Единый HMI для переносных и онлайн приборов", "Срок службы сенсора зависит от модели и состава газа"],
+      en: ["Rugged portable format", "Common HMI across portable and online analyzers", "Sensor life depends on model and gas composition"]
     },
     applications: {
       ru: ["Генераторы кислорода и азота", "Морские трюмы и цистерны", "Проверка утечек и сварочная продувка"],
@@ -266,12 +266,12 @@ export const products: Product[] = [
     image: "assets/products/AI_GPR-1500-Series-Order-Codes-v4.png",
     pdf: "AI_GPR-1500-Series-Order-Codes-v4.pdf",
     overview: {
-      ru: "GPR-1500 для следового кислорода в чистых газах, инертных средах и промышленных установках: настенный анализатор O2 для ppm-контроля. Цена по запросу: уточните наличие и получите коммерческое предложение.",
-      en: "Wall-mounted GPR-1500 trace oxygen analyzer for clean gases, inert atmospheres and industrial installations with ppm-level O2 control. Request price, availability and a quotation for GPR-1500."
+      ru: "Двухпроводный настенный преобразователь GPR-1500 для измерения следового кислорода в газах. GPR-1500A — отдельное исполнение с собственным питанием и выходами сигнализации. Цена и наличие по запросу.",
+      en: "Wall-mounted, two-wire GPR-1500 transmitter for trace oxygen in gases. The GPR-1500A analyzer is a separate version with its own power supply and alarm outputs. Request price, availability and a quotation for GPR-1500."
     },
     params: {
-      ru: ["Следовой кислород до 0-10 ppm", "Нижний предел обнаружения до 0.05 ppm", "Настраиваемые диапазоны", "Версии общего назначения и ATEX"],
-      en: ["Trace oxygen down to 0-10 ppm", "Lower detection limit to 0.05 ppm", "User-configurable ranges", "General-purpose and ATEX versions"]
+      ru: ["Минимальная шкала O₂: 0–10 ppmv", "Предел обнаружения: 0,05 ppmv", "Выход GPR-1500: двухпроводный 4–20 мА", "Допуски: по исполнению и маркировке"],
+      en: ["Lowest O₂ range: 0–10 ppmv", "Detection limit: 0.05 ppmv", "GPR-1500 output: two-wire 4–20 mA", "Approvals: check version and marking"]
     },
     highlights: {
       ru: ["Корпус NEMA для настенного монтажа", "Быстрое восстановление после воздуха", "Герметичный электрохимический сенсор"],
@@ -294,8 +294,8 @@ export const products: Product[] = [
       en: "GPR-1500 GB / GPR-2500 GB glove-box oxygen analyzer for nitrogen generators and low-level O2 monitoring, with direct or remote sensor installation. Request price, availability and a quotation for GPR-1500 GB / GPR-2500 GB."
     },
     params: {
-      ru: ["Диапазон: 0-10 ppm до 0-25% O2", "Точность лучше 2% выбранного диапазона", "Выход 4-20 mA", "Питание 18-24 V loop power"],
-      en: ["Range: 0-10 ppm to 0-25% O2", "Accuracy better than 2% of selected range", "4-20 mA output", "18-24 V loop power"]
+      ru: ["Диапазоны O₂: 1500 GB — от 0–10 ppm; 2500 GB — до 0–25%", "Погрешность: <2% выбранного диапазона при постоянных условиях", "Выход: 4–20 мА", "Питание по петле: 18–24 В"],
+      en: ["O₂ ranges: 1500 GB starts at 0–10 ppm; 2500 GB up to 0–25%", "Accuracy: <2% of selected range at constant conditions", "Output: 4–20 mA", "Loop supply: 18–24 V"]
     },
     highlights: {
       ru: ["Разработан для glove box", "KF-40 flange и удаленный сенсор", "Опция sampling/calibration module"],
@@ -318,8 +318,8 @@ export const products: Product[] = [
       en: "High-accuracy GPR-1600 / GPR-2600 / GPR-3100 oxygen analyzer for industrial gases, O2 purity control and trace ppm measurement. Request price, availability and a quotation."
     },
     params: {
-      ru: ["От trace ppm до контроля чистоты O2", "Точность до +/-0.02 ppm в низком диапазоне", "4 диапазона, ручной или автоматический выбор", "Два реле тревоги"],
-      en: ["Trace ppm to oxygen purity measurement", "Accuracy down to +/-0.02 ppm in the lowest range", "Four ranges with manual or automatic ranging", "Dual alarms"]
+      ru: ["Диапазоны: следовые и процентные по модели", "Погрешность: зависит от модели и диапазона", "Выбор диапазона: ручной или автоматический по модели", "Сигнализация: два реле"],
+      en: ["Ranges: trace or percent, by model", "Accuracy: depends on model and selected range", "Ranging: manual or automatic, by model", "Alarms: two relays"]
     },
     highlights: {
       ru: ["Единый простой HMI", "Выход индикации диапазона", "Встроенный bypass valve на GPR-1600"],
@@ -342,8 +342,8 @@ export const products: Product[] = [
       en: "Panel GPR-1900 / GPR-2900 oxygen analyzer for nitrogen generators, oxygen generators, glove boxes and industrial gases with remote sensor installation. Request price, availability and a quotation for GPR-1900 / GPR-2900."
     },
     params: {
-      ru: ["Диапазон: 0-10 ppm до 0-100% O2", "Точность лучше 2% выбранного диапазона", "Два настраиваемых реле тревоги", "Питание 12-28 VDC или line power"],
-      en: ["Range: 0-10 ppm to 0-100% O2", "Accuracy better than 2% of selected range", "Two configurable alarms", "12-28 VDC or line-power options"]
+      ru: ["Диапазоны O₂: GPR-1900 — следовые; GPR-2900 — процентные", "Погрешность: <2% выбранного диапазона при постоянных условиях", "Сигнализация: два настраиваемых реле и реле отказа питания", "Питание: 100–240 В перем. тока по паспорту 2024 года"],
+      en: ["O₂ ranges: GPR-1900 trace; GPR-2900 percent", "Accuracy: <2% of selected range at constant conditions", "Alarms: two configurable relays and one power-failure relay", "Supply: 100–240 V AC per 2024 datasheet"]
     },
     highlights: {
       ru: ["Удаленный сенсор для гибкой установки", "Простая замена сенсора", "Ручная или автоматическая фиксация диапазона"],
@@ -366,8 +366,8 @@ export const products: Product[] = [
       en: "Industrial HC2A humidity and temperature sensor for production environments, drying processes, climate chambers and monitoring systems. Request price, availability and a quotation."
     },
     params: {
-      ru: ["0-100% RH", "Рабочий диапазон до -100...200 deg C", "Точность +/-0.8% RH, +/-0.1 K при 23 deg C", "UART и масштабируемые 0-1 V выходы"],
-      en: ["0-100% RH", "Operating range up to -100 to 200 deg C", "Accuracy +/-0.8% RH, +/-0.1 K at 23 deg C", "UART and scalable 0-1 V outputs"]
+      ru: ["Влажность: 0–100 %RH", "Головка зонда: −100…+190 °C непрерывно", "Точность: ±0,8 %RH и ±0,1 K при 23 °C", "Выходы: UART и 2 × 0–1 В"],
+      en: ["Humidity: 0–100 %RH", "Probe head: −100 to +190 °C continuous", "Accuracy: ±0.8 %RH and ±0.1 K at 23 °C", "Outputs: UART and 2 × 0–1 V"]
     },
     highlights: {
       ru: ["HYGROMER HT-1 humidity sensor", "Высокая повторяемость и стабильность", "Hot-swappable probe design"],
@@ -390,8 +390,8 @@ export const products: Product[] = [
       en: "Rotronic HC2A Series humidity and temperature probes for climate chambers, HVAC, BMS and industrial monitoring, designed for precise system integration. Request price, availability and a quotation for HC2A Series."
     },
     params: {
-      ru: ["0-100% RH", "Стандартный диапазон -50 до 100 deg C", "Точность +/-0.8% RH или +/-0.5% RH", "2 аналоговых выхода 0-1 V"],
-      en: ["0-100% RH", "Standard probe range -50 to 100 deg C", "Accuracy +/-0.8% RH or +/-0.5% RH", "2 analog 0-1 V outputs"]
+      ru: ["Влажность: 0–100 %RH", "Температура: −50…+100 °C", "Точность: по исполнению и условиям измерения", "Выходы: 2 × 0–1 В и UART"],
+      en: ["Humidity: 0–100 %RH", "Temperature: −50 to +100 °C", "Accuracy: by probe version and measurement conditions", "Outputs: 2 × 0–1 V and UART"]
     },
     highlights: {
       ru: ["AirChip3000 рассчитывает dew/frost point", "Hot-swappable конструкция", "Фильтры для разных сред"],
@@ -414,8 +414,8 @@ export const products: Product[] = [
       en: "HP31 / HP32 handheld humidity and temperature meter for field checks, HVAC, BMS, storage rooms and pharmaceutical areas with data logging. Request price, availability and a quotation for HP31 / HP32."
     },
     params: {
-      ru: ["Диапазон работы: -10 до 60 deg C, 0-100% RH", "HP31: +/-2% RH / +/-0.3 deg C при 23 deg C", "Память 64,000 точек", "Аккумулятор до 48 часов"],
-      en: ["Operating range: -10 to 60 deg C, 0-100% RH", "HP31: +/-2% RH / +/-0.3 deg C at 23 deg C", "64,000 data point memory", "Battery up to 48 hours"]
+      ru: ["Среда прибора: −10…+60 °C, 0–100 %RH без конденсации", "Точность HP31: ±2 %RH / ±0,3 °C при 23 °C", "Память: 64 000 точек", "Автономность: до 48 ч при записи с выключенным экраном"],
+      en: ["Meter environment: −10 to +60 °C, 0–100 %RH non-condensing", "HP31 accuracy: ±2 %RH / ±0.3 °C at 23 °C", "Memory: 64,000 data points", "Battery: up to 48 h logging with screen off"]
     },
     highlights: {
       ru: ["Психрометрические расчеты", "Визуальные и звуковые тревоги", "Графический дисплей сохраненных данных"],
@@ -462,20 +462,24 @@ export const products: Product[] = [
     image: "assets/products/Michell_Instruments_Optidew.png",
     pdf: "Michell_Instruments_Optidew_US_Datasheet_v3-1.pdf",
     overview: {
-      ru: "Optidew-HZ анализатор углеводородной точки росы для природного газа и технологических газов: chilled mirror решение для точных измерений и промышленного мониторинга. Цена по запросу: уточните наличие, комплектацию, условия отбора пробы и получите коммерческое предложение.",
-      en: "Optidew-HZ hydrocarbon dew-point chilled mirror analyzer for natural gas and process gases, supporting accurate measurement and industrial monitoring. Request price, availability and a quotation for Optidew-HZ. Sampling configuration is confirmed by project conditions."
+      ru: "Для Optidew-HZ требуется подтверждение точного заводского исполнения. Приложенная спецификация описывает гигрометры Optidew 401/501, а не отдельную модель HZ. Укажите код заказа или приложите фото шильдика к запросу.",
+      en: "The exact manufacturer configuration for Optidew-HZ requires confirmation. The linked datasheet covers the Optidew 401/501 hygrometers, not a separate HZ model. Include the order code or a nameplate photo when requesting a quote."
     },
     params: {
-      ru: ["Диапазон точки росы: -40 до +120 deg C", "Точность точки росы +/-0.15 deg C", "Цветной сенсорный экран 5.7 inch", "Опция Modbus TCP Ethernet"],
-      en: ["Dew-point range: -40 to +120 deg C", "Dew-point accuracy +/-0.15 deg C", "5.7 inch color touchscreen", "Optional Modbus TCP Ethernet"]
+      ru: ["Исполнение: уточняется по коду заказа"],
+      en: ["Configuration: confirm by order code"]
     },
     highlights: {
-      ru: ["Подходит для контроля углеводородной точки росы в газовых задачах", "Hybrid mirror sensor", "Настольная или настенная конфигурация подтверждается по проекту"],
-      en: ["Suitable for hydrocarbon dew-point control in gas applications", "Hybrid mirror sensor", "Bench or wall-mount configuration confirmed by project conditions"]
+      ru: ["Диапазон, точность и условия эксплуатации подтверждаются для выбранного исполнения"],
+      en: ["Range, accuracy and operating limits must be confirmed for the selected configuration"]
     },
     applications: {
-      ru: ["Природный газ и технологические газы", "Контроль углеводородной точки росы", "Инженерное подтверждение пробоотбора, монтажа и документации"],
-      en: ["Natural gas and process gases", "Hydrocarbon dew-point monitoring", "Engineering confirmation of sampling, installation and documentation"]
+      ru: ["Для подбора укажите измеряемую величину, состав среды, давление и температуру"],
+      en: ["For selection, specify the measured quantity, medium composition, pressure and temperature"]
+    },
+    selectionInputs: {
+      ru: ["Заводское обозначение, код заказа или фото шильдика", "Измеряемая величина и среда", "Рабочие условия и требования к монтажу"],
+      en: ["Manufacturer model, order code or nameplate photo", "Measured quantity and medium", "Operating conditions and mounting requirements"]
     }
   },
   {
@@ -490,8 +494,8 @@ export const products: Product[] = [
       en: "SF82 Online dew-point hygrometer for compressed air, medical air, dryers and additive manufacturing, with sampling system and Modbus RTU. Request price, availability and a quotation for SF82 Online."
     },
     params: {
-      ru: ["Диапазон: -60 до +60 deg Cdp", "Точность +/-2 deg Cdp", "Выход 4-20 mA", "Modbus RTU over RS485"],
-      en: ["Range: -60 to +60 deg Cdp", "Accuracy +/-2 deg Cdp", "4-20 mA output", "Modbus RTU over RS485"]
+      ru: ["Диапазон: −60…+60 °Cdp; другие шкалы по заказу", "Точность: ±2 °Cdp при температуре датчика −20…+50 °C", "Аналоговый выход: 4–20 или 0–20 мА", "Интерфейс: Modbus RTU по RS485"],
+      en: ["Range: −60 to +60 °Cdp; other scales available", "Accuracy: ±2 °Cdp at −20 to +50 °C sensor temperature", "Analog output: 4–20 or 0–20 mA", "Interface: Modbus RTU over RS485"]
     },
     highlights: {
       ru: ["Поставляется с пробоотборной системой", "Два реле тревоги", "9-точечная прослеживаемая калибровка"],
@@ -514,8 +518,8 @@ export const products: Product[] = [
       en: "Pura trace moisture transmitter for dry gases, compressed air, semiconductor processes and OEM systems requiring low-level moisture monitoring. Request price, availability and a quotation for Pura."
     },
     params: {
-      ru: ["Измерение точки росы и следовой влажности", "Компактный корпус для интеграции в систему", "Промышленный аналоговый выход", "PDF datasheet содержит полные диапазоны и варианты исполнения"],
-      en: ["Dew-point and trace moisture measurement", "Compact body for system integration", "Industrial analog output", "PDF datasheet includes full ranges and configuration options"]
+      ru: ["Диапазон точки росы: −120…−40 °Cdp", "Выход: 4–20 мА или цифровой по исполнению", "Исполнения: PRM, OEM и SEN", "Тип подключения: VCR по исполнению"],
+      en: ["Dew-point range: −120 to −40 °Cdp", "Output: 4–20 mA or digital, by version", "Builds: PRM, OEM and SEN", "Process connection: VCR, by version"]
     },
     highlights: {
       ru: ["Подходит для малых объемов и встроенных систем", "Быстрый доступ к технической документации", "Практичное решение для сухих технологических газов"],
@@ -538,8 +542,8 @@ export const products: Product[] = [
       en: "HygroFlex1 humidity and temperature transmitter for HVAC, BMS, storage rooms and production areas requiring standard air monitoring. Request price, availability and a quotation for HygroFlex1."
     },
     params: {
-      ru: ["Измерение относительной влажности и температуры", "Компактное исполнение для настенного монтажа", "Аналоговый выход для систем мониторинга", "PDF datasheet содержит варианты диапазонов и выходов"],
-      en: ["Relative humidity and temperature measurement", "Compact wall-mount design", "Analog output for monitoring systems", "PDF datasheet includes range and output options"]
+      ru: ["Влажность: 0–100 %RH без конденсации", "Монтаж: настенный, канальный или комнатный", "Выход: токовый или по напряжению, по исполнению", "Степень защиты: IP65 или IP30 по исполнению"],
+      en: ["Humidity: 0–100 %RH non-condensing", "Mounting: wall, duct or room", "Output: current or voltage, by version", "Ingress protection: IP65 or IP30, by version"]
     },
     highlights: {
       ru: ["Простая интеграция в HVAC и BMS", "Стабильный мониторинг микроклимата", "Подходит для технических и производственных зон"],
@@ -562,8 +566,8 @@ export const products: Product[] = [
       en: "Intrinsically safe HMT370EX humidity and temperature sensor for hazardous areas, chemical processes and demanding industrial environments. Request price, availability and a quotation."
     },
     params: {
-      ru: ["Измерение влажности и температуры", "Исполнения для опасных зон", "Несколько вариантов зондов для разных условий", "PDF datasheet содержит сертификации и точные диапазоны"],
-      en: ["Humidity and temperature measurement", "Hazardous-area versions", "Multiple probe options for different conditions", "PDF datasheet includes approvals and exact ranges"]
+      ru: ["Влажность: 0–100 %RH при точке росы ≤ +95 °C", "Выходы: два двухпроводных 4–20 мА", "Зонды: температурные пределы зависят от исполнения", "Сертификация: по маркировке прибора и условиям монтажа"],
+      en: ["Humidity: 0–100 %RH at dew point ≤ +95 °C", "Outputs: two 2-wire 4–20 mA channels", "Probes: temperature limits depend on version", "Approvals: see unit marking and installation conditions"]
     },
     highlights: {
       ru: ["Разработан для сложных промышленных условий", "Гибкая конфигурация с разными зондами", "Подходит для процессов, где важна безопасность измерений"],
@@ -586,8 +590,8 @@ export const products: Product[] = [
       en: "HMT310 humidity and temperature transmitter for industrial processes, climate chambers, ducts and laboratory monitoring with flexible installation options. Request price, availability and a quotation for HMT310."
     },
     params: {
-      ru: ["Измерение относительной влажности и температуры", "Варианты зондов для разных способов монтажа", "Промышленный выходной сигнал", "PDF datasheet содержит диапазоны и модели исполнения"],
-      en: ["Relative humidity and temperature measurement", "Probe options for different installation methods", "Industrial output signal", "PDF datasheet includes ranges and model variants"]
+      ru: ["Влажность: 0–100 %RH", "Выходы: два аналоговых канала и RS-232C", "Питание: 10–35 В пост. тока, минимум зависит от условий", "Температура и давление: по модели зонда"],
+      en: ["Humidity: 0–100 %RH", "Outputs: two analog channels and RS-232C", "Supply: 10–35 V DC; minimum depends on conditions", "Temperature and pressure: by probe model"]
     },
     highlights: {
       ru: ["Подходит для непрерывного мониторинга", "Гибкий выбор конфигурации", "Используется в промышленных и лабораторных задачах"],
@@ -614,8 +618,8 @@ export const products: Product[] = [
       en: ["Relative humidity range 0-100 %RH at a maximum dew point of +95 deg C", "Relative humidity accuracy up to +/-0.8 %RH at +23 deg C (0-90 %RH)", "Temperature measurement range -40 to +120 deg C", "Temperature accuracy up to +/-0.1 deg C"]
     },
     highlights: {
-      ru: ["Modbus RTU по RS-485 для автономного подключения", "Корпус зонда IP66 для промышленной эксплуатации", "Совместимость с преобразователями Vaisala Indigo и программой Insight", "Сменные в полевых условиях сенсор и фильтр для обслуживания по месту установки"],
-      en: ["Modbus RTU over RS-485 for standalone connectivity", "IP66 probe body for industrial environments", "Compatible with Vaisala Indigo transmitters and Insight software", "Field-replaceable sensor and filter for on-site maintenance"]
+      ru: ["Modbus RTU по RS-485 для автономного подключения", "Корпус зонда IP66 для промышленной эксплуатации", "Совместимость с преобразователями Vaisala Indigo и программой Insight", "Сменный фильтр; сенсор HUMICAP R2 допускает замену на месте"],
+      en: ["Modbus RTU over RS-485 for standalone connectivity", "IP66 probe body for industrial environments", "Compatible with Vaisala Indigo transmitters and Insight software", "Replaceable filter; the HUMICAP R2 sensor can be replaced in the field"]
     },
     applications: {
       ru: ["Промышленные HVAC и установки обработки воздуха", "Чистые помещения и климатические камеры", "Окрасочные камеры и общепромышленные процессы"],
@@ -638,7 +642,7 @@ export const products: Product[] = [
       en: "Compact DMT153 dew-point transmitter for OEM drying systems, dry air monitoring and integrated equipment. Request price, availability and a quotation for DMT153."
     },
     params: {
-      ru: ["Измерение точки росы", "Компактный формат для установки в оборудование", "Промышленный выходной сигнал", "PDF datasheet содержит диапазоны измерения и варианты подключения"],
+      ru: ["Калиброванный диапазон: −80…−20 °C Td/f", "Точность: ±2 °C от −80 до −40 °C Td/f; ±3 °C от −40 до −20 °C Td/f при допустимой температуре газа", "Рабочее давление: 0–50 бар (абс.)", "Выходы: RS-485 Modbus RTU; 0–5/0–10 В и 0/4–20 мА"],
       en: ["Calibrated dew/frost-point range: -80 to -20 deg C Td/f", "Accuracy: +/-2 deg C at -80 to -40 deg C Td/f; +/-3 deg C at -40 to -20 deg C Td/f; see datasheet for gas-temperature limits", "Operating process pressure: 0-50 bar absolute", "Outputs: RS-485 Modbus RTU; 0-5/0-10 V and 0/4-20 mA"]
     },
     highlights: {
@@ -662,8 +666,8 @@ export const products: Product[] = [
       en: "DMT143 / DMT143L miniature dew-point transmitters for industrial dryers, compressed air dew point testing, OEM equipment and dry process gases. Request price, availability and a quotation for DMT143 / DMT143L. Configuration is confirmed by installation point and project conditions."
     },
     params: {
-      ru: ["Измерение точки росы в сухих газах", "Миниатюрное исполнение", "Варианты стандартной и удлиненной конструкции", "PDF datasheet содержит диапазоны и варианты моделей"],
-      en: ["Dew-point measurement in dry gases", "Miniature transmitter design", "Standard and long probe versions", "PDF datasheet includes ranges and model options"]
+      ru: ["Диапазон: по модели и типу сенсора", "Рабочее давление: DMT143 до 50 бар (абс.); DMT143L до 20 бар (абс.)", "Длины зонда: стандартная и удлинённая", "Интерфейс: RS-485, Modbus RTU или протокол Vaisala"],
+      en: ["Range: by model and sensor", "Working pressure: DMT143 up to 50 bara; DMT143L up to 20 bara", "Probe lengths: standard and long", "Interface: RS-485, Modbus RTU or Vaisala protocol"]
     },
     highlights: {
       ru: ["Компактная установка в оборудовании", "Подходит для непрерывного контроля сухости", "Конфигурация для сжатого воздуха и OEM подтверждается по условиям проекта"],
