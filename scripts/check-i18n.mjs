@@ -77,7 +77,6 @@ const checks = [
       const enText = `${copy.en.heroText} ${copy.en.catalogLead} ${copy.en.contactLead} ${copy.en.emailNote}`;
       const ruText = `${copy.ru.heroText} ${copy.ru.catalogLead} ${copy.ru.contactLead} ${copy.ru.emailNote}`;
       const enRequired = [
-        "industrial measurement instruments and accessories",
         "model selection",
         "instrument panel and cabinet integration",
         "availability and lead times",
@@ -88,7 +87,6 @@ const checks = [
         "installation method"
       ];
       const ruRequired = [
-        "промышленное измерительное оборудование и комплектующие",
         "подобрать модель",
         "интеграцию в панели и шкафы",
         "наличие и сроки поставки",
@@ -102,19 +100,29 @@ const checks = [
     }
   },
   {
-    name: "homepage copy states international supply from China in both languages",
+    name: "homepage introduces exports from China of instruments from internationally recognized brands",
     pass: () => {
       const ru = copy.ru.heroText;
       const en = copy.en.heroText;
+      const [ruLead] = ru.split(". ", 1);
+      const [enLead] = en.split(". ", 1);
       return [
-        "из Китая",
-        "международным заказчикам",
+        "экспортирует из Китая",
+        "измерители точки росы",
+        "датчики температуры и влажности",
+        "газоанализаторы",
+        "известных мировых брендов"
+      ].every((phrase) => ruLead.includes(phrase)) && [
+        "From China, SenseMeter exports",
+        "industrial dew point meters",
+        "temperature and humidity sensors",
+        "gas analyzers",
+        "internationally recognized brands"
+      ].every((phrase) => enLead.includes(phrase)) && [
         "международную доставку",
         "страны назначения",
         "коммерческом предложении"
       ].every((phrase) => ru.includes(phrase)) && [
-        "from China",
-        "international customers",
         "international delivery",
         "destination country",
         "quotation"
