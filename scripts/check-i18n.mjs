@@ -74,8 +74,8 @@ const checks = [
   {
     name: "RFQ and catalog copy includes practical selection criteria",
     pass: () => {
-      const enText = `${copy.en.heroText} ${copy.en.catalogLead} ${copy.en.contactLead} ${copy.en.emailNote}`;
-      const ruText = `${copy.ru.heroText} ${copy.ru.catalogLead} ${copy.ru.contactLead} ${copy.ru.emailNote}`;
+      const enText = `${copy.en.heroDetails} ${copy.en.catalogLead} ${copy.en.contactLead} ${copy.en.emailNote}`;
+      const ruText = `${copy.ru.heroDetails} ${copy.ru.catalogLead} ${copy.ru.contactLead} ${copy.ru.emailNote}`;
       const enRequired = [
         "model selection",
         "instrument panel and cabinet integration",
@@ -100,33 +100,39 @@ const checks = [
     }
   },
   {
-    name: "homepage introduces exports from China of instruments from internationally recognized brands",
+    name: "homepage leads with exports from China and introduces SenseMeter's business and product range",
     pass: () => {
-      const ru = copy.ru.heroText;
-      const en = copy.en.heroText;
-      const [ruLead] = ru.split(". ", 1);
-      const [enLead] = en.split(". ", 1);
-      return [
-        "экспортирует из Китая",
+      const { heroLead: ruLead, heroDetails: ruDetails } = copy.ru;
+      const { heroLead: enLead, heroDetails: enDetails } = copy.en;
+      return Boolean(ruLead?.startsWith("SenseMeter экспортирует из Китая") && enLead?.startsWith("SenseMeter exports industrial instruments from China.") && [
+        "многопрофильная высокотехнологичная компания",
+        "разработкой, производством, продажей и обслуживанием",
         "измерители точки росы",
+        "преобразователи точки росы",
+        "портативные измерители точки росы",
+        "преобразователи температуры и влажности",
         "датчики температуры и влажности",
-        "газоанализаторы",
-        "известных мировых брендов"
+        "ручные термогигрометры",
+        "системы анализа следовой влаги в газах"
       ].every((phrase) => ruLead.includes(phrase)) && [
-        "From China, SenseMeter exports",
-        "industrial dew point meters",
+        "diversified high-tech company",
+        "research and development, manufacturing, sales, and service",
+        "dew point meters",
+        "dew point transmitters",
+        "portable dew point meters",
+        "temperature and humidity transmitters",
         "temperature and humidity sensors",
-        "gas analyzers",
-        "internationally recognized brands"
+        "handheld thermo-hygrometers",
+        "trace moisture analysis systems for gases"
       ].every((phrase) => enLead.includes(phrase)) && [
         "международную доставку",
         "страны назначения",
         "коммерческом предложении"
-      ].every((phrase) => ru.includes(phrase)) && [
+      ].every((phrase) => ruDetails.includes(phrase)) && [
         "international delivery",
         "destination country",
         "quotation"
-      ].every((phrase) => en.includes(phrase));
+      ].every((phrase) => enDetails.includes(phrase)));
     }
   },
   {

@@ -109,12 +109,12 @@ const checks = [
     }
   },
   {
-    name: "desktop homepage first fold contains hero and supply details",
+    name: "desktop homepage keeps hero and supply details together without clipping longer copy",
     pass: () =>
       source.includes('<div className="home-first-screen">') &&
       cssSource.includes(".home-first-screen") &&
-      cssSource.includes("height: calc(100svh - var(--site-header-height))") &&
-      cssSource.includes("grid-template-rows: minmax(0, 1fr) auto") &&
+      cssSource.includes("min-height: calc(100svh - var(--site-header-height))") &&
+      cssSource.includes("grid-template-rows: minmax(min-content, 1fr) auto") &&
       cssSource.includes(".home-first-screen .home-hero-shell") &&
       cssSource.includes(".home-first-screen .home-hero-content") &&
       cssSource.includes(".home-first-screen .home-hero-details")
