@@ -6,7 +6,7 @@ export const defaultLocale: Locale = "ru";
 export const copy = {
   ru: {
     brand: "SenseMeter",
-    brandLine: "Промышленные измерительные решения",
+    brandLine: "Поставка промышленных измерительных приборов",
     navHome: "Главная",
     navCatalog: "Каталог",
     navAbout: "О нас",
@@ -103,7 +103,7 @@ export const copy = {
   },
   en: {
     brand: "SenseMeter",
-    brandLine: "Industrial measurement solutions",
+    brandLine: "Industrial measuring instrument supply",
     navHome: "Home",
     navCatalog: "Product Catalog",
     navAbout: "About",
