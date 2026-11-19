@@ -10,8 +10,8 @@ export function AccessoriesIndexPage({ locale }: { locale: Locale }) {
   const c = accessoryCopy[locale];
   const overview = accessoryOverviewCopy[locale];
   const requestItems = locale === "ru"
-    ? ["Прибор или узел", "Газ или рабочая среда", "Размеры и материал", "Интерфейс или резьба", "Точность фильтрации или расход", "Требуемое количество"]
-    : ["Instrument or assembly", "Gas or process medium", "Dimensions and material", "Connection or thread", "Filtration grade or flow", "Required quantity"];
+    ? ["Прибор или узел", "Газ или рабочая среда", "Размеры и материал", "Тип соединения или резьбы", "Тонкость фильтрации или расход", "Требуемое количество"]
+    : ["Instrument or assembly", "Gas or process medium", "Dimensions and material", "Connection or thread type", "Filtration rating or flow", "Required quantity"];
   return (
     <PageShell locale={locale} active="catalog" languagePath={localizedPath(oppositeLocale(locale), "/accessories")}>
       <section className="border-b border-line bg-[#eef2f6] px-5 py-8 md:px-10 md:py-10" data-accessory-overview-heading>

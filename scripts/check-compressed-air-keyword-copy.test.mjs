@@ -23,16 +23,17 @@ test("RU lead and selection heading match the approved application-focused copy"
 });
 
 test("the existing installation FAQ distinguishes process air from room humidity", () => {
-  assert.equal(page.content.ru.faqs.length, 6);
+  assert.equal(page.content.ru.faqs.length, 7);
   assert.deepEqual(page.content.ru.faqs[1], { question: approved.question, answer: approved.answer });
   assert.equal(page.content.ru.faqs.filter(item => item.question === approved.question).length, 1);
 });
 
-test("the English sampling FAQ is unique and does not promise included accessories", () => {
+test("the sampling FAQ does not promise included accessories in either language", () => {
   assert.equal(page.content.en.faqs.length, 7);
   assert.deepEqual(page.content.en.faqs[6], samplingCopy.samplingFaq);
   assert.equal(page.content.en.faqs.filter(item => item.question === samplingCopy.samplingFaq.question).length, 1);
   assert.match(page.content.en.faqs[6].answer, /should not be assumed to be included unless it is listed in the quotation/);
+  assert.match(page.content.ru.faqs[6].answer, /только в том случае, если они указаны в коммерческом предложении/);
 });
 
 test("all fields outside the approved Russian copy and English testing guidance remain unchanged", () => {
@@ -44,7 +45,8 @@ test("all fields outside the approved Russian copy and English testing guidance 
   delete snapshot.content.en.faqs[0].answer;
   snapshot.content.en.faqs = snapshot.content.en.faqs.slice(0, 4);
   const hash = createHash("sha256").update(JSON.stringify(snapshot)).digest("hex");
-  assert.equal(hash, "1b8b551c7e1f1973b2a45610dc3ee874223d3ed0dda1e5540ce2b4344c7342eb");
+  // Includes the reviewed bilingual checklist, quotation wording and Russian sampling FAQ.
+  assert.equal(hash, "2770337165389a37abbe637ea1c02adceb740ba6ba66abdb5cdfc28c88b6b69a");
 });
 
 const require = createRequire(import.meta.url);

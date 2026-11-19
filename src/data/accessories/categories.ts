@@ -5,8 +5,8 @@ export const accessoryCategories: AccessoryCategory[] = [
     slug: "custom-sintered-filter-elements",
     title: { ru: "Спечённые фильтроэлементы под заказ", en: "Custom Sintered Filter Elements" },
     summary: {
-      ru: "Фильтроэлементы из пористой нержавеющей стали по чертежу, образцу, требуемой пористости и монтажным размерам.",
-      en: "Porous stainless-steel filter elements made to drawing, sample, pore structure and mounting dimensions."
+      ru: "Фильтроэлементы из пористой нержавеющей стали по чертежу или образцу. Структуру пор и монтажные размеры согласуем под задачу.",
+      en: "Porous stainless-steel filter elements made from a drawing or sample. Pore structure and mounting dimensions are specified for the application."
     },
     intro: {
       ru: "SenseMeter поставляет стандартные и заказные спечённые элементы для фильтрации газа, защиты измерительных линий и установки в приборные узлы. При подборе учитываются материал, геометрия, размер пор, расход, перепад давления, температура и способ очистки.",
@@ -54,7 +54,7 @@ export const accessoryCategories: AccessoryCategory[] = [
     image: "/assets/accessories/filter-face-seal-disc-uniform.webp",
     specs: [
       { label: { ru: "Материалы", en: "Materials" }, value: { ru: "316L, 316, никелевые и медные сплавы", en: "316L, 316, nickel and copper alloys" } },
-      { label: { ru: "Пористость", en: "Porosity" }, value: { ru: "0,1-120 мкм по применению", en: "0.1-120 μm by application" } },
+      { label: { ru: "Размер пор", en: "Pore size" }, value: { ru: "0,1-120 мкм по применению", en: "0.1-120 μm by application" } },
       { label: { ru: "Исполнение", en: "Construction" }, value: { ru: "Миниатюрные вставки, диски, трубки и нестандартные формы", en: "Mini inserts, discs, tubes and custom shapes" } }
     ],
     technicalNotes: {
@@ -87,8 +87,8 @@ export const accessoryCategories: AccessoryCategory[] = [
       en: "Stainless-steel filter cups, caps and cartridges for protection, prefiltration and flow distribution."
     },
     intro: {
-      ru: "Фильтрующие стаканы применяются там, где нужен прочный пористый объём: защита датчика, предварительная очистка газа, удержание частиц или работа в корпусе с обслуживаемым элементом.",
-      en: "Filter cups are used where a robust porous volume is required: sensor protection, gas prefiltration, particle retention or a serviceable filter inside a housing."
+      ru: "Спечённые фильтрующие стаканы задерживают частицы при предварительной очистке газа и защищают чувствительные элементы. Их также используют как сменные элементы в корпусах фильтров.",
+      en: "Sintered filter cups trap particles during gas prefiltration and protect sensing elements. They can also serve as replaceable elements inside filter housings."
     },
     image: "/assets/accessories/filter-industrial-cartridge-uniform.webp",
     specs: [
@@ -178,7 +178,7 @@ export const accessoryCategories: AccessoryCategory[] = [
       title: { ru: "Особенности защитных корпусов", en: "Probe housing notes" },
       items: [
         {
-          title: { ru: "Защита без потери отклика", en: "Protection with response" },
+          title: { ru: "Защита чувствительного элемента", en: "Sensing element protection" },
           text: { ru: "Пористая оболочка защищает чувствительный элемент от пыли, брызг и механического контакта, сохраняя контакт со средой.", en: "The porous shell protects the sensing element from dust, splashes and mechanical contact while preserving contact with the medium." }
         },
         {
@@ -200,12 +200,12 @@ export const accessoryCategories: AccessoryCategory[] = [
     slug: "flow-control-accessories",
     title: { ru: "Ограничители расхода и газовые аксессуары", en: "Flow Restrictors and Gas-Line Accessories" },
     summary: {
-      ru: "Пористые ограничители, газовые сопротивления и компактные фитинги для стабильного пробоотбора, подачи газа и защиты приборных линий.",
-      en: "Porous restrictors, gas resistances and compact fittings for stable sampling, gas delivery and instrument-line protection."
+      ru: "Пористые ограничители расхода и компактные фитинги для подачи газа, пробоотбора и защиты приборных линий.",
+      en: "Porous flow restrictors and compact fittings for gas delivery, sampling and instrument-line protection."
     },
     intro: {
-      ru: "Компоненты подбираются по входному давлению, целевому расходу, газу, перепаду давления и типу соединения. Пористая структура помогает стабилизировать ламинарный поток, снижать пульсации и работать без выделения частиц.",
-      en: "Components are selected by inlet pressure, target flow, gas, pressure drop and connection. The porous structure helps stabilize laminar flow, reduce pulsation and operate with no particle shedding."
+      ru: "Ограничители подбирают по входному давлению, требуемому расходу, составу газа, перепаду давления и типу соединения. Пористый элемент помогает сгладить пульсации. Допустимое выделение частиц согласуют для выбранного исполнения.",
+      en: "Select a restrictor by inlet pressure, target flow, gas composition, pressure drop and connection type. The porous element helps reduce pulsation. Confirm particle-shedding limits for the selected configuration."
     },
     image: "/assets/accessories/flow-porous-restrictor-uniform.webp",
     specs: [
@@ -222,7 +222,7 @@ export const accessoryCategories: AccessoryCategory[] = [
         },
         {
           title: { ru: "Чистое исполнение", en: "Clean construction" },
-          text: { ru: "Для высокочистых газов подтверждаются материал, обработка поверхности, герметичность и отсутствие выделения частиц.", en: "For high-purity gases, material, surface finish, leak tightness and no particle shedding are confirmed." }
+          text: { ru: "Для высокочистых газов согласуют материал, обработку поверхности, допустимую утечку и требования к выделению частиц.", en: "For high-purity gases, confirm the material, surface finish, allowable leak rate and particle-shedding limits." }
         },
         {
           title: { ru: "Монтаж в фитинг", en: "Fitting integration" },

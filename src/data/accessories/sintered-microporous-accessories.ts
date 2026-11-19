@@ -13,7 +13,7 @@ export const sinteredMicroporousAccessoryProducts: AccessoryProduct[] = [
     customization: { ru: "Доступны разные диаметры, толщина, активная зона и материал.", en: "Different diameters, thicknesses, active areas and materials are available." },
     specs: [
       { label: { ru: "Материал", en: "Material" }, value: { ru: "316L или 316", en: "316L or 316" } },
-      { label: { ru: "Пористость", en: "Porosity" }, value: { ru: "0,1-120 мкм", en: "0.1-120 μm" } },
+      { label: { ru: "Размер пор", en: "Pore size" }, value: { ru: "0,1-120 мкм", en: "0.1-120 μm" } },
       { label: { ru: "Форма", en: "Form" }, value: { ru: "Плоский диск", en: "Flat disc" } }
     ],
     applications: { ru: ["Защита датчиков", "Фильтрация в малом объёме", "Чистые газовые линии"], en: ["Sensor protection", "Small-volume filtration", "Clean gas lines"] },
@@ -96,7 +96,7 @@ export const sinteredMicroporousAccessoryProducts: AccessoryProduct[] = [
     categorySlug: "sintered-microporous-accessories",
     model: "SM-MP-MIN",
     title: { ru: "Миниатюрный пористый фильтр", en: "Miniature Porous Filter" },
-    summary: { ru: "Небольшой фильтрующий элемент для приборов, где важны малый объём и стабильный поток.", en: "Small filter element for instruments requiring low volume and stable flow." },
+    summary: { ru: "Компактный фильтроэлемент для приборов, где важны малый внутренний объём и стабильный расход.", en: "Compact filter element for instruments that require low internal volume and stable flow." },
     image: "/assets/accessories/filter-custom-microporous-uniform.webp",
     selection: { ru: ["Мёртвый объём", "Размер пор", "Совместимость с газом"], en: ["Dead volume", "Pore size", "Gas compatibility"] },
     compatibleWith: { ru: ["Портативные приборы", "Газовые сенсоры", "Лабораторные узлы"], en: ["Portable instruments", "Gas sensors", "Laboratory assemblies"] },

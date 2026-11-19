@@ -59,7 +59,7 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
       advisorText: "Укажите газ, давление, диапазон точки росы, место установки и требования к безопасности. Мы поможем выбрать подходящую модель.",
       advisorButton: "Отправить параметры",
       finalCtaTitle: "Нужен анализатор влажности для газовой системы?",
-      finalCtaText: "Проверим состав газа, давление, диапазон, пробоотбор и требования участка. Условия международной поставки из Китая, доставки и таможенного оформления согласуем в коммерческом предложении с учетом страны назначения.",
+      finalCtaText: "Проверим состав газа, давление, диапазон, пробоотбор и требования участка. Укажите страну назначения: при подготовке предложения согласуем условия поставки из Китая и определим, кто отвечает за доставку и таможенное оформление.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -103,7 +103,7 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
       faqsTitle: "Frequently asked questions",
       faqs: [
         { question: "Why measure dew point in natural gas?", answer: "Dew point control helps reduce hydrate formation, condensation, corrosion and operational risk in pipelines and gas treatment systems." },
-        { question: "Can the instrument be installed directly in the pipeline?", answer: "Some applications use direct installation, but sampling or conditioning systems are often preferred for stability, filtration and service access." },
+        { question: "Can the instrument be installed directly in the pipeline?", answer: "Direct installation depends on pressure, temperature, gas composition and safety requirements. For gases with aggressive components, check the sensor, seals and sampling materials against the manufacturer's documentation. Explosion protection does not establish chemical compatibility. Assess filtration and sample conditioning separately." },
         { question: "Which instruments are suitable for hazardous areas?", answer: "Hazardous-area applications require instruments with suitable approvals and construction. The zone classification, pressure, gas and installation conditions should be specified in advance." },
         { question: "What data is needed for model selection?", answer: "Specify gas type, pressure, temperature, dew point range, installation method, output signal, certificate needs and documentation requirements." }
       ],
@@ -111,7 +111,7 @@ export const naturalGasMoistureMonitoring: ApplicationPageRecord = {
       advisorText: "Send gas type, pressure, dew point range, installation point and safety requirements. We will help select a suitable model.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need moisture measurement for a gas system?",
-      finalCtaText: "We will review gas composition, pressure, range, sampling and site requirements, then quote international supply from China, with delivery and customs responsibilities agreed for the destination country.",
+      finalCtaText: "We will review gas composition, pressure, range, sampling and site requirements. Tell us the destination country so we can agree on shipping terms from China, including who handles delivery and customs clearance, when preparing your quote.",
       finalCtaButton: "Request a selection"
     }
   }

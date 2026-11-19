@@ -46,6 +46,7 @@ export function getInstrumentDetails(locale: Locale, product: Product) {
   const referenceOnly = product.slug === "optidew-hz";
   const orderCodes = product.slug === "gpr-1500" || product.slug === "gpr-1000-1100-2000-3500";
   const documentType = orderCodes ? (locale === "ru" ? "коды заказа" : "order codes") : copy.documentType;
+  const documentModel = product.slug === "dmt143-dmt143l" ? "DMT143" : product.model;
   const specifications = product.params[locale].map(text => {
     const separator = text.indexOf(": ");
     return separator > 0 ? { label: text.slice(0, separator), value: text.slice(separator + 2) } : { value: text };
@@ -61,7 +62,7 @@ export function getInstrumentDetails(locale: Locale, product: Product) {
     samplingNote: sample?.samplingNote,
     documentTitle: referenceOnly
       ? (locale === "ru" ? "Optidew 401/501 — справочная спецификация серии" : "Optidew 401/501 — reference series datasheet")
-      : (sample?.documentTitle ?? `${product.model} — ${documentType}`),
+      : (sample?.documentTitle ?? `${documentModel} — ${documentType}`),
     downloadLabel: referenceOnly ? (locale === "ru" ? "PDF серии 401/501" : "401/501 series PDF") : undefined,
     documentMeta: sample?.documentMeta ?? copy.documentMeta,
     selectionInputs: product.selectionInputs?.[locale] ?? copy.selection

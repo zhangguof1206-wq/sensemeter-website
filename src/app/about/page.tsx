@@ -5,7 +5,7 @@ export const metadata = staticPageMetadata({
   locale: "ru",
   path: "/about",
   title: "О SenseMeter и SINOETM TECH LTD",
-  description: "SenseMeter помогает B2B-клиентам подобрать промышленные датчики влажности, точки росы и кислородные анализаторы.",
+  description: "SenseMeter экспортирует из Китая промышленные приборы для измерения точки росы, влажности, температуры и кислорода. Подбор и техническая поддержка.",
   image: "/assets/about/laboratory-equipment.jpg"
 });
 

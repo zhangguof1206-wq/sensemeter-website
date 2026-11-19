@@ -80,12 +80,12 @@ export const sensorProtectionProducts: AccessoryProduct[] = [
     title: { ru: "Вентилируемый корпус для наружных зондов", en: "Outdoor Vented Probe Housing" },
     summary: { ru: "Пористая защита для датчиков в пыльных, влажных и коррозионных промышленных зонах с возможностью очистки.", en: "Porous protection for sensors in dusty, wet and corrosive industrial areas, with cleanable construction." },
     image: "/assets/accessories/sensor-outdoor-vented-uniform.webp",
-    selection: { ru: ["Уровень защиты от пыли и влаги", "Материал среды", "Скорость отклика"], en: ["Dust and moisture protection level", "Process-medium compatibility", "Required response speed"] },
+    selection: { ru: ["Уровень защиты от пыли и влаги", "Совместимость с рабочей средой", "Требуемая скорость отклика"], en: ["Dust and moisture protection level", "Process-medium compatibility", "Required response speed"] },
     compatibleWith: { ru: ["Наружный мониторинг", "HVAC и воздуховоды", "Промышленные помещения"], en: ["Outdoor monitoring", "HVAC and ducts", "Industrial spaces"] },
     customization: { ru: "Доступны варианты по длине, пористости, коррозионной стойкости и способу очистки.", en: "Length, porosity, corrosion resistance and cleaning method can be customized." },
     specs: [
       { label: { ru: "Материал", en: "Material" }, value: { ru: "316L, 316 или специальный сплав", en: "316L, 316 or special alloy" } },
-      { label: { ru: "Защита", en: "Protection" }, value: { ru: "До IP65 в согласованной сборке", en: "Up to IP65 in a confirmed assembly" } },
+      { label: { ru: "Степень защиты сборки", en: "Assembly IP rating" }, value: { ru: "До IP65 в согласованной сборке", en: "Up to IP65 in a confirmed assembly" } },
       { label: { ru: "Исполнение", en: "Construction" }, value: { ru: "Вентилируемое пористое", en: "Vented porous housing" } }
     ],
     applications: { ru: ["Наружный мониторинг", "HVAC и воздуховоды", "Влажные производственные зоны"], en: ["Outdoor monitoring", "HVAC and ducts", "Wet industrial areas"] },

@@ -89,7 +89,7 @@ export const aiiSpecifications: Record<string, SpecificationSheet> = {
         r("Temperature compensation", "Температурная компенсация", "Documented for the GPR-1500 transmitter.", "Указана для преобразователя GPR-1500.")
       ],
       mechanical: [
-        r("Wall mount and enclosure", "Настенный монтаж и корпус", "V4: fiberglass wall-mount NEMA 4X enclosure. PST x500 datasheet and x500 A manual: fiberglass and painted aluminum, NEMA 3R.", "V4: настенный корпус из стеклопластика, NEMA 4X. Паспорт PST x500 и руководство x500 A: стеклопластик и окрашенный алюминий, NEMA 3R."),
+        r("Wall mount and enclosure", "Настенный монтаж и корпус", "NEMA 4X fiberglass wall-mount enclosure or NEMA 3R fiberglass and painted aluminum enclosure, depending on the unit. Verify the rating on the unit's marking.", "Настенный корпус из стеклопластика NEMA 4X или корпус из стеклопластика и окрашенного алюминия NEMA 3R, в зависимости от исполнения. Сверьте степень защиты с маркировкой прибора."),
         r("Gas path and sample options", "Газовый тракт и опции пробоотбора", "Stainless-steel tubing and sensor housing; 1/8″ tube fittings. Optional A-4442 inlet coalescing filter or separate sample panel.", "Трубки и корпус датчика из нержавеющей стали; фитинги 1/8″. Опции: входной коалесцентный фильтр A-4442 или отдельная панель пробоотбора."),
         r("Area classification", "Исполнение по зоне применения", "GPR-1500: B1 general purpose; B2 cMETus, ATEX, IECEx, UKEX, with separately supplied I.S. barrier. GPR-1500A: general purpose only under V4.", "GPR-1500: B1 общепромышленное; B2 с cMETus, ATEX, IECEx, UKEX и отдельно поставляемым барьером искрозащиты. GPR-1500A: только общепромышленное по V4.")
       ]

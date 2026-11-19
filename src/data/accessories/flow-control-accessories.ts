@@ -28,7 +28,7 @@ export const flowControlProducts: AccessoryProduct[] = [
     image: "/assets/accessories/flow-fitting-limiter-uniform.webp",
     selection: { ru: ["Резьба или трубное соединение", "Расход", "Монтажное пространство"], en: ["Thread or tube connection", "Flow", "Installation space"] },
     compatibleWith: { ru: ["Компактные анализаторы", "Газовые шкафы", "OEM-модули"], en: ["Compact analyzers", "Gas cabinets", "OEM modules"] },
-    customization: { ru: "Доступны разные корпуса, направления, калиброванные значения расхода и исполнение без выделения частиц.", en: "Different bodies, orientations, calibrated flow values and no particle shedding construction are available." },
+    customization: { ru: "Можно выбрать корпус, ориентацию и калиброванный расход. Требования к выделению частиц согласуют для выбранного исполнения.", en: "Body styles, orientations and calibrated flow rates can be specified. Confirm particle-shedding limits for the selected configuration." },
     specs: [
       { label: { ru: "Корпус", en: "Body" }, value: { ru: "Фитинг из нержавеющей стали", en: "Stainless-steel fitting" } },
       { label: { ru: "Соединение", en: "Connection" }, value: { ru: "Резьба или трубное", en: "Thread or tube" } },
@@ -42,11 +42,11 @@ export const flowControlProducts: AccessoryProduct[] = [
     categorySlug: "flow-control-accessories",
     model: "SM-FR-UHP",
     title: { ru: "Ограничитель расхода для высокочистого газа", en: "High-Purity Gas Flow Restrictor" },
-    summary: { ru: "Исполнение 316L для контролируемой подачи высокочистого или специального газа с малым мертвым объемом и без выделения частиц.", en: "316L construction for controlled delivery of high-purity or specialty gas with low dead volume and no particle shedding." },
+    summary: { ru: "Ограничитель из стали 316L с малым мёртвым объёмом для подачи высокочистых или специальных газов.", en: "316L stainless-steel restrictor with low dead volume for high-purity or specialty gas delivery." },
     image: "/assets/accessories/flow-high-purity-uniform.webp",
     selection: { ru: ["Чистота газа", "Герметичность", "Диапазон расхода и перепад давления"], en: ["Gas purity", "Leak tightness", "Flow range and pressure drop"] },
     compatibleWith: { ru: ["Высокочистые газовые панели", "Лабораторные анализаторы", "Полупроводниковые линии"], en: ["High-purity gas panels", "Laboratory analyzers", "Semiconductor lines"] },
-    customization: { ru: "Подтверждаются обработка поверхности, соединение, требуемая утечка и внутренняя чистота.", en: "Surface finish, connection, required leak rate and internal cleanliness are confirmed." },
+    customization: { ru: "Согласуют обработку поверхности, тип соединения, допустимую утечку, внутреннюю чистоту и требования к выделению частиц.", en: "Confirm the surface finish, connection type, allowable leak rate, internal cleanliness and particle-shedding limits." },
     specs: [
       { label: { ru: "Материал", en: "Material" }, value: { ru: "Нержавеющая сталь 316L", en: "316L stainless steel" } },
       { label: { ru: "Диапазон расхода", en: "Flow range" }, value: { ru: "0,1 sccm-40 slpm по исполнению", en: "0.1 sccm-40 slpm by configuration" } },

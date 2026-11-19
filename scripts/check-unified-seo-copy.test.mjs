@@ -107,8 +107,8 @@ test("catalog identity and content outside the approved technical corrections st
   delete product.params;
   delete product.highlights.en;
   snapshot.find(item => item.slug === "mdm300").selectionInputs.en[2] = "Ordinary or intrinsically safe version";
-  // Hash from the pre-change catalog after applying the same field mask.
-  assert.equal(hash(snapshot), "7c508dc4df6a281dd7993064e91e4b61d7912e47b59e12ee188a350f766e6243");
+  // Updated for the reviewed wording, preserving the original field mask.
+  assert.equal(hash(snapshot), "cd758971eeb1f6d51da611f63f586357d5f39d219f1667b7ce0a367cd2b1c258");
 });
 
 test("the gas page no longer recommends the unverified Optidew-HZ; other content is preserved", () => {
@@ -116,7 +116,9 @@ test("the gas page no longer recommends the unverified Optidew-HZ; other content
   const snapshot = structuredClone(gas);
   delete snapshot.content.ru.selectionCards[0].text;
   delete snapshot.content.ru.faqs[1].answer;
-  assert.equal(hash(snapshot), "3d62903a8e6867a4dd22a5d42cc4c37d46b49bcbcb69536a133571cf6dc06ce1");
+  const directInstallation = gas.content.en.faqs.find(item => item.question === "Can the instrument be installed directly in the pipeline?");
+  assert.match(directInstallation?.answer ?? "", /Explosion protection does not establish chemical compatibility/);
+  assert.equal(hash(snapshot), "da80830545efa4a1713fa97c12eb234174f653298145403b574624c161a6682b");
 });
 
 test("GitHub regression includes all approved catalog and copy checks before release", () => {

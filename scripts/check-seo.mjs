@@ -315,8 +315,8 @@ const checks = [
         'model: "HMP3"',
         "Vaisala HMP3 industrial humidity and temperature probe",
         "Request price, availability and a quotation for HMP3.",
-        "Relative humidity accuracy up to +/-0.8 %RH at +23 deg C (0-90 %RH)",
-        "Temperature measurement range -40 to +120 deg C",
+        "Relative humidity accuracy: ±0.8 %RH at +23 °C and 0–90 %RH",
+        "Temperature measurement range: −40 to +120 °C",
         "Modbus RTU over RS-485",
         "IP66 probe body",
         "Application environment and measured gas",
@@ -360,12 +360,9 @@ const checks = [
     }
   },
   {
-    name: "English About page uses updated Sinoetm company copy",
-    pass: () => {
-      const i18n = read("src/lib/i18n.ts");
-      return i18n.includes("Sinoetm Tech. Ltd. is a premier company dedicated") &&
-        i18n.includes("Sinoetm aims to be your trusted partner");
-    }
+    name: "both About page descriptions identify SenseMeter and exports from China",
+    pass: () => read("src/app/about/page.tsx").includes("SenseMeter экспортирует из Китая") &&
+      read("src/app/en/about/page.tsx").includes("oxygen instruments from China")
   },
   {
     name: "thank-you pages are noindex",

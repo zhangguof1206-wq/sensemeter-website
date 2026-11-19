@@ -46,7 +46,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
         { title: "Выход и контроль", text: "Укажите дисплей, реле, 4-20 mA, цифровой интерфейс или архивирование данных." }
       ],
       rfqTitle: "Что указать в запросе",
-      rfqPoints: ["тип газа или сжатого воздуха", "рабочее давление линии и давление у сенсора (избыточное или абсолютное)", "диапазон точки росы и давление, к которому относится требуемое значение", "требуемую точность", "место установки: линия, байпас или осушитель", "выходной сигнал и питание", "наличие дисплея или сигнализации", "количество и требования к документации"],
+      rfqPoints: ["тип газа или сжатого воздуха", "рабочее давление в линии и давление у датчика (для каждого укажите: избыточное или абсолютное)", "ожидаемый диапазон точки росы и давление, при котором он задан", "требуемую точность", "место установки: линия, байпас или осушитель", "выходной сигнал и питание", "наличие дисплея или сигнализации", "количество и требования к документации"],
       productsEyebrow: "Рекомендуемые приборы",
       productsTitle: "Измерители и преобразователи точки росы",
       productsLead: "Эти модели подходят для осушителей, пневмолиний, сухих газов и сервисных проверок.",
@@ -58,13 +58,14 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
         { question: "Чем отличается онлайн-гигрометр от портативного анализатора?", answer: "Онлайн-гигрометр подходит для постоянного мониторинга и сигнализации, а портативный анализатор удобен для проверки нескольких точек, сервиса и периодического контроля." },
         { question: "Какие данные нужны для подбора модели?", answer: "Нужно указать газ, давление, ожидаемый диапазон точки росы, способ установки, требования к выходному сигналу, наличие дисплея или сигнализации и условия эксплуатации." },
         { question: "Чем отличается точка росы под давлением от точки росы при атмосферном давлении?", answer: "Точка росы зависит от давления газа. Показание после снижения давления до атмосферного нельзя напрямую сравнивать с точкой росы в рабочей линии. При сравнении измерений укажите давление у сенсора и используйте одну и ту же базу давления; пересчет выполняйте по методике производителя прибора." },
-        { question: "Как подготовить пробу и проверить стабильность показаний?", answer: "Измеряйте в представительной точке после осушителя или у потребителя. Проверьте герметичность пробоотборной линии, совместимость материалов и отсутствие загрязнений, способных повлиять на сенсор. Поддерживайте предусмотренные руководством прибора давление и расход, дождитесь стабилизации показаний и запишите условия измерения. Расход и время стабилизации зависят от модели и условий; одного значения для всех приборов нет." }
+        { question: "Как подготовить пробу и проверить стабильность показаний?", answer: "Измеряйте в представительной точке после осушителя или у потребителя. Проверьте герметичность пробоотборной линии, совместимость материалов и отсутствие загрязнений, способных повлиять на сенсор. Поддерживайте предусмотренные руководством прибора давление и расход, дождитесь стабилизации показаний и запишите условия измерения. Расход и время стабилизации зависят от модели и условий; одного значения для всех приборов нет." },
+        { question: "Входит ли система пробоотбора в комплект переносного измерителя точки росы?", answer: "Подбирайте прибор и принадлежности вместе. По руководству выбранной модели проверьте тип подключения, давление у датчика, регулирование расхода пробы и защиту от жидкости и частиц. Для серии MDM300 укажите в запросе нужную схему пробоотбора. Регулятор, фильтр, манометр, трубки и кейс входят в поставку только в том случае, если они указаны в коммерческом предложении." }
       ],
       advisorTitle: "Подобрать прибор по параметрам",
       advisorText: "Укажите газ, давление, диапазон точки росы и способ установки. Мы поможем сопоставить параметры с подходящими моделями.",
       advisorButton: "Отправить параметры",
       finalCtaTitle: "Нужен прибор для контроля точки росы?",
-      finalCtaText: "Сопоставим газ, давление, диапазон и способ установки с подходящими моделями. Условия международной поставки из Китая, доставки и таможенного оформления согласуем в коммерческом предложении с учетом страны назначения.",
+      finalCtaText: "Укажите газ, давление, ожидаемую точку росы и место установки, а также нужен ли переносной прибор или стационарный датчик. По этим данным подберём модели. Условия доставки из Китая и таможенного оформления согласуем при подготовке предложения для вашей страны.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -103,7 +104,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
         { title: "Output, alarms and logging", text: "Specify local display, relay, analog output, digital communication or data logging." }
       ],
       rfqTitle: "What to specify in your request",
-      rfqPoints: ["Gas type", "Working pressure", "Expected dew point range", "Required accuracy", "Installation point", "Output signal and power", "Display or alarm needs", "Quantity and documentation needs"],
+      rfqPoints: ["Gas type", "Operating line pressure and pressure at the sensor (state whether each is gauge or absolute)", "Expected dew point range and the pressure to which it applies", "Required accuracy", "Installation point", "Output signal and power", "Display or alarm needs", "Quantity and documentation needs"],
       productsEyebrow: "Recommended instruments",
       productsTitle: "Portable and online dew point meters for compressed air",
       productsLead: "Compare instruments for portable dryer testing, permanent monitoring, pneumatic lines and dry process gases.",
@@ -122,7 +123,7 @@ export const compressedAirDewPoint: ApplicationPageRecord = {
       advisorText: "Send gas, pressure, dew point range and installation details. We will match the parameters with suitable models.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need a compressed air dew point meter?",
-      finalCtaText: "Send the pressure, expected dew point range, measurement point and portable or online requirement. We will match suitable models and quote international supply from China, with delivery and customs-clearance responsibilities agreed for the destination country.",
+      finalCtaText: "Tell us the gas, pressure, expected dew point and measurement point, and whether you need a portable or fixed instrument. We will recommend suitable models and agree on shipping from China and customs responsibilities when preparing your quote.",
       finalCtaButton: "Request a selection"
     }
   }

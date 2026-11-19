@@ -30,13 +30,13 @@ type AboutContent = {
 export const aboutContent = {
   ru: {
     heroEyebrow: "О SenseMeter",
-    heroTitle: "Поддержка промышленных измерительных задач",
+    heroTitle: "Промышленные измерительные приборы из Китая",
     heroLead:
-      "Приборы и сенсорные решения для контроля влажности, точки росы, кислорода и температуры в сложных промышленных условиях.",
+      "SenseMeter экспортирует из Китая приборы для измерения точки росы, влажности, температуры и содержания кислорода.",
     introEyebrow: "Чем мы занимаемся",
-    introTitle: "Практическая помощь в подборе измерительных решений",
+    introTitle: "Разработка, производство и поставка приборов",
     introBody:
-      "Sinoetm Tech. Ltd. — ведущая компания, специализирующаяся на поставке высоконадежных измерительных приборов и сенсорных решений для промышленных и профессиональных применений. Мы занимаемся поиском и поставкой передового оборудования, включая Dew Point Meters, Temperature & Humidity Sensors и Oxygen Analyzers, для критически важных задач в промышленном производстве, лабораторных испытаниях, газовом мониторинге и соответствии экологическим требованиям. Понимая, что точность имеет решающее значение для управления процессами, безопасности и контроля качества, мы стремимся поставлять исключительно стабильные, точные и надежные приборы. Наш ориентированный на клиента подход обеспечивает поддержку на каждом этапе: от экспертного подбора продукта и оперативной подготовки коммерческого предложения до комплексной документации и отзывчивого послепродажного обслуживания. Sinoetm стремится быть вашим надежным партнером в области устойчивых измерительных решений для сложных промышленных и лабораторных условий.",
+      "За брендом SenseMeter стоит SINOETM TECH LTD — многопрофильная высокотехнологичная компания. Мы занимаемся разработкой, производством, продажей и обслуживанием измерительных приборов. Поставляем оборудование известных мировых брендов для промышленных процессов, лабораторных испытаний и анализа газов. Помогаем подобрать прибор и комплектующие, предоставляем техническую документацию и консультируем после поставки.",
     domains: [
       {
         title: "Точка росы и влажность",
@@ -48,13 +48,13 @@ export const aboutContent = {
       },
       {
         title: "Анализ кислорода",
-        description: "Анализаторы для контроля чистоты газа, glove box и промышленных процессов."
+        description: "Анализаторы кислорода для контроля чистоты газа в перчаточных боксах и промышленных установках."
       }
     ],
     supportEyebrow: "Поддержка проекта",
     supportTitle: "От анализа задачи до поставки",
     supportBody:
-      "Подбор прибора зависит от рабочей среды, диапазона измерения, способа монтажа, выходного сигнала и условий эксплуатации. Мы систематизируем эти требования в понятную спецификацию прибора и комплектующих.",
+      "По рабочей среде, диапазону измерения, способу монтажа, выходному сигналу и условиям эксплуатации мы подбираем прибор и совместимые комплектующие.",
     supportSteps: [
       {
         title: "Анализ задачи",
@@ -97,21 +97,21 @@ export const aboutContent = {
         alt: "Ряды промышленных электрических шкафов управления"
       }
     ],
-    rfqEyebrow: "Контакты / RFQ",
+    rfqEyebrow: "Запрос цены и подбор",
     rfqTitle: "Обсудить параметры измерения",
     rfqBody:
-      "Укажите рабочую среду, диапазон, способ монтажа, выходной сигнал и условия эксплуатации. Эти данные помогут подготовить подходящий вариант подбора.",
+      "Укажите рабочую среду, диапазон, способ монтажа, выходной сигнал и условия эксплуатации. Мы предложим подходящие модели и уточним условия поставки из Китая.",
     rfqAction: "Запросить предложение"
   },
   en: {
     heroEyebrow: "About SenseMeter",
-    heroTitle: "Industrial measurement support",
+    heroTitle: "Industrial measuring instruments from China",
     heroLead:
-      "Measurement instruments and sensor solutions for humidity, dew point, oxygen and temperature in demanding industrial conditions.",
+      "SenseMeter exports instruments for dew point, humidity, temperature, and oxygen measurement from China.",
     introEyebrow: "What we do",
-    introTitle: "Practical support for demanding measurement tasks",
+    introTitle: "Instrument development, manufacturing and supply",
     introBody:
-      "Sinoetm Tech. Ltd. is a premier company dedicated to providing high-reliability measurement instruments and sensor solutions for industrial and professional applications. We specialize in sourcing and supplying advanced equipment—including Dew Point Meters, Temperature & Humidity Sensors, and Oxygen Analyzers—to support critical operations in industrial production, laboratory testing, gas monitoring, and environmental compliance. Recognizing that precision is vital for process control, safety, and quality assurance, we commit to delivering exceptionally stable, accurate, and dependable instrumentation. Our customer-centric approach ensures seamless support at every stage, from expert product selection and efficient quotation to comprehensive documentation and responsive after-sales service. Sinoetm aims to be your trusted partner for robust measurement solutions in demanding industrial and laboratory environments.",
+      "SenseMeter is a brand of SINOETM TECH LTD, a diversified high-tech company. Our work covers instrument research and development, manufacturing, sales, and service. We supply internationally recognized brands for industrial processes, laboratory testing, and gas analysis. We help select instruments and accessories, provide technical documentation, and offer after-sales support.",
     domains: [
       {
         title: "Dew point and moisture",
@@ -123,13 +123,13 @@ export const aboutContent = {
       },
       {
         title: "Oxygen analysis",
-        description: "Analyzers for gas purity, glove boxes and industrial process monitoring."
+        description: "Oxygen analyzers for monitoring gas purity in glove boxes and industrial installations."
       }
     ],
     supportEyebrow: "Project support",
-    supportTitle: "From application review to supply",
+    supportTitle: "From selecting a model to arranging delivery",
     supportBody:
-      "Instrument selection depends on the operating medium, measurement range, installation method, output signal and operating conditions. We organize these requirements into a clear instrument and accessory specification.",
+      "We use your process medium, measurement range, installation method, output signal and operating conditions to select an instrument and compatible accessories.",
     supportSteps: [
       {
         title: "Application review",
@@ -172,10 +172,10 @@ export const aboutContent = {
         alt: "Rows of industrial electrical control cabinets"
       }
     ],
-    rfqEyebrow: "Contact / RFQ",
+    rfqEyebrow: "Quotations and model selection",
     rfqTitle: "Discuss your measurement requirements",
     rfqBody:
-      "Provide the process medium, measurement range, installation method, output signal and operating conditions. We will use these details to prepare a suitable selection.",
+      "Tell us the process medium, range, installation method, output signal and operating conditions. We will recommend suitable models and confirm the terms for shipping from China.",
     rfqAction: "Request a Quote"
   }
 } satisfies Record<Locale, AboutContent>;
