@@ -50,8 +50,8 @@ export const michellOtherSpecifications: Record<string, SpecificationSheet> = {
         r("Operating and storage temperatures", "Рабочая температура и температура хранения", "-40 to +60 °C (both)", "От -40 до +60 °C в обоих случаях"),
         r("Temperature compensation", "Диапазон температурной компенсации", "-20 to +50 °C", "От -20 до +50 °C"),
         r("Maximum operating pressure", "Максимальное рабочее давление",
-          "Family datasheet V3.3: 52.5 MPa (525 barg); Easidew 34-specific datasheet V5.2 (03/2023): 45 MPa (450 barg)",
-          "Общий паспорт V3.3: 52,5 МПа (525 бар изб.); паспорт Easidew 34 V5.2 (03/2023): 45 МПа (450 бар изб.)"),
+          "Up to 52.5 MPa (525 barg); Easidew 34 also has a 45 MPa (450 barg) rating. Verify the limit for the selected unit.",
+          "До 52,5 МПа (525 бар изб.); для Easidew 34 также предусмотрен предел 45 МПа (450 бар изб.). Предел зависит от конкретного прибора."),
         sampleFlow
       ],
       mechanical: [

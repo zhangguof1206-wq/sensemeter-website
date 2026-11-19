@@ -37,8 +37,8 @@ export const easidewProSpecifications: Record<string, SpecificationSheet> = {
       ],
       operating: [
         ...temperature,
-        r("Maximum working pressure", "Максимальное рабочее давление", "525 barg (52.5 MPa) per datasheet V10.7; older manual v16.5 lists 450 barg. Confirm the applicable limit for the exact equipment and installation.", "525 barg (52,5 МПа) по спецификации V10.7; в раннем руководстве v16.5 указано 450 barg. Допустимый предел уточняют для конкретного прибора и монтажа."),
-        r("Canadian CRN installations", "Установки с требованиями CRN в Канаде", "138 barg maximum per datasheet V10.7.", "Не более 138 barg по спецификации V10.7."),
+        r("Maximum working pressure", "Максимальное рабочее давление", "450 barg (45 MPa) or 525 barg (52.5 MPa); verify the applicable rating for the unit and installation.", "450 barg (45 МПа) или 525 barg (52,5 МПа); допустимый предел определяется для конкретного прибора и монтажа."),
+        r("Canadian CRN installations", "Установки с требованиями CRN в Канаде", "138 barg maximum.", "Не более 138 barg."),
         flow
       ],
       mechanical: [
@@ -47,7 +47,7 @@ export const easidewProSpecifications: Record<string, SpecificationSheet> = {
         r("Process connection", "Подключение к процессу", "5/8–18 UNF with bonded seal; G1/2 and 3/4 UNF adapters are optional.", "5/8–18 UNF с комбинированным уплотнением; переходники G1/2 и 3/4 UNF опциональны."),
         guard,
         r("Weight", "Масса", "1.27 kg"),
-        r("Hazardous-area approvals", "Сертификаты для опасных зон", "ATEX, UKCA, IECEx, TR CU Ex and cQPSus are listed in V10.7; use the certificate and markings for the supplied unit.", "В V10.7 перечислены ATEX, UKCA, IECEx, TR CU Ex и cQPSus; применимость определяют по маркировке и сертификату конкретного прибора.")
+        r("Hazardous-area approvals", "Сертификаты для опасных зон", "ATEX, UKCA, IECEx, TR CU Ex and cQPSus (subject to unit marking and certificate).", "ATEX, UKCA, IECEx, TR CU Ex и cQPSus (в соответствии с маркировкой и сертификатом прибора).")
       ]
     },
     note: {

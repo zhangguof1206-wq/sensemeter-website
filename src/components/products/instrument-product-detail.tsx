@@ -15,7 +15,13 @@ export function InstrumentProductDetail({ locale, product }: { locale: Locale; p
   const copy = getInstrumentDetails(locale, product);
   const specifications = getInstrumentSpecifications(product.slug, locale);
   const id = (section: string) => `${product.slug}-${section}`;
-  const sections = Object.entries(copy.sections).filter(([key]) => key !== "versions" || copy.versionRows).map(([key, label]) => ({ id: id(key), label }));
+  const sections = [
+    { id: id("overview"), label: copy.sections.overview },
+    { id: id("specifications"), label: copy.sections.specifications },
+    ...(copy.versionRows ? [{ id: id("versions"), label: copy.sections.versions }] : []),
+    { id: id("applications"), label: c.applications },
+    { id: id("documents"), label: copy.sections.documents }
+  ];
   const applicationLinks = getProductApplicationLinks(product.slug);
   const quoteHref = `${localizedPath(locale, "/contact")}?model=${encodeURIComponent(product.model)}`;
 
@@ -49,10 +55,9 @@ export function InstrumentProductDetail({ locale, product }: { locale: Locale; p
                   <thead className="bg-[#f4f7fa] text-steel"><tr><th className="w-[34%] break-words p-3 font-semibold" scope="col">{locale === "ru" ? "Параметр" : "Parameter"}</th><th className="p-3 font-semibold" scope="col">MDM300</th><th className="p-3 font-semibold" scope="col">MDM300 I.S.</th></tr></thead>
                   <tbody>{copy.versionRows.map(row => <tr className="border-b border-line [&>*]:[overflow-wrap:anywhere]" key={row.label}><th className="break-words p-3 align-top font-semibold" scope="row">{row.label}</th><td className="break-words p-3 align-top text-muted">{row.standard}</td><td className="break-words p-3 align-top text-muted">{row.intrinsicallySafe}</td></tr>)}</tbody>
                 </table>
-                <p className="mt-4 text-sm leading-6 text-muted">{copy.conditionsNote}</p>
               </DetailSection>
             ) : null}
-            <DetailSection title={c.applications}><DetailList items={product.applications[locale]} /></DetailSection>
+            <DetailSection id={id("applications")} title={c.applications}><DetailList items={product.applications[locale]} /></DetailSection>
           </article>
           <aside className="min-w-0 space-y-10 lg:border-l lg:border-line lg:pl-8">
             <DetailSection title={c.highlights} className="border-t-0 pt-0"><DetailList items={product.highlights[locale]} /></DetailSection>

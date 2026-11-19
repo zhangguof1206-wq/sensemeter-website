@@ -106,10 +106,12 @@ test("technical and version tables retain qualified values without equating the 
 test("every in-page navigation target is present in both languages", () => {
   for (const locale of ["ru", "en"]) {
     const html = render(locale);
-    for (const id of ["overview", "specifications", "versions", "selection", "documents"]) {
+    for (const id of ["overview", "specifications", "versions", "applications", "documents"]) {
       assert.ok(html.includes(`href="#mdm300-${id}"`));
       assert.ok(html.includes(`id="mdm300-${id}"`));
     }
+    assert.ok(!html.includes('href="#mdm300-selection"'));
+    assert.ok(html.includes('id="mdm300-selection"'));
     assert.match(html, /aria-label="[^"]+"/);
   }
 });

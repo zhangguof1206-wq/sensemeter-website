@@ -23,7 +23,6 @@ export function getInstrumentSpecifications(slug: string, locale: Locale) {
   return {
     source: sheet.source,
     references: sheet.references ?? [],
-    note: sheet.note?.[locale],
     groups: (Object.keys(specificationGroups) as (keyof typeof specificationGroups)[]).flatMap(key => {
       const rows = sheet.groups[key];
       return rows?.length ? [{

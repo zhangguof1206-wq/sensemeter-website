@@ -43,8 +43,8 @@ export const rotronicSpecifications: Record<string, SpecificationSheet> = {
           "−50 to +100 °C; temperatures above +40 °C may affect accuracy.",
           "−50…+100 °C; температура выше +40 °C может влиять на точность."),
         r("Pressure resistance, screw-in models only", "Стойкость к давлению, только резьбовые модели",
-          "HC2A-IE02-G and HC2A-IE02-NPT: up to 100 bar (1450 psi); observe the separate seal temperature limit.",
-          "HC2A-IE02-G и HC2A-IE02-NPT: до 100 бар (1450 psi); учитывайте отдельное ограничение по температуре уплотнения."),
+          "HC2A-IE02-G and HC2A-IE02-NPT: up to 100 bar (1450 psi); sealing ring temperature −40 to +100 °C.",
+          "HC2A-IE02-G и HC2A-IE02-NPT: до 100 бар (1450 psi); температура уплотнительного кольца −40…+100 °C."),
         r("Maximum air velocity", "Максимальная скорость воздуха", "3.5 m/s without a filter.", "3,5 м/с без фильтра.")
       ],
       mechanical: [

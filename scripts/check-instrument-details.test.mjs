@@ -65,15 +65,26 @@ for (const locale of ["ru", "en"]) {
       assert.ok(sheet, product.slug);
       const specifications = document.getElementById(`${product.slug}-specifications`);
       const tables = [...specifications.querySelectorAll("table")];
+      const navigation = document.querySelector(`nav:has(a[href="#${product.slug}-overview"])`);
+      const applications = document.getElementById(`${product.slug}-applications`);
+      const applicationLink = navigation.querySelector(`a[href="#${product.slug}-applications"]`);
+      const applicationLabel = locale === "ru" ? "Применение" : "Applications";
+      assert.equal(applicationLink?.textContent, applicationLabel, product.slug);
+      assert.equal(applications?.querySelector("h2")?.textContent, applicationLabel, product.slug);
+      assert.deepEqual([...applications.querySelectorAll("li")].map(li => li.textContent), product.applications[locale]);
+      assert.ok(!navigation.querySelector(`a[href="#${product.slug}-selection"]`), product.slug);
+      assert.ok(specifications.compareDocumentPosition(applications) & dom.window.Node.DOCUMENT_POSITION_FOLLOWING);
+      assert.ok(!specifications.querySelector("ul, a"), `${product.slug}: no public source list`);
       assert.equal(tables.length, sheet.groups.length, product.slug);
       assert.ok(sheet.source.revision || sheet.source.label, product.slug);
       if (product.slug === "optidew-hz") {
         assert.equal(tables.length, 0);
         assert.match(body, /401\/501/);
         assert.doesNotMatch(body, /120 °C|0[.,]15/u);
-        assert.match(specifications.textContent, /does not verify|не подтверждает/u);
+        assert.match(specifications.textContent, /Pending model verification|Исполнение уточняется/u);
         assert.doesNotMatch(product.overview[locale], /hydrocarbon dew.point|углеводородн/iu);
       } else {
+        assert.ok(!specifications.querySelector("p"), `${product.slug}: no standalone specification notes`);
         assert.ok(tables.length >= 2, product.slug);
         const rows = tables.flatMap(table => [...table.querySelectorAll("tbody tr")]);
         assert.ok(rows.length >= 8, product.slug);

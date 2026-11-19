@@ -59,7 +59,6 @@ export function getInstrumentDetails(locale: Locale, product: Product) {
     versionRows: sample?.versionRows,
     safetyNote: sample?.safetyNote,
     samplingNote: sample?.samplingNote,
-    conditionsNote: sample?.conditionsNote,
     documentTitle: referenceOnly
       ? (locale === "ru" ? "Optidew 401/501 — справочная спецификация серии" : "Optidew 401/501 — reference series datasheet")
       : (sample?.documentTitle ?? `${product.model} — ${documentType}`),
