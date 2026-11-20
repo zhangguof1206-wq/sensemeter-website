@@ -83,6 +83,8 @@ jobs:
           node-version: '24'
           cache: npm
           cache-dependency-path: tools/seo/package-lock.json
+      - name: 安装网站测试依赖
+        run: npm ci --no-audit --no-fund --registry https://registry.npmjs.org
       - name: 安装独立工具并校验下载
         env:
           PUPPETEER_SKIP_DOWNLOAD: 'true'

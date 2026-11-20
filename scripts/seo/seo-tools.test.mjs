@@ -69,6 +69,16 @@ test('code regression triggers include the actual src directory for push and PR'
   assert.ok(filters.every(line => line.includes("'src/**'")));
 });
 
+test('weekly diagnostics install website dependencies before testing Next.js compatibility', async () => {
+  const workflow = await readFile(new URL('../../.github/workflows/live-seo-monitor.yml', import.meta.url), 'utf8');
+  const job = workflow.replaceAll('\r\n', '\n').split('\n  open-source-audits:\n')[1];
+  assert.ok(job, 'Weekly diagnostics job must exist');
+  const install = job.search(/^\s+run: npm ci --no-audit --no-fund --registry https:\/\/registry\.npmjs\.org\s*$/m);
+  const test = job.indexOf('run: npm run test:seo-tools');
+  assert.ok(install >= 0, 'Weekly diagnostics must install root dependencies, including Next.js');
+  assert.ok(test > install, 'Root dependencies must be installed before the tool tests');
+});
+
 test('Unlighthouse uses a supported reporter and includes both languages without sampling', async () => {
   const { default: config } = await import('../../tools/seo/unlighthouse.config.mjs');
   assert.equal(config.ci.reporter, 'jsonExpanded');
