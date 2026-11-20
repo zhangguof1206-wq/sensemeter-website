@@ -5,7 +5,7 @@ export const metadata = staticPageMetadata({
   locale: "en",
   path: "/about",
   title: "About SenseMeter and SINOETM TECH LTD",
-  description: "SenseMeter helps B2B customers select industrial humidity, dew-point and oxygen analysis instruments.",
+  description: "SenseMeter exports industrial dew point, humidity, temperature and oxygen instruments from China, with model selection and technical support.",
   image: "/assets/about/laboratory-equipment.jpg"
 });
 

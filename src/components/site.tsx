@@ -155,9 +155,7 @@ export function PageShell({ locale, active, children, languagePath }: ShellProps
 
 export function HomePage({ locale }: { locale: Locale }) {
   const c = t(locale);
-  const heroTextParts = c.heroText.split(". ");
-  const heroLead = heroTextParts.length > 1 ? `${heroTextParts[0]}.` : c.heroText;
-  const heroDetails = heroTextParts.length > 1 ? heroTextParts.slice(1).join(". ") : "";
+  const { heroLead, heroDetails } = c;
 
   return (
     <PageShell locale={locale} active="home" languagePath={localizedPath(oppositeLocale(locale), "/")}>

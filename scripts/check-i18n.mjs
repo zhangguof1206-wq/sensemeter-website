@@ -25,8 +25,6 @@ const checks = [
       const enCriteria = ["medium", "range", "installation", "output", "operating conditions"];
       const ruCriteria = ["среду", "диапазон", "монтаж", "выходной сигнал", "условия эксплуатации"];
       return ru.domains.length === en.domains.length &&
-        ru.introBody === copy.ru.aboutBody[0] &&
-        en.introBody === copy.en.aboutBody[0] &&
         ru.supportSteps.length === en.supportSteps.length &&
         ru.environments.length === en.environments.length &&
         ru.domains.length === 3 &&
@@ -38,46 +36,31 @@ const checks = [
     }
   },
   {
-    name: "core localized array copy has matching item counts",
+    name: "localized privacy summary has matching item counts",
+    pass: () => copy.ru.privacyBody.length === copy.en.privacyBody.length
+  },
+  {
+    name: "both About pages distinguish the company, its China exports and its services",
     pass: () => {
-      const keys = ["aboutBody", "privacyBody"];
-      return keys.every((key) => Array.isArray(copy.ru[key]) && Array.isArray(copy.en[key]) && copy.ru[key].length === copy.en[key].length);
+      const { aboutContent: { ru, en } } = require("../src/data/about.ts");
+      return ru.heroLead.includes("экспортирует из Китая") && en.heroLead.includes("from China") &&
+        ["SINOETM TECH LTD", "разработкой, производством, продажей и обслуживанием", "известных мировых брендов"].every((phrase) => ru.introBody.includes(phrase)) &&
+        ["SINOETM TECH LTD", "research and development, manufacturing, sales, and service", "internationally recognized brands"].every((phrase) => en.introBody.includes(phrase)) &&
+        !/Dew Point Meters|Temperature & Humidity Sensors|Oxygen Analyzers/.test(ru.introBody);
     }
   },
   {
-    name: "Russian About copy matches the updated English company positioning",
-    pass: () => {
-      const text = copy.ru.aboutBody.join(" ");
-      const required = [
-        "ведущая компания",
-        "высоконадежных измерительных приборов",
-        "Dew Point Meters",
-        "Temperature & Humidity Sensors",
-        "Oxygen Analyzers",
-        "соответствии экологическим требованиям",
-        "стабильные, точные и надежные",
-        "комплексной документации",
-        "послепродажного обслуживания"
-      ];
-      return copy.ru.aboutBody.length === copy.en.aboutBody.length && required.every((phrase) => text.includes(phrase));
-    }
-  },
-  {
-    name: "English About copy remains English",
-    pass: () => {
-      const text = `${copy.en.aboutLead} ${copy.en.aboutBody.join(" ")}`;
-      return text.includes("Sinoetm Tech. Ltd. is a premier company dedicated") &&
-        text.includes("Sinoetm aims to be your trusted partner") &&
-        !/[А-Яа-яЁё]/.test(text);
-    }
+    name: "Russian catalog and quotation controls use Russian labels",
+    pass: () => copy.ru.allProducts === "Все приборы" && copy.ru.navContact === "Контакты" &&
+      copy.ru.contactInfoTitle === "Контакты" && copy.ru.submit === "Отправить запрос" &&
+      copy.en.navContact === "Contact" && copy.en.contactInfoTitle === "Contact"
   },
   {
     name: "RFQ and catalog copy includes practical selection criteria",
     pass: () => {
-      const enText = `${copy.en.heroText} ${copy.en.catalogLead} ${copy.en.contactLead} ${copy.en.emailNote}`;
-      const ruText = `${copy.ru.heroText} ${copy.ru.catalogLead} ${copy.ru.contactLead} ${copy.ru.emailNote}`;
+      const enText = `${copy.en.heroDetails} ${copy.en.catalogLead} ${copy.en.contactLead} ${copy.en.emailNote}`;
+      const ruText = `${copy.ru.heroDetails} ${copy.ru.catalogLead} ${copy.ru.contactLead} ${copy.ru.emailNote}`;
       const enRequired = [
-        "industrial measurement instruments and accessories",
         "model selection",
         "instrument panel and cabinet integration",
         "availability and lead times",
@@ -88,7 +71,6 @@ const checks = [
         "installation method"
       ];
       const ruRequired = [
-        "промышленное измерительное оборудование и комплектующие",
         "подобрать модель",
         "интеграцию в панели и шкафы",
         "наличие и сроки поставки",
@@ -102,23 +84,35 @@ const checks = [
     }
   },
   {
-    name: "homepage copy states international supply from China in both languages",
+    name: "homepage succinctly introduces China exports and the internationally recognized product range",
     pass: () => {
-      const ru = copy.ru.heroText;
-      const en = copy.en.heroText;
-      return [
-        "из Китая",
-        "международным заказчикам",
+      const { heroLead: ruLead, heroDetails: ruDetails } = copy.ru;
+      const { heroLead: enLead, heroDetails: enDetails } = copy.en;
+      return ruLead.startsWith("SenseMeter экспортирует из Китая") && enLead.startsWith("SenseMeter exports industrial instruments from China") && [
+        "известных мировых брендов",
+        "измерители точки росы",
+        "преобразователи точки росы",
+        "в том числе портативные",
+        "датчики и преобразователи температуры и влажности",
+        "ручные термогигрометры",
+        "системы анализа следовой влаги в газах"
+      ].every((phrase) => ruLead.includes(phrase)) && [
+        "internationally recognized brands",
+        "dew point meters",
+        "dew point transmitters",
+        "fixed and portable",
+        "temperature and humidity transmitters and sensors",
+        "handheld thermo-hygrometers",
+        "trace moisture analysis systems for gases"
+      ].every((phrase) => enLead.includes(phrase)) && [
         "международную доставку",
         "страны назначения",
         "коммерческом предложении"
-      ].every((phrase) => ru.includes(phrase)) && [
-        "from China",
-        "international customers",
+      ].every((phrase) => ruDetails.includes(phrase)) && [
         "international delivery",
         "destination country",
         "quotation"
-      ].every((phrase) => en.includes(phrase));
+      ].every((phrase) => enDetails.includes(phrase));
     }
   },
   {

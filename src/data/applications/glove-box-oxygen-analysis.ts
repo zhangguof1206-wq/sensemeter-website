@@ -38,7 +38,7 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       selectionLead: "Сначала определяют газовую среду и диапазон, затем проверяют пробоотбор и интерфейс.",
       selectionCards: [
         { title: "Газовая среда", text: "Укажите газ, фоновые компоненты, наличие влаги и возможные примеси." },
-        { title: "Диапазон O2", text: "Определите ppm, проценты или следовые концентрации кислорода для контроля." },
+        { title: "Диапазон O2", text: "Укажите ожидаемый диапазон содержания кислорода в ppm или процентах и требуемую чувствительность." },
         { title: "Пробоотбор", text: "Опишите точку отбора, расход, давление, фильтрацию и требования к линии пробы." },
         { title: "Интеграция", text: "Нужны ли дисплей, реле, 4-20 mA, цифровой интерфейс или журналирование." }
       ],
@@ -59,7 +59,7 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       advisorText: "Укажите газовую среду, диапазон O2, давление, расход и требования к сигналу. Мы поможем выбрать подходящую модель.",
       advisorButton: "Отправить параметры",
       finalCtaTitle: "Нужен анализатор кислорода для газовой системы?",
-      finalCtaText: "Сопоставим газовый фон, диапазон O2, давление, расход и пробоотбор с подходящими моделями. Условия международной поставки из Китая, доставки и таможенного оформления согласуем в коммерческом предложении с учетом страны назначения.",
+      finalCtaText: "Подберём анализатор с учётом состава газа, диапазона O2, давления, расхода и способа пробоотбора. Укажите страну назначения: условия доставки из Китая и таможенного оформления согласуем при подготовке предложения.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -90,7 +90,7 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       selectionLead: "Define the gas and range first, then confirm sampling and interface requirements.",
       selectionCards: [
         { title: "Gas background", text: "Specify nitrogen, argon, process gas, moisture and possible contaminants." },
-        { title: "O2 range", text: "Define ppm, percent or trace oxygen range and required sensitivity." },
+        { title: "O2 range", text: "Specify the expected oxygen range in ppm or percent and the required sensitivity." },
         { title: "Sampling", text: "Confirm pressure, flow, filtration and sampling point." },
         { title: "Interface", text: "Choose local display, alarms, analog output or digital integration." }
       ],
@@ -111,7 +111,7 @@ export const gloveBoxOxygenAnalysis: ApplicationPageRecord = {
       advisorText: "Share your gas background, O2 range, pressure and sampling conditions. We will help select the right analyzer.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need an analyzer for your gas system?",
-      finalCtaText: "We will match gas background, O2 range, pressure, flow and sampling with suitable models, then quote international supply from China, with delivery and customs responsibilities agreed for the destination country.",
+      finalCtaText: "We will recommend an analyzer based on gas composition, O2 range, pressure, flow and sampling. Tell us the destination country so we can agree on shipping from China and customs clearance when preparing your quote.",
       finalCtaButton: "Request a selection"
     }
   }

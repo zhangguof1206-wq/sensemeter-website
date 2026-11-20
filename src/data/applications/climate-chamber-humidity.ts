@@ -43,7 +43,7 @@ export const climateChamberHumidity: ApplicationPageRecord = {
         { title: "Документы", text: "Проверьте необходимость калибровочного сертификата, протоколов и технической документации." }
       ],
       rfqTitle: "Что указать в запросе",
-      rfqPoints: ["тип камеры или лабораторной зоны", "диапазон температуры", "диапазон влажности", "требуемую точность", "точку установки датчика", "выходной сигнал", "нужна ли калибровка или сертификат"],
+      rfqPoints: ["тип камеры или лабораторной зоны", "диапазон температуры", "диапазон влажности", "требуемую точность", "точку установки датчика", "требования к выходному сигналу или регистрации данных", "требования к калибровке, в том числе нужен ли сертификат", "количество приборов"],
       productsEyebrow: "Рекомендуемые приборы",
       productsTitle: "Приборы для камер и лабораторий",
       productsLead: "Зонды, преобразователи и портативные приборы для испытаний и контролируемых помещений.",
@@ -95,7 +95,7 @@ export const climateChamberHumidity: ApplicationPageRecord = {
         { title: "Data", text: "Confirm output, display, logging or system integration needs." }
       ],
       rfqTitle: "What to specify in your request",
-      rfqPoints: ["Chamber or room type", "Temperature range", "Humidity range", "Required accuracy", "Probe location", "Data logging needs", "Calibration requirements", "Quantity"],
+      rfqPoints: ["Chamber or room type", "Temperature range", "Humidity range", "Required accuracy", "Probe location", "Required output signal or data logging needs", "Calibration requirements, including whether a certificate is needed", "Quantity"],
       productsEyebrow: "Recommended instruments",
       productsTitle: "Instruments for chambers and laboratories",
       productsLead: "Probes, transmitters and portable instruments for tests and controlled rooms.",

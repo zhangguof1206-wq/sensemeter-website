@@ -28,7 +28,7 @@ export const sinteredFilterCupProducts: AccessoryProduct[] = [
     image: "/assets/accessories/filter-shaped-element-uniform.webp",
     selection: { ru: ["Тип резьбы", "Давление", "Требуемый расход"], en: ["Thread type", "Pressure", "Required flow"] },
     compatibleWith: { ru: ["Пневматика", "Газовые фильтры", "Пробоотбор"], en: ["Pneumatics", "Gas filters", "Sampling"] },
-    customization: { ru: "Резьба, длина, толщина и материал могут быть изготовлены по месту установки.", en: "Thread, length, thickness and material can be made to the installation." },
+    customization: { ru: "Тип резьбы, длину, толщину стенки и материал подбирают под место установки.", en: "Thread type, length, wall thickness and material can be specified to suit the installation." },
     specs: [
       { label: { ru: "Монтаж", en: "Mounting" }, value: { ru: "Наружная или внутренняя резьба", en: "Male or female thread" } },
       { label: { ru: "Материал", en: "Material" }, value: { ru: "316L", en: "316L" } },

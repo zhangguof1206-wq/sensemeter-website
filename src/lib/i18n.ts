@@ -6,11 +6,11 @@ export const defaultLocale: Locale = "ru";
 export const copy = {
   ru: {
     brand: "SenseMeter",
-    brandLine: "Промышленные измерительные решения",
+    brandLine: "Поставка промышленных измерительных приборов",
     navHome: "Главная",
     navCatalog: "Каталог",
     navAbout: "О нас",
-    navContact: "Контакты / RFQ",
+    navContact: "Контакты",
     navPrivacy: "Политика",
     navConsent: "Согласие на обработку данных",
     navCookies: "Cookie",
@@ -22,9 +22,11 @@ export const copy = {
     cookieNecessary: "Только необходимые",
     cookieLearnMore: "Подробнее",
     heroEyebrow: "MICHELL / ROTRONIC / VAISALA / AII",
-    heroTitle: "Промышленные датчики и анализаторы для промышленных предприятий",
-    heroText:
-      "SenseMeter поставляет из Китая промышленное измерительное оборудование и комплектующие международным заказчикам: измерители и преобразователи точки росы, анализаторы влажности газа и кислорода, датчики влажности и температуры. Помогаем подобрать модель и совместимые комплектующие, согласовать интеграцию в панели и шкафы, а также OEM- и проектные закупки. В коммерческом предложении подтверждаем наличие и сроки поставки; международную доставку, таможенное оформление и распределение расходов согласовываем с учетом страны назначения и выбранной клиентом схемы.",
+    heroTitle: "Промышленные измерительные приборы",
+    heroLead:
+      "SenseMeter экспортирует из Китая приборы известных мировых брендов: измерители точки росы (в том числе портативные), преобразователи точки росы, датчики и преобразователи температуры и влажности, ручные термогигрометры и системы анализа следовой влаги в газах.",
+    heroDetails:
+      "Помогаем подобрать модель и совместимые комплектующие, согласовать интеграцию в панели и шкафы, а также OEM- и проектные закупки. В коммерческом предложении подтверждаем наличие и сроки поставки; международную доставку, таможенное оформление и распределение расходов согласовываем с учетом страны назначения и выбранной клиентом схемы.",
     heroDetailsEyebrow: "Подбор и поставка",
     viewCatalog: "Смотреть каталог",
     requestQuote: "Запросить предложение",
@@ -34,13 +36,13 @@ export const copy = {
     viewCategoryProducts: "Смотреть продукты",
     applicationEyebrow: "Области применения",
     applicationTitle: "Типовые промышленные сценарии",
-    applicationLead: "Реальные условия измерений на технологических линиях, инженерных системах и в испытательных камерах.",
-    viewApplication: "Смотреть применение",
+    applicationLead: "Измерения на технологических линиях, в инженерных системах и испытательных камерах.",
+    viewApplication: "Подробнее о применении",
     products: "продуктов",
     catalogTitle: "Каталог промышленных датчиков и анализаторов",
     catalogLead:
-      "Используйте каталог SenseMeter, чтобы сравнить промышленные датчики влажности, точки росы и кислородные анализаторы по диапазону измерения, рабочей среде, давлению, выходному сигналу и способу монтажа; затем откройте карточку для PDF datasheet и RFQ.",
-    allProducts: "ALL PRODUCTS",
+      "Сравните датчики влажности и точки росы и анализаторы кислорода по диапазону измерения, рабочей среде, давлению, выходному сигналу и способу монтажа. В карточке прибора можно посмотреть характеристики, скачать документацию и запросить цену.",
+    allProducts: "Все приборы",
     details: "Подробнее",
     downloadPdf: "Скачать PDF",
     backCatalog: "Назад к каталогу",
@@ -50,24 +52,18 @@ export const copy = {
     applications: "Применение",
     selectionInputs: "Что указать для подбора",
     relatedApplications: "Связанные применения",
-    aboutTitle: "О нас",
-    aboutLead:
-      "Sinoetm Tech. Ltd. предоставляет высоконадежные измерительные приборы и сенсорные решения для сложных промышленных и профессиональных применений.",
-    aboutBody: [
-      "Sinoetm Tech. Ltd. — ведущая компания, специализирующаяся на поставке высоконадежных измерительных приборов и сенсорных решений для промышленных и профессиональных применений. Мы занимаемся поиском и поставкой передового оборудования, включая Dew Point Meters, Temperature & Humidity Sensors и Oxygen Analyzers, для критически важных задач в промышленном производстве, лабораторных испытаниях, газовом мониторинге и соответствии экологическим требованиям. Понимая, что точность имеет решающее значение для управления процессами, безопасности и контроля качества, мы стремимся поставлять исключительно стабильные, точные и надежные приборы. Наш ориентированный на клиента подход обеспечивает поддержку на каждом этапе: от экспертного подбора продукта и оперативной подготовки коммерческого предложения до комплексной документации и отзывчивого послепродажного обслуживания. Sinoetm стремится быть вашим надежным партнером в области устойчивых измерительных решений для сложных промышленных и лабораторных условий."
-    ],
-    contactTitle: "Контакты / Запрос предложения",
+    contactTitle: "Контакты и запрос цены",
     contactLead:
-      "Заполните форму, чтобы запросить цену, наличие, срок поставки, PDF-материалы или помощь с подбором под конкретную модель или задачу.",
+      "Укажите модель, чтобы узнать цену, наличие и срок поставки из Китая. Если модель ещё не выбрана, опишите задачу — мы поможем подобрать прибор и предоставим техническую документацию.",
     emailNote:
       "Для быстрого ответа укажите модель, количество, рабочую среду или газ, диапазон измерения, давление, выходной сигнал, способ монтажа, а также нужные комплектующие или интеграцию в панели и шкафы.",
     contactEmail: "sales@sensemeter.ru",
     contactPhone: "@Sensemeter",
     contactTelegram: "@Sensemeter",
-    contactInfoTitle: "Contact information",
+    contactInfoTitle: "Контакты",
     telegramLabel: "Telegram",
     messengerNote: "Доступно для связи в Telegram.",
-    submit: "Отправить RFQ",
+    submit: "Отправить запрос",
     sending: "Отправка...",
     required: "обязательно",
     consentCheckbox:
@@ -82,8 +78,8 @@ export const copy = {
     formContact: "Контакт",
     formContactMethod: "Выберите способ связи",
     formContactDetails: "Номер или имя пользователя",
-    formProductModel: "Модель продукта",
-    formSelectProduct: "Выберите продукт",
+    formProductModel: "Модель прибора или комплектующего",
+    formSelectProduct: "Выберите модель",
     formQuantity: "Количество",
     formApplication: "Применение",
     formMessage: "Сообщение",
@@ -103,11 +99,11 @@ export const copy = {
   },
   en: {
     brand: "SenseMeter",
-    brandLine: "Industrial measurement solutions",
+    brandLine: "Industrial measuring instrument supply",
     navHome: "Home",
     navCatalog: "Product Catalog",
     navAbout: "About",
-    navContact: "Contact / RFQ",
+    navContact: "Contact",
     navPrivacy: "Privacy Policy",
     navConsent: "Personal Data Consent",
     navCookies: "Cookie Policy",
@@ -119,9 +115,11 @@ export const copy = {
     cookieNecessary: "Necessary only",
     cookieLearnMore: "Learn more",
     heroEyebrow: "MICHELL / ROTRONIC / VAISALA / AII",
-    heroTitle: "Industrial sensors and analyzers for industrial applications",
-    heroText:
-      "SenseMeter supplies industrial measurement instruments and accessories from China to international customers: dew point meters and transmitters, gas moisture and oxygen analyzers, and humidity and temperature sensors. We support model selection, compatible accessories, instrument panel and cabinet integration, and OEM or project procurement. Product availability and lead times are confirmed in each quotation; international delivery, customs clearance and cost allocation are agreed for the destination country and the customer's selected arrangement.",
+    heroTitle: "Industrial measuring instruments",
+    heroLead:
+      "SenseMeter exports industrial instruments from China, with a range of internationally recognized brands covering dew point meters (fixed and portable), dew point transmitters, temperature and humidity transmitters and sensors, handheld thermo-hygrometers, and trace moisture analysis systems for gases.",
+    heroDetails:
+      "We support model selection, compatible accessories, instrument panel and cabinet integration, and OEM or project procurement. Product availability and lead times are confirmed in each quotation; international delivery, customs clearance and cost allocation are agreed for the destination country and the customer's selected arrangement.",
     heroDetailsEyebrow: "Selection and supply",
     viewCatalog: "View Catalog",
     requestQuote: "Request a Quote",
@@ -131,12 +129,12 @@ export const copy = {
     viewCategoryProducts: "View products",
     applicationEyebrow: "Application Areas",
     applicationTitle: "Typical Industrial Use Cases",
-    applicationLead: "Real measurement environments across process lines, utility systems and controlled chambers.",
+    applicationLead: "Measurement applications for process lines, utility systems and test chambers.",
     viewApplication: "View application",
     products: "products",
     catalogTitle: "Product Catalog",
     catalogLead:
-      "Use the catalog to compare instruments by measurement range, process medium, pressure, output/interface and installation method, then open a card for PDF datasheets and RFQ details.",
+      "Compare instruments by measurement range, process medium, pressure, output/interface and installation method. Open a product page to see its specifications, download a datasheet or request a quote.",
     allProducts: "ALL PRODUCTS",
     details: "View Details",
     downloadPdf: "Download PDF",
@@ -147,23 +145,17 @@ export const copy = {
     applications: "Applications",
     selectionInputs: "What to specify for selection",
     relatedApplications: "Related applications",
-    aboutTitle: "About",
-    aboutLead:
-      "Sinoetm Tech. Ltd. provides high-reliability measurement instruments and sensor solutions for demanding industrial and professional applications.",
-    aboutBody: [
-      "Sinoetm Tech. Ltd. is a premier company dedicated to providing high-reliability measurement instruments and sensor solutions for industrial and professional applications. We specialize in sourcing and supplying advanced equipment—including Dew Point Meters, Temperature & Humidity Sensors, and Oxygen Analyzers—to support critical operations in industrial production, laboratory testing, gas monitoring, and environmental compliance. Recognizing that precision is vital for process control, safety, and quality assurance, we commit to delivering exceptionally stable, accurate, and dependable instrumentation. Our customer-centric approach ensures seamless support at every stage, from expert product selection and efficient quotation to comprehensive documentation and responsive after-sales service. Sinoetm aims to be your trusted partner for robust measurement solutions in demanding industrial and laboratory environments."
-    ],
-    contactTitle: "Contact / RFQ",
-    contactLead: "Fill out the form to request pricing, availability, lead time, PDF materials or selection support for a specific model or application.",
+    contactTitle: "Contact and Quotations",
+    contactLead: "Send us the model to request pricing, availability and lead time for supply from China. If you have not chosen a model, describe your application. We can help select an instrument and provide its technical documentation.",
     emailNote:
       "For a faster quotation, include the model, quantity, gas or process medium, measurement range, pressure, output/interface, installation method and any accessory or cabinet-integration needs.",
     contactEmail: "sales@sensemeter.ru",
     contactPhone: "@Sensemeter",
     contactTelegram: "@Sensemeter",
-    contactInfoTitle: "Contact information",
+    contactInfoTitle: "Contact",
     telegramLabel: "Telegram",
     messengerNote: "Telegram is available for direct contact.",
-    submit: "Submit RFQ",
+    submit: "Send Request",
     sending: "Sending...",
     required: "required",
     consentCheckbox:
@@ -178,8 +170,8 @@ export const copy = {
     formContact: "Contact",
     formContactMethod: "Select contact method",
     formContactDetails: "Number or username",
-    formProductModel: "Product Model",
-    formSelectProduct: "Select product",
+    formProductModel: "Instrument or accessory model",
+    formSelectProduct: "Select a model",
     formQuantity: "Quantity",
     formApplication: "Application",
     formMessage: "Message",
@@ -192,7 +184,7 @@ export const copy = {
       "A user may request correction, update or deletion of submitted data by contacting us at sales@sensemeter.ru."
     ],
     thankYouTitle: "Thank you",
-    thankYouLead: "Your RFQ has been sent. We will review the information and contact you using the details provided.",
+    thankYouLead: "We received your request and will reply using the contact details you provided.",
     footerLine: "Humidity, dew-point and oxygen analysis solutions for industrial processes.",
     noResults: "No results found. Try a model name such as Easidew, GPR or HC2A."
   }

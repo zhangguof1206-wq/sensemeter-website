@@ -13,7 +13,7 @@ export const gasDiffuserProducts: AccessoryProduct[] = [
     customization: { ru: "Резьба, длина, активная пористая зона и материал согласуются по месту установки.", en: "Thread, length, active porous area and material are confirmed for the installation." },
     specs: [
       { label: { ru: "Материал", en: "Material" }, value: { ru: "316L или 316", en: "316L or 316" } },
-      { label: { ru: "Пористость", en: "Porosity" }, value: { ru: "0,1-120 мкм по задаче", en: "0.1-120 um by requirement" } },
+      { label: { ru: "Размер пор", en: "Pore size" }, value: { ru: "0,1-120 мкм по задаче", en: "0.1-120 um by requirement" } },
       { label: { ru: "Подключение", en: "Connection" }, value: { ru: "Резьба или фитинг", en: "Thread or fitting" } }
     ],
     applications: { ru: ["Подача газа", "Распределение потока", "Стабилизация линии"], en: ["Gas delivery", "Flow distribution", "Line stabilization"] },

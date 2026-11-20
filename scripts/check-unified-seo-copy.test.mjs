@@ -76,20 +76,49 @@ test("gas guidance requires chemical compatibility review independently from exp
   assert.match(gas.content.ru.faqs[1].answer, /Взрывозащита не означает химическую стойкость/);
 });
 
-test("all product data outside the approved DMT153 fields and MDM300 selection item stays unchanged", () => {
+test("catalog identity and content outside the approved technical corrections stays unchanged", () => {
+  const corrected = {
+    "easidew-pro-is": ["params", "overview"],
+    "easidew-pro-xp": ["params", "overview"],
+    "easidew-34-m12": ["overview"],
+    "easidew-online": ["params"],
+    "gpr-1000-1100-2000-3500": ["params", "highlights"],
+    "gpr-1500": ["params", "overview"],
+    "gpr-1500gb-2500gb": ["params"],
+    "gpr-1600-2600-3100": ["params"],
+    "gpr-1900-2900": ["params"],
+    "hc2a-industrial": ["params"],
+    "hc2a-series": ["params"],
+    "hp31-hp32": ["params"],
+    "optidew-hz": ["params", "overview", "highlights", "applications", "selectionInputs"],
+    "sf82-online": ["params"],
+    "pura-transmitter": ["params"],
+    "hygroflex1": ["params"],
+    "hmt370ex": ["params"],
+    "hmt310": ["params"],
+    "hmp3-hmpx": ["highlights"],
+    "dmt143-dmt143l": ["params"]
+  };
   const snapshot = structuredClone(products);
+  for (const item of snapshot) {
+    for (const key of corrected[item.slug] ?? []) delete item[key];
+  }
   const product = snapshot.find(item => item.slug === "dmt153");
-  delete product.params.en;
+  delete product.params;
   delete product.highlights.en;
   snapshot.find(item => item.slug === "mdm300").selectionInputs.en[2] = "Ordinary or intrinsically safe version";
-  assert.equal(hash(snapshot), "a854aeb11ad22ff9168127a1ba579da6e463d1ae7314798a15a49233aa9ec61b");
+  // Updated for the reviewed wording, preserving the original field mask.
+  assert.equal(hash(snapshot), "cd758971eeb1f6d51da611f63f586357d5f39d219f1667b7ce0a367cd2b1c258");
 });
 
-test("all gas-page fields outside the two approved Russian text locations stay unchanged", () => {
+test("the gas page no longer recommends the unverified Optidew-HZ; other content is preserved", () => {
+  assert.ok(!gas.recommendedSlugs.includes("optidew-hz"));
   const snapshot = structuredClone(gas);
   delete snapshot.content.ru.selectionCards[0].text;
   delete snapshot.content.ru.faqs[1].answer;
-  assert.equal(hash(snapshot), "06b602c0088f87a9cb6b9c6f6b1e892d8910bd50ab8bb9b474f9200f86aa3fde");
+  const directInstallation = gas.content.en.faqs.find(item => item.question === "Can the instrument be installed directly in the pipeline?");
+  assert.match(directInstallation?.answer ?? "", /Explosion protection does not establish chemical compatibility/);
+  assert.equal(hash(snapshot), "da80830545efa4a1713fa97c12eb234174f653298145403b574624c161a6682b");
 });
 
 test("GitHub regression includes all approved catalog and copy checks before release", () => {

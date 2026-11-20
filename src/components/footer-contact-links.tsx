@@ -4,8 +4,8 @@ import { t } from "@/lib/i18n";
 import { METRICA_GOALS, MetricaTrackedLink } from "./metrica-goals";
 
 const copy = {
-  ru: { heading: "Связаться", navigation: "Связаться с SenseMeter", vk: "SenseMeter в VK", telegram: "Написать в Telegram", email: "Написать на email" },
-  en: { heading: "Connect", navigation: "Contact SenseMeter", vk: "SenseMeter on VK", telegram: "Chat on Telegram", email: "Send email" }
+  ru: { heading: "Контакты", navigation: "Связаться с SenseMeter", vk: "SenseMeter в VK", telegram: "Написать в Telegram", email: "Написать на email" },
+  en: { heading: "Contact", navigation: "Contact SenseMeter", vk: "SenseMeter on VK", telegram: "Chat on Telegram", email: "Send email" }
 };
 const linkStyle = "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white motion-reduce:transition-none";
 

@@ -5,12 +5,12 @@ type DisplayCopy = Readonly<{ title: string; summary: string }>;
 
 export const accessoryOverviewCopy: Record<Locale, { intro: string; selectionLead: string }> = {
   ru: {
-    intro: "Фильтрующие элементы, защита зондов и компоненты газовых линий.",
-    selectionLead: "При подборе учитываются прибор, рабочая среда, давление, расход, соединение, класс фильтрации или размер пор, допустимый перепад давления и количество."
+    intro: "Спечённые фильтроэлементы, защита зондов, газовые диффузоры и ограничители расхода.",
+    selectionLead: "Укажите прибор, рабочую среду, давление, расход, тип соединения, тонкость фильтрации или размер пор, допустимый перепад давления и количество."
   },
   en: {
-    intro: "Filter elements, probe protection and gas-line components.",
-    selectionLead: "Selection considers the instrument, process medium, pressure, flow, connection, filtration grade or pore size, allowable pressure drop and quantity."
+    intro: "Sintered filter elements, probe protection, gas diffusers and flow restrictors.",
+    selectionLead: "Include the instrument, process medium, pressure, flow, connection type, filtration rating or pore size, allowable pressure drop and quantity."
   }
 };
 

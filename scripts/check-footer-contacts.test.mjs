@@ -52,7 +52,7 @@ test("VK uses a local static brand asset with no embedded remote code", () => {
   assert.doesNotMatch(svg, /<script|<foreignObject|onload=|href=/i);
 });
 
-test("a localized Connect heading and short red rule sit above the lowered icon row", () => {
+test("a localized Contact heading and short red rule sit above the icon row", () => {
   const { FooterContactLinks } = load("src/components/footer-contact-links.tsx");
   for (const locale of ["ru", "en"]) {
     const dom = new JSDOM(renderToStaticMarkup(React.createElement(FooterContactLinks, { locale })));
@@ -60,7 +60,7 @@ test("a localized Connect heading and short red rule sit above the lowered icon 
       const contacts = dom.window.document.querySelector("[data-footer-contacts]");
       const heading = contacts.querySelector("h2");
       assert.ok(heading, "The contact group needs the requested heading");
-      assert.equal(heading.textContent, locale === "ru" ? "Связаться" : "Connect");
+      assert.equal(heading.textContent, locale === "ru" ? "Контакты" : "Contact");
       const rule = contacts.querySelector("[data-footer-contact-rule]");
       assert.ok(rule, "The heading needs a short red underline");
       assert.equal(rule.getAttribute("aria-hidden"), "true");

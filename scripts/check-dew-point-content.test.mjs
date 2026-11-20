@@ -19,11 +19,15 @@ test("RU sampling advice requires stable readings and model-specific conditions"
   assert.match(faq.answer, /зависят от модели/);
 });
 
-test("RFQ inputs distinguish line and sensor pressure and pressure basis", () => {
-  const points = page.content.ru.rfqPoints.join(" ");
-  assert.match(points, /давление линии и давление у сенсора/);
-  assert.match(points, /избыточное или абсолютное/);
-  assert.match(points, /давление, к которому относится/);
+test("RFQ inputs distinguish line and sensor pressure and pressure basis in both languages", () => {
+  const ru = page.content.ru.rfqPoints.join(" ");
+  const en = page.content.en.rfqPoints.join(" ");
+  assert.match(ru, /давление в линии и давление у датчика/);
+  assert.match(ru, /избыточное или абсолютное/);
+  assert.match(ru, /диапазон точки росы и давление, при котором он задан/);
+  assert.match(en, /line pressure and pressure at the sensor/);
+  assert.match(en, /gauge or absolute/);
+  assert.match(en, /dew point range and the pressure to which it applies/);
 });
 
 test("URL, recommended models, titles and English sections outside the approved testing guidance remain unchanged", () => {
@@ -35,5 +39,6 @@ test("URL, recommended models, titles and English sections outside the approved 
   delete english.overviewText;
   delete english.faqs[0].answer;
   english.faqs = english.faqs.slice(0, 4);
-  assert.equal(createHash("sha256").update(JSON.stringify(english)).digest("hex"), "e75c225c2cc45d51fdfe37d5b96d4b57a205d8fa0957d0ca5f5b21d80febc32b");
+  // Updated for the reviewed pressure checklist and quotation wording.
+  assert.equal(createHash("sha256").update(JSON.stringify(english)).digest("hex"), "06fbdb90a08cbb7d8187846a3297939f32e7010f8084747a6499cfa4504600ca");
 });

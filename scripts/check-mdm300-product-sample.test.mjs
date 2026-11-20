@@ -41,7 +41,7 @@ test("the sample keeps the real RU and EN product content and one model heading"
   }
 });
 
-test("quote and PDF actions precede long content and preserve the existing destinations", () => {
+test("the quote and specifications actions appear before the long content", () => {
   assert.ok(existsSync(new URL(`../public/datasheets/${product.pdf}`, import.meta.url)));
   for (const locale of ["ru", "en"]) {
     const html = render(locale);
@@ -49,6 +49,7 @@ test("quote and PDF actions precede long content and preserve the existing desti
     const quote = `${prefix}/contact?model=${encodeURIComponent(product.model)}`;
     assert.ok(html.includes(`href="${quote}"`));
     assert.ok(html.indexOf(`href="${quote}"`) < html.indexOf('id="mdm300-overview"'));
+    assert.ok(html.indexOf('href="#mdm300-specifications"') < html.indexOf('id="mdm300-overview"'));
     assert.ok(html.includes(`href="${pdfPath(product.pdf)}"`));
     assert.match(read("src/components/products/instrument-product-detail.tsx"), /METRICA_GOALS\.pdfDownload/);
     assert.match(read("src/components/products/instrument-product-detail.tsx"), /goalParams=\{\{ slug: product\.slug, model: product\.model \}\}/);
@@ -58,16 +59,15 @@ test("quote and PDF actions precede long content and preserve the existing desti
   }
 });
 
-test("the document PDF action uses the brand fill without changing the summary PDF action", () => {
+test("the document PDF action uses the brand fill and stays below the specification table", () => {
   for (const locale of ["ru", "en"]) {
     const html = render(locale);
     const links = [...html.matchAll(/<a\b[^>]*>/g)]
       .map(match => match[0])
       .filter(tag => tag.includes(`href="${pdfPath(product.pdf)}"`));
-    assert.equal(links.length, 2);
-    assert.match(links[0], /\bbtn-outline\b/);
-    assert.match(links[1], /\bbtn-primary\b/);
-    assert.doesNotMatch(links[1], /\bbtn-outline\b/);
+    assert.equal(links.length, 1);
+    assert.match(links[0], /\bbtn-primary\b/);
+    assert.ok(html.indexOf(links[0]) > html.indexOf('id="mdm300-documents"'));
   }
 });
 
@@ -106,10 +106,12 @@ test("technical and version tables retain qualified values without equating the 
 test("every in-page navigation target is present in both languages", () => {
   for (const locale of ["ru", "en"]) {
     const html = render(locale);
-    for (const id of ["overview", "specifications", "versions", "selection", "documents"]) {
+    for (const id of ["overview", "specifications", "versions", "applications", "documents"]) {
       assert.ok(html.includes(`href="#mdm300-${id}"`));
       assert.ok(html.includes(`id="mdm300-${id}"`));
     }
+    assert.ok(!html.includes('href="#mdm300-selection"'));
+    assert.ok(html.includes('id="mdm300-selection"'));
     assert.match(html, /aria-label="[^"]+"/);
   }
 });

@@ -265,8 +265,8 @@ select {
 
   .home-first-screen {
     display: grid;
-    grid-template-rows: minmax(0, 1fr) auto;
-    height: calc(100svh - var(--site-header-height));
+    grid-template-rows: minmax(min-content, 1fr) auto;
+    min-height: calc(100svh - var(--site-header-height));
   }
 
   .home-first-screen .home-hero-shell {
@@ -275,6 +275,7 @@ select {
 
   .home-first-screen .home-hero-content {
     min-height: 100%;
+    padding-block: 24px;
   }
 
   .home-first-screen .home-hero-details {

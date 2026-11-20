@@ -40,7 +40,7 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       selectionTitle: "Как выбрать промышленный датчик влажности",
       selectionLead: "Для подбора нужно связать точку измерения, монтаж, точность и интерфейс с условиями процесса.",
       selectionCards: [
-        { title: "Среда измерения", text: "Воздух, технологический газ, камера, склад или вентиляционный канал." },
+        { title: "Среда и точка измерения", text: "Укажите, что нужно измерять (воздух или технологический газ) и где (в камере, на складе или в вентиляционном канале)." },
         { title: "Условия монтажа", text: "Настенный блок, зонд, канал, кабель, питание и удобство обслуживания." },
         { title: "Сигнал и точность", text: "Диапазон влажности, температура, требуемая точность и формат выхода." },
         { title: "Документация", text: "Калибровка, сертификаты, инструкции и требования к поставке." }
@@ -62,7 +62,7 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       advisorText: "Укажите среду, диапазон, точность и способ монтажа. Мы поможем сопоставить параметры с подходящими моделями.",
       advisorButton: "Отправить параметры",
       finalCtaTitle: "Нужен датчик влажности для ваших условий?",
-      finalCtaText: "Сопоставим среду, монтаж, диапазон, точность и выходной сигнал с подходящими моделями. Условия международной поставки из Китая, доставки и таможенного оформления согласуем в коммерческом предложении с учетом страны назначения.",
+      finalCtaText: "Подберём модели по рабочей среде, монтажу, диапазону, точности и выходному сигналу. Укажите страну назначения: условия доставки из Китая и таможенного оформления согласуем при подготовке предложения.",
       finalCtaButton: "Запросить подбор"
     },
     en: {
@@ -95,7 +95,7 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       selectionTitle: "How to choose an industrial sensor",
       selectionLead: "Match the measurement point, mounting, accuracy and interface to the process conditions.",
       selectionCards: [
-        { title: "Measurement point", text: "Air, process gas, chamber, warehouse or ventilation duct." },
+        { title: "Medium and measurement point", text: "Tell us what you are measuring (air or process gas) and where (a chamber, warehouse or ventilation duct)." },
         { title: "Installation", text: "Wall mount, probe, duct mount, cable, power supply and service access." },
         { title: "Signal and accuracy", text: "Humidity range, temperature range, required accuracy and output format." },
         { title: "Documentation", text: "Calibration, certificates, manuals and delivery requirements." }
@@ -117,7 +117,7 @@ export const industrialHumidityMonitoring: ApplicationPageRecord = {
       advisorText: "Send the medium, range, accuracy and mounting details. We will match them with suitable instruments.",
       advisorButton: "Send parameters",
       finalCtaTitle: "Need a sensor for your process conditions?",
-      finalCtaText: "We will match the medium, mounting, range, accuracy and output with suitable models, then quote international supply from China, with delivery and customs responsibilities agreed for the destination country.",
+      finalCtaText: "We will recommend models based on the medium, mounting, range, accuracy and output. Tell us the destination country so we can agree on shipping from China and customs clearance when preparing your quote.",
       finalCtaButton: "Request a selection"
     }
   }
